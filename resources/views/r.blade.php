@@ -1,5 +1,6 @@
+<x-layouts.app>
+<div x-data="{show:false}">
+    <p x.show="show" CLASS="text-red-400 text-center"  >we</p>
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<p CLASS="text-green-300"  >we</p>
+    <button class="bg-red"  @click="show= ! show">mm</button></div>
+</x-layouts.app>
