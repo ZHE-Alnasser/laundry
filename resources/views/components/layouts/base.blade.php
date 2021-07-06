@@ -14,6 +14,8 @@
     <meta name="theme-color" content="#ffffff">
     <meta name="_token" content="{!! csrf_token() !!}">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
+
 </head>
 <body>
 @yield('content')
