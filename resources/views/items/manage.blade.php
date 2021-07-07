@@ -6,7 +6,7 @@
    {{--</x-data>--}}
     {{--</x-layouts.manage>--}}
 
-    @livewire('users-datatable')
+{{--    @livewire('users-datatable')--}}
 
     {{--<livewire --}}
 </x-layouts.app>

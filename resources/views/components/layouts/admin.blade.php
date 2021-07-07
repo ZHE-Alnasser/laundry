@@ -23,8 +23,8 @@
         </div>
         <div class="flex-grow m-2">
             <x-card>
-                @yield('content')
-                {{$slot??''}}
+{{--                @yield('content')--}}
+{{--                {{$slot??''}}--}}
             </x-card>
         </div>
     </div>

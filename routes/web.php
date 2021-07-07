@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::get('/r', function () {
     return view('r');
 });
-Route::get('/r', [App\Http\Controllers\ItemController::class, 'manage'])->name('/items.manage');
+//Route::get('/r', [App\Http\Controllers\ItemController::class, 'manage'])->name('/items.manage');
 
 
 Route::resource('items', App\Http\Controllers\ItemController::class);
