@@ -18,9 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/r', function () {
-    return view('r');
-});
+//Route::get('/r', function () {
+//    return view('r');
+//});
 Route::get('/r', [App\Http\Controllers\ItemController::class, 'manage'])->name('/items.manage');
 
 

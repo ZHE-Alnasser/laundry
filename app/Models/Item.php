@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-   use Base, Ctmn;
+//   use Base, Ctmn;
 
     protected $guarded = ['id'];
     protected $appends = ['cover'];
