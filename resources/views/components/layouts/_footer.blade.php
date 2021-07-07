@@ -4,3 +4,9 @@
                   title="{{config('app.name')}}">{{config('app.name')}}</a>{{ date('Y') }}.
     </div>
 </footer>
+
+<script src="{{ mix('js/app.js') }}"></script>
+
+
+@livewireScripts
+{{--@stack('scripts')--}}

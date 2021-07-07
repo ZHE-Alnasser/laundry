@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\ItemData;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,14 @@ Route::get('/', function () {
 Route::get('/r', function () {
     return view('r');
 });
+Route::get('/r', [App\Http\Controllers\ItemController::class, 'manage'])->name('/items.manage');
+
+
+Route::resource('items', App\Http\Controllers\ItemController::class);
+Route::get('/items/manage', ItemData::class)->name('items.manage');
+
+//Route::get('livewire-datatables', [App\Http\Controllers\UserController::class, 'manage'])->name('/users.manage');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
