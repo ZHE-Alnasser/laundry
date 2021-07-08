@@ -1,5 +1,5 @@
-<x-layouts.admin model="Item" action="" >
-<div x-data="{show:false}">
+<x-layouts.admin >
+{{--<div x-data="{show:false}">--}}
     <p x-show="show" CLASS="text-red-400 text-center"  >we</p>
 {{--@livewire('item-data')--}}
     <livewire:item-data />

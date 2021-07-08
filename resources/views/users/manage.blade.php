@@ -20,6 +20,6 @@
     {{--</script>--}}
 {{--@endpush--}}
 <div>
-    @livewire('users-datatable')
+{{--    @livewire('users-datatable')--}}
 </div>
 </x-layouts.app>

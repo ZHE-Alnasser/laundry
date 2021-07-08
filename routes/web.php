@@ -18,15 +18,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/r', function () {
-//    return view('r');
-//});
-Route::get('/r', [App\Http\Controllers\ItemController::class, 'manage'])->name('/items.manage');
 
+
+Route::get('/r', function () {
+    return view('r');
+});
+//Route::get('/r', [App\Http\Controllers\ItemController::class, 'manage'])->name('/items.manage');
+Route::get('/users/manage', [App\Http\Controllers\UserController::class, 'manage'])->name('/users.manage');
+Route::resource('users', App\Http\Controllers\UserController::class);
+
+//Route::get('/users/manage', function () {
+//    return view('users.manage');
+//});
 
 Route::resource('items', App\Http\Controllers\ItemController::class);
-Route::get('/items/manage', ItemData::class)->name('items.manage');
-
+Route::get('/items/manage', function () {
+    return view('items/manage');
+});
 //Route::get('livewire-datatables', [App\Http\Controllers\UserController::class, 'manage'])->name('/users.manage');
 
 

@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Validator;
+use App\Models\User;
+use App\Notifications\Approve;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 class UserController extends Controller
 {
@@ -19,69 +24,72 @@ class UserController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+    public function show(User $user)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    public function edit(User $user)
     {
-        //
+        return view('users.edit', compact('user'));
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function update(Request $request, User $user)
     {
-        //
+//     dd($user);
+        Validator::make($request->all(),
+            [
+                'name' => ['required', 'string', 'max:255'],
+                'last_name' => ['required', 'string', 'max:255'],
+                'phone' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'email', 'max:255'],
+                'is_active' => 'required',
+            ])->validateWithBag('updateProfileInformation');
+
+        if ($request['email'] !== $user->email &&
+            $user instanceof MustVerifyEmail) {
+            $this->updateVerifiedUser($user, $request);
+        } else {
+            $user->forceFill([
+                'first_name' => $request['name'],
+//                'last_name' => $request['last_name'],
+                'phone' => $request['phone'],
+                'email' => $request['email'],
+                'address_1' => $request['address_1'],
+                'address_2' => $request['address_2'],
+
+                'is_active' => $request['is_active'],
+            ])->save();
+        }
+
+        if($request->is_active === '1')
+        {
+            Notification::route('mail', $request->email)
+                ->notify(new Approve($user));
+        }
+        return redirect('users/manage')->withSuccess(__('User Has Been Updated'));
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect('users/manage');
     }
 }

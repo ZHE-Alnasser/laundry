@@ -29,8 +29,10 @@ class UsersDatatable extends LivewireDatatable
 
             DateColumn::name('created_at')->filterable(),
 
-            Column::callback(['id', 'name'], function ($id, $name) {
-                return view('table-actions', ['id' => $id, 'name' => $name]);
+
+            Column::callback(['id', 'name'], function ($id,$name) {
+                return view('components\table-actions',['url' => url("users/$id"), 'model' => 'Users','id' => $id, 'name' => $name]);
+//                return view('components\table-actions', ['id' => $id, 'name' => $name]);
             })
         ];
     }

@@ -1,7 +1,7 @@
 @extends('components.layouts.base')
 
 {{--@section('header')--}}
-    {{--<x-header/>--}}
+    <x-layouts._header/>
 {{--@endsection--}}
 
 @push('styles')
@@ -23,8 +23,8 @@
         </div>
         <div class="flex-grow m-2">
             <x-card>
-                @yield('content')
-                {{$slot??''}}
+                {{--@yield('content')--}}
+                {{--{{$slot??''}}--}}
             </x-card>
         </div>
     </div>
