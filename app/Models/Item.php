@@ -8,12 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
 
-//   use Base, Ctmn;
-
+//
     protected $guarded = ['id'];
     protected $appends = ['cover'];
 
-//    protected $with = ['media', 'category', 'tags'];
 
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
+    }
 
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
 }

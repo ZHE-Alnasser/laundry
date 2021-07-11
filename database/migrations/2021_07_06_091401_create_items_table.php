@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateItemsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
@@ -18,19 +14,13 @@ class CreateItemsTable extends Migration
             $table->string('name')->unique();
             $table->text('description')->nullable();
             $table->double('price')->default(0)->nullable();
-            $table->foreignId('category_id')->nullable();
-            $table->foreignId('employee_id')->nullable();
             $table->string('is_active')->default(false);
             $table->string('is_featured')->default(false);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('items');
