@@ -19,6 +19,13 @@ class CreateOrdersTable extends Migration
             $table->string('discount')->nullable();
             $table->set('payment',['cash','card','transfer'])->nullable();
             $table->boolean('status');
+            $table->integer('time_frame_id')->nullable();
+            $table->integer('pickup_agent_id')->nullable();
+            $table->integer('delivery_agent_id')->nullable();
+            $table->timestamp('requested_pickup_date')->nullable();
+            $table->timestamp('requested_delivery_date')->nullable();
+            $table->timestamp('agent_pickup_date')->nullable();
+            $table->timestamp('agent_delivery_date')->nullable();
             $table->timestamps();
         });
     }

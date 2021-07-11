@@ -12,7 +12,7 @@ class CreateServicesTable extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable();
+            $table->foreignId('item_id');
             $table->double('price')->default(0)->nullable();
 
             $table->timestamps();

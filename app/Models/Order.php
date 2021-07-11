@@ -10,9 +10,9 @@ class Order extends Model
     use HasFactory;
 
 
-    public function items()
+    public function Services()
     {
-        return $this->belongsToMany(Item::class);
+        return $this->belongsToMany(Service::class);
     }
 
 

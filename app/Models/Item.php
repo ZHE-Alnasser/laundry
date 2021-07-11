@@ -13,13 +13,13 @@ class Item extends Model
     protected $appends = ['cover'];
 
 
-    public function orders()
-    {
-        return $this->belongsToMany(Order::class);
-    }
+//    public function orders()
+//    {
+//        return $this->belongsToMany(Order::class);
+//    }
 
-    public function service()
+    public function services()
     {
-        return $this->belongsTo(Service::class);
+        return $this->hasMany(Service::class);
     }
 }

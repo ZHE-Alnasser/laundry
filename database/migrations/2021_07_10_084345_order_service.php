@@ -4,18 +4,18 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ItemOrder extends Migration
+class OrderService extends Migration
 {
 
     public function up()
     {
-        Schema::create('item_order', function (Blueprint $table) {
-            $table->foreignId('item_id');
-            $table->foreignId('order_id');
+        Schema::create('order_service', function (Blueprint $table) {
             $table->foreignId('service_id');
+            $table->foreignId('order_id');
             $table->float('amount')->default(0);
             $table->integer('quantity')->default(0);
-            $table->primary(['item_id','order_id']);
+            $table->string('note',700)->nullable();
+            $table->primary(['service_id','order_id']);
             $table->timestamps();
         });
     }
@@ -23,6 +23,6 @@ class ItemOrder extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('item_order');
+        Schema::dropIfExists('order_service');
     }
 }
