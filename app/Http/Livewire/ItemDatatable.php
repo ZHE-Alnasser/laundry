@@ -14,39 +14,7 @@ use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 use App\Models\Item;
 class ItemData extends LivewireDatatable
 {
-//    public function render()
-//    {
-//        return view('livewire.item-data');
-////        return view('items.manage');
-//    }
-//    use DataTrait;
 //
-////    public $model = Item::class;
-////    public $table = 'items';
-////    protected $listeners = ['remove'];
-////    protected $queryString = [
-////        'search' => ['except' => ''],
-////        'perPage' => ['except' => 10],
-////        'orderBy' => ['except' => 'id'],
-////        'orderAsc' => ['except' => true],
-////        'category' => ['except' => ''],
-////        'viewItem' => ['except' => 'card'],
-//////        'tags' => ['except' => ''],
-////        'createdAt' => ['except' => ''],
-////        'selectedPage' => ['except' => '']
-////    ];
-//
-//    public $cols = [
-//        'name' => 'Name',
-//        'price' => 'Price',
-//        'created_at' => 'Created At',
-//        'updated_at' => 'Updated At'
-//    ];
-//
-//
-//
-//}
-
     public $hideable = 'inline';
     public $exportable = true;
 
@@ -116,15 +84,15 @@ class ItemData extends LivewireDatatable
             Column::name('name')
                 ->label(__(' Name'))->searchable(),
             Column::name('description')
-                ->label(__('description'))->searchable(),
-            Column::name('price')
+                ->label(__('Description'))->searchable(),
+            Column::name('Price')
                 ->label(__('price'))->searchable(),
 
 //            BooleanColumn::name('is_active')
 //                ->label(__('Approved')),
 
             Column::callback(['id'], function ($id) {
-                return view('components.table-actions', ['url' => url("items/$id"), 'model' => 'Item']);
+                return view('components/table-actions', ['url' => url("items/$id"), 'model' => 'Item']);
 //                return view('r', ['url' => url("items/$id"), 'model' => 'Item']);
             })
         ];
