@@ -2,15 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use App\Notifications\Approve;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+//use App\Notification;
+use App\Services\Notifier;
+use Illuminate\Support\Facades\Hash;
+use App\Actions\Fortify\PasswordValidationRules;
+
+
+
+
 
 class UserController extends Controller
 {
+
+    use PasswordValidationRules;
 
 
     public function manage()
@@ -27,12 +38,35 @@ class UserController extends Controller
 
     public function create()
     {
-        //
+        $types =Type::all();
+        return view('/users/create',compact('types'));
     }
 
     public function store(Request $request)
     {
-        //
+
+        Validator::make($request->all(), [
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'type_id' => ['required', 'string', 'max:255'],
+            'address_1' => ['required', 'string', 'max:255'],
+            'address_2' => ['required', 'string', 'max:255'],
+            'phone' =>['required', 'digits:10'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => $this->passwordRules(),
+        ])->validate();
+
+        request()->merge(['password' => Hash::make($request['password'])]);
+
+        User::create(
+            request()
+                ->only( 'first_name', 'father_name', 'grandfather_name', 'family_name','password','email', 'password',
+                    'id_number', 'diaper_number','card_issuer', 'date', 'reasons','phone','relevant_phone','relevant_phone'));
+//        if($request->sms) {
+//            Notifier::sendSMS($request->message, $request->users);
+//            return redirect('notifications')->withMessage(__('Sent Successfully'));
+//        }
+        return redirect('/users/manage')->withMessage(__('Sent Successfully'));
     }
 
 
@@ -44,7 +78,8 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        $types=Type::all();
+        return view('users.edit', compact('user','types'));
 
     }
 
@@ -54,25 +89,31 @@ class UserController extends Controller
 //     dd($user);
         Validator::make($request->all(),
             [
-                'name' => ['required', 'string', 'max:255'],
+                'first_name' => ['required', 'string', 'max:255'],
                 'last_name' => ['required', 'string', 'max:255'],
                 'phone' => ['required', 'string', 'max:255'],
+                'type_id' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'email', 'max:255'],
+                'address_1' =>['required', 'string', 'max:255'],
+                'address_2' =>['nullable', 'string', 'max:255'],
                 'is_active' => 'required',
             ])->validateWithBag('updateProfileInformation');
 
+        if (isset($request['photo'])) {
+            $request->updateProfilePhoto($request['photo']);
+        }
         if ($request['email'] !== $user->email &&
             $user instanceof MustVerifyEmail) {
             $this->updateVerifiedUser($user, $request);
         } else {
             $user->forceFill([
-                'first_name' => $request['name'],
-//                'last_name' => $request['last_name'],
+                'first_name' => $request['first_name'],
+                'last_name' => $request['last_name'],
                 'phone' => $request['phone'],
                 'email' => $request['email'],
+                'type_id'=>$request['type_id'],
                 'address_1' => $request['address_1'],
                 'address_2' => $request['address_2'],
-
                 'is_active' => $request['is_active'],
             ])->save();
         }
@@ -82,7 +123,7 @@ class UserController extends Controller
             Notification::route('mail', $request->email)
                 ->notify(new Approve($user));
         }
-        return redirect('users/manage')->withSuccess(__('User Has Been Updated'));
+        return redirect('/users/manage')->withSuccess(__('User Has Been Updated'));
 
     }
 
