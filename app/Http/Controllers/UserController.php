@@ -60,13 +60,13 @@ class UserController extends Controller
 
         User::create(
             request()
-                ->only( 'first_name', 'father_name', 'grandfather_name', 'family_name','password','email', 'password',
-                    'id_number', 'diaper_number','card_issuer', 'date', 'reasons','phone','relevant_phone','relevant_phone'));
+                ->only( 'first_name', 'last_name',  'address_1', 'address_2','password','email', 'password',
+                    'type_id','phone'));
 //        if($request->sms) {
 //            Notifier::sendSMS($request->message, $request->users);
 //            return redirect('notifications')->withMessage(__('Sent Successfully'));
 //        }
-        return redirect('/users/manage')->withMessage(__('Sent Successfully'));
+        return redirect('/users/manage')->withSuccess(__('Sent Successfully'));
     }
 
 
