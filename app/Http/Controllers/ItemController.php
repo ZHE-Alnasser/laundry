@@ -7,82 +7,55 @@ use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
 
     public function manage()
     {
-        return view('items/manage',['items' => Item::all()]);
+        return view('items.manage');
     }
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('items/create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $data = $this->validate($request, [
+            'name' => 'required',
+
+        ]);
+        Item::create($data);
+
+
+        return redirect('items/manage')
+            ->with('success', 'Your Services has been created successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Item  $items
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Item $items)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Item  $items
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Item $items)
+    public function edit(Item $item)
     {
-        //
+        return view('items/edit',compact('item'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Item  $items
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Item $items)
+
+    public function update(Request $request, Item $item)
     {
-        //
+        $item->update($request->all());
+        return redirect('items/manage');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Item  $items
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Item $items)
     {
         //

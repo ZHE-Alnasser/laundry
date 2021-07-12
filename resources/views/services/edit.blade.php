@@ -7,20 +7,20 @@
                 <x-form action="{{ route('services.update',['service'=>$service->id]) }} " method="PUT">
                     @csrf
                     {{--@method('PUT')--}}
-
+<div class="mx-40">
                     <div class="flex flex-col md:flex-row">
                         <div class="w-full mx-2 flex-1">
                             <label>{{__('Service Name')}}</label>
-                            <div class="divUser">
+                            <div >
                                 <x-input name="name" value="{{$service->name}}" class="input"/>
                             </div>
                         </div>
                     </div>
-                        <div class="flex flex-col md:flex-row">
+                        <div class="flex flex-col mt-4 md:flex-row">
                         <div class="w-full mx-2 flex-1">
                             <label>{{__('Item Name')}}</label>
 
-                            <x-select name="item_id" id="item_id">
+                            <x-select name="item_id" class="input"  id="item_id">
                                 @foreach($items as $item )
                                     <option {{$service->item_id==$item->id?'selected':''}} value="{{$item->id}}">{{ $item->name }} </option>
                                 @endforeach
@@ -28,7 +28,7 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col md:flex-row">
+                    <div class="flex flex-col mt-4 md:flex-row">
                         <div class="w-full mx-2 flex-1">
                             <label>{{__('Price')}}</label>
                             <div class="divUser">
@@ -40,8 +40,9 @@
                     <div class="flex p-2 mt-4">
                         <button type="Submit" class="btn ml-2">{{__('Save')}}</button>
                         <input type="button" class="btn-cancel"
-                               name="cancel" value="{{__('Cancel')}}" onClick="window.location.replace('/users/manage')"/>
+                               name="cancel" value="{{__('Cancel')}}" onClick="window.location.replace('/services/manage')"/>
                     </div>
+</div>
                 </x-form>
             </div>
         </div>

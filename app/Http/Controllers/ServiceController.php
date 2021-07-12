@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -19,14 +21,15 @@ class ServiceController extends Controller
     }
     public function create()
     {
-        return view('services/create');
+        $items=Item::all();
+        return view('services/create',compact('items'));
     }
 
     public function store(Request $request)
     {
         $data = $this->validate($request, [
             'name' => 'required',
-            'description' =>'nullable',
+            'item_id' =>'nullable',
             'price' => 'required',
 
         ]);
@@ -46,11 +49,13 @@ class ServiceController extends Controller
 
     public function edit(Service $service)
     {
-        return view('services/edit',compact('service'));
+        $items=Item::all();
+        return view('services/edit',compact('service','items'));
     }
 
     public function update(Request $request, Service $service)
     {
+
         $service->update($request->all());
         return redirect('services/manage');
     }

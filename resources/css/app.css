@@ -1,3 +1,39 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@700&display=swap');
+
+
+
+@layer base {
+    h1 {
+        @apply text-xl;
+    }
+    h2 {
+        @apply text-lg;
+    }
+}
+
+@layer components {
+
+    body {
+
+
+    }
+
+
+    a, h1, h2, h3, h4, p, button, label {
+        font-family: 'Tajawal', sans-serif;
+
+    }
+
+
+    .input {
+        width: 100%;
+        border-radius: 0.25rem;
+        background-color: rgba(232, 236, 255, 0.42);
+
+
+    }
+}

@@ -25,9 +25,8 @@ Route::resource('services', App\Http\Controllers\ServiceController::class);
 //Route::get('/users/manage', function () {
 //    return view('users.manage');
 //});
-
-Route::resource('items', App\Http\Controllers\ItemController::class);
 Route::get('/items/manage', [App\Http\Controllers\ItemController::class, 'manage'])->name('/items.manage');
+Route::resource('items', App\Http\Controllers\ItemController::class);
 
 //Route::get('/items/manage', function () {
 //    return view('items/manage');
