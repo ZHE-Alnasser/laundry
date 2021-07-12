@@ -15,10 +15,16 @@
                                 <x-input name="name" value="{{$service->name}}" class="input"/>
                             </div>
                         </div>
+                    </div>
+                        <div class="flex flex-col md:flex-row">
                         <div class="w-full mx-2 flex-1">
-                        <label>{{__('Description')}}</label>
-                        <div class="divUser">
-                        <x-input name="description" value="{{$service->description}}" class="input"/></div>
+                            <label>{{__('Item Name')}}</label>
+
+                            <x-select name="item_id" id="item_id">
+                                @foreach($items as $item )
+                                    <option {{$service->item_id==$item->id?'selected':''}} value="{{$item->id}}">{{ $item->name }} </option>
+                                @endforeach
+                            </x-select>
                         </div>
                     </div>
 

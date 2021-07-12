@@ -9,6 +9,7 @@ class Item extends Model
 {
 
 //
+    protected static $logFillable = true;
     protected $guarded = ['id'];
     protected $appends = ['cover'];
 

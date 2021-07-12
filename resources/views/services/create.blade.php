@@ -8,11 +8,13 @@
             <label>{{__('name').' '.__('services')}}<span class="text-red-600"> *</span></label>
             <x-input class="w-full" name="name" value="{{ old('name') }}"/>
 
-            <label>{{__('description').' '.__('Short')}}</label>
-            <x-input class="w-full" name="description" value="{{ old('description') }}" placeholder="{{__('description')}}"/>
-
-            {{--<label>{{__('description').' '.__('services')}}<span class="text-red-600"> *</span></label>--}}
-            {{--<x-summernote name="description" default="{{old('description')}}"/>--}}
+            <label>{{__('Item Name')}}</label><span class="text-red-600"> *</span>
+            {{--<x-input class="w-full" name="item_id" value="{{ old('item_id') }}" placeholder="{{__('item')}}"/>--}}
+            <x-select name="item_id" id="item_id">
+                @foreach($items as $item )
+                    <option value="{{$item->id}}">{{ $item->name }} </option>
+                @endforeach
+            </x-select>
 
             <label>{{__('price')}}<span class="text-red-600"> *</span></label>
             <x-input class="w-full" name="price" type="text" value="{{ old('price') }}" />

@@ -19,8 +19,17 @@
     @stack('styles')
     @livewireStyles
 </head>
-<body>
+<body dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}"
+      class="min-h-screen purple-color-bg" id="wrapper">
+@yield('header')
+
+@yield('sidebar')
+
 @yield('content')
-{{$slot??''}}
+
+<x-layouts._footer/>
+
+@stack('modals')
+{{--{{$slot??''}}--}}
 </body>
 </html>

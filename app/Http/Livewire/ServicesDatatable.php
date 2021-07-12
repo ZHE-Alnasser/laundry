@@ -26,9 +26,9 @@ class ServicesDatatable extends LivewireDatatable
 
     public function builder()
     {
-        return Service::query();
-    }
+        return Service::query()->with('items');
 
+    }
     public function columns()
     {
         return [
@@ -36,7 +36,7 @@ class ServicesDatatable extends LivewireDatatable
 
             Column::name('name')->searchable(),
 
-            Column::name('description')->searchable(),
+            Column::name('item.name')->searchable(),
             Column::name('price')->searchable(),
 
             DateColumn::name('created_at')->searchable(),
