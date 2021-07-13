@@ -1,7 +1,7 @@
 
 
 
-<x-layouts.app>
+<x-layouts.admin>
 {{--<livewire: livewire-datatables/>--}}
 {{--<livewire:deletable-demo-table />--}}
 
@@ -20,6 +20,6 @@
     {{--</script>--}}
 {{--@endpush--}}
 <div>
-{{--    @livewire('users-datatable')--}}
+    @livewire('users-datatable')
 </div>
-</x-layouts.app>
+</x-layouts.admin>

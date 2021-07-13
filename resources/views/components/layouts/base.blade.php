@@ -15,6 +15,12 @@
     <meta name="_token" content="{!! csrf_token() !!}">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="path/to/dist/feather.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+
 
     @stack('styles')
     @livewireStyles

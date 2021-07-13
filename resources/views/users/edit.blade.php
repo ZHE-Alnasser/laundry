@@ -1,5 +1,5 @@
 <x-layouts.admin>
-    <x-card>
+    {{--<x-card>--}}
         <x-feedback/>
         <div class="w-full">
             <div class="mt-8 p-4">
@@ -12,14 +12,14 @@
                             <div class="w-full mx-2 flex-1">
                                 <label>{{__('First Name')}}</label>
                                 <div class="divUser">
-                                    <x-input name="first_name" value="{{$user->name}}" class="input"/>
+                                    <x-input name="first_name" value="{{$user->first_name}}" class="input"/>
                                 </div>
                             </div>
-                            {{--<div class="w-full mx-2 flex-1">--}}
-                                {{--<label>{{__('Last Name')}}</label>--}}
-                                {{--<div class="divUser">--}}
-                                    {{--<x-input name="last_name" value="{{$user->last_name}}" class="input"/></div>--}}
-                            {{--</div>--}}
+                            <div class="w-full mx-2 flex-1">
+                                <label>{{__('Last Name')}}</label>
+                                <div class="divUser">
+                                    <x-input name="last_name" value="{{$user->last_name}}" class="input"/></div>
+                            </div>
                         </div>
 
                         <div class="flex flex-col md:flex-row">
@@ -46,6 +46,23 @@
                                 <div class="divUser">
                                     <x-input name="address_2"  value="{{$user->address_2}}" class="input"/></div>
                             </div>
+                        </div>
+                            <div class="flex flex-col md:flex-row">
+                                <div class="w-full mx-2 flex-1">
+                                    <label>{{__('Type')}}</label>
+                                    <div class="divUser">
+                                        <x-select name="type_id" class="input"  id="type_id">
+                                            @foreach($types as $type )
+                                                <option {{$user->type_id==$type->id?'selected':''}} value="{{$type->id}}">{{ $type->name }} </option>
+                                            @endforeach
+                                        </x-select></div>
+                                {{--</div>--}}
+                                {{--<div class="w-full mx-2 flex-1">--}}
+                                    {{--<label>{{__('Address 2')}}</label>--}}
+                                    {{--<div class="divUser">--}}
+                                        {{--<x-input name="address_2"  value="{{$user->address_2}}" class="input"/></div>--}}
+                                </div>
+
 
 
 
@@ -75,5 +92,5 @@
                 </div>
             </div>
         </div>
-    </x-card>
+    {{--</x-card>--}}
 </x-layouts.admin>

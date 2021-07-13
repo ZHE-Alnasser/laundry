@@ -6,7 +6,9 @@
 </footer>
 
 <script src="{{ mix('js/app.js') }}"></script>
-
+<script>
+    feather.replace()
+</script>
 
 @livewireScripts
 {{--@stack('scripts')--}}
