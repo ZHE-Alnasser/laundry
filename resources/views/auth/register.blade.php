@@ -14,17 +14,50 @@
 
             <!-- Name -->
             <div>
-                <x-label for="name" :value="__('Name')" />
+                <x-label for="first_name" :value="__('First Name')" />
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="old('first_name')" required autofocus />
             </div>
 
+            <div>
+                <x-label for="last_name" :value="__('Last Name')" />
+
+                <x-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" required autofocus />
+            </div>
+
+
+                <div class="mt-4">
+                    <x-label for="type" :value="__('Register as')" />
+                    <x-select name="type_id" id="type_id" class="input">
+                        @foreach($types as $type )
+                            <option value="{{$type->id}}">{{ $type->name }} </option>
+                        @endforeach
+                    </x-select>
+                </div>
             <!-- Email Address -->
             <div class="mt-4">
                 <x-label for="email" :value="__('Email')" />
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
+
+                <div class="mt-4">
+                <x-label for="phone" :value="__('Phone')" />
+
+                <x-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required />
+            </div>
+
+
+                <div class="mt-4">
+                    <x-label for="address_1" :value="__('Address')" />
+
+                    <x-input id="address_1" class="block mt-1 w-full" type="text" name="address_1" :value="old('address_1')" required />
+                </div>
+                <div class="mt-4">
+                    <x-label for="address_2" :value="__('Address')" />
+
+                    <x-input id="address_2" class="block mt-1 w-full" type="text" name="address_2" :value="old('address_2')"  />
+                </div>
 
             <!-- Password -->
             <div class="mt-4">
