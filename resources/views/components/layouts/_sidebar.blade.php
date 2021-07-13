@@ -56,6 +56,7 @@
                 <a class="side-items" href="/items/manage"><span class="side-text">{{__("Items")}}</span></a>
                 <a class="side-items" href="/orders/manage"><span class="side-text">{{__("Orders")}}</span></a>
                 <a class="side-items" href="/services/manage"><span class="side-text">{{__("Services")}}</span></a>
+                <a class="side-items" href="/types/manage"><span class="side-text">{{__("Types")}}</span></a>
 
             </nav>
 

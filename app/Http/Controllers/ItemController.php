@@ -58,6 +58,7 @@ class ItemController extends Controller
 
     public function destroy(Item $items)
     {
-        //
+        $items->delete();
+        return back();
     }
 }

@@ -23,7 +23,7 @@
             <x-input class="input" name="email" type="email" value="{{ old('email') }}" />
 
             <label>{{__('Phone')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input" name="phone" type="phone" value="{{ old('phone') }}" />
+            <x-input class="input" name="phone" type="text" value="{{ old('phone') }}" />
 
             <label>{{__('First Address ')}}<span class="text-red-600"> *</span></label>
             <x-input class="input" name="address_1" value="{{ old('address_1') }}"/>

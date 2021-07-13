@@ -7,80 +7,61 @@ use Illuminate\Http\Request;
 
 class TypeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function manage()
+    {
+        return view('types.manage');
+    }
+
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
-        //
+        return view ('types/create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function store(Request $request)
     {
-        //
+        $data = $this->validate($request, [
+            'name' => 'required',
+
+        ]);
+        Type::create($data);
+
+
+        return redirect('types/manage')
+            ->with('success', 'Your Services has been created successfully');
+    
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Type $category
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Type $category)
+   
+    public function show(Type $type)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Type $category
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Type $category)
+  
+    public function edit(Type $type)
     {
-        //
+        return view ('types/edit',compact('type'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \App\Models\Type $category
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Type $category)
+   
+    public function update(Request $request, Type $type)
     {
-        //
+        $type->update($request->all());
+        return redirect('types/manage');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Type $category
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Type $category)
+   
+    public function destroy(Type $type)
     {
-        $category->delete();
+        $type->delete();
         return back();
     }
 }
