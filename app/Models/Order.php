@@ -15,5 +15,8 @@ class Order extends Model
         return $this->belongsToMany(Service::class);
     }
 
-
+    public function time_frame()
+    {
+        return $this->belongsTo(TimeFrame::class);
+    }
 }

@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class District extends Model
 {
     use HasFactory;
-    protected $guarded = [];
 
-
-    public function users()
+    public function city()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(City::class);
     }
+
 }
+
