@@ -31,8 +31,7 @@ class UsersDatatable extends LivewireDatatable
             Column::name('first_name')->searchable(),
             Column::name('last_name')->searchable(),
             Column::name('email')->truncate()->searchable(),
-            Column::name('address_1')->searchable(),
-            Column::name('address_2')->searchable(),
+            Column::name('district.name')->label(__('District'))->truncate()->searchable(),
             Column::name('type.name')->label(__('Type'))->truncate()->searchable(),
             Column::name('phone')->label(__('Phone'))->searchable(),
 

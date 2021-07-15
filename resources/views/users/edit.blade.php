@@ -37,16 +37,16 @@
                         </div>
                         <div class="flex flex-col md:flex-row">
                             <div class="w-full mx-2 flex-1">
-                                <label>{{__('Address 1')}}</label>
+                                <label>{{__('District')}}</label>
                                 <div class="divUser">
-                                    <x-input name="address_1"  value="{{$user->address_1}}" class="input"/></div>
+                                    <x-select name="district_id" id="district_id" class="input">
+                                        @foreach($districts as $district )
+                                            {{--<option value="{{$district->id}}">{{ $district->name }} </option>--}}
+                                            <option {{$user->district_id==$district->id?'selected':''}} value="{{$district->id}}">{{ $district->name }} </option>
+                                        @endforeach
+                                    </x-select>
                             </div>
-                            <div class="w-full mx-2 flex-1">
-                                <label>{{__('Address 2')}}</label>
-                                <div class="divUser">
-                                    <x-input name="address_2"  value="{{$user->address_2}}" class="input"/></div>
-                            </div>
-                        </div>
+
                             <div class="flex flex-col md:flex-row">
                                 <div class="w-full mx-2 flex-1">
                                     <label>{{__('Type')}}</label>
@@ -68,20 +68,20 @@
 
                         </div>
 
-                        <div class="inline-flex items-center space-x-4 p-5">
-                            <div class="inline-flex items-center space-x-4 form-group {{ $errors->has('is_active') ? 'has-error' : '' }}">
-                                <input name="is_active" type="hidden" value="0">
-                                <input type="checkbox" id="is_active" name="is_active"
-                                       value="1"{{ (isset($user) && $user->is_active) || old('is_active', 0) === 1 ? 'checked' : '' }}>
-                                <p class="flex-1 text-s font-medium text-gray-600 "> {{__('Approved')}}</p>
-                                @if($errors->has('is_active'))
-                                    <p class="help-block">
-                                        {{ $errors->first('is_active') }}
-                                    </p>
-                                @endif
-                            </div>
+                        {{--<div class="inline-flex items-center space-x-4 p-5">--}}
+                            {{--<div class="inline-flex items-center space-x-4 form-group {{ $errors->has('is_active') ? 'has-error' : '' }}">--}}
+                                {{--<input name="is_active" type="hidden" value="0">--}}
+                                {{--<input type="checkbox" id="is_active" name="is_active"--}}
+                                       {{--value="1"{{ (isset($user) && $user->is_active) || old('is_active', 0) === 1 ? 'checked' : '' }}>--}}
+                                {{--<p class="flex-1 text-s font-medium text-gray-600 "> {{__('Approved')}}</p>--}}
+                                {{--@if($errors->has('is_active'))--}}
+                                    {{--<p class="help-block">--}}
+                                        {{--{{ $errors->first('is_active') }}--}}
+                                    {{--</p>--}}
+                                {{--@endif--}}
+                            {{--</div>--}}
 
-                        </div>
+                        {{--</div>--}}
 
                         <div class="flex p-2 mt-4">
                             <button type="Submit" class="btn ml-2">{{__('Save')}}</button>

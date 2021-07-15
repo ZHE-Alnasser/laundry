@@ -13,16 +13,15 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->foreignId('type_id');
             $table->string('email')->unique();
+            $table->string('phone', 50)->nullable();
+            $table->string('type_id');
+            $table->integer('district_id')->unsigned()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('address_1')->nullable();
-            $table->string('address_2')->nullable();
-            $table->string('phone')->nullable();
-            $table->boolean('is_active')->default(false);
-            $table->text('profile_photo_path')->nullable();
             $table->rememberToken();
+            $table->foreignId('current_team_id')->nullable();
+            $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
     }

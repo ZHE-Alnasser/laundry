@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\District;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
@@ -38,8 +39,9 @@ class UserController extends Controller
 
     public function create()
     {
+        $districts=District::all();
         $types =Type::all();
-        return view('/users/create',compact('types'));
+        return view('/users/create',compact('types','districts'));
     }
 
     public function store(Request $request)
@@ -49,8 +51,7 @@ class UserController extends Controller
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'type_id' => ['required', 'string', 'max:255'],
-            'address_1' => ['required', 'string', 'max:255'],
-            'address_2' => ['required', 'string', 'max:255'],
+            'district_id'=>'nullable','string', 'max:255',
             'phone' =>['required', 'digits:10'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
@@ -60,7 +61,7 @@ class UserController extends Controller
 
         User::create(
             request()
-                ->only( 'first_name', 'last_name',  'address_1', 'address_2','password','email', 'password',
+                ->only( 'first_name', 'last_name',  'district_id','password','email', 'password',
                     'type_id','phone'));
 //        if($request->sms) {
 //            Notifier::sendSMS($request->message, $request->users);
@@ -78,8 +79,9 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
+        $districts= District::all();
         $types=Type::all();
-        return view('users.edit', compact('user','types'));
+        return view('users.edit', compact('user','types','districts'));
 
     }
 
@@ -94,9 +96,8 @@ class UserController extends Controller
                 'phone' => ['required', 'string', 'max:255'],
                 'type_id' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'email', 'max:255'],
-                'address_1' =>['required', 'string', 'max:255'],
-                'address_2' =>['nullable', 'string', 'max:255'],
-                'is_active' => 'required',
+                'district_id'=>'nullable','string', 'max:255',
+//                'is_active' => 'required',
             ])->validateWithBag('updateProfileInformation');
 
         if (isset($request['photo'])) {
@@ -112,9 +113,8 @@ class UserController extends Controller
                 'phone' => $request['phone'],
                 'email' => $request['email'],
                 'type_id'=>$request['type_id'],
-                'address_1' => $request['address_1'],
-                'address_2' => $request['address_2'],
-                'is_active' => $request['is_active'],
+                'district_id' => $request['district_id'],
+//                'is_active' => $request['is_active'],
             ])->save();
         }
 

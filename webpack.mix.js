@@ -11,20 +11,12 @@ const mix = require('laravel-mix');
  |
  */
 
-if (!mix.inProduction()) {
-    // mix.browserSync({ proxy: "http://pos.test" });
+mix.js('resources/js/app.js', 'public/js')
+    .postCss('resources/css/app.css', 'public/css', [
+        require('postcss-import'),
+        require('tailwindcss'),
+    ]);
 
-
-    mix.browserSync({
-        proxy: 'http://laundry.test',
-        // injectChanges: false,
-       open: false,
-    });
-
+if (mix.inProduction()) {
+    mix.version();
 }
-
-mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('autoprefixer'),
-]);

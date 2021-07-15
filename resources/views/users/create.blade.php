@@ -25,12 +25,12 @@
             <label>{{__('Phone')}}<span class="text-red-600"> *</span></label>
             <x-input class="input" name="phone" type="text" value="{{ old('phone') }}" />
 
-            <label>{{__('First Address ')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input" name="address_1" value="{{ old('address_1') }}"/>
-
-            <label>{{__('Second Address ')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input" name="address_2" value="{{ old('address_2') }}"/>
-
+            <label>{{__('District')}}</label><span class="text-red-600"> *</span>
+            <x-select name="district_id" id="district_id" class="input">
+                @foreach($districts as $district )
+                    <option value="{{$district->id}}">{{ $district->name }} </option>
+                @endforeach
+            </x-select>
 
             <label>{{ __('Password') }}"</label>
                 <x-input id="password" class="input" type="password" name="password" required

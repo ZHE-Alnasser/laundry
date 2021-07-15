@@ -5,15 +5,16 @@ use App\Http\Livewire\ItemDatatable;
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-
 Route::get('/r', function () {
     return view('r');
 });
+
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'manage'])->name('dashboard');
+
+
 //Route::get('/r', [App\Http\Controllers\ItemController::class, 'manage'])->name('/items.manage');
 Route::get('/users/manage', [App\Http\Controllers\UserController::class, 'manage'])->name('/users.manage');
 Route::resource('users', App\Http\Controllers\UserController::class);
@@ -29,11 +30,20 @@ Route::get('/types/manage', [App\Http\Controllers\TypeController::class, 'manage
 Route::resource('types', App\Http\Controllers\TypeController::class);
 
 
+Route::get('/logout', function(){
+    if (Auth::user()->is_active==0){
+        Auth::logout();
+        return Redirect::to('login');
+    }
+    return Redirect::to('home');
+});
+
+
 //Route::get('livewire-datatables', [App\Http\Controllers\UserController::class, 'manage'])->name('/users.manage');
 
 //
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth'])->name('dashboard');
+//
+//require __DIR__.'/auth.php';
