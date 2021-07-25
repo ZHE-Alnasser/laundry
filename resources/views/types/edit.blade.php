@@ -8,7 +8,7 @@
                     @csrf
 
                     <div class="flex flex-col md:flex-row">
-                        <div class="w-full mx-40 flex-1">
+                        <div class="w-full mx-10 flex-1">
                             <label>{{__('Type Name')}}</label>
                             <div >
                                 <x-input name="name" value="{{$type->name}}" class="input"/>
@@ -16,7 +16,7 @@
                         </div>
                     </div>
 
-                    <div class="flex p-2 mt-4 mx-40">
+                    <div class="flex p-2 mt-4 mx-10">
                         <button type="Submit" class="btn ml-2">{{__('Save')}}</button>
                         <input type="button" class="btn-cancel"
                                name="cancel" value="{{__('Cancel')}}" onClick="window.location.replace('/types/manage')"/>

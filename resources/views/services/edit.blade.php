@@ -17,7 +17,7 @@
                         </div>
                     </div>
                         <div class="flex flex-col mt-4 md:flex-row">
-                        <div class="w-full mx-2 flex-1">
+                        <div class="w-full mx-2 mt-4 flex-1">
                             <label>{{__('Item Name')}}</label>
 
                             <x-select name="item_id" class="input"  id="item_id">

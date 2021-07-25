@@ -2,7 +2,7 @@
     <x-feedback/>
     <h1>{{__('Create').' '.__('Services')}}</h1>
 
-    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+    <div class="mt-6 px-6 py-4 overflow-hidden ">
         <x-form action="{{url('services')}}" method="post" has-files>
             @csrf
             <label>{{__('name').' '.__('services')}}<span class="text-red-600"> *</span></label>

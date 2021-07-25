@@ -3,11 +3,19 @@
 @import 'tailwindcss/utilities';
 
 
-/*.select{*/
-    /*@apply input-accent input-bordered;*/
-/*}*/
-
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@700&display=swap');
+
+
+@layer base {
+    h1 {
+        @apply text-2xl font-serif;
+    }
+    h2 {
+        @apply text-xl;
+    }
+}
+
+
 
 .btn {
     @apply btn-primary;
@@ -17,7 +25,11 @@
     @apply btn btn-outline btn-secondary;
 }
 .select-bordered {
-    --tw-border-opacity: 0.2;
+    --tw-border-opacity: 1;
+}
+
+.select{
+    @apply mt-1 select-bordered;
 }
 
 .input-bordered{
@@ -26,7 +38,8 @@
 
 .input{
     width: 100%;
-    @apply input  input-bordered mt-1;
+    --tw-border-opacity: 0.2;
+    @apply input-bordered mt-1 border-opacity-0;
 }
 
 .side-items{
