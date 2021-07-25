@@ -1,3 +1,45 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+
+/*.select{*/
+    /*@apply input-accent input-bordered;*/
+/*}*/
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@700&display=swap');
+
+.btn {
+    @apply btn-primary;
+}
+
+.btn-cancel{
+    @apply btn btn-outline btn-secondary;
+}
+.select-bordered {
+    --tw-border-opacity: 0.2;
+}
+
+.input-bordered{
+    --tw-border-opacity: 0.2;
+}
+
+.input{
+    width: 100%;
+    @apply input  input-bordered mt-1;
+}
+
+.side-items{
+    font-weight: 500;
+    @apply flex items-center mt-2 mx-3 py-2 px-8 bg-base-200  border-white text-accent  rounded-lg
+}
+
+.side-items:hover {
+    --tw-border-opacity: 0.2;
+    @apply bg-base-300 text-accent-focus ;
+}
+.side-items:active{
+    @apply  bg-base-300;
+}
+
+

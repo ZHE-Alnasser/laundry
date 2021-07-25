@@ -26,7 +26,7 @@
     @livewireStyles
 </head>
 <body dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}"
-      class="min-h-screen purple-color-bg" id="wrapper">
+      class="min-h-screen bg-base-200" id="wrapper">
 @yield('header')
 
 @yield('sidebar')
