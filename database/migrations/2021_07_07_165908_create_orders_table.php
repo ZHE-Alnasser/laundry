@@ -12,10 +12,10 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id()->from(random_int(1000,5465));
             $table->foreignId('customer_id')->nullable();
-            $table->foreignId('employee_id');
-            $table->float('vat');
-            $table->float('without_vat');
-            $table->float('total');
+            $table->foreignId('employee_id')->nullable();
+            $table->float('vat')->nullable();
+            $table->float('without_vat')->nullable();
+            $table->float('total')->nullable();
             $table->string('discount')->nullable();
             $table->set('payment',['cash','card','transfer'])->nullable();
             $table->boolean('is_done')->default(false);

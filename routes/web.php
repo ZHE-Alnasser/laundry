@@ -29,6 +29,9 @@ Route::resource('items', App\Http\Controllers\ItemController::class);
 Route::get('/types/manage', [App\Http\Controllers\TypeController::class, 'manage'])->name('/types.manage');
 Route::resource('types', App\Http\Controllers\TypeController::class);
 
+Route::get('/orders/manage', [App\Http\Controllers\OrderController::class, 'manage'])->name('/orders.manage');
+Route::resource('orders', App\Http\Controllers\OrderController::class);
+
 
 Route::get('/logout', function(){
     if (Auth::user()->is_active==0){

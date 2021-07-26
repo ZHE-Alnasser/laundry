@@ -1,4 +1,4 @@
-<nav class="relative flex flex-wrap items-center justify-between bg-gray-200 px-2  navbar-expand-lg ">
+<nav class="relative flex flex-wrap items-center justify-between bg-white px-2  navbar-expand-lg ">
 
 
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 ">
@@ -23,7 +23,12 @@
             <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
                 <div class="lg:visible invisible flex">
 
-
+                    <li class="nav-item">
+                        <a class="links"
+                           href="{{'/services' }}">
+                            <span class="ml-2">{{ __('Services') }}</span>
+                        </a>
+                    </li>
 
 
                 </div>
@@ -40,7 +45,7 @@
                     @endif
 
                     @if (Route::has('register'))
-                        <li class="nav-item">
+                        <li class="nav-item ">
                             <a class="links"
                                href="{{ route('register') }}">
                                 <span class="ml-2">{{ __('Register') }}</span>
@@ -61,7 +66,7 @@
                             <span class="ml-2">{{__('My Profile')}}</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a class="links"
                            href="{{ route('logout') }}"
                            onclick="event.preventDefault();

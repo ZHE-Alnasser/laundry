@@ -15,6 +15,24 @@
     }
 }
 
+.links-color{
+background-color: white;
+}
+/*.hover-color{*/
+/*background-color: aliceblue;*/
+/*}*/
+.links
+{
+    @apply  lg:px-5 py-3 flex items-center text-base uppercase font-bold  hover:opacity-75;
+}
+.links:focus{
+    color: #2563eb;
+    @apply  outline-none text-base-200 ring-offset-2 rounded-lg;
+}
+.links:hover{
+    @apply  text-primary opacity-100  rounded-lg;
+}
+
 
 
 .btn {

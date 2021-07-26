@@ -2,82 +2,84 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use App\Models\Order;
+use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function manage()
+    {
+        return view('orders.manage');
+    }
+
+
     public function index()
     {
-        //
+        return view('orders.manage');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        $services=Service::all();
+        $items=Item::all();
+        $customers = User::whereTypeId('1')->get();
+        $employees = User::whereTypeId('2')->get();
+
+        return view ('orders.create', compact('customers','employees','items','services'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+//        $data = $this->validate($request, [
+//            'customer_id' => 'required',
+//
+//
+//        ]);
+//        $orders= Order::create($data);
+
+//     $orders->Service()->attach('service_id','item_id');
+
+        if ($request->serviceOrders) {
+            foreach ($request->serviceOrders as $major) {
+
+//                $orders->services()->attach($major['major']);
+            }
+        }
+                return redirect('orders/manage')
+            ->with('success', 'Your Services has been created successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Order $order)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Order $order)
     {
-        //
+        $serviceOrders=$order->services()->with('order_id','service_id','item_id','amount','quantity');
+        $services=Service::all();
+        $items=Item::all();
+        $customers = User::whereTypeId('1')->get();
+        $employees = User::whereTypeId('2')->get();
+
+        return view ('orders/edit',compact('order','customers','employees','items','services','serviceOrders'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Order $order)
     {
-        //
+        $order->update($request->all());
+        return redirect('orders/manage');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Order $order)
     {
         //

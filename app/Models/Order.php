@@ -9,10 +9,12 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
 
     public function Services()
     {
-        return $this->belongsToMany(Service::class);
+        return $this->belongsToMany(Service::class)->withPivot('order_id','service_id','item_id','quantity','amount');
     }
 
     public function time_frame()

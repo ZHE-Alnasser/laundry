@@ -9,6 +9,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Builder;
+
+use Spatie\Sluggable\SlugOptions;
+use Spatie\Sluggable\HasSlug;
 
 class User extends Authenticatable
 {
@@ -47,5 +51,37 @@ class User extends Authenticatable
     public function district()
     {
         return $this->belongsTo(District::class);
+    }
+
+    public function scopeCustomer($qry)
+    {
+        return $qry->whereHas('type', function (Builder $qry) {
+            $qry->where('name', 'Customer');
+        });
+
+    }
+
+    public function scopeEmployee($qry)
+    {
+        return $qry->whereHas('type', function (Builder $qry) {
+            $qry->where('name', 'Employee');
+        });
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+    public function getFullNameAttribute()
+    {
+        return $this->attributes['first_name'] . ' ' . $this->attributes['last_name'];
+    }
+
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom(['first_name', 'last_name'])
+            ->saveSlugsTo('slug')
+            ->slugsShouldBeNoLongerThan(50);
     }
 }
