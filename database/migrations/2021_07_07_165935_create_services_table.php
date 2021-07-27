@@ -13,7 +13,8 @@ class CreateServicesTable extends Migration
             $table->id();
             $table->string('name');
             $table->double('price')->default(0)->nullable();
-
+            $table->longText('description')->nullable();
+            $table->string('slug');
             $table->timestamps();
         });
     }

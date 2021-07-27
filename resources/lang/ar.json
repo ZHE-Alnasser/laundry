@@ -58,5 +58,9 @@
   "Welcome": "أهلا وسهلا",
   "Manage": "إدارة",
   "Logout": "تسجيل الخروج",
-  "My Profile": "حسابي"
+  "My Profile": "حسابي",
+  "Remember me": "تذكرني",
+  "Forgot your password?": "نسيت كلمة المرور؟",
+  "Log in": "تسجيل الدخول"
+
 }
