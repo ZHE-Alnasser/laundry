@@ -36,14 +36,14 @@ class ServicesDatatable extends LivewireDatatable
 
             Column::name('name')->searchable(),
 
-            Column::name('item.name')->searchable(),
+//            Column::name('item.name')->searchable(),
             Column::name('price')->searchable(),
-
+            Column::name('description')->searchable(),
             DateColumn::name('created_at')->searchable(),
 
 
-            Column::callback(['id', 'name'], function ($id,$name) {
-                return view('components\table-actions',['url' => url("services/$id"), 'model' => 'Services','id' => $id, 'name' => $name]);
+            Column::callback(['slug', 'name'], function ($slug) {
+                return view('components\table-actions',['url' => url("services/$slug"), 'model' => 'Services']);
 //                return view('components\table-actions', ['id' => $id, 'name' => $name]);
             })
         ];

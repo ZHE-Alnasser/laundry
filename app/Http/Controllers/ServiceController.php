@@ -32,6 +32,7 @@ class ServiceController extends Controller
             'name' => 'required',
             'item_id' =>'nullable',
             'price' => 'required',
+            'description' => 'nullable',
 
         ]);
          Service::create($data);
@@ -44,7 +45,8 @@ class ServiceController extends Controller
 
     public function show(Service $service)
     {
-        //
+        return view('services.show',compact('service'));
+
     }
 
 

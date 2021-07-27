@@ -20,7 +20,7 @@
                             </h1>
 
                             <p class="mt-3 text-base leading-6 text-gray-900 mb-3">
-<div class="inline-flex flex-row">
+                           <div class="inline-flex flex-row">
                             {{$service->price}} <h3 class="mr-2">   {{__('SR')}}</h3>
                             </div>
                         </div>

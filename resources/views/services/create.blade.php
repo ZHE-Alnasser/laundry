@@ -5,19 +5,22 @@
     <div class="mt-6 px-6 py-4 overflow-hidden ">
         <x-form action="{{url('services')}}" method="post" has-files>
             @csrf
-            <label>{{__('name').' '.__('services')}}<span class="text-red-600"> *</span></label>
+            <label>{{__('Service Name')}}<span class="text-red-600"> *</span></label>
             <x-input class="input" name="name" value="{{ old('name') }}"/>
 
-            <label>{{__('Item Name')}}</label><span class="text-red-600"> *</span>
+            {{--<label>{{__('Item Name')}}</label><span class="text-red-600"> *</span>--}}
             {{--<x-input class="w-full" name="item_id" value="{{ old('item_id') }}" placeholder="{{__('item')}}"/>--}}
-            <x-select name="item_id" id="item_id" class="input">
-                @foreach($items as $item )
-                    <option value="{{$item->id}}">{{ $item->name }} </option>
-                @endforeach
-            </x-select>
+            {{--<x-select name="item_id" id="item_id" class="input">--}}
+                {{--@foreach($items as $item )--}}
+                    {{--<option value="{{$item->id}}">{{ $item->name }} </option>--}}
+                {{--@endforeach--}}
+            {{--</x-select>--}}
 
-            <label>{{__('price')}}<span class="text-red-600"> *</span></label>
+            <label>{{__('Price')}}<span class="text-red-600"> *</span></label>
             <x-input class="input" name="price" type="text" value="{{ old('price') }}" />
+
+            <label>{{__('Description')}}</label>
+            <x-input class="input" name="description" type="text" value="{{ old('description') }}" />
 
 
 
