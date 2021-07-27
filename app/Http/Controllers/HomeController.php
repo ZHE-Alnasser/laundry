@@ -14,8 +14,10 @@ class HomeController extends Controller
 
     public function manage()
     {
-        $name = auth()->user()->name;
-    return view('/dashboard',compact('name'));
+
+        $firstName = auth()->user()->first_name;
+        $lastName = auth()->user()->last_name;
+        return view('/dashboard', compact('firstName', 'lastName'));
     }
     public function index()
     {
