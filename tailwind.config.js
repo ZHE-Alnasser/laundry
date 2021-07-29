@@ -13,8 +13,12 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                'tajawal': ['Tajawal', 'sans-serif']
             },
+
+            // fontFamily: {
+            //     sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+            // },
         },
     },
 

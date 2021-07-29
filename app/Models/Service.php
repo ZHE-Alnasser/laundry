@@ -21,10 +21,10 @@ protected static $logFillable = true;
 //    protected $fillable = [
 //        'name','item_id','price'
 //    ];
-    public function item()
-    {
-        return $this->belongsTo(Item::class);
-    }
+//    public function item()
+//    {
+//        return $this->belongsTo(Item::class);
+//    }
 
 
     public function getSlugOptions() : SlugOptions

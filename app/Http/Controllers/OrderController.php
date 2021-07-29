@@ -67,8 +67,8 @@ class OrderController extends Controller
         $serviceOrders=$order->services()->with('order_id','service_id','item_id','amount','quantity');
         $services=Service::all();
         $items=Item::all();
-        $customers = User::whereTypeId('1')->get();
-        $employees = User::whereTypeId('2')->get();
+        $customers = User::customer()->get();
+        $employees = User::employee()->get();
 
         return view ('orders/edit',compact('order','customers','employees','items','services','serviceOrders'));
     }
@@ -83,5 +83,13 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+    public function invoice(Order $order)
+    {
+      $employees= User::employee()->get();
+      $customers=User::customer()->get();
+      $orders= Order::all();
+//      dd($customer);
+        return view('orders.reports.invoice', compact('order','employees','customers','orders'));
     }
 }

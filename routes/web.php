@@ -29,6 +29,7 @@ Route::resource('items', App\Http\Controllers\ItemController::class);
 Route::get('/types/manage', [App\Http\Controllers\TypeController::class, 'manage'])->name('/types.manage');
 Route::resource('types', App\Http\Controllers\TypeController::class);
 
+Route::get('orders/reports/invoice/{order}', [App\Http\Controllers\OrderController::class, 'invoice']);
 Route::get('/orders/manage', [App\Http\Controllers\OrderController::class, 'manage'])->name('/orders.manage');
 Route::resource('orders', App\Http\Controllers\OrderController::class);
 

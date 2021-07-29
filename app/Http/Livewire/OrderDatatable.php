@@ -34,13 +34,14 @@ class OrderDatatable extends LivewireDatatable
         return [
             NumberColumn::name('id'),
 
-            Column::callback(['employee_id'], function ($user) {
-                return optional(User::find($user))->full_name;
-            })->label(__('Employee Name'))->searchable(),
 
             Column::callback(['customer_id'], function ($user) {
                 return optional(User::find($user))->full_name;
             })->label(__('Customer Name'))->searchable(),
+
+            Column::callback(['employee_id'], function ($user) {
+                return optional(User::find($user))->full_name;
+            })->label(__('Employee Name'))->searchable(),
 
             Column::name('discount')->searchable(),
             Column::name('vat')->searchable(),
