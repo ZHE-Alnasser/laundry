@@ -18,18 +18,22 @@
 
             {{--</template>--}}
             <tbody>
+            <form action="/orders" method="post">
+                @csrf
             <template x-for="(field, index) in fields" :key="index">
                 <tr>
                     {{--<td >1</td>--}}
-                    <td><input x-model="field.id" type="text" name="order_id" class="input"></td>
-                    <td><input x-model="field.item_id" type="text" name="item_id" class="input"></td>
-                    <td><input x-model="field.service_id" type="text" name="service_id" class="input"></td>
-                    <td><input x-model="field.quantity" type="text" name="quantity" class="input"></td>
-                    <td><input x-model="field.amount" type="text" name="amount" class="input"></td>
+                    <td><input x-model="field.id" type="text" name="order_id[]" class="input"></td>
+                    <td><input x-model="field.item_id" type="text" name="item_id[]" class="input"></td>
+                    <td><input x-model="field.service_id" type="text" name="service_id[]" class="input"></td>
+                    <td><input x-model="field.quantity" type="text" name="quantity[]" class="input"></td>
+                    <td><input x-model="field.amount" type="text" name="amount[]" class="input"></td>
                     <td><button type="button" class=" btn-delete" @click="removeField(index)">&times;</button></td>
 
                 </tr>
             </template>
+                <button>Submit</button>
+            </form>
             </tbody>
             {{--<tfoot>--}}
 

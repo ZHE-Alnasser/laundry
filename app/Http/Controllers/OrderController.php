@@ -39,6 +39,7 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
+        dd($request);
 
         DB::transaction(function () use ($request) {
 
@@ -55,21 +56,16 @@ class OrderController extends Controller
             'requested_delivery_date'=>'nullable',
             'agent_pickup_date' =>'nullable',
             'agent_deliver $this->validate($request,y_date'=>'nullable',
+                'item_id.*' => 'required',
+                'service_id.*' => 'required',
+                'quantity.*' => 'required',
+                'amount.*' => 'required',
+
         ]);
 
            $order= Order::create($data);
-
             $orderServices = [];
-            foreach ($order->services as $items) {
-                $items[] = $this->validate($request, [
-                    'order_id' => 'required',
-                    'item_id' => 'required',
-                    'service_id' => 'required',
-                    'quantity' => 'required',
-                    'amount' => 'required',
 
-                ]);
-            }
 
 //                $items = $this->validate($request, [
 //                    'order_id' => 'required',

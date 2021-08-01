@@ -1,11 +1,11 @@
 <x-layouts.admin>
     <x-feedback/>
-    <h1>{{__('Create').' '.__('Types')}}</h1>
+    <h1>{{__('Create').' '.__('Cities')}}</h1>
 
     <div class=" mt-6 px-6 py-4 overflow-hidden">
-        <x-form action="{{url('types')}}" method="post" has-files>
+        <x-form action="{{url('cities')}}" method="post" has-files>
             @csrf
-            <label>{{__('name').' '.__('types')}}<span class="text-red-600"> *</span></label>
+            <label>{{__('City Name')}}<span class="text-red-600"> *</span></label>
             <x-input class="input" name="name" value="{{ old('name') }}"/>
 
 
@@ -13,7 +13,7 @@
                 <button type='submit' class="btn ml-3">{{__('Create')}}</button>
 
                 <input type="button" class="btn-cancel"
-                       name="cancel" value="{{__('Cancel')}}" onClick="window.location.replace('/types/manage')"/>
+                       name="cancel" value="{{__('Cancel')}}" onClick="window.location.replace('/cities/manage')"/>
             </div>
         </x-form>
     </div>

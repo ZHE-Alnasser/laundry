@@ -29,6 +29,9 @@ Route::resource('items', App\Http\Controllers\ItemController::class);
 Route::get('/types/manage', [App\Http\Controllers\TypeController::class, 'manage'])->name('/types.manage');
 Route::resource('types', App\Http\Controllers\TypeController::class);
 
+Route::get('/cities/manage', [App\Http\Controllers\CityController::class, 'manage'])->name('/cities.manage');
+Route::resource('cities', App\Http\Controllers\CityController::class);
+
 Route::get('/districts/manage', [App\Http\Controllers\DistrictController::class, 'manage'])->name('/districts.manage');
 Route::resource('districts', App\Http\Controllers\DistrictController::class);
 
