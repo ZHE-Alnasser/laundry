@@ -4,82 +4,47 @@ namespace App\Http\Controllers;
 
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Filesystem\Cache;
 
 class SettingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        return view('settings.edit', ['settings' => Setting::all()]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Setting  $setting
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Setting $setting)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Setting  $setting
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Setting $setting)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Setting  $setting
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Setting $setting)
     {
-        //
+        $data = $request->except('_token');
+
+        foreach ($data as $name => $value) {
+            Setting::whereName($name)->update(['value' => $value]);
+        }
+
+        // re-cache settings.
+        Cache::forget('settingsTable'); // it will be auto-cache again when it hits App Service provider.
+
+
+        $file_path = null;
+        $file = $request->file('company_logo');
+        if ($file) {
+            $file_path = $file->store('company_logo', 'public');
+        }
+
+        session()->flash('message',__(':name has been updated successfully',['name' => __('Settings')]));
+
+        return redirect('settings');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Setting  $setting
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Setting $setting)
-    {
-        //
-    }
+
+
 }

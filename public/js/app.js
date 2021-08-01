@@ -4947,9 +4947,13 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
+/* harmony import */ var _handler_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./handler.js */ "./resources/js/handler.js");
+/* harmony import */ var _handler_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_handler_js__WEBPACK_IMPORTED_MODULE_1__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
+
+alpinejs__WEBPACK_IMPORTED_MODULE_0__.default.data('handler', (_handler_js__WEBPACK_IMPORTED_MODULE_1___default()));
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__.default;
 alpinejs__WEBPACK_IMPORTED_MODULE_0__.default.start();
 
@@ -4983,6 +4987,29 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/handler.js":
+/*!*********************************!*\
+  !*** ./resources/js/handler.js ***!
+  \*********************************/
+/***/ (() => {
+
+function handler() {
+  return {
+    fields: [],
+    addNewField: function addNewField() {
+      this.fields.push({
+        txt1: '',
+        txt2: ''
+      });
+    },
+    removeField: function removeField(index) {
+      this.fields.splice(index, 1);
+    }
+  };
+}
 
 /***/ }),
 
@@ -22466,6 +22493,18 @@ process.umask = function() { return 0; };
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	
