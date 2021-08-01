@@ -18,10 +18,10 @@ use InteractsWithMedia;
     protected $appends = ['cover'];
 
 
-//    public function orders()
-//    {
-//        return $this->belongsToMany(Order::class);
-//    }
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
+    }
 
 //    public function services()
 //    {

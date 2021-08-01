@@ -1,6 +1,8 @@
 <x-layouts.admin>
     {{--<x-card>--}}
     <x-feedback/>
+
+
     <div class="w-full">
         <div class="mt-8 p-4">
             <div>
@@ -31,7 +33,8 @@
                       </div>
                     </div>
 
-                    {{--<div class="mx-40">--}}
+
+                   {{--<div class="mx-40">--}}
                         {{--<div class="flex flex-col md:flex-row">--}}
                             {{--<div class="w-full mx-2 flex-1">--}}
                                 {{--<label>{{__('Service Name')}}</label>--}}
@@ -56,7 +59,7 @@
 
                                 <label>{{__('Request Pickup Date')}}</label>
 
-                                    <x-input name="requested_pickup_date" type="date" value="{{$order->requested_pickup_date}}" class="input"/>
+                                    <x-input name="requested_pickup_date" type="text" value="{{$order->requested_pickup_date}}" class="input"/>
 
 
                         </div>
@@ -64,7 +67,9 @@
                         <div class="mr-6 flex-col w-full ">
                                 <label>{{__('Request Delivery Date')}}</label>
 
-                                    <x-input name="requested_delivery_date" type="date" value="{{$order->requested_delivery_date}}" class="input"/>
+                                    <x-input name="requested_delivery_date" type="text"
+                                    x-init="$nextTick(() => {new flatpickr($el,{dateFormat: 'Y-m-d'})})"
+                                    value="{{$order->requested_delivery_date}}" class="date-range input"/>
 
                         </div>
                     </div>
@@ -74,7 +79,9 @@
 
                                 <label>{{__('Agent Pickup Date')}}</label>
                                 <div class="divUser">
-                                    <x-input name="agent_pickup_date" type="date" value="{{$order->agent_pickup_date}}" class="input"/>
+                                    <x-input name="agent_pickup_date" type="text"
+                                             x-init="$nextTick(() => {new flatpickr($el,{dateFormat: 'Y-m-d'})})"
+                                             value="{{$order->agent_pickup_date}}" class="input"/>
                                 </div>
                             </div>
 
@@ -82,12 +89,23 @@
 
                                 <label>{{__('Agent Deliver Date')}}</label>
 
-                                    <x-input name="agent_delivery_date" type="date" value="{{$order->agent_delivery_date}}" class="input"/>
+                                    <x-input name="agent_delivery_date" type="text" value="{{$order->agent_delivery_date}}" class="input"/>
 
                             </div>
 
 
                     </div>
+
+
+                    <script>
+                        flatpickr('#requested_pickup_date')
+                        flatpickr('#agent_pickup_date')
+                        flatpickr('#requested_delivery_date')
+                        flatpickr('#agent_delivery_date')
+
+                    </script>
+
+
                     <label class="label mt-8">{{__('Payment Method')}}</label>
                     <x-select class=" select " name="payment" id="type"
                             label="{{__('Payment')}}">
@@ -172,7 +190,10 @@
                         </div>
                     </div>
                 </x-form>
-            </div>
+
+            @include('orders.order-services.table')
+
+        </div>
         </div>
     </div>
     {{--</x-card>--}}

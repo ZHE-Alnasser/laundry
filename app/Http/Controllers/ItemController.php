@@ -19,9 +19,9 @@ class ItemController extends Controller
     }
 
 
-    public function create()
+    public function create(Item $item)
     {
-        return view('items/create');
+        return view('items/create',compact('item'));
     }
 
     public function store(Request $request)
@@ -30,7 +30,11 @@ class ItemController extends Controller
             'name' => 'required',
 
         ]);
-        Item::create($data);
+        $items= Item::create($data);
+
+        if ($request->hasFile('image')) {
+            $items->addMediaFromRequest('image')->toMediaCollection('items');
+        }
 
 
         return redirect('items/manage')
@@ -38,9 +42,9 @@ class ItemController extends Controller
     }
 
 
-    public function show(Item $items)
+    public function show(Item $item)
     {
-        //
+       return view('items.show',compact('item'));
     }
 
     public function edit(Item $item)
@@ -52,7 +56,14 @@ class ItemController extends Controller
     public function update(Request $request, Item $item)
     {
         $item->update($request->all());
+        if ($request->hasFile('image')) {
+            $item->media()->delete($this);
+            $item>addMediaFromRequest('image')->toMediaCollection('items');
+        }
         return redirect('items/manage');
+
+
+
     }
 
 

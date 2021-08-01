@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ItemDatatable;
-
+use App\Http\Controllers;
 
 
 Route::get('/r', function () {
@@ -32,6 +32,9 @@ Route::resource('types', App\Http\Controllers\TypeController::class);
 Route::get('orders/reports/invoice/{order}', [App\Http\Controllers\OrderController::class, 'invoice']);
 Route::get('/orders/manage', [App\Http\Controllers\OrderController::class, 'manage'])->name('/orders.manage');
 Route::resource('orders', App\Http\Controllers\OrderController::class);
+
+
+Route::resource('order_services', App\Http\Controllers\OrderServiceController::class);
 
 
 Route::get('/logout', function(){

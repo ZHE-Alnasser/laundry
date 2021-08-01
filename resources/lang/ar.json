@@ -62,6 +62,11 @@
   "Remember me": "تذكرني",
   "Forgot your password?": "نسيت كلمة المرور؟",
   "Log in": "تسجيل الدخول",
-  "Description": "الوصف"
+  "Description": "الوصف",
+  "Edit Item Image": "تغيير صورة المنتج",
+  "Date": "التاريخ",
+  "Accountant": "المحاسب",
+  "Order Id": "رقم الفاتورة",
+  "Add Row": "إضافة حقل"
 
 }

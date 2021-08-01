@@ -15,42 +15,171 @@
             {{--@endforeach--}}
             {{--</select>--}}
 
-            <label>{{__('Name')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input" name="name" value="{{ old('name') }}"/>
+            {{--<label>{{__('Name')}}<span class="text-red-600"> *</span></label>--}}
+            {{--<x-input class="input" name="name" value="{{ old('name') }}"/>--}}
 
 
 
-            <div class="w-full mt-5">
-            <label>{{__('Service')}}</label></div>
-            <x-select name="service_id" id="service_id" class="input">
-                @foreach($services as $service )
-                    <option value="{{$service->id}}">{{ $service->name }} </option>
-                @endforeach
-            </x-select>
+            {{--<div class="w-full mt-5">--}}
+            {{--<label>{{__('Service')}}</label></div>--}}
+            {{--<x-select name="service_id" id="service_id" class="input">--}}
+                {{--@foreach($services as $service )--}}
+                    {{--<option value="{{$service->id}}">{{ $service->name }} </option>--}}
+                {{--@endforeach--}}
+            {{--</x-select>--}}
 
 
-            <div class="inline-flex flex-row mt-5">
-                <div class="w-full flex-col">
-                    <label>{{__('Item Name')}}</label><span class="text-red-600"> *</span>
+            {{--<div class="inline-flex flex-row mt-5">--}}
+                {{--<div class="w-full flex-col">--}}
+                    {{--<label>{{__('Item Name')}}</label><span class="text-red-600"> *</span>--}}
                     {{--<x-input class="w-full" name="item_id" value="{{ old('item_id') }}" placeholder="{{__('item')}}"/>--}}
-                    <x-select name="item_id" id="item_id" class="input">
-                        @foreach($items as $item )
-                            <option value="{{$item->id}}">{{ $item->name }} </option>
-                        @endforeach
-                    </x-select>
-                </div>
-                <div class="w-1/2 flex-col mr-3">
-                    <label>{{__('Quantity')}}</label>
-                    <x-input type="number" class="input qty" name="quantity" value="1" step="any" required=""/>
-                </div>
+                    {{--<x-select name="item_id" id="item_id" class="input">--}}
+                        {{--@foreach($items as $item )--}}
+                            {{--<option value="{{$item->id}}">{{ $item->name }} </option>--}}
+                        {{--@endforeach--}}
+                    {{--</x-select>--}}
+                {{--</div>--}}
+                {{--<div class="w-1/2 flex-col mr-3">--}}
+                    {{--<label>{{__('Quantity')}}</label>--}}
+                    {{--<x-input type="number" class="input qty" name="quantity" value="1" step="any" required=""/>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+
+
+            <div class="flex-col w-1/2">
+                <label>{{__('Employee Name')}}<span class="text-red-600"> *</span></label>
+
+                <x-select class="ml-4 select  " name="customer_id" id="employees" >
+                    @foreach($employees as $employee)
+                        {{--@dd($customer)--}}
+
+                        <option value="{{$employee->id}}">{{ $employee->full_name }}</option>
+                    @endforeach
+                </x-select>
             </div>
+            <div class="mr-6 flex-col w-1/2">
+                <label>{{__('Customer Name')}}<span class="text-red-600"> *</span></label>
+
+                <x-select class="ml-4 select  " name="employee_id" id="employees" >
+                    @foreach($customers as $customer)
+                        {{--@dd($customer)--}}
+
+                        <option { value="{{$customer->id}}">{{ $customer->full_name }}</option>
+                    @endforeach
+                </x-select>
+            </div>
+    </div>
+
+    {{--</div>--}}
+    <div class="inline-flex flex-row w-full mt-8">
+        <div class="flex-col w-full">
+
+            <label>{{__('Request Pickup Date')}}</label>
+
+            <x-input name="requested_pickup_date" type="text"  class="input"/>
 
 
-            {{--<label>{{__('price')}}<span class="text-red-600"> *</span></label>--}}
+        </div>
+
+        <div class="mr-6 flex-col w-full ">
+            <label>{{__('Request Delivery Date')}}</label>
+
+            <x-input name="requested_delivery_date" type="text"
+                     x-init="$nextTick(() => {new flatpickr($el,{dateFormat: 'Y-m-d'})})"
+                     class="date-range input"/>
+
+        </div>
+    </div>
+
+    <div class="inline-flex flex-row w-full mt-8">
+        <div class=" flex-col w-full">
+
+            <label>{{__('Agent Pickup Date')}}</label>
+            <div class="divUser">
+                <x-input name="agent_pickup_date" type="text"
+                         x-init="$nextTick(() => {new flatpickr($el,{dateFormat: 'Y-m-d'})})"
+                          class="input"/>
+            </div>
+        </div>
+
+        <div class="mr-6 flex-col w-full">
+
+            <label>{{__('Agent Deliver Date')}}</label>
+
+            <x-input name="agent_delivery_date" type="text"  class="input"/>
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+        flatpickr('#requested_pickup_date')
+        flatpickr('#agent_pickup_date')
+        flatpickr('#requested_delivery_date')
+        flatpickr('#agent_delivery_date')
+
+    </script>
+
+
+    <label class="label mt-8">{{__('Payment Method')}}</label>
+    <x-select class=" select " name="payment" id="type"
+              label="{{__('Payment')}}">
+        <option value="1" >{{__('Cash')}}</option>
+        <option value="2" >{{__('Card')}}</option>
+        <option value="2" >{{__('Transfer')}}</option>
+    </x-select>
+
+    <div class="inline-flex flex-row w-full mt-8">
+        <div class="flex-col w-full">
+            <label>{{__('Discount')}}</label>
+
+            <x-input name="discount"  class="input"/>
+
+        </div>
+
+
+        <div class="mr-6 flex-col w-full">
+            <label>{{__('VAT')}}</label>
+            <x-input name="vat"  class="input"/>
+
+        </div>
+
+        <div class="mr-6 flex-col w-full">
+
+            <label>{{__('Total Without VAT')}}</label>
+            <x-input name="without_vat" class="input"/>
+
+        </div>
+
+        <div class="mr-6 flex-col w-full">
+
+            <label>{{__('Total With VAT')}}</label>
+            <x-input name="total"  class="input"/>
+        </div>
+    </div>
+    <div class="flex flex-col mt-8 md:flex-row">
+        <div class="w-full  flex-1">
+            <label class="label">{{__('Order Process')}}</label>
+            <x-select class="ml-4 select" name="process" id="process"
+                      label="{{__('state').' '.__('order')}}">
+                <option value="1" >{{__('Ready for Pickup')}}</option>
+                <option value="2" >{{__('Pickup')}}</option>
+                <option value="3" >{{__('In Laundry')}}</option>
+                <option value="4" >{{__('Ready for delivery')}}</option>
+                <option value="5" >{{__('deliver')}}</option>
+
+            </x-select>
+        </div>
+    </div>
+
+
+    {{--<label>{{__('price')}}<span class="text-red-600"> *</span></label>--}}
             {{--<x-input class="input" name="price" type="text" value="{{ old('price') }}" />--}}
 
 
-
+@include('orders.order-services.order-services')
             <div class="flex mt-3">
                 <button type='submit' class="btn ml-3">{{__('Create')}}</button>
 

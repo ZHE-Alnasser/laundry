@@ -26,6 +26,10 @@ protected static $logFillable = true;
 //        return $this->belongsTo(Item::class);
 //    }
 
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
+    }
 
     public function getSlugOptions() : SlugOptions
     {
