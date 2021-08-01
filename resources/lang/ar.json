@@ -67,6 +67,8 @@
   "Date": "التاريخ",
   "Accountant": "المحاسب",
   "Order Id": "رقم الفاتورة",
-  "Add Row": "إضافة حقل"
-
+  "Add Row": "إضافة حقل",
+  "District Name": "أسم الحي",
+  "Code": "الكود",
+  "Districts": "المناطق"
 }

@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTimeFramesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('time_frames', function (Blueprint $table) {
@@ -20,11 +16,7 @@ class CreateTimeFramesTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('time_frames');

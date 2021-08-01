@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\OrderService;
 use App\Models\Service;
 use App\Models\User;
+use BladeUIKit\Components\DateTime\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -38,24 +39,7 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-//        $data = $this->validate($request, [
-//            'customer_id' => 'required',
-//
-//
-//        ]);
-//        $orders= Order::create($data);
 
-//     $orders->Service()->attach('service_id','item_id');
-
-//        if ($request->serviceOrders) {
-//            foreach ($request->serviceOrders as $major) {
-//
-////                $orders->services()->attach($major['major']);
-//            }
-//        }
-//                return redirect('orders/manage')
-//            ->with('success', 'Your Services has been created successfully');
-//    }
         DB::transaction(function () use ($request) {
 
             $data = $this->validate($request,[
@@ -139,4 +123,6 @@ class OrderController extends Controller
 //      dd($customer);
         return view('orders.reports.invoice', compact('order','employees','customers','orders'));
     }
+
+
 }
