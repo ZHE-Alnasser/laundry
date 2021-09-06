@@ -23,12 +23,12 @@
             <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
                 <div class="lg:visible invisible flex">
 
-                    <li class="nav-item">
-                        <a class="links"
-                           href="{{'/services' }}">
-                            <span class="ml-2">{{ __('Services') }}</span>
-                        </a>
-                    </li>
+                    {{--<li class="nav-item">--}}
+                        {{--<a class="links"--}}
+                           {{--href="{{'/services' }}">--}}
+                            {{--<span class="ml-2">{{ __('Services') }}</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
 
 
                 </div>
