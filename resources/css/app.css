@@ -32,6 +32,12 @@
     h2 {
         @apply text-xl;
     }
+
+    h1,h2,p,a,label, .btn {
+        font-family: 'Tajawal', sans-serif;
+        
+    }
+
 }
 
 .links-color{
