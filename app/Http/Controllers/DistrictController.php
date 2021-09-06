@@ -17,7 +17,7 @@ class DistrictController extends Controller
 
     public function index()
     {
-        //
+        return view('districts.manage');
     }
 
 
