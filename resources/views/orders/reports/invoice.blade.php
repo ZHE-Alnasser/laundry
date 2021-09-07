@@ -23,7 +23,7 @@
                 <h5>{{ __('QR') }}</h5>
                 {{--                     {{QrCode::size(100)->generate('cm:'.$order->id) }}--}}
 
-
+               <div class="qr">
                 @php
                    // $qrText = setting('company_name')."
                     $qrText = 'Name'."
@@ -37,7 +37,7 @@
 
                 @endphp
                 {{QrCode::generate("$qrText")}}
-
+                </div>
             </div>
         @endif
     </div>
@@ -60,6 +60,7 @@
     {{--@dd($order->user,$order->customer)--}}
     <hr>
     <div class="row mt-5">
+       <h1>{{setting('app_name', 'default value')}}</h1>
         <div class="col"><h4>@lang('Order Id'): <b>{{sprintf('%04d',$order->id)}}</b></h4>
 
 

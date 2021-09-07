@@ -2935,13 +2935,21 @@ html {
 	margin-left: auto;
 	margin-right: auto;
 }
-.my-2 {
-	margin-top: 0.5rem;
-	margin-bottom: 0.5rem;
+.my-5 {
+	margin-top: 1.25rem;
+	margin-bottom: 1.25rem;
+}
+.mx-2 {
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
 }
 .mx-10 {
 	margin-left: 2.5rem;
 	margin-right: 2.5rem;
+}
+.my-2 {
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 .my-3 {
 	margin-top: 0.75rem;
@@ -2963,10 +2971,6 @@ html {
 	margin-left: 10rem;
 	margin-right: 10rem;
 }
-.mx-2 {
-	margin-left: 0.5rem;
-	margin-right: 0.5rem;
-}
 .mx-5 {
 	margin-left: 1.25rem;
 	margin-right: 1.25rem;
@@ -2978,14 +2982,6 @@ html {
 .-my-1 {
 	margin-top: -0.25rem;
 	margin-bottom: -0.25rem;
-}
-.my-5 {
-	margin-top: 1.25rem;
-	margin-bottom: 1.25rem;
-}
-.my-1 {
-	margin-top: 0.25rem;
-	margin-bottom: 0.25rem;
 }
 .ml-3 {
 	margin-left: 0.75rem;
@@ -3056,6 +3052,9 @@ html {
 .mb-4 {
 	margin-bottom: 1rem;
 }
+.mb-5 {
+	margin-bottom: 1.25rem;
+}
 .-ml-28 {
 	margin-left: -7rem;
 }
@@ -3080,6 +3079,12 @@ html {
 .mb-2 {
 	margin-bottom: 0.5rem;
 }
+.ml-auto {
+	margin-left: auto;
+}
+.mr-auto {
+	margin-right: auto;
+}
 .mb-1 {
 	margin-bottom: 0.25rem;
 }
@@ -3088,15 +3093,6 @@ html {
 }
 .mt-16 {
 	margin-top: 4rem;
-}
-.ml-auto {
-	margin-left: auto;
-}
-.mb-5 {
-	margin-bottom: 1.25rem;
-}
-.mr-auto {
-	margin-right: auto;
 }
 .mb-10 {
 	margin-bottom: 2.5rem;
@@ -3878,13 +3874,13 @@ html {
 	font-size: 3rem;
 	line-height: 1;
 }
-.text-3xl {
-	font-size: 1.875rem;
-	line-height: 2.25rem;
-}
 .text-4xl {
 	font-size: 2.25rem;
 	line-height: 2.5rem;
+}
+.text-3xl {
+	font-size: 1.875rem;
+	line-height: 2.25rem;
 }
 .font-medium {
 	font-weight: 500;
@@ -4986,6 +4982,10 @@ background-color: white;
     max-width: 80%;
     margin: 20px auto;
 }
+.qr{
+    margin-left: 550px;
+    margin-right: 550px;
+}
 .focus-within\:z-10:focus-within {
 	z-index: 10;
 }
@@ -5530,16 +5530,16 @@ background-color: white;
 		min-height: 100vh;
 	}
 
+	.md\:w-72 {
+		width: 18rem;
+	}
+
 	.md\:w-1\/2 {
 		width: 50%;
 	}
 
 	.md\:w-1\/4 {
 		width: 25%;
-	}
-
-	.md\:w-72 {
-		width: 18rem;
 	}
 
 	.md\:w-64 {
@@ -5625,12 +5625,12 @@ background-color: white;
 		width: auto;
 	}
 
-	.lg\:w-1\/6 {
-		width: 16.666667%;
-	}
-
 	.lg\:w-80 {
 		width: 20rem;
+	}
+
+	.lg\:w-1\/6 {
+		width: 16.666667%;
 	}
 
 	.lg\:flex-row {

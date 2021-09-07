@@ -1,4 +1,4 @@
-<x-tab :name="__('Information')">
+{{--<x-tab :name="__('Information')">--}}
     <div class="flex">
         <x-input name="company_name" :value="setting('company_name')"/>
         <x-input name="company_phone" :value="setting('company_phone')"/>
@@ -34,4 +34,4 @@
         </div>
     </div>
 
-</x-tab>
+{{--</x-tab>--}}

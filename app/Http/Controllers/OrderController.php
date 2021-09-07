@@ -32,8 +32,11 @@ class OrderController extends Controller
         $items=Item::all();
         $customers = User::customer()->get();
         $employees = User::employee()->get();
+        $order=new Order;
+        $serviceOrders=OrderService::all();
+//        dd($serviceOrders);
+        return view ('orders.create', compact('customers','employees','items','services','serviceOrders','order'));
 
-        return view ('orders.create', compact('customers','employees','items','services'));
     }
 
 
@@ -56,27 +59,78 @@ class OrderController extends Controller
             'requested_delivery_date'=>'nullable',
             'agent_pickup_date' =>'nullable',
             'agent_deliver $this->validate($request,y_date'=>'nullable',
-                'item_id.*' => 'required',
-                'service_id.*' => 'required',
-                'quantity.*' => 'required',
-                'amount.*' => 'required',
+//                'item.*' => 'required',
+//                'service.*' => 'required',
+//                'quantity.*' => 'required',
+//                'amount.*' => 'required',
 
         ]);
 
            $order= Order::create($data);
-            $orderServices = [];
-
-
+//            $orderServices = [];
+//
+//
 //                $items = $this->validate($request, [
-//                    'order_id' => 'required',
-//                    'item_id' => 'required',
-//                    'service_id' => 'required',
+////                    'order_id' => 'required',
+//                    'item' => 'required',
+//                    'service' => 'required',
 //                    'quantity' => 'required',
 //                    'amount' => 'required',
 //
 //                ]);
-                        OrderService::insert($orderServices);
+//                        OrderService::insert($orderServices);
 
+
+            if ($request->serviceOrders) {
+                foreach ($request->serviceOrders as $service) {
+
+                    $order->services()->attach($service['service']);
+
+                    $ordersService = OrderService::where('order_id', $order->id)->where('service_id', $service['service'])
+                        ->first();
+                    if ($service['amount']) {
+                        $ordersService->amount()->create(['value' => $service['amount']]);
+                    }
+
+                    if ($service['quantity']) {
+                        $ordersService->quantity()->create(['value' => $service['quantity']]);
+                    }
+                }
+            }
+
+
+//            $this->validate(
+//                $request, [
+//                    'details' => 'nullable',
+//                ]
+//            );
+//            $items = $request->details;
+//        dd($items);
+//        $xx = $x->map(function($item) {
+//
+//            return $item;
+//        });
+
+//        $user->roles()->sync([1 => ['expires' => true], 2, 3]);
+
+
+            // validate the details
+            // i.e. $item->price == $product->selling_price
+//            $formattedDetails = collect($items)->transform(function($item) {
+//                $service = Service::find($item['id']);
+//                $item['price'] = $service->price;
+////                $item['purchasing_price'] = $product->purchasing_price;
+//                $item['service_id'] = $item['id'];
+//                unset($item['order_id']);
+////                unset($item['name']);
+//                unset($item['amount']);
+////                unset($item['total']);
+//                return $item;
+//            });
+//
+//            $order->services()->sync($formattedDetails);
+////
+////
         });
 
         return redirect('orders/manage');
