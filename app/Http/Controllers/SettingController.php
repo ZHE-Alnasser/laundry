@@ -1,13 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
+//namespace QCod\AppSettings\Controllers;
 
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Filesystem\Cache;
+use Illuminate\Routing\Controller;
+use QCod\AppSettings\SavesSettings;
 
 class SettingController extends Controller
+
 {
+
+    use SavesSettings;
 
     public function index()
     {
