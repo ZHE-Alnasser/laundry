@@ -10,19 +10,22 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Builder;
+use App\Traits\T;
 
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Sluggable\HasSlug;
 
 class User extends Authenticatable
 {
+
+    use T;
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-
+    protected $with = ['type'];
     protected $guarded = [];
 
 

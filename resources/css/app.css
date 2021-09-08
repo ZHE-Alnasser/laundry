@@ -48,14 +48,14 @@ background-color: white;
 /*}*/
 .links
 {
-    @apply  lg:px-5 py-3 flex items-center text-base uppercase font-bold  hover:opacity-75;
+    @apply  lg:px-5 py-3 flex items-center text-primary uppercase font-bold  hover:opacity-75;
 }
 .links:focus{
-    color: #2563eb;
+    /*color: #2563eb;*/
     @apply  outline-none text-base-200 ring-offset-2 rounded-lg;
 }
 .links:hover{
-    @apply  text-primary opacity-100  rounded-lg;
+    @apply  text-primary-focus opacity-100  rounded-lg;
 }
 
 
@@ -89,12 +89,12 @@ background-color: white;
 
 .side-items{
     font-weight: 500;
-    @apply flex items-center mt-2 mx-3 py-2 px-8 bg-base-200  font-tajawal border-white text-accent  rounded-lg
+    @apply flex items-center mt-2 mx-3 py-2 px-8 bg-base-200  font-tajawal border-white text-primary  rounded-lg
 }
 
 .side-items:hover {
     --tw-border-opacity: 0.2;
-    @apply bg-base-300 text-accent-focus ;
+    @apply bg-base-300 text-primary-focus;
 }
 .side-items:active{
     @apply  bg-base-300;

@@ -4382,10 +4382,10 @@ background-color: white;
 	align-items: center;
 	padding-top: 0.75rem;
 	padding-bottom: 0.75rem;
-	font-size: 1rem;
-	line-height: 1.5rem;
 	font-weight: 700;
 	text-transform: uppercase;
+	--tw-text-opacity: 1;
+	color: hsla(var(--p) / var(--tw-text-opacity));
 }
 .links:hover {
 	opacity: 0.75;
@@ -4398,7 +4398,7 @@ background-color: white;
 	}
 }
 .links:focus{
-    color: #2563eb;
+    /*color: #2563eb;*/
     border-radius: 0.5rem;
     --tw-text-opacity: 1;
     color: hsla(var(--b2) / var(--tw-text-opacity));
@@ -4409,7 +4409,7 @@ background-color: white;
 .links:hover {
 	border-radius: 0.5rem;
 	--tw-text-opacity: 1;
-	color: hsla(var(--p) / var(--tw-text-opacity));
+	color: hsla(var(--pf) / var(--tw-text-opacity));
 	opacity: 1;
 }
 .btn-outline.btn .badge {
@@ -5136,13 +5136,13 @@ background-color: white;
     padding-right: 2rem;
     font-family: Tajawal, sans-serif;
     --tw-text-opacity: 1;
-    color: hsla(var(--a) / var(--tw-text-opacity))}
+    color: hsla(var(--p) / var(--tw-text-opacity))}
 .side-items:hover {
     --tw-border-opacity: 0.2;
     --tw-bg-opacity: 1;
     background-color: hsla(var(--b3) / var(--tw-bg-opacity));
     --tw-text-opacity: 1;
-    color: hsla(var(--af) / var(--tw-text-opacity));
+    color: hsla(var(--pf) / var(--tw-text-opacity));
 }
 .side-items:active {
 	--tw-bg-opacity: 1;
