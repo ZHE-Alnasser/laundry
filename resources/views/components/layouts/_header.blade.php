@@ -1,4 +1,4 @@
-<nav class="relative flex flex-wrap items-center justify-between bg-white px-2  navbar-expand-lg ">
+<nav class="relative flex flex-wrap items-center justify-between  px-2  navbar-expand-lg ">
 
 
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 ">
