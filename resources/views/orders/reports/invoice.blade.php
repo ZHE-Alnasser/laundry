@@ -68,11 +68,10 @@
 
 
             <div class="col"><p>@lang('Accountant'): <b>{{optional($order->employee)->full_name}}</b></p></div>
-            {{--@dd($order->employee)--}}
+@dd(auth()->user()->id)
             <div class="col"></div>
             {{--@dd($order->employee)--}}
             {{--@dd($order->customer_id)--}}
-
             <div class="col">  <p>@lang('Customer Name'): <b>{{optional($order->customer)->full_name}}</b></p></div>
                 {{--@dd($customer->full_name)--}}
             {{--@dd($order->customer->full_name)--}}

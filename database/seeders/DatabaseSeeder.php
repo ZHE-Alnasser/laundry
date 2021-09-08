@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\District;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CitySeeder::class);
         $this->call(TypeSeeder::class);
         $this->call(DistrictSeeder::class);
+        $this->call(UserSeeder::class);
         \App\Models\User::factory(10)->create();
 
     }

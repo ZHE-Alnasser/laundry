@@ -20,7 +20,7 @@
         <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden
         lg:mt-0 lg:bg-transparent text-black lg:p-0 lg:mr-0 mr-3"
              id="nav-content">
-            <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+            <ul class="flex flex-col lg:flex-row list-none mr-auto">
                 <div class="lg:visible invisible flex">
 
                     {{--<li class="nav-item">--}}
