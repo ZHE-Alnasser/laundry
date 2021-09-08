@@ -75,5 +75,10 @@
   "Cities": "المدن",
   "Save Settings": "حفظ الإعدادات",
   "Settings": "الإعدادات",
-  "VAT Number": "الرقم الضريبي"
+  "VAT Number": "الرقم الضريبي",
+  "Amount": "الإجمالي",
+  "Thank you ..": "شكرا لكم ..",
+  "Total amount without VAT": "الإجمالي بدون ضريبة",
+  "Total VAT": "اجمالي الضريبه",
+  "Total amount with VAT": "الإجمالي مع الضريبة"
 }

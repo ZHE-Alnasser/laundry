@@ -18,7 +18,7 @@
 <div class="bg-white">
 
     <h1 class="text-center">{{setting('app_name', 'default value')}}</h1>
-    <div class="justify-center flex "><p class="px-1">{{__('VAT Number').__(':')}}</p>{{setting('vat', 'default value')}}</div>
+    <div class="vat justify-center flex "><p class="px-1">{{__('VAT Number').__(':')}}</p><p>{{setting('vat', 'default value')}}</p></div>
     <div class="col ">
 
         @if($order->total)
@@ -64,32 +64,32 @@
     <hr>
     <div class="row mt-5">
 
-        <div class="col"><h4>@lang('Order Id'): <b>{{sprintf('%04d',$order->id)}}</b></h4>
+        <div class="col"><p>@lang('Order Id'): <b>{{sprintf('%04d',$order->id)}}</b></p>
 
 
-            <div class="col"><h4>@lang('Accountant'): <b>{{optional($order->employee)->full_name}}</b></h4></div>
+            <div class="col"><p>@lang('Accountant'): <b>{{optional($order->employee)->full_name}}</b></p></div>
             {{--@dd($order->user)--}}
             <div class="col"></div>
             {{--@dd($order->employee)--}}
             {{--@dd($order->customer_id)--}}
 
-            <div class="col">  <h4>@lang('Customer Name'): <b>{{optional($order->customer)->full_name}}</b></h4></div>
+            <div class="col">  <p>@lang('Customer Name'): <b>{{optional($order->customer)->full_name}}</b></p></div>
                 {{--@dd($customer->full_name)--}}
 
 
         </div>
 
         <div class="col">
-            <h4>@lang('Date'): <b>{{$order->created_at}}</b></h4>
+            <p>@lang('Date'): <b>{{$order->created_at}}</b></p>
         </div>
 
     </div>
-    <hr class="my-5">
-    <div class="row">
+    <hr class=" my-5">
+    <div class="mx-auto row">
         <table class="table table-bordered table-condensed using-font col-11 mx-2">
-            <thead class="bg-light">
-            <th>@lang('services')</th>
-            <th>@lang('quantity')</th>
+            <thead class="text-center bg-light">
+            <th>@lang('Services')</th>
+            <th>@lang('Quantity')</th>
             <th>@lang('Amount')</th>
 
             </thead>
@@ -99,11 +99,14 @@
             {{--<td>{{$order->total * $order->quantity}}</td>--}}
             {{--</tr>--}}
             {{--@dd($order->product_order)--}}
+            {{--@dd($order->services)--}}
+
+            {{--@dd($order)--}}
             @foreach($order->services as $item)
-                <tr>
+                <tr class="text-center">
 
                     {{--@dd($item->pivot->selling_price)--}}
-                    {{--@dd($item->pivot->quantity)--}}
+                    {{--@dd($order->services)--}}
                     <td>{{$item->name}} </td> <td>{{$item->pivot->quantity}}</td> <td> {{$item->pivot->amount}}</td>
                 </tr>
 
@@ -112,7 +115,7 @@
 
         </table>
 
-        <table class="table table-bordered table-condensed using-font col-4 mx-2 mt-5">
+        <table class="table text-center table-bordered table-condensed using-font col-4 mx-2 mt-5">
             {{--<thead class="bg-light">--}}
             {{--<th>@lang('الاجمالي')</th>--}}
 
@@ -130,7 +133,7 @@
 
         </table>
         <div class="col-10 col-offset-3 text-center mt-5 ">
-            <h3>@lang('Thank you for shopping')</h3>
+            <p>@lang('Thank you ..')</p>
         </div>
     </div>
     </div>
