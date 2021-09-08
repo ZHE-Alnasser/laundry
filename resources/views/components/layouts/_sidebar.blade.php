@@ -62,7 +62,7 @@
                 <a class="side-items" href="/cities/manage"><i data-feather="map" class="ml-1"></i><span class="side-text">{{__("Cities")}}</span></a>
                 <a class="side-items" href="/districts/manage"><i data-feather="navigation" class="ml-1"></i><span class="side-text">{{__("Districts")}}</span></a>
                 <a class="side-items" href="/types/manage"><i data-feather="type" class="ml-1"></i><span class="side-text">{{__("Types")}}</span></a>
-                <a class="side-items" href="settings"><i data-feather="settings" class="ml-1"></i><span class="side-text">{{__("Settings")}}</span></a>
+                <a class="side-items" href="/settings"><i data-feather="settings" class="ml-1"></i><span class="side-text">{{__("Settings")}}</span></a>
 
             </nav>
 

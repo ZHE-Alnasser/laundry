@@ -16,6 +16,9 @@
 @endpush
 {{--@section('content')--}}
 <div class="bg-white">
+
+    <h1 class="text-center">{{setting('app_name', 'default value')}}</h1>
+    <div class="justify-center flex "><p class="px-1">{{__('VAT Number').__(':')}}</p>{{setting('vat', 'default value')}}</div>
     <div class="col ">
 
         @if($order->total)
@@ -26,13 +29,12 @@
                <div class="qr">
                 @php
                    // $qrText = setting('company_name')."
-                    $qrText = 'Name'."
+                    $qrText = setting('app_name', 'default value')."
                     \nInvoice number: ".$order->id."
-                    \nVAT Number:
+                    \nVAT Number: ".setting('vat', 'default value')."
                     \nInvoice issue date: ".$order->created_at."
                     \nTotal amount with VAT: ".$order->total."
                     \nVAT: ".$order->vat;
-
 
 
                 @endphp
@@ -58,15 +60,15 @@
 
     {{--@dd($order->customer)--}}
     {{--@dd($order->user,$order->customer)--}}
+
     <hr>
     <div class="row mt-5">
-       <h1>{{setting('app_name', 'default value')}}</h1>
+
         <div class="col"><h4>@lang('Order Id'): <b>{{sprintf('%04d',$order->id)}}</b></h4>
 
 
             <div class="col"><h4>@lang('Accountant'): <b>{{optional($order->employee)->full_name}}</b></h4></div>
-                {{--@dd($employee->full_name)--}}
-
+            {{--@dd($order->user)--}}
             <div class="col"></div>
             {{--@dd($order->employee)--}}
             {{--@dd($order->customer_id)--}}

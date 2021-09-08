@@ -55,6 +55,22 @@ return [
                     'placeholder' => 'Email from Name',
                 ]
             ]
+        ],
+'vat' => [
+            'title' => 'VAT Settings',
+            'descriptions' => 'Company VAT Number.',
+            'icon' => 'fa fa-envelope',
+
+            'inputs' => [
+                [
+                    'name' => 'vat',
+                    'type' => 'number',
+                    'label' => 'VAT Number',
+                    'placeholder' => 'Application VAT Number',
+//                    'rules' => 'required|vat',
+                ],
+
+            ]
         ]
     ],
 
