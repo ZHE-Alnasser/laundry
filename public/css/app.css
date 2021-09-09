@@ -3278,6 +3278,9 @@ html {
 .-mt-px {
 	margin-top: -1px;
 }
+.mb-2 {
+	margin-bottom: 0.5rem;
+}
 .mr-1 {
 	margin-right: 0.25rem;
 }
@@ -3286,9 +3289,6 @@ html {
 }
 .mr-auto {
 	margin-right: auto;
-}
-.mb-2 {
-	margin-bottom: 0.5rem;
 }
 .mb-0 {
 	margin-bottom: 0px;
@@ -4415,6 +4415,9 @@ html {
     }
 
 }
+div#nav-content {
+    justify-content: end;
+}
 .navbar-expand-lg{
     background: #0caef8;
 }
@@ -5208,11 +5211,15 @@ html {
 }
 .side-items:hover {
 	--tw-border-opacity: 1;
-	border-color: rgba(55, 65, 81, var(--tw-border-opacity));
+	border-color: rgba(75, 85, 99, var(--tw-border-opacity));
 	--tw-bg-opacity: 1;
 	background-color: rgba(191, 219, 254, var(--tw-bg-opacity));
 	--tw-text-opacity: 1;
-	color: rgba(55, 65, 81, var(--tw-text-opacity));
+	color: rgba(75, 85, 99, var(--tw-text-opacity));
+}
+.side-text {
+	padding-left: 0.25rem;
+	padding-right: 0.25rem;
 }
 .row {
     max-width: 80%;

@@ -39,6 +39,9 @@
     }
 
 }
+div#nav-content {
+    justify-content: end;
+}
 .navbar-expand-lg{
     background: #0caef8;
 }
@@ -110,7 +113,11 @@
 }
 .side-items:hover{
 
-    @apply bg-blue-200 text-gray-700 border-gray-700;
+    @apply bg-blue-200 text-gray-600 border-gray-600;
+}
+
+.side-text{
+    @apply px-1;
 }
 .row {
     max-width: 80%;

@@ -42,7 +42,7 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+//        dd($request);
 
         DB::transaction(function () use ($request) {
 
@@ -59,44 +59,48 @@ class OrderController extends Controller
             'requested_delivery_date'=>'nullable',
             'agent_pickup_date' =>'nullable',
             'agent_deliver $this->validate($request,y_date'=>'nullable',
-//                'item.*' => 'required',
-//                'service.*' => 'required',
+//                'item_id' => 'required',
+//                'service_id.*' => 'required',
 //                'quantity.*' => 'required',
 //                'amount.*' => 'required',
 
         ]);
 
            $order= Order::create($data);
+           $order->save();
+
+           $order->service()->attach($services);
 //            $orderServices = [];
 //
 //
 //                $items = $this->validate($request, [
 ////                    'order_id' => 'required',
-//                    'item' => 'required',
-//                    'service' => 'required',
+//                    'item_id' => 'required',
+//                    'service_id' => 'required',
 //                    'quantity' => 'required',
 //                    'amount' => 'required',
 //
 //                ]);
 //                        OrderService::insert($orderServices);
+//            $orderServices = OrderService::insert($items);
 
 
-            if ($request->serviceOrders) {
-                foreach ($request->serviceOrders as $service) {
-
-                    $order->services()->attach($service['service']);
-
-                    $ordersService = OrderService::where('order_id', $order->id)->where('service_id', $service['service'])
-                        ->first();
-                    if ($service['amount']) {
-                        $ordersService->amount()->create(['value' => $service['amount']]);
-                    }
-
-                    if ($service['quantity']) {
-                        $ordersService->quantity()->create(['value' => $service['quantity']]);
-                    }
-                }
-            }
+//            if ($request->serviceOrders) {
+//                foreach ($request->serviceOrders as $service) {
+//
+//                    $order->services()->attach($service['service']);
+//
+//                    $ordersService = OrderService::where('order_id', $order->id)->where('service_id', $service['service'])
+//                        ->first();
+//                    if ($service['amount']) {
+//                        $ordersService->amount()->create(['value' => $service['amount']]);
+//                    }
+//
+//                    if ($service['quantity']) {
+//                        $ordersService->quantity()->create(['value' => $service['quantity']]);
+//                    }
+//                }
+//            }
 
 
 //            $this->validate(

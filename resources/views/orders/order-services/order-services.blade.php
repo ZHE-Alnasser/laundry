@@ -27,8 +27,8 @@
                     <td x-text="index + 1"></td>
                     <td>
                         <select x-model="field.service" type="text"
-                                {{--name="service_id[]" --}}
-                                x-bind:name="`serviceOrders[${field.id}][service]`"
+                                name="service_id"
+                                {{--x-bind:name="`serviceOrders[${field.id}][service]`"--}}
                                 class="input">
                         @foreach(\App\Models\Service::all() as $service)
                                 <option value="{{$service->id}}" >{{$service->name}}</option>
@@ -36,8 +36,8 @@
                         </select>
                     </td>
                     <td> <select x-model=field.item" type="text"
-                                 {{--name="item_id[]" --}}
-                                 x-bind:name="`serviceOrders[${field.id}][item]`"
+                                 name="item_id"
+                                 {{--x-bind:name="`serviceOrders[${field.id}][item]`"--}}
 
                                  class="input">
                             @foreach(\App\Models\Item::all() as $item)
