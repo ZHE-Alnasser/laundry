@@ -2,7 +2,7 @@
 
 
 <x-layouts.admin>
-    <a class="btn inline-flex justify-center items-center" href="{{"/users/create"}}">
+    <a class="btn inline-flex mb-2 justify-center items-center" href="{{"/users/create"}}">
         <svg class="w-6 h-6 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
              class="feather feather-plus-square">
