@@ -42,11 +42,12 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-//        dd($request);
+        dd($request);
+//
+//        DB::transaction(function () use ($request) {
 
-        DB::transaction(function () use ($request) {
-
-            $data = $this->validate($request,[
+//            $data = $this->validate($request,[
+        $data = request()->validate([
             'without_vat'=> 'required',
             'total' => 'required',
             'vat' => 'required',
@@ -58,8 +59,8 @@ class OrderController extends Controller
             'requested_pickup_date' =>'nullable',
             'requested_delivery_date'=>'nullable',
             'agent_pickup_date' =>'nullable',
-            'agent_deliver $this->validate($request,y_date'=>'nullable',
-//                'item_id' => 'required',
+//            'agent_deliver $this->validate($request,y_date'=>'nullable',
+//           +     'item_id' => 'required',
 //                'service_id.*' => 'required',
 //                'quantity.*' => 'required',
 //                'amount.*' => 'required',
@@ -67,9 +68,9 @@ class OrderController extends Controller
         ]);
 
            $order= Order::create($data);
-           $order->save();
+//           $order->save();
 
-           $order->service()->attach($services);
+//           $order->services()->attach($service['service']);
 //            $orderServices = [];
 //
 //
@@ -85,22 +86,25 @@ class OrderController extends Controller
 //            $orderServices = OrderService::insert($items);
 
 
-//            if ($request->serviceOrders) {
-//                foreach ($request->serviceOrders as $service) {
-//
-//                    $order->services()->attach($service['service']);
-//
-//                    $ordersService = OrderService::where('order_id', $order->id)->where('service_id', $service['service'])
-//                        ->first();
-//                    if ($service['amount']) {
-//                        $ordersService->amount()->create(['value' => $service['amount']]);
-//                    }
-//
-//                    if ($service['quantity']) {
-//                        $ordersService->quantity()->create(['value' => $service['quantity']]);
-//                    }
-//                }
-//            }
+//            dd($request->serviceOrders);
+
+            if ($request->serviceOrders) {
+                foreach ($request->serviceOrders as $service) {
+
+                    $order->services()->attach($service['service']);
+
+                    $ordersService = OrderService::where('order_id', $order->id)
+                        ->where('service_id', $service['service'])
+                        ->first();
+                    if ($service['amount']) {
+                        $ordersService->amount()->create(['value' => $service['amount']]);
+                    }
+
+                    if ($service['quantity']) {
+                        $ordersService->quantity()->create(['value' => $service['quantity']]);
+                    }
+                }
+            }
 
 
 //            $this->validate(
@@ -135,7 +139,7 @@ class OrderController extends Controller
 //            $order->services()->sync($formattedDetails);
 ////
 ////
-        });
+//        });
 
         return redirect('orders/manage');
     }

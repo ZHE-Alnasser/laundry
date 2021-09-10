@@ -39,6 +39,10 @@
     }
 
 }
+
+svg{
+    display: inline-block;
+}
 div#nav-content {
     justify-content: end;
 }
@@ -113,7 +117,7 @@ div#nav-content {
 }
 .side-items:hover{
 
-    @apply bg-blue-200 text-gray-600 border-gray-600;
+    @apply bg-blue-200 text-gray-500 border-gray-500;
 }
 
 .side-text{

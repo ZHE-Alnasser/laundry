@@ -11,4 +11,4 @@
 </script>
 
 @livewireScripts
-{{--@stack('scripts')--}}
+@stack('scripts')

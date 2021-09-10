@@ -1,6 +1,6 @@
 {{--<x-form action="{{url('orders')}}" method="post" has-files>--}}
 
-<div class="row" x-data="handler">
+<div class="row" x-data="handler()">
     <div class="col">
         <table class="table table-bordered align-items-center table-sm" id="order_services">
             <thead class="thead-light">
@@ -18,16 +18,20 @@
 
             {{--</template>--}}
             <tbody>
-            <form action="/orders" method="post">
-                @csrf
+            {{--<form action="/orders" method="post">--}}
+                {{--@csrf--}}
             <template x-for="(field, index) in fields" :key="index">
+
                 <tr>
                     {{--<td >1</td>--}}
-                    {{--<td><input x-model="field.id" type="text" name="order_id[]" value="{{}}" class="input"></td>--}}
+                    {{--<td><input x-model="field.id" type="text" name="order_id[]" value="#" class="input"></td>--}}
+                    {{--<input type="hidden"  x-model="field.id"/>--}}
+
                     <td x-text="index + 1"></td>
                     <td>
-                        <select x-model="field.service" type="text"
-                                name="service_id"
+                        <select x-model="field.service_id" type="text"
+                                name="service_id[]"
+                                {{--x-bind:name="`serviceOrders[${field.id}]['service_id']`"--}}
                                 {{--x-bind:name="`serviceOrders[${field.id}][service]`"--}}
                                 class="input">
                         @foreach(\App\Models\Service::all() as $service)
@@ -35,8 +39,12 @@
                             @endforeach
                         </select>
                     </td>
-                    <td> <select x-model=field.item" type="text"
-                                 name="item_id"
+                    <td> <select x-model=field.item_id" type="text"
+
+
+                                 name="item_id[]"
+                                 {{--x-bind:name="`serviceOrders[${field.id}]['item_id']`"--}}
+
                                  {{--x-bind:name="`serviceOrders[${field.id}][item]`"--}}
 
                                  class="input">
@@ -45,12 +53,13 @@
                             @endforeach
                         </select></td>
                     <td><input x-model="field.quantity" type="text"
-                               {{--name="quantity[]" --}}
-                               x-bind:name="`serviceOrders[${field.id}][quantity]`"
+                               name="quantity[]"
+
+                               {{--x-bind:name="`serviceOrders[1][quantity]`"--}}
                                class="input"></td>
                     <td><input x-model="field.amount" type="text"
-                               {{--name="amount[]" --}}
-                               x-bind:name="`serviceOrders[${field.id}][amount]`"
+                               name="amount[]"
+                               {{--x-bind:name="`serviceOrders[1][amount]`"--}}
                                class="input"></td>
                     <td><button type="button" class=" btn-delete" @click="removeField(index)">&times;</button></td>
 
@@ -69,58 +78,81 @@
         </table>
     </div>
 </div>
-<script>
-    document.addEventListener('alpine:init', () => {
-        Alpine.data('handler', () => ({
-            fields: [
-                @php
-                if($order->services)
-                $index=0;
-                foreach ($serviceOrders as $service)
-                {
-                $amount = $service->amount;
-                $quantity = $service->quantity;
-                echo  "{id: $index,amount: '$amount',quantity: '$quantity' ,order:'$order'},";
-                $index++;
-                }
-           @endphp
-            ],
 
-    {{--function handler() {--}}
-        {{--return {--}}
-            {{--id: '{{count($serviceOrders)}}',--}}
-            {{--serviceName: '',--}}
-            {{--itemName: '',--}}
-            {{--amount: '',--}}
-            {{--quantity: '',--}}
-            // fields: [
+
+{{--@push('scripts')--}}
+
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.js" type="text/javascript"></script>
+<script>
+    // document.addEventListener('alpine:init', () => {
+    //     Alpine.data('handler', () => ({
+    //         fields: [
                 {{--@php--}}
-                    {{--if($ser->majors)--}}
+                {{--if($order->services)--}}
+                {{--$index=0;--}}
+                {{--foreach ($serviceOrders as $service)--}}
+                {{--{--}}
+                {{--$amount = $service->amount;--}}
+                {{--$quantity = $service->quantity;--}}
+                {{--echo  "{id: $index,amount: '$amount',quantity: '$quantity' ,order:'$order'},";--}}
+                {{--$index++;--}}
+                {{--}--}}
+           {{--@endphp--}}
+           //  ],
+
+{{--//  --}}
+            {{--fields: [--}}
+                {{--@php--}}
+                    {{--if($order->services)--}}
     {{--$index=0;--}}
-    {{--foreach ($universityMajors as $major)--}}
+    {{--foreach ($serviceOrders as $service)--}}
     {{--{--}}
-        {{--$cost = optional($major->cost()->whereUniversityId($university->id)->first())->value;--}}
-        {{--$description = optional($major->info()->whereUniversityId($university->id)->first())->value;--}}
-      {{--echo  "{id: $index,cost: '$cost',description: '$description' ,major: '$major->id'},";--}}
+        {{--$amount = optional($service->amount()->whereOrderId($order->id)->first())->value;--}}
+        {{--$quantity = optional($service->quantity()->whereOrderId($order->id)->first())->value;--}}
+      {{--echo  "{id: $index,amount: '$amount',quantity: '$quantity' ,service: '$service->id'},";--}}
    {{--$index++;--}}
     {{--}--}}
 
                 {{--@endphp--}}
-                // {txt1: 'hi', txt2: 'hello'}
+                {{--// {txt1: 'hi', txt2: 'hello'}--}}
             // ],
+    //         addNewField() {
+    //             this.fields.push({
+    //                 // id: this.id++,
+    //                 service_id: '',
+    //                 item_id: '',
+    //                 quantity: '',
+    //                 amount: ''
+    //             });
+    //         },
+    //         removeField(index) {
+    //             this.fields.splice(index, 1);
+    //         }
+    //     // }
+    //     // }}
+    //     }))
+    //
+    // })
+
+
+   function handler() {
+       return {
+            fields: [],
             addNewField() {
                 this.fields.push({
-                    // id: this.id++,
                     service: '',
                     item: '',
-                    quantity:'',
+                    quantity: '',
                     amount:''
+
                 });
             },
             removeField(index) {
                 this.fields.splice(index, 1);
             }
-        }))
-    })
+        }
+    }
 </script>
 {{--</x-form>--}}
+
+

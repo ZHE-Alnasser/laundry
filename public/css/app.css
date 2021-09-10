@@ -530,7 +530,7 @@ audio,
 iframe,
 embed,
 object {
-  /*display: block; !* 1 *!*/
+  display: block; /* 1 */
   vertical-align: middle; /* 2 */
 }
 
@@ -3287,14 +3287,14 @@ html {
 .mt-0 {
 	margin-top: 0px;
 }
-.mr-auto {
-	margin-right: auto;
-}
 .mb-0 {
 	margin-bottom: 0px;
 }
 .ml-auto {
 	margin-left: auto;
+}
+.mr-auto {
+	margin-right: auto;
 }
 .mb-1 {
 	margin-bottom: 0.25rem;
@@ -4415,6 +4415,9 @@ html {
     }
 
 }
+svg{
+    display: inline-block;
+}
 div#nav-content {
     justify-content: end;
 }
@@ -5211,11 +5214,11 @@ div#nav-content {
 }
 .side-items:hover {
 	--tw-border-opacity: 1;
-	border-color: rgba(75, 85, 99, var(--tw-border-opacity));
+	border-color: rgba(107, 114, 128, var(--tw-border-opacity));
 	--tw-bg-opacity: 1;
 	background-color: rgba(191, 219, 254, var(--tw-bg-opacity));
 	--tw-text-opacity: 1;
-	color: rgba(75, 85, 99, var(--tw-text-opacity));
+	color: rgba(107, 114, 128, var(--tw-text-opacity));
 }
 .side-text {
 	padding-left: 0.25rem;
