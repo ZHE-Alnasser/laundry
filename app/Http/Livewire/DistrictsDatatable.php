@@ -27,8 +27,8 @@ class DistrictsDatatable extends LivewireDatatable
         return [
             NumberColumn::name('id'),
 
-            Column::name('name')->searchable(),
-            Column::name('code')->searchable(),
+            Column::name('name')->label(__('Name'))->searchable(),
+            Column::name('code')->label(__('Code'))->searchable(),
             Column::name('city.name')->label(__('City'))->truncate()->searchable(),
 
 

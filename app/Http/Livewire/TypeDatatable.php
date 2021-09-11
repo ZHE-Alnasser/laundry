@@ -26,7 +26,7 @@ class TypeDatatable extends LivewireDatatable
 return [
 NumberColumn::name('id'),
 
-Column::name('name')->searchable(),
+Column::name('name')->label(__('Name'))->searchable(),
 
 
 

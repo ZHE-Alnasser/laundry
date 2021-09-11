@@ -26,7 +26,7 @@ class CitiesDatatable extends LivewireDatatable
         return [
             NumberColumn::name('id'),
 
-            Column::name('name')->searchable(),
+            Column::name('name')->searchable()->label(__('Name')),
 
 
 

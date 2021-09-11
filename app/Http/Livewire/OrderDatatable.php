@@ -43,15 +43,15 @@ class OrderDatatable extends LivewireDatatable
                 return optional(User::find($user))->full_name;
             })->label(__('Employee Name'))->searchable(),
 
-            Column::name('discount')->searchable(),
-            Column::name('vat')->searchable(),
-            Column::name('without_vat')->searchable(),
-            Column::name('total')->searchable(),
+            Column::name('discount')->label(__('Discount'))->searchable(),
+            Column::name('vat')->label(__('VAT'))->searchable(),
+            Column::name('without_vat')->label(__('Total amount without VAT'))->searchable(),
+            Column::name('total')->label(__('Total amount with VAT'))->searchable(),
             Column::callback(['process'], function ($process) {
                 return __('process_'.$process);
-            })->searchable()->label(__('Order State')),
+            })->searchable()->label(__('Process')),
 
-            DateColumn::name('created_at')->searchable(),
+            DateColumn::name('created_at')->label(__('Created at'))->searchable(),
 
             Column::callback(['id'], function ($id) {
                 return view('components\table-actions', ['url' => url("orders/$id"), 'model' => 'Orders', 'id' => $id]);
