@@ -1,6 +1,6 @@
 {{--<x-form action="{{url('orders')}}" method="post" has-files>--}}
-
-<div class="row" x-data="handler()">
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" type="text/javascript"></script>
+<div class="row" x-data="handler()" >
     <div class="col">
         <table class="table table-bordered align-items-center table-sm" id="order_services">
             <thead class="thead-light">
@@ -21,17 +21,19 @@
             {{--<form action="/orders" method="post">--}}
                 {{--@csrf--}}
             <template x-for="(field, index) in fields" :key="index">
-
                 <tr>
+                    <td x-text="index + 1"></td>
+                    <input type="hidden"  x-model="field.id"/>
+
                     {{--<td >1</td>--}}
                     {{--<td><input x-model="field.id" type="text" name="order_id[]" value="#" class="input"></td>--}}
                     {{--<input type="hidden"  x-model="field.id"/>--}}
 
-                    <td x-text="index + 1"></td>
+                    {{--<td x-text="index + 1"></td>--}}
                     <td>
                         <select x-model="field.service_id" type="text"
-                                name="service_id[]"
-                                {{--x-bind:name="`serviceOrders[${field.id}]['service_id']`"--}}
+                                {{--name="service_id"--}}
+                                x-bind:name="`serviceOrders[${field.id}]['service_id']`"
                                 {{--x-bind:name="`serviceOrders[${field.id}][service]`"--}}
                                 class="input">
                         @foreach(\App\Models\Service::all() as $service)
@@ -42,8 +44,8 @@
                     <td> <select x-model=field.item_id" type="text"
 
 
-                                 name="item_id[]"
-                                 {{--x-bind:name="`serviceOrders[${field.id}]['item_id']`"--}}
+                                 {{--name="item_id"--}}
+                                 x-bind:name="`serviceOrders[${field.id}]['item_id']`"
 
                                  {{--x-bind:name="`serviceOrders[${field.id}][item]`"--}}
 
@@ -53,17 +55,17 @@
                             @endforeach
                         </select></td>
                     <td><input x-model="field.quantity" type="text"
-                               name="quantity[]"
+                               {{--name="quantity"--}}
 
-                               {{--x-bind:name="`serviceOrders[1][quantity]`"--}}
+                               x-bind:name="`serviceOrders[1][quantity]`"
                                class="input"></td>
                     <td><input x-model="field.amount" type="text"
-                               name="amount[]"
-                               {{--x-bind:name="`serviceOrders[1][amount]`"--}}
+                               {{--name="amount"--}}
+                               x-bind:name="`serviceOrders[1][amount]`"
                                class="input"></td>
                     <td><button type="button" class=" btn-delete" @click="removeField(index)">&times;</button></td>
 
-                </tr>
+                {{--</tr>--}}
             </template>
                 <button>Submit</button>
             </form>
@@ -82,7 +84,6 @@
 
 {{--@push('scripts')--}}
 
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.js" type="text/javascript"></script>
 <script>
     // document.addEventListener('alpine:init', () => {
     //     Alpine.data('handler', () => ({
@@ -137,11 +138,31 @@
 
    function handler() {
        return {
-            fields: [],
+           id: '{{count($serviceOrders)}}',
+           serviceName: '',
+           itemName: '',
+           amountName: '',
+           quantityName: '',
+
+            fields: [
+                @php
+                if($order->services)
+                $index=0;
+                foreach ($serviceOrders as $service)
+                {
+                $amount = 2;
+                $quantity = 3;
+                echo  "{id: $index,amount: '$amount',quantity: '$quantity' ,service: '$service->id'},";
+                $index++;
+                }
+
+                @endphp
+            ],
             addNewField() {
                 this.fields.push({
-                    service: '',
-                    item: '',
+                    id: this.id++,
+                    service_id: '',
+                    item_id: '',
                     quantity: '',
                     amount:''
 

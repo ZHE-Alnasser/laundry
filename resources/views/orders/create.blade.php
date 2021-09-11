@@ -46,10 +46,11 @@
             {{--</div>--}}
 
 
+<div class="flex">
             <div class="flex-col w-1/2">
                 <label>{{__('Employee Name')}}<span class="text-red-600"> *</span></label>
 
-                <x-select class="ml-4 select  " name="customer_id" id="employees" >
+                <x-select class="ml-4 select  " name="customer_id" id="customer" >
                     @foreach($employees as $employee)
                         {{--@dd($customer)--}}
 
@@ -68,8 +69,20 @@
                     @endforeach
                 </x-select>
             </div>
-    </div>
+</div>
+            <div class="mt-8">
+            <p>{{__('Time Period')}} :</p>
 
+                <div class="flex mt-2">
+                    <div class="mx-auto">
+            <input type="radio" id="morning" name="time_frame_id" class="text-blue-400 border-blue-400" value="0">
+            <label for="time_frame_id1">{{__('Morning Period')}}</label></div>
+                    <div class="mx-2 mt-1">
+            <input type="radio" id="evening" name="time_frame_id" class="text-blue-400 border-blue-400" value="1"></div>
+
+            <label for="time_frame_id2">{{__('Evening Period')}}</label>
+                </div>
+            </div>
     {{--</div>--}}
     <div class="inline-flex flex-row w-full mt-8">
         <div class="flex-col w-full">
@@ -108,6 +121,16 @@
 
             <x-input name="agent_delivery_date" type="text"  class="input"/>
 
+
+            {{--<x-input--}}
+                    {{--name="serviceOrders[1]['service_id']"--}}
+                    {{--type="text"  class="input"/>--}}
+            {{--<input name="serviceOrders[{1}]['order_id']" type="number"  class="input"/>--}}
+            {{--<input name="serviceOrders[{1}][{1}]['service_id']" type="number"  class="input"/>--}}
+            {{--<x-input name="serviceOrders[{1}][{1}]['item_id']" type="number"  class="input"/>--}}
+            {{--<x-input name="serviceOrders[{1}][{1}]['quantity']`" type="number"  class="input"/>--}}
+            {{--<x-input name="serviceOrders[{1}][{1}]['amount']`" type="number"  class="input"/>--}}
+
         </div>
 
 
@@ -128,35 +151,35 @@
               label="{{__('Payment')}}">
         <option value="1" >{{__('Cash')}}</option>
         <option value="2" >{{__('Card')}}</option>
-        <option value="2" >{{__('Transfer')}}</option>
+        <option value="3" >{{__('Transfer')}}</option>
     </x-select>
 
     <div class="inline-flex flex-row w-full mt-8">
         <div class="flex-col w-full">
             <label>{{__('Discount')}}</label>
 
-            <x-input name="discount"  class="input"/>
+            <x-input type="number" name="discount"  class="input"/>
 
         </div>
 
 
         <div class="mr-6 flex-col w-full">
             <label>{{__('VAT')}}</label>
-            <x-input name="vat"  class="input"/>
+            <x-input type="number"  name="vat"  class="input"/>
 
         </div>
 
         <div class="mr-6 flex-col w-full">
 
             <label>{{__('Total Without VAT')}}</label>
-            <x-input name="without_vat" class="input"/>
+            <x-input type="number"  name="without_vat" class="input"/>
 
         </div>
 
         <div class="mr-6 flex-col w-full">
 
             <label>{{__('Total With VAT')}}</label>
-            <x-input name="total"  class="input"/>
+            <x-input type="number" name="total"  class="input"/>
         </div>
     </div>
     <div class="flex flex-col mt-8 md:flex-row">
@@ -173,7 +196,9 @@
             </x-select>
         </div>
     </div>
-
+    {{--<label>{{__('Pick Up Time Frame')}}</label>--}}
+     {{--<p>{{__('please Indicate the time in hour between 7 and 21')}}</p>--}}
+    {{--<x-input type="number" name="time"  class="input"/>--}}
 
     {{--<label>{{__('price')}}<span class="text-red-600"> *</span></label>--}}
             {{--<x-input class="input" name="price" type="text" value="{{ old('price') }}" />--}}
@@ -186,8 +211,10 @@
                 <input type="button" class="btn-cancel"
                        name="cancel" value="{{__('Cancel')}}" onClick="window.location.replace('/services/manage')"/>
             </div>
-        </x-form>
+
+
+
+    </x-form>
     </div>
 </x-layouts.admin>
-
 

@@ -82,5 +82,10 @@
   "Total VAT": "اجمالي الضريبه",
   "Total amount with VAT": "الإجمالي مع الضريبة",
   "Created at": "تاريخ الإنشاء",
-  "Process": "العملية"
+  "Process": "العملية",
+  "time_0": "الفترة الصباحية",
+  "time_1": "الفترة المسائية",
+  "Time Period": "الفترة",
+  "Morning Period":"الفترة الصباحية",
+  "Evening Period": "الفترة المسائية"
 }

@@ -2747,6 +2747,33 @@ html {
 	--tw-border-opacity: 1;
 	border-color: hsla(var(--b1)/var(--tw-border-opacity,1));
 }
+.radio-primary~.radio-mark {
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--p)/var(--tw-border-opacity,1));
+}
+.radio-primary~.radio-mark:hover {
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--p)/var(--tw-border-opacity,1));
+}
+.radio-primary:hover~.radio-mark:before {
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--p)/var(--tw-border-opacity,1));
+}
+.radio-primary:checked:focus-visible~.radio-mark,.radio-primary:checked:hover:focus-visible~.radio-mark,.radio-primary:focus-visible~.radio-mark {
+	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--p));
+}
+.radio-primary:checked:hover~.radio-mark,.radio-primary:checked~.radio-mark {
+	--tw-bg-opacity: 1;
+	background-color: hsla(var(--p)/var(--tw-bg-opacity,1));
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--p)/var(--tw-border-opacity,1));
+	--tw-text-opacity: 1;
+	color: hsla(var(--pc)/var(--tw-text-opacity,1));
+}
+.radio-primary:checked:hover~.radio-mark:before,.radio-primary:checked~.radio-mark:before {
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--pc)/var(--tw-border-opacity,1));
+}
 .radio[disabled]:hover~.radio-mark,.radio[disabled]~.radio-mark {
 	--tw-bg-opacity: 1;
 	--tw-bg-opacity: 0.2;

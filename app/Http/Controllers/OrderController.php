@@ -10,7 +10,7 @@ use App\Models\User;
 use BladeUIKit\Components\DateTime\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Validation\Validator;
 class OrderController extends Controller
 {
 
@@ -42,7 +42,7 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+//        dd($request);
 //
 //        DB::transaction(function () use ($request) {
 
@@ -59,6 +59,8 @@ class OrderController extends Controller
             'requested_pickup_date' =>'nullable',
             'requested_delivery_date'=>'nullable',
             'agent_pickup_date' =>'nullable',
+//            'time' => ['required','integer','between:7,21'],
+            'time_frame_id'=>'required'
 //            'agent_deliver $this->validate($request,y_date'=>'nullable',
 //           +     'item_id' => 'required',
 //                'service_id.*' => 'required',
@@ -67,10 +69,25 @@ class OrderController extends Controller
 
         ]);
 
+//  dd($data);
+
            $order= Order::create($data);
+//
+//          $service = $this->validate($request, [
+//                   'order_id' => 'required',
+//                    'item_id' => 'required',
+//                    'service_id' => 'required',
+//                    'quantity' => 'required',
+//                    'amount' => 'required',
+////
+//                ]);
+//
+////         dd($service);
+//           $order->services()->attach($service);
+//
 //           $order->save();
 
-//           $order->services()->attach($service['service']);
+
 //            $orderServices = [];
 //
 //
@@ -83,26 +100,27 @@ class OrderController extends Controller
 //
 //                ]);
 //                        OrderService::insert($orderServices);
-//            $orderServices = OrderService::insert($items);
-
+////            $orderServices = OrderService::insert($items);
+//
 
 //            dd($request->serviceOrders);
-
+//
             if ($request->serviceOrders) {
                 foreach ($request->serviceOrders as $service) {
 
-                    $order->services()->attach($service['service']);
+                    $order->services()->attach($service);
 
                     $ordersService = OrderService::where('order_id', $order->id)
                         ->where('service_id', $service['service'])
+                        ->where('item_id',$service['item_id'])
                         ->first();
-                    if ($service['amount']) {
-                        $ordersService->amount()->create(['value' => $service['amount']]);
-                    }
+//                    if ($service['amount']) {
+//                        $ordersService->amount()->create(['value' => $service['amount']]);
+//                    }
 
-                    if ($service['quantity']) {
-                        $ordersService->quantity()->create(['value' => $service['quantity']]);
-                    }
+//                    if ($service['quantity']) {
+//                        $ordersService->quantity()->create(['value' => $service['quantity']]);
+//                    }
                 }
             }
 
@@ -112,18 +130,21 @@ class OrderController extends Controller
 //                    'details' => 'nullable',
 //                ]
 //            );
-//            $items = $request->details;
-//        dd($items);
-//        $xx = $x->map(function($item) {
+////            $items = $request->details;
+//        $items = json_decode($request->details,true);
 //
-//            return $item;
-//        });
-
-//        $user->roles()->sync([1 => ['expires' => true], 2, 3]);
-
-
-            // validate the details
-            // i.e. $item->price == $product->selling_price
+//        dd($items);
+//
+////        $xx = $x->map(function($item) {
+//
+////            return $item;
+////        });
+//
+////        $user->roles()->sync([1 => ['expires' => true], 2, 3]);
+//
+//
+////             validate the details
+////             i.e. $item->price == $product->selling_price
 //            $formattedDetails = collect($items)->transform(function($item) {
 //                $service = Service::find($item['id']);
 //                $item['price'] = $service->price;

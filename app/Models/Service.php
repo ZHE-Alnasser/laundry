@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 class Service extends Model
 {
     use HasFactory,HasSlug;
@@ -14,21 +15,15 @@ protected static $logFillable = true;
     protected $guarded = [];
 
     protected static $logAttributes = [
-        'items.name',
+//        'items.name',
         'name',
         'price',
     ];
-//    protected $fillable = [
-//        'name','item_id','price'
-//    ];
-//    public function item()
-//    {
-//        return $this->belongsTo(Item::class);
-//    }
-
     public function orders()
     {
-        return $this->belongsToMany(Order::class);
+        return $this->belongsToMany(Order::class)
+//        (Order::class,'order_service','order_id','service_id','item_id','quantity','amount');
+            ->withPivot('order_id','service_id','item_id','quantity','amount');
     }
 
     public function getSlugOptions() : SlugOptions

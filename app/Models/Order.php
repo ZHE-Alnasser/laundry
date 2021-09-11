@@ -5,17 +5,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\T;
+use Spatie\Activitylog\Traits\LogsActivity;
+
 class Order extends Model
 {
     use T;
     use HasFactory;
+//    use LogsActivity;
 
     protected $guarded = [];
-
+//    protected static $logFillable = true;
+//    protected $fillable = [
+//        'vat',
+//        'without_vat',
+//        'total',
+//
+//    ];
 // protected $with = ['type'];
-    public function Services()
+    public function services()
     {
-        return $this->belongsToMany(Service::class)->withPivot('order_id','service_id','item_id','quantity','amount');
+        return $this->belongsToMany(Service::class)
+//        (Service::class,'order_service','order_id','service_id','item_id','quantity','amount');
+            ->withPivot('order_id','service_id','item_id','quantity','amount');
     }
 
     public function time_frame()

@@ -21,8 +21,10 @@
         "laravel/ui": "^3.3",
         "livewire/livewire": "^2.5",
         "mediconesystems/livewire-datatables": "^0.5.1",
+        "nesbot/carbon": "^2.53",
         "qcod/laravel-app-settings": "^1.4",
         "simplesoftwareio/simple-qrcode": "^4.2",
+        "spatie/laravel-activitylog": "^3.17",
         "spatie/laravel-medialibrary": "^9.6",
         "spatie/laravel-sluggable": "^2.6"
     },
