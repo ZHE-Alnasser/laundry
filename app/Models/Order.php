@@ -24,9 +24,9 @@ class Order extends Model
 // protected $with = ['type'];
     public function services()
     {
-        return $this->belongsToMany(Service::class)
+        return $this->belongsToMany(Service::class)->withPivot('order_id','service_id','item_id','quantity','amount');
+
 //        (Service::class,'order_service','order_id','service_id','item_id','quantity','amount');
-            ->withPivot('order_id','service_id','item_id','quantity','amount');
     }
 
     public function time_frame()

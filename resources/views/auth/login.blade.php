@@ -2,7 +2,7 @@
     <x-jet-authentication-card>
         <x-slot name="logo">
             {{--<x-jet-authentication-card-logo />--}}
-          <img  src="{{setting('logo','logo')}}">
+          {{--<img  src="{{setting('logo','logo')}}">--}}
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -18,12 +18,12 @@
             <div class="text-right pt-3">
             <div>
                 <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-input id="email" class="block mt-1 w-full input" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                <x-input id="password" class="block  mt-1 w-full input" type="password" name="password" required autocomplete="current-password" />
             </div>
 
             <div class="block  mt-4">
@@ -40,9 +40,9 @@
                     </a>
                 @endif
 
-                <x-jet-button class="ml-4">
+                <x-button class="btn rounded-lg ml-4">
                     {{ __('Log in') }}
-                </x-jet-button>
+                </x-button>
             </div>
             </div>
         </form>

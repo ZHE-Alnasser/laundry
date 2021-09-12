@@ -14,14 +14,14 @@ class OrderService extends pivot
     protected $table = 'order_service';
     use HasFactory, LogsActivity;
 
-    protected static $logFillable = true;
-    protected $fillable = [
-        'order_id',
-        'service_id',
-        'item_id',
-        'amount',
-        'quantity'
-    ];
+//    protected static $logFillable = true;
+//    protected $fillable = [
+//        'order_id',
+//        'service_id',
+//        'item_id',
+//        'amount',
+//        'quantity'
+//    ];
 
 //    public function amount()
 //    {

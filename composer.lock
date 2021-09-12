@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3837730e63c608f401fab1c0b0fd38cb",
+    "content-hash": "21d5530e4d2f41e2d5ff65ebedaf5ac4",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4365,16 +4365,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "9.6.4",
+            "version": "9.7.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "bf4ffa83b1dce3a095b852da4a0ab00b68dd1b5e"
+                "reference": "41fa9dd7578c41194d2661d678304c558824c365"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/bf4ffa83b1dce3a095b852da4a0ab00b68dd1b5e",
-                "reference": "bf4ffa83b1dce3a095b852da4a0ab00b68dd1b5e",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/41fa9dd7578c41194d2661d678304c558824c365",
+                "reference": "41fa9dd7578c41194d2661d678304c558824c365",
                 "shasum": ""
             },
             "require": {
@@ -4389,7 +4389,7 @@
                 "league/flysystem": "^1.0.64",
                 "maennchen/zipstream-php": "^1.0|^2.0",
                 "php": "^7.4|^8.0",
-                "spatie/image": "^1.4.0",
+                "spatie/image": "^1.4",
                 "spatie/temporary-directory": "^1.1|^2.0",
                 "symfony/console": "^4.4|^5.0"
             },
@@ -4398,14 +4398,15 @@
             },
             "require-dev": {
                 "aws/aws-sdk-php": "^3.133.11",
-                "doctrine/dbal": "^2.5.2",
+                "doctrine/dbal": "^2.12",
                 "ext-pdo_sqlite": "*",
                 "ext-zip": "*",
-                "guzzlehttp/guzzle": "^6.3|^7.0",
+                "guzzlehttp/guzzle": "^7.0",
                 "league/flysystem-aws-s3-v3": "^1.0.23",
-                "mockery/mockery": "^1.3",
+                "mockery/mockery": "^1.4",
                 "orchestra/testbench": "^5.0|^6.0",
-                "phpunit/phpunit": "^9.1",
+                "phpunit/phpunit": "^9.3",
+                "spatie/laravel-ray": "^1.24",
                 "spatie/pdf-to-image": "^2.0",
                 "spatie/phpunit-snapshot-assertions": "^4.0"
             },
@@ -4453,7 +4454,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-medialibrary/issues",
-                "source": "https://github.com/spatie/laravel-medialibrary/tree/9.6.4"
+                "source": "https://github.com/spatie/laravel-medialibrary/tree/9.7.4"
             },
             "funding": [
                 {
@@ -4465,7 +4466,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-06-23T19:42:07+00:00"
+            "time": "2021-09-10T07:31:02+00:00"
         },
         {
             "name": "spatie/laravel-sluggable",
