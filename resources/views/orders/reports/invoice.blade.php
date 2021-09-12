@@ -67,8 +67,8 @@
         <div class="col"><p>@lang('Order Id'): <b>{{sprintf('%04d',$order->id)}}</b></p>
 
 
-            {{--<div class="col"><p>@lang('Accountant'): <b>{{optional($order->employee)->full_name}}</b></p></div>--}}
-            <div class="col"><p>@lang('Accountant'): <b>{{auth()->user()->full_name}}</b></p></div>
+            <div class="col"><p>@lang('Accountant'): <b>{{optional($order->employee)->full_name}}</b></p></div>
+            {{--<div class="col"><p>@lang('Accountant'): <b>{{auth()->user()->full_name}}</b></p></div>--}}
 {{--@dd(auth()->user()->id)--}}
             <div class="col"></div>
             {{--@dd($order->employee)--}}

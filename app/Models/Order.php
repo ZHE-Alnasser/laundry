@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\T;
@@ -34,20 +35,20 @@ class Order extends Model
         return $this->belongsTo(TimeFrame::class);
     }
 
-//    public function customer()
-//    {
-//        return $this->belongsTo(User::class, 'customer_id')
-//            ->whereHas('type',function (Builder $qry) {
-//                $qry->where('name', 'Customer');
-//            });
-//
-//    }
+    public function customer()
+    {
+        return $this->belongsTo(User::class, 'customer_id')
+            ->whereHas('type',function (Builder $qry) {
+                $qry->where('name', 'Customer');
+            });
 
-//    public function employee()
-//    {
-//        return $this->belongsTo(User::class, 'employee_id')->whereHas('type', function (Builder $qry) {
-//            $qry->where('name', 'Employee');
-//        });
-////            ->where('type', 'Employee');
-//    }
+    }
+
+    public function employee()
+    {
+        return $this->belongsTo(User::class, 'employee_id')->whereHas('type', function (Builder $qry) {
+            $qry->where('name', 'Employee');
+        });
+//            ->where('type', 'Employee');
+    }
 }
