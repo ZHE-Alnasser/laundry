@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Validator;
 class OrderController extends Controller
 {
+    function __construct()
+    {
 
+        $this->middleware('auth');
+    }
     public function manage()
     {
         return view('orders.manage');

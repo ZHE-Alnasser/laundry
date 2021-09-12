@@ -9,7 +9,11 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+    function __construct()
+    {
 
+        $this->middleware('auth');
+    }
     public function index()
     {
        $services =Service::all();

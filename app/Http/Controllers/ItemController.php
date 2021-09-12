@@ -8,7 +8,11 @@ use Illuminate\Http\Request;
 class ItemController extends Controller
 {
 
+    function __construct()
+    {
 
+        $this->middleware('auth');
+    }
     public function manage()
     {
         return view('items.manage');

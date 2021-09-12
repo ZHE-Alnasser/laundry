@@ -21,7 +21,9 @@ class HomeController extends Controller
     }
     public function index()
     {
-
+        $firstName = auth()->user()->first_name;
+        $lastName = auth()->user()->last_name;
+        return view('/dashboard', compact('firstName', 'lastName'));
     }
 
 

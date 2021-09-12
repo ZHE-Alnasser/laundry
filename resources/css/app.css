@@ -39,7 +39,9 @@
     }
 
 }
-
+body{
+    text-align: start !important;
+}
 svg{
     display: inline-block;
 }
@@ -77,6 +79,9 @@ div#nav-content {
 }
 .btn-cancel{
     @apply btn btn-outline btn-secondary;
+}
+.btn-error{
+    @apply btn btn-error;
 }
 .select-bordered {
     --tw-border-opacity: 1;

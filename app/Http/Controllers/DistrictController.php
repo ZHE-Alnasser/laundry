@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class DistrictController extends Controller
 {
+    function __construct()
+    {
+
+        $this->middleware('auth');
+    }
 
 
     public function manage()

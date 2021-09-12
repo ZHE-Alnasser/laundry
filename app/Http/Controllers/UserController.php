@@ -24,7 +24,11 @@ class UserController extends Controller
 
     use PasswordValidationRules;
 
+    function __construct()
+    {
 
+        $this->middleware('auth');
+    }
     public function manage()
     {
         return view('users/manage');

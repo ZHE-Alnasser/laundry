@@ -12,7 +12,11 @@ use QCod\AppSettings\SavesSettings;
 class SettingController extends Controller
 
 {
+    function __construct()
+    {
 
+        $this->middleware('auth');
+    }
     use SavesSettings;
 
     public function index()

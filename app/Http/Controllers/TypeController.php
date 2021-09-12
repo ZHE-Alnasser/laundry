@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 
 class TypeController extends Controller
 {
+    function __construct()
+    {
 
+        $this->middleware('auth');
+    }
     public function manage()
     {
         return view('types.manage');

@@ -74,13 +74,14 @@
             <p>{{__('Time Period')}} :</p>
 
                 <div class="flex mt-2">
-                    <div class="mx-auto">
-            <input type="radio" id="morning" name="time_frame_id" class="text-blue-400 border-blue-400" value="0">
+<div class="flex">
+            <input type="radio" id="morning" name="time_frame_id" class="text-blue-400 border-blue-400 mx-2 mt-1"" value="0">
             <label for="time_frame_id1">{{__('Morning Period')}}</label></div>
-                    <div class="mx-2 mt-1">
+
+                    <div class="mx-auto flex"><div class="mx-2 mt-1">
             <input type="radio" id="evening" name="time_frame_id" class="text-blue-400 border-blue-400" value="1"></div>
 
-            <label for="time_frame_id2">{{__('Evening Period')}}</label>
+            <label for="time_frame_id2">{{__('Evening Period')}}</label></div>
                 </div>
             </div>
     {{--</div>--}}

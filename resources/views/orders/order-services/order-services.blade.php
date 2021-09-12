@@ -2,7 +2,7 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" type="text/javascript"></script>
 <div class="row" x-data="handler()" >
     <div class="col">
-        <table class="table table-bordered align-items-center table-sm" id="order_services">
+        <table class="table table-bordered center text-center align-items-center table-sm" id="order_services">
             <thead class="thead-light">
             <tr>
                 <th>#</th>
@@ -10,7 +10,7 @@
                 <th>{{__('Items')}}</th>
                 <th>{{__('Quantity')}}</th>
                 <th>{{__('Amount')}}</th>
-                <th>Remove</th>
+                <th>{{__('Remove')}}</th>
             </tr>
             </thead>
 
@@ -63,7 +63,7 @@
                                {{--name="amount"--}}
                                x-bind:name="`serviceOrders[1][amount]`"
                                class="input"></td>
-                    <td><button type="button" class=" btn-delete" @click="removeField(index)">&times;</button></td>
+                    <td><button type="button" class="  bg-red-600 w-full p-2 rounded-full hover:bg-red-700" @click="removeField(index)">&times;</button></td>
 
                 {{--</tr>--}}
             </template>
