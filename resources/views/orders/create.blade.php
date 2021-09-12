@@ -75,7 +75,7 @@
 
                 <div class="flex mt-2">
 <div class="flex">
-            <input type="radio" id="morning" name="time_frame_id" class="text-blue-400 border-blue-400 mx-2 mt-1"" value="0">
+            <input type="radio" id="morning" name="time_frame_id" class="text-blue-400 border-blue-400 mx-2 mt-1" value="0">
             <label for="time_frame_id1">{{__('Morning Period')}}</label></div>
 
                     <div class="mx-auto flex"><div class="mx-2 mt-1">
@@ -90,8 +90,10 @@
 
             <label>{{__('Request Pickup Date')}}</label>
 
-            <x-input name="requested_pickup_date" type="text"  class="input"/>
-
+            {{--<x-input name="requested_pickup_date" type="text"  class="input"/>--}}
+            <x-input name="requested_pickup_date" type="text"
+                     x-init="$nextTick(() => {new flatpickr($el,{dateFormat: 'Y-m-d'})})"
+                     class="date-range input"/>
 
         </div>
 
@@ -120,7 +122,10 @@
 
             <label>{{__('Agent Deliver Date')}}</label>
 
-            <x-input name="agent_delivery_date" type="text"  class="input"/>
+            {{--<x-input name="agent_delivery_date" type="text"  class="input"/>--}}
+            <x-input name="agent_delivery_date" type="text"
+                     x-init="$nextTick(() => {new flatpickr($el,{dateFormat: 'Y-m-d'})})"
+                     class="input"/>
 
 
             {{--<x-input--}}
@@ -138,13 +143,13 @@
     </div>
 
 
-    <script>
-        flatpickr('#requested_pickup_date')
-        flatpickr('#agent_pickup_date')
-        flatpickr('#requested_delivery_date')
-        flatpickr('#agent_delivery_date')
+    {{--<script>--}}
+        {{--flatpickr('#requested_pickup_date')--}}
+        {{--flatpickr('#agent_pickup_date')--}}
+        {{--flatpickr('#requested_delivery_date')--}}
+        {{--flatpickr('#agent_delivery_date')--}}
 
-    </script>
+    {{--</script>--}}
 
 
     <label class="label mt-8">{{__('Payment Method')}}</label>
@@ -205,7 +210,7 @@
             {{--<x-input class="input" name="price" type="text" value="{{ old('price') }}" />--}}
 
 
-@include('orders.order-services.order-services')
+@include('orders.services')
             <div class="flex mt-3">
                 <button type='submit' class="btn ml-3">{{__('Create')}}</button>
 

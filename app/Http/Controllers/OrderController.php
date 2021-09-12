@@ -46,55 +46,55 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-//        dd($request);
+        dd($request);
 //
 //        DB::transaction(function () use ($request) {
 
 //            $data = $this->validate($request,[
-        $data = request()->validate([
-            'without_vat'=> 'required',
-            'total' => 'required',
-            'vat' => 'required',
-            'customer_id' =>'nullable',
-            'employee_id' => 'required',
-            'discount' =>'nullable',
-            'payment'=>'required',
-            'process'=>'required',
-            'requested_pickup_date' =>'nullable',
-            'requested_delivery_date'=>'nullable',
-            'agent_pickup_date' =>'nullable',
+            $data = request()->validate([
+                'without_vat' => 'required',
+                'total' => 'required',
+                'vat' => 'required',
+                'customer_id' => 'nullable',
+                'employee_id' => 'required',
+                'discount' => 'nullable',
+                'payment' => 'required',
+                'process' => 'required',
+                'requested_pickup_date' => 'nullable',
+                'requested_delivery_date' => 'nullable',
+                'agent_pickup_date' => 'nullable',
 //            'time' => ['required','integer','between:7,21'],
-            'time_frame_id'=>'required'
+                'time_frame_id' => 'required',
 //            'agent_deliver $this->validate($request,y_date'=>'nullable',
-//           +     'item_id' => 'required',
+//                'item_id.*' => 'required',
 //                'service_id.*' => 'required',
 //                'quantity.*' => 'required',
 //                'amount.*' => 'required',
 
-        ]);
+            ]);
 
 //  dd($data);
 
            $order= Order::create($data);
 //
 //          $service = $this->validate($request, [
-//                   'order_id' => 'required',
-//                    'item_id' => 'required',
-//                    'service_id' => 'required',
-//                    'quantity' => 'required',
-//                    'amount' => 'required',
+//                   'order_id' => 'nullable',
+//                    'item_id' => 'nullable',
+//                    'service_id' => 'nullable',
+//                    'quantity' => 'nullable',
+//                    'amount' => 'nullable',
 ////
-//                ]);
+////                ]);
 //
 ////         dd($service);
 //           $order->services()->attach($service);
-//
+//});
 //           $order->save();
 
 
 //            $orderServices = [];
 //
-//
+//       foreach ($order->services as $productId => $item) {
 //                $items = $this->validate($request, [
 ////                    'order_id' => 'required',
 //                    'item_id' => 'required',
@@ -104,18 +104,18 @@ class OrderController extends Controller
 //
 //                ]);
 //                        OrderService::insert($orderServices);
-////            $orderServices = OrderService::insert($items);
-//
+//            $orderServices = OrderService::insert($items);
+////
 
 //            dd($request->serviceOrders);
-//
+////
             if ($request->serviceOrders) {
                 foreach ($request->serviceOrders as $service) {
 
-                    $order->services()->attach($service);
+                    $order->services()->attach($service['service']);
 
                     $ordersService = OrderService::where('order_id', $order->id)
-                        ->where('service_id', $service['service'])
+                        ->where('service_id', $service['service_id'])
                         ->where('item_id',$service['item_id'])
                         ->first();
 //                    if ($service['amount']) {
@@ -129,41 +129,41 @@ class OrderController extends Controller
             }
 
 
-//            $this->validate(
-//                $request, [
-//                    'details' => 'nullable',
-//                ]
-//            );
-////            $items = $request->details;
-//        $items = json_decode($request->details,true);
-//
+            $this->validate(
+                $request, [
+                    'details' => 'nullable',
+                ]
+            );
+//            $items = $request->details;
+        $items = json_decode($request->details,true);
+
 //        dd($items);
+
+//        $xx = $x->map(function($item) {
+
+//            return $item;
+//        });
+
+//        $user->roles()->sync([1 => ['expires' => true], 2, 3]);
+
+
+//             validate the details
+//             i.e. $item->price == $product->selling_price
+            $formattedDetails = collect($items)->transform(function($item) {
+                $service = Service::find($item['id']);
+                $item['price'] = $service->price;
+//                $item['purchasing_price'] = $product->purchasing_price;
+                $item['service_id'] = $item['id'];
+                unset($item['order_id']);
+//                unset($item['name']);
+                unset($item['amount']);
+//                unset($item['total']);
+                return $item;
+            });
+
+            $order->services()->sync($formattedDetails);
 //
-////        $xx = $x->map(function($item) {
 //
-////            return $item;
-////        });
-//
-////        $user->roles()->sync([1 => ['expires' => true], 2, 3]);
-//
-//
-////             validate the details
-////             i.e. $item->price == $product->selling_price
-//            $formattedDetails = collect($items)->transform(function($item) {
-//                $service = Service::find($item['id']);
-//                $item['price'] = $service->price;
-////                $item['purchasing_price'] = $product->purchasing_price;
-//                $item['service_id'] = $item['id'];
-//                unset($item['order_id']);
-////                unset($item['name']);
-//                unset($item['amount']);
-////                unset($item['total']);
-//                return $item;
-//            });
-//
-//            $order->services()->sync($formattedDetails);
-////
-////
 //        });
 
         return redirect('orders/manage');

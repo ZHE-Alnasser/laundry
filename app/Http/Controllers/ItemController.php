@@ -61,8 +61,8 @@ class ItemController extends Controller
     {
         $item->update($request->all());
         if ($request->hasFile('image')) {
-            $item->media()->delete($this);
-            $item>addMediaFromRequest('image')->toMediaCollection('items');
+            $item->media()->delete();
+            $item->addMediaFromRequest('image')->toMediaCollection('items');
         }
         return redirect('items/manage');
 

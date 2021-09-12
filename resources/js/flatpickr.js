@@ -1,13 +1,17 @@
-import flatpckr from "flatpickr";
-flatpckr('.flatpickr.js-flatpickr-dateTime',{
-    dateFormat: 'Y-m-d'
-});
+// import flatpckr from "flatpickr";
+// flatpckr('.flatpickr.js-flatpickr-dateTime',{
+//     dateFormat: 'Y-m-d'
+// });
+//
+// let options = {
+//     mode: "range",
+//     dateFormat: "Y-m-d"
+// };
+//
+//
+// flatpckr('.date-range',options);
 
-let options = {
-    mode: "range",
-    dateFormat: "Y-m-d"
-};
+import flatpickr from "flatpickr";
 
-
-flatpckr('.date-range',options);
-
+window.flatpickr = flatpickr;
+//

@@ -1,8 +1,8 @@
 {{--<x-form action="{{url('orders')}}" method="post" has-files>--}}
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" type="text/javascript"></script>
-<div class="row" x-data="handler()" >
+{{--<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" type="text/javascript"></script>--}}
+<div class="row">
     <div class="col">
-        <table class="table table-bordered center text-center align-items-center table-sm" id="order_services">
+        <table class="table table-bordered center text-center align-items-center table-sm" id="order_service">
             <thead class="thead-light">
             <tr>
                 <th>#</th>
@@ -19,11 +19,13 @@
             {{--</template>--}}
             <tbody>
             {{--<form action="/orders" method="post">--}}
-                {{--@csrf--}}
+            {{--@csrf--}}
+            <div  x-data="handler()">
             <template x-for="(field, index) in fields" :key="index">
+
                 <tr>
                     <td x-text="index + 1"></td>
-                    <input type="hidden"  x-model="field.id"/>
+                    <input type="hidden" x-model="field.id"/>
 
                     {{--<td >1</td>--}}
                     {{--<td><input x-model="field.id" type="text" name="order_id[]" value="#" class="input"></td>--}}
@@ -36,45 +38,52 @@
                                 x-bind:name="`serviceOrders[${field.id}]['service_id']`"
                                 {{--x-bind:name="`serviceOrders[${field.id}][service]`"--}}
                                 class="input">
-                        @foreach(\App\Models\Service::all() as $service)
-                                <option value="{{$service->id}}" >{{$service->name}}</option>
+                            @foreach(\App\Models\Service::all() as $service)
+                                <option value="{{$service->id}}">{{$service->name}}</option>
                             @endforeach
                         </select>
                     </td>
-                    <td> <select x-model=field.item_id" type="text"
+                    <td><select x-model=field.item_id" type="text"
 
 
-                                 {{--name="item_id"--}}
-                                 x-bind:name="`serviceOrders[${field.id}]['item_id']`"
+                                {{--name="item_id"--}}
+                                x-bind:name="`serviceOrders[${field.id}]['item_id']`"
 
-                                 {{--x-bind:name="`serviceOrders[${field.id}][item]`"--}}
+                                {{--x-bind:name="`serviceOrders[${field.id}][item]`"--}}
 
-                                 class="input">
+                                class="input">
                             @foreach(\App\Models\Item::all() as $item)
-                                <option value="{{$item->id}}" >{{$item->name}}</option>
+                                <option value="{{$item->id}}">{{$item->name}}</option>
                             @endforeach
                         </select></td>
                     <td><input x-model="field.quantity" type="text"
                                {{--name="quantity"--}}
 
-                               x-bind:name="`serviceOrders[1][quantity]`"
+                               x-bind:name="`serviceOrders[${field.id}]['quantity']`"
                                class="input"></td>
                     <td><input x-model="field.amount" type="text"
                                {{--name="amount"--}}
-                               x-bind:name="`serviceOrders[1][amount]`"
+                               x-bind:name="`serviceOrders[${field.id}]['amount']`"
                                class="input"></td>
-                    <td><button type="button" class="  bg-red-600 w-full p-2 rounded-full hover:bg-red-700" @click="removeField(index)">&times;</button></td>
+                    <td>
+                        <button type="button" class="  bg-red-600 w-full p-2 rounded-full hover:bg-red-700"
+                                @click="removeField(index)">&times;
+                        </button>
+                    </td>
 
-                {{--</tr>--}}
+                </tr>
             </template>
-                <button>Submit</button>
+            </div>
+            {{--<button>Submit</button>--}}
             </form>
             </tbody>
             {{--<tfoot>--}}
 
             {{--</x-form>--}}
             <tr>
-                <td colspan="4" class="text-right"><button type="button" class="btn" @click="addNewField()">+ {{__('Add Row')}}</button></td>
+                <td colspan="4" class="text-right">
+                    <button type="button" class="btn" @click="addNewField()">+ {{__('Add Row')}}</button>
+                </td>
             </tr>
             {{--</tfoot>--}}
         </table>
@@ -88,35 +97,35 @@
     // document.addEventListener('alpine:init', () => {
     //     Alpine.data('handler', () => ({
     //         fields: [
-                {{--@php--}}
-                {{--if($order->services)--}}
-                {{--$index=0;--}}
-                {{--foreach ($serviceOrders as $service)--}}
-                {{--{--}}
-                {{--$amount = $service->amount;--}}
-                {{--$quantity = $service->quantity;--}}
-                {{--echo  "{id: $index,amount: '$amount',quantity: '$quantity' ,order:'$order'},";--}}
-                {{--$index++;--}}
-                {{--}--}}
-           {{--@endphp--}}
-           //  ],
-
-{{--//  --}}
-            {{--fields: [--}}
-                {{--@php--}}
-                    {{--if($order->services)--}}
+    {{--@php--}}
+    {{--if($order->services)--}}
     {{--$index=0;--}}
     {{--foreach ($serviceOrders as $service)--}}
     {{--{--}}
-        {{--$amount = optional($service->amount()->whereOrderId($order->id)->first())->value;--}}
-        {{--$quantity = optional($service->quantity()->whereOrderId($order->id)->first())->value;--}}
-      {{--echo  "{id: $index,amount: '$amount',quantity: '$quantity' ,service: '$service->id'},";--}}
-   {{--$index++;--}}
+    {{--$amount = $service->amount;--}}
+    {{--$quantity = $service->quantity;--}}
+    {{--echo  "{id: $index,amount: '$amount',quantity: '$quantity' ,order:'$order'},";--}}
+    {{--$index++;--}}
+    {{--}--}}
+    {{--@endphp--}}
+    //  ],
+
+    {{--//  --}}
+    {{--fields: [--}}
+    {{--@php--}}
+    {{--if($order->services)--}}
+    {{--$index=0;--}}
+    {{--foreach ($serviceOrders as $service)--}}
+    {{--{--}}
+    {{--$amount = optional($service->amount()->whereOrderId($order->id)->first())->value;--}}
+    {{--$quantity = optional($service->quantity()->whereOrderId($order->id)->first())->value;--}}
+    {{--echo  "{id: $index,amount: '$amount',quantity: '$quantity' ,service: '$service->id'},";--}}
+    {{--$index++;--}}
     {{--}--}}
 
-                {{--@endphp--}}
-                {{--// {txt1: 'hi', txt2: 'hello'}--}}
-            // ],
+    {{--@endphp--}}
+    {{--// {txt1: 'hi', txt2: 'hello'}--}}
+    // ],
     //         addNewField() {
     //             this.fields.push({
     //                 // id: this.id++,
@@ -136,25 +145,31 @@
     // })
 
 
-   function handler() {
-       return {
-           id: '{{count($serviceOrders)}}',
-           serviceName: '',
-           itemName: '',
-           amountName: '',
-           quantityName: '',
-
+    function handler() {
+        return {
+            id: '{{count($serviceOrders)}}',
+            serviceName: '',
+            itemName: '',
+            amountName: '',
+            quantityName: '',
+            field: {
+                id: 1,
+                service_id: '',
+                item_id: '',
+                quantity: '',
+                amount: ''
+            },
             fields: [
                 @php
-                if($order->services)
-                $index=0;
-                foreach ($serviceOrders as $service)
-                {
-                $amount = 2;
-                $quantity = 3;
-                echo  "{id: $index,amount: '$amount',quantity: '$quantity' ,service: '$service->id'},";
-                $index++;
-                }
+                    if($order->services)
+                    $index=0;
+                    foreach ($serviceOrders as $service)
+                    {
+                    $amount = 2;
+                    $quantity = 3;
+                    echo  "{id: $index,amount: '$amount',quantity: '$quantity' ,service: '$service->id'},";
+                    $index++;
+                    }
 
                 @endphp
             ],
@@ -164,7 +179,7 @@
                     service_id: '',
                     item_id: '',
                     quantity: '',
-                    amount:''
+                    amount: ''
 
                 });
             },

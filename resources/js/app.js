@@ -11,3 +11,5 @@ window.Alpine = Alpine;
 Alpine.start();
 
 
+import "./flatpickr";
+// window.flatpckr = flatpckr;
