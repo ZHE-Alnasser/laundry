@@ -88,5 +88,7 @@
   "Time Period": "الفترة",
   "Morning Period":"الفترة الصباحية",
   "Evening Period": "الفترة المسائية",
-  "Remove": "إزالة"
+  "Remove": "إزالة",
+  "Time Frame Name":"اسم الإطار الزمني",
+  "Time Frames": "الإطار الزمني"
 }

@@ -35,6 +35,9 @@ Route::resource('cities', App\Http\Controllers\CityController::class);
 Route::get('/districts/manage', [App\Http\Controllers\DistrictController::class, 'manage'])->name('/districts.manage');
 Route::resource('districts', App\Http\Controllers\DistrictController::class);
 
+Route::get('/timeframes/manage', [App\Http\Controllers\TimeFrameController::class, 'manage'])->name('/time-frames.manage');
+Route::resource('timeframes', App\Http\Controllers\TimeFrameController::class);
+
 Route::get('/orders/manage', [App\Http\Controllers\OrderController::class, 'manage'])->name('/orders.manage');
 Route::resource('orders', App\Http\Controllers\OrderController::class);
 Route::get('orders/reports/invoice/{order}', [App\Http\Controllers\OrderController::class, 'invoice']);

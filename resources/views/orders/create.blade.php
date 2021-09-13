@@ -71,20 +71,15 @@
             </div>
 </div>
             <div class="mt-8">
-            <p>{{__('Time Period')}} :</p>
+            <p>{{__('Time Frame')}} :<span class="text-red-600"> *</span></p>
+                <x-select class="ml-4 select  " name="employee_id" id="employees" >
+                    @foreach($timeframes as $time)
+                        {{--@dd($customer)--}}
 
-                <div class="flex mt-2">
-<div class="flex">
-            <input type="radio" id="morning" name="time_frame_id" class="text-blue-400 border-blue-400 mx-2 mt-1" value="0">
-            <label for="time_frame_id1">{{__('Morning Period')}}</label></div>
-
-                    <div class="mx-auto flex"><div class="mx-2 mt-1">
-            <input type="radio" id="evening" name="time_frame_id" class="text-blue-400 border-blue-400" value="1"></div>
-
-            <label for="time_frame_id2">{{__('Evening Period')}}</label></div>
-                </div>
+                        <option { value="{{$time->id}}">{{ $time->name }}</option>
+                    @endforeach
+                </x-select>
             </div>
-    {{--</div>--}}
     <div class="inline-flex flex-row w-full mt-8">
         <div class="flex-col w-full">
 

@@ -9,9 +9,9 @@ class TimeFrame extends Model
 {
     use HasFactory;
 
-
-    public function order()
-    {
-        return $this->hasMany(Order::class);
-    }
+    protected $guarded = [];
+//    public function order()
+//    {
+//        return $this->hasMany(Order::class);
+//    }
 }

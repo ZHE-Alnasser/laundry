@@ -6,6 +6,7 @@ use App\Models\Item;
 use App\Models\Order;
 use App\Models\OrderService;
 use App\Models\Service;
+use App\Models\TimeFrame;
 use App\Models\User;
 use BladeUIKit\Components\DateTime\Carbon;
 use Illuminate\Http\Request;
@@ -38,8 +39,10 @@ class OrderController extends Controller
         $employees = User::employee()->get();
         $order=new Order;
         $serviceOrders=OrderService::all();
+        $timeframes=TimeFrame::all();
 //        dd($serviceOrders);
-        return view ('orders.create', compact('customers','employees','items','services','serviceOrders','order'));
+        return view ('orders.create', compact('customers','employees','items','services','serviceOrders',
+            'order', 'timeframes'));
 
     }
 
