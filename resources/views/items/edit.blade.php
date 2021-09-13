@@ -16,7 +16,7 @@
                         </div>
                     </div>
 
-                        <div class="field text-right mx-10 ">
+                        <div class="field text-right mx-10 mt-5">
 
                                 @if($item->hasMedia('items') )
                                     <div class="object-cover mb-5 ">
