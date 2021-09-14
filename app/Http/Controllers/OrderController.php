@@ -9,9 +9,12 @@ use App\Models\Service;
 use App\Models\TimeFrame;
 use App\Models\User;
 use BladeUIKit\Components\DateTime\Carbon;
+use BladeUIKit\Components\Forms\Inputs\Input;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Validator;
+//use Symfony\Component\Console\Input\Input;
+
 class OrderController extends Controller
 {
     function __construct()
@@ -49,8 +52,8 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
-//
+//        dd($request);
+//$service = Input::get('services');
 //        DB::transaction(function () use ($request) {
 
 //            $data = $this->validate($request,[
@@ -79,19 +82,19 @@ class OrderController extends Controller
 //  dd($data);
 
            $order= Order::create($data);
+////        $order->save();
+          $service = $this->validate($request, [
+                   'order_id' => 'nullable',
+                    'item_id' => 'nullable',
+                    'service_id' => 'nullable',
+                    'quantity' => 'nullable',
+                    'amount' => 'nullable',
 //
-//          $service = $this->validate($request, [
-//                   'order_id' => 'nullable',
-//                    'item_id' => 'nullable',
-//                    'service_id' => 'nullable',
-//                    'quantity' => 'nullable',
-//                    'amount' => 'nullable',
-////
-////                ]);
+                ]);
 //
 ////         dd($service);
-//           $order->services()->attach($service);
-//});
+           $order->services()->attach($service);
+////});
 //           $order->save();
 
 
@@ -112,25 +115,25 @@ class OrderController extends Controller
 
 //            dd($request->serviceOrders);
 ////
-            if ($request->serviceOrders) {
-                foreach ($request->serviceOrders as $service) {
-
-                    $order->services()->attach($service['service']);
-
-                    $ordersService = OrderService::where('order_id', $order->id)
-                        ->where('service_id', $service['service_id'])
-                        ->where('item_id',$service['item_id'])
-                        ->first();
-//                    if ($service['amount']) {
-//                        $ordersService->amount()->create(['value' => $service['amount']]);
-//                    }
-
-//                    if ($service['quantity']) {
-//                        $ordersService->quantity()->create(['value' => $service['quantity']]);
-//                    }
-                }
-            }
-
+//            if ($request->serviceOrders) {
+//                foreach ($request->serviceOrders as $service) {
+////
+//                    $order->services()->attach($service);
+//
+//                    $ordersService = OrderService::where('order_id', $order->id)
+//                        ->where('service_id', $service['service_id'])
+//                        ->where('item_id',$service['item_id'])
+//                        ->first();
+////                    if ($service['amount']) {
+////                        $ordersService->amount()->create(['value' => $service['amount']]);
+////                    }
+//
+////                    if ($service['quantity']) {
+////                        $ordersService->quantity()->create(['value' => $service['quantity']]);
+//////                    }
+//                }
+//            }
+//
 
             $this->validate(
                 $request, [
@@ -166,7 +169,7 @@ class OrderController extends Controller
 
             $order->services()->sync($formattedDetails);
 //
-//
+////
 //        });
 
         return redirect('orders/manage');

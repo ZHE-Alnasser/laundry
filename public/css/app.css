@@ -3464,6 +3464,9 @@ html {
 .max-w-screen-lg {
 	max-width: 1024px;
 }
+.max-w-5xl {
+	max-width: 64rem;
+}
 .flex-1 {
 	flex: 1 1 0%;
 }
@@ -3472,6 +3475,9 @@ html {
 }
 .flex-grow {
 	flex-grow: 1;
+}
+.table-auto {
+	table-layout: auto;
 }
 .origin-top-left {
 	transform-origin: top left;
@@ -3865,6 +3871,10 @@ html {
 	--tw-bg-opacity: 1;
 	background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
 }
+.bg-green-600 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
+}
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
 }
@@ -3972,6 +3982,10 @@ html {
 .px-8 {
 	padding-left: 2rem;
 	padding-right: 2rem;
+}
+.px-16 {
+	padding-left: 4rem;
+	padding-right: 4rem;
 }
 .pt-6 {
 	padding-top: 1.5rem;
@@ -4262,6 +4276,14 @@ html {
 .text-blue-500 {
 	--tw-text-opacity: 1;
 	color: rgba(59, 130, 246, var(--tw-text-opacity));
+}
+.text-gray-100 {
+	--tw-text-opacity: 1;
+	color: rgba(243, 244, 246, var(--tw-text-opacity));
+}
+.text-yellow-500 {
+	--tw-text-opacity: 1;
+	color: rgba(245, 158, 11, var(--tw-text-opacity));
 }
 .underline {
 	text-decoration: underline;

@@ -28,7 +28,7 @@ class SettingController extends Controller
 
     public function edit(Setting $setting)
     {
-        //
+        return view('settings.edit', ['settings' => Setting::all()]);
     }
 
 
@@ -37,6 +37,7 @@ class SettingController extends Controller
         $data = $request->except('_token');
 
         foreach ($data as $name => $value) {
+//            dd($value);
             Setting::whereName($name)->update(['value' => $value]);
         }
 

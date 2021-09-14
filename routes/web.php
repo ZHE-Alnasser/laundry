@@ -42,10 +42,10 @@ Route::get('/orders/manage', [App\Http\Controllers\OrderController::class, 'mana
 Route::resource('orders', App\Http\Controllers\OrderController::class);
 Route::get('orders/reports/invoice/{order}', [App\Http\Controllers\OrderController::class, 'invoice']);
 
-//Route::get('settings', [App\Http\Controllers\SettingController::class, 'index'])->name('settings.index');
-//Route::post('settings', [App\Http\Controllers\SettingController::class, 'update'])->name('settings.update');
-Route::get(config('app_settings.url'), config('app_settings.controller').'@index');
-Route::post(config('app_settings.url'), config('app_settings.controller').'@store');
+Route::get('settings', [App\Http\Controllers\SettingController::class, 'index'])->name('settings.index');
+Route::post('settings', [App\Http\Controllers\SettingController::class, 'update'])->name('settings.update');
+//Route::get(config('app_settings.url'), config('app_settings.controller').'@index');
+//Route::post(config('app_settings.url'), config('app_settings.controller').'@store');
 
 Route::resource('order_services', App\Http\Controllers\OrderServiceController::class);
 

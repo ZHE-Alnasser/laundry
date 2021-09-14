@@ -72,7 +72,7 @@
 </div>
             <div class="mt-8">
             <p>{{__('Time Frame')}} :<span class="text-red-600"> *</span></p>
-                <x-select class="ml-4 select  " name="employee_id" id="employees" >
+                <x-select class="ml-4 select  " name="time_frame_id" id="time_frame_id" >
                     @foreach($timeframes as $time)
                         {{--@dd($customer)--}}
 
@@ -204,8 +204,10 @@
     {{--<label>{{__('price')}}<span class="text-red-600"> *</span></label>--}}
             {{--<x-input class="input" name="price" type="text" value="{{ old('price') }}" />--}}
 
+<div>
+@include('orders.test')
 
-@include('orders.services')
+</div>
             <div class="flex mt-3">
                 <button type='submit' class="btn ml-3">{{__('Create')}}</button>
 
