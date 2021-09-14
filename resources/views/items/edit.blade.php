@@ -31,16 +31,16 @@
 
                         </div>
 
-            <div class="flex flex-col md:flex-row">
-                        <div class="field mb-5 mx-10 mt-6 w-full">
+
+                        <div class="field mx-10 mt-5 w-full">
                             <label for="image">{{__('Edit Item Image')}}</label>
                             <div class="mt-3">
                                 <x-input class="input" type="file" id="image" name="image"/>
                             </div>
                         </div>
-            </div>
 
-                    <div class="flex p-2 mt-4 mx-10">
+
+                    <div class="flex p-2 mt-8 mx-10">
                         <button type="Submit" class="btn ml-2">{{__('Save')}}</button>
                         <input type="button" class="btn-cancel"
                                name="cancel" value="{{__('Cancel')}}" onClick="window.location.replace('/items/manage')"/>

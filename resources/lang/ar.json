@@ -14,7 +14,7 @@
   "Types": "الأنواع",
   "Items": "العناصر",
   "Create": "إنشاء",
-  "First Name": "الأسم الأول",
+  "First Name": "الاسم الأول",
   "Last Name": "العائلة",
   "Type": "النوع",
   "District": "المنطقة",
@@ -36,8 +36,8 @@
   "process_2": "في المغسلة",
   "process_3": "جاهز للتسليم",
   "process_4": "تم تسليمه",
-  "Employee Name": "أسم الموظف",
-  "Customer Name": "أسم العميل",
+  "Employee Name": "اسم الموظف",
+  "Customer Name": "اسم العميل",
   "Request Pickup Date": "تاريخ الاستلام المطلوب",
   "Request Delivery Date": "تاريخ التسليم المطلوب",
   "Agent Pickup Date": "تاريخ استلام الوكيل",
@@ -71,7 +71,7 @@
   "District Name": "أسم الحي",
   "Code": "الكود",
   "Districts": "المناطق",
-  "City Name": "أسم المدينة",
+  "City Name": "اسم المدينة",
   "Cities": "المدن",
   "Save Settings": "حفظ الإعدادات",
   "Settings": "الإعدادات",
@@ -91,5 +91,8 @@
   "Remove": "إزالة",
   "Time Frame Name":"اسم الإطار الزمني",
   "Time Frames": "الإطار الزمني",
-  "Time Frame": "الإطار الزمني"
+  "Time Frame": "الإطار الزمني",
+  "Dashboard": "الرئيسية",
+  "Add Image": "إضافة صورة"
+
 }

@@ -9,7 +9,7 @@
             <x-input class="input" name="name" value="{{ old('name') }}"/>
 
 
-            <div class="flex mt-3">
+            <div class="flex mt-8">
                 <button type='submit' class="btn ml-3">{{__('Create')}}</button>
 
                 <input type="button" class="btn-cancel"

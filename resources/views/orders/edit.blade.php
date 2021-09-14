@@ -183,7 +183,7 @@
                         </table>
                     </div>
 
-                    <div class="flex p-2 mt-4">
+                    <div class="flex p-2 mt-8">
                             <button type="Submit" class="btn ml-2">{{__('Save')}}</button>
                             <input type="button" class="btn-cancel"
                                    name="cancel" value="{{__('Cancel')}}" onClick="window.location.replace('/services/manage')"/>

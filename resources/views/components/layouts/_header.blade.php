@@ -60,12 +60,12 @@
                             <span class="ml-2">{{__('Manage')}}</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="links"
-                           href="/user/profile">
-                            <span class="ml-2">{{__('My Profile')}}</span>
-                        </a>
-                    </li>
+                    {{--<li class="nav-item">--}}
+                        {{--<a class="links"--}}
+                           {{--href="/user/profile">--}}
+                            {{--<span class="ml-2">{{__('My Profile')}}</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
                     <li class="nav-item ">
                         <a class="links"
                            href="{{ route('logout') }}"

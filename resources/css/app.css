@@ -28,7 +28,8 @@
     }
 
     h1 {
-        @apply text-2xl text-primary  font-tajawal;
+        color:#eb9d00;
+        @apply text-2xl  font-tajawal;
     }
     h2 {
         @apply text-xl;
@@ -38,7 +39,9 @@
         font-family: 'Tajawal', sans-serif;
 
     }
-
+h2,p,a,label{
+    @apply text-gray-600;
+}
 }
 body{
     text-align: start !important;
@@ -48,9 +51,11 @@ svg{
 }
 div#nav-content {
     justify-content: end;
+
 }
 .navbar-expand-lg{
-    background: #0caef8;
+    /*background: #0caef8;*/
+    background: white;
 }
 .links-color{
 /*background-color: white;*/
@@ -60,21 +65,34 @@ div#nav-content {
 /*}*/
 .links
 {
-    @apply  lg:px-5 py-3 flex items-center text-white uppercase font-bold  hover:opacity-75;
+    @apply  lg:px-5 py-3 flex items-center text-gray-600 uppercase font-bold  hover:opacity-75;
 }
 .links:focus{
     /*color: #2563eb;*/
-    @apply  outline-none text-base-200 ring-offset-2 rounded-lg;
+    color: #eb9d00;
+    @apply  outline-none  ring-offset-2 rounded-lg;
 }
 .links:hover{
-    @apply  text-primary-focus opacity-100  rounded-lg;
+    color: #eb9d00;
+    @apply  opacity-100   rounded-lg;
 }
 
 
 
 .btn {
-    @apply btn-primary;
-}
+     /*color: #eb9d00;*/
+     background: #eb9d00;
+     border-color:#eb9d00; ;
+     /*@apply btn-primary;*/
+ }
+.btn:hover {
+     /*color: #eb9d00;*/
+     background: #c17900;
+     border-color:#c17900;
+     /*@apply btn-primary;*/
+ }
+
+
 .btn-delete{
     @apply btn btn-secondary;
 }
@@ -115,15 +133,19 @@ div#nav-content {
     /*@apply  bg-base-300;*/
 /*}*/
 .side-items{
-    @apply flex items-center mt-2 py-2 px-8 text-primary  border-l-4 border-white
+    @apply flex items-center mt-2 py-2 px-8  text-gray-600 border-l-4 border-white
 }
 
 .side-items.active{
-    @apply flex items-center mt-1 py-2 px-8 bg-gray-200 text-primary-focus border-l-4 border-gray-700
+    /*@apply flex items-center mt-1 py-2 px-8 bg-gray-200 text-primary-focus border-l-4 border-gray-700*/
+    color: #eb9d00;
+    border-color: #eb9d00;
+    @apply bg-yellow-100  ;
 }
 .side-items:hover{
-
-    @apply bg-blue-200 text-gray-500 border-gray-500;
+  color: #eb9d00;
+   border-color: #eb9d00;
+    @apply bg-yellow-100  ;
 }
 
 .side-text{

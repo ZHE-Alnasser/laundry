@@ -1,6 +1,6 @@
 <x-layouts.admin>
     <x-feedback/>
-    <h1>{{__('Create').' '.__('User')}}</h1>
+    <h1 class="px-6">{{__('Create').' '.__('User')}}</h1>
 
     <div class="  mt-6 px-6 py-4 overflow-hidden ">
         <x-form action="{{url('users')}}" method="post" has-files>
@@ -49,7 +49,7 @@
                 <x-input id="password_confirmation" class="input" type="password"
                              name="password_confirmation" required autocomplete="new-password"/>
             </div>
-                <div class="flex mt-5">
+                <div class="flex mt-8">
                 <button type='submit' class="btn  ml-3">{{__('Create')}}</button>
 
                 <input type="button" class="btn-cancel "

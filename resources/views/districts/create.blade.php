@@ -1,6 +1,6 @@
 <x-layouts.admin>
     <x-feedback/>
-    <h1>{{__('Create').' '.__('Districts')}}</h1>
+    <h1 class="px-6">{{__('Create').' '.__('Districts')}}</h1>
 
     <div class=" mt-6 px-6 py-4 overflow-hidden">
         <x-form action="{{url('districts')}}" method="post" has-files>
@@ -16,12 +16,12 @@
                     @endforeach
                 </x-select>
             </div>
-
+            <div class="mt-5">
             <label>{{__('Code')}}<span class="text-red-600"> *</span></label>
             <x-input class="input" name="code" value="{{ old('code') }}"/>
+            </div>
 
-
-            <div class="flex mt-3">
+            <div class="flex mt-8">
                 <button type='submit' class="btn ml-3">{{__('Create')}}</button>
 
                 <input type="button" class="btn-cancel"

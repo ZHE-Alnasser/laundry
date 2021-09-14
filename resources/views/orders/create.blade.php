@@ -1,6 +1,6 @@
 <x-layouts.admin>
     <x-feedback/>
-    <h1>{{__('Create').' '.__('Order')}}</h1>
+    <h1 class="px-6">{{__('Create').' '.__('Order')}}</h1>
 
     <div class="w-full  mt-6 px-6 py-4 bg-white  overflow-hidden sm:rounded-lg">
         <x-form action="{{url('orders')}}" method="post" has-files>

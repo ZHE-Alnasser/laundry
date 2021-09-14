@@ -47,7 +47,8 @@
         {{--<nav class="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">--}}
 
         <div class="bg-white pb-3 ">
-            <nav class="mt-10 menu">
+            <nav class="mt-2 menu">
+                <a class="side-items" href="/dashboard"><i data-feather="home" class="ml-1"></i><span class="side-text">{{__("Dashboard")}}</span></a>
                 <a class="side-items" href="/users/manage">
                     {{--<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">--}}
                         {{--<path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />--}}
@@ -62,6 +63,7 @@
                 <a class="side-items" href="/cities/manage"><i data-feather="map" class="ml-1"></i><span class="side-text">{{__("Cities")}}</span></a>
                 <a class="side-items" href="/districts/manage"><i data-feather="navigation" class="ml-1"></i><span class="side-text">{{__("Districts")}}</span></a>
                 <a class="side-items" href="/types/manage"><i data-feather="type" class="ml-1"></i><span class="side-text">{{__("Types")}}</span></a>
+                <a class="side-items" href="/timeframes/manage"><i data-feather="clock" class="ml-1"></i><span class="side-text">{{__("Time Frame")}}</span></a>
                 <a class="side-items" href="/settings"><i data-feather="settings" class="ml-1"></i><span class="side-text">{{__("Settings")}}</span></a>
 
             </nav>
