@@ -20,10 +20,10 @@ use InteractsWithMedia;
 //    protected $appends = ['cover'];
 
 
-    public function orders()
-    {
-        return $this->belongsToMany(Order::class)->withPivot('order_id','service_id','item_id','quantity','amount');
-    }
+//    public function orders()
+//    {
+//        return $this->belongsToMany(Order::class)->withPivot('order_id','service_id','item_id','quantity','amount');
+//    }
 
     public function services()
     {

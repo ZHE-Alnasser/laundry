@@ -47,7 +47,7 @@
                         {{--name="service_id[]"--}}
                         {{--name="service_id"--}}
                         {{--x-bind:name="`serviceOrders[${field.id}][service_id]`"--}}
-                        name="serviceOrders[service][service_id]`"
+                        name="serviceOrders[service_id]`"
                         class="input text-center ml-2 px-8 font-semibold">
                     @foreach(\App\Models\Service::all() as $service)
                         <option value="{{$service->id}}">{{$service->name}}</option>
@@ -69,12 +69,12 @@
             <td class="px-2 py-2">
                 <input x-model="service.quantity" type="text"
                        {{--name="serviceOrders[1]['quantity']"--}}
-                               name="serviceOrders[service][quantity]"
+                               name="serviceOrders[quantity]"
                        class="input">
             </td>
             <td class="px-2 py-2">
-                <input x-model="service.amount" type="text"
-                       name="serviceOrders[service]['amount']"
+                <input x-model="service.amount" type="number"
+                       name="serviceOrders['amount']"
                        {{--name="amount[]"--}}
                        class="input">
             </td>

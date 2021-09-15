@@ -123,11 +123,11 @@ class OrderController extends Controller
                 foreach ($request->serviceOrders as $service) {
 //
                     $order->services()->attach($service);
-
-                    $ordersService = OrderService::where('order_id', $order->id)
-                        ->where('service_id', $service['service_id'])
-//                        ->where('item_id',$service['item_id'])
-                        ->first();
+dd($order->services());
+//                    $ordersService = OrderService::where('order_id', $order->id)
+////                        ->where('service_id', $service['service_id'])
+////                        ->where('item_id',$service['item_id'])
+//                        ->first();
 //                    if ($service['amount']) {
 //                        $ordersService->amount()->create(['value' => $service['amount']]);
 //                    }
