@@ -34,7 +34,7 @@ class SettingController extends Controller
 
     public function update(Request $request, Setting $setting)
     {
-        $data = $request->except('_token');
+        $data = $request->except('_value','_token');
 
         foreach ($data as $name => $value) {
 //            dd($value);

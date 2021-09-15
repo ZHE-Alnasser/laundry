@@ -26,6 +26,11 @@ protected static $logFillable = true;
 //        (Order::class,'order_service','order_id','service_id','item_id','quantity','amount');
     }
 
+    public function item()
+    {
+        return $this->belongsTo(Item::class);
+    }
+
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()

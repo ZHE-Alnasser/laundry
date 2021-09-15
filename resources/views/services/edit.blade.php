@@ -16,17 +16,17 @@
                             </div>
                         </div>
                     </div>
-                        {{--<div class="flex flex-col mt-4 md:flex-row">--}}
-                        {{--<div class="w-full mx-2 mt-4 flex-1">--}}
-                            {{--<label>{{__('Item Name')}}</label>--}}
+                        <div class="flex flex-col mt-4 md:flex-row">
+                        <div class="w-full mx-2 mt-4 flex-1">
+                            <label>{{__('Item Name')}}</label>
 
-                            {{--<x-select name="item_id" class="input"  id="item_id">--}}
-                                {{--@foreach($items as $item )--}}
-                                    {{--<option {{$service->item_id==$item->id?'selected':''}} value="{{$item->id}}">{{ $item->name }} </option>--}}
-                                {{--@endforeach--}}
-                            {{--</x-select>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
+                            <x-select name="item_id" class="input"  id="item_id">
+                                @foreach($items as $item )
+                                    <option {{$service->item_id==$item->id?'selected':''}} value="{{$item->id}}">{{ $item->name }} </option>
+                                @endforeach
+                            </x-select>
+                        </div>
+                    </div>
                     <div class="flex flex-col mt-4 md:flex-row">
                      <div class="w-full mx-2 flex-1">
                        <label>{{__('Price')}}</label>

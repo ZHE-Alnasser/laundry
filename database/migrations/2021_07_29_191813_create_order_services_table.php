@@ -12,7 +12,7 @@ class CreateOrderServicesTable extends Migration
         Schema::create('order_services', function (Blueprint $table) {
             $table->foreignId('service_id');
             $table->foreignId('order_id');
-            $table->foreignId('item_id');
+//            $table->foreignId('item_id')->default(1);
             $table->float('amount')->default(0);
             $table->integer('quantity')->default(0);
             $table->string('note',700)->nullable();

@@ -7,14 +7,15 @@
             @csrf
             <label>{{__('Service Name')}}<span class="text-red-600"> *</span></label>
             <x-input class="input" name="name" value="{{ old('name') }}"/>
-
-            {{--<label>{{__('Item Name')}}</label><span class="text-red-600"> *</span>--}}
+            <div  class="mt-5">
+            <label>{{__('Item Name')}}</label><span class="text-red-600"> *</span>
             {{--<x-input class="w-full" name="item_id" value="{{ old('item_id') }}" placeholder="{{__('item')}}"/>--}}
-            {{--<x-select name="item_id" id="item_id" class="input">--}}
-                {{--@foreach($items as $item )--}}
-                    {{--<option value="{{$item->id}}">{{ $item->name }} </option>--}}
-                {{--@endforeach--}}
-            {{--</x-select>--}}
+            <x-select name="item_id" id="item_id" class="input">
+                @foreach($items as $item )
+                    <option value="{{$item->id}}">{{ $item->name }} </option>
+                @endforeach
+            </x-select>
+            </div>
             <div  class="mt-5">
             <label class="mt-5">{{__('Price')}}<span class="text-red-600"> *</span></label>
             <x-input class="input" name="price" type="text" value="{{ old('price') }}" />

@@ -10,6 +10,7 @@ use App\Models\TimeFrame;
 use App\Models\User;
 use BladeUIKit\Components\DateTime\Carbon;
 use BladeUIKit\Components\Forms\Inputs\Input;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Validator;
@@ -37,14 +38,14 @@ class OrderController extends Controller
     public function create()
     {
         $services=Service::all();
-        $items=Item::all();
+//        $items=Item::all();
         $customers = User::customer()->get();
         $employees = User::employee()->get();
         $order=new Order;
         $serviceOrders=OrderService::all();
         $timeframes=TimeFrame::all();
 //        dd($serviceOrders);
-        return view ('orders.create', compact('customers','employees','items','services','serviceOrders',
+        return view ('orders.create', compact('customers','employees','services','serviceOrders',
             'order', 'timeframes'));
 
     }
@@ -52,6 +53,8 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
+//        $ser = Session::get('cart');
+//        $cart = new Cart($oldCart)
 //        dd($request);
 //$service = Input::get('services');
 //        DB::transaction(function () use ($request) {
@@ -80,68 +83,69 @@ class OrderController extends Controller
             ]);
 
 //  dd($data);
-
+//
            $order= Order::create($data);
-////        $order->save();
-          $service = $this->validate($request, [
-                   'order_id' => 'nullable',
-                    'item_id' => 'nullable',
-                    'service_id' => 'nullable',
-                    'quantity' => 'nullable',
-                    'amount' => 'nullable',
-//
-                ]);
-//
-////         dd($service);
-           $order->services()->attach($service);
+////////        $order->save();
+//          $service = $this->validate($request, [
+//                   'order_id' => 'nullable',
+//                    'item_id' => 'nullable',
+//                    'service_id' => 'nullable',
+//                    'quantity' => 'nullable',
+//                    'amount' => 'nullable',
+////
+//                ]);
+////
+//////         dd($service);
+//           $order->services()->attach($service);
 ////});
 //           $order->save();
 
 
 //            $orderServices = [];
-//
-//       foreach ($order->services as $productId => $item) {
-//                $items = $this->validate($request, [
+//       foreach ($order->services as $productId => $items) {
+//           $items = $this->validate($request, [
 ////                    'order_id' => 'required',
-//                    'item_id' => 'required',
-//                    'service_id' => 'required',
-//                    'quantity' => 'required',
-//                    'amount' => 'required',
+//               'item_id' => 'required',
+//               'service_id' => 'required',
+//               'quantity' => 'required',
+//               'amount' => 'required',
 //
-//                ]);
+//           ]);
+//           dd($orderServices);
+//       }
 //                        OrderService::insert($orderServices);
 //            $orderServices = OrderService::insert($items);
 ////
 
 //            dd($request->serviceOrders);
 ////
-//            if ($request->serviceOrders) {
-//                foreach ($request->serviceOrders as $service) {
-////
-//                    $order->services()->attach($service);
+            if ($request->serviceOrders) {
+                foreach ($request->serviceOrders as $service) {
 //
-//                    $ordersService = OrderService::where('order_id', $order->id)
-//                        ->where('service_id', $service['service_id'])
-//                        ->where('item_id',$service['item_id'])
-//                        ->first();
-////                    if ($service['amount']) {
-////                        $ordersService->amount()->create(['value' => $service['amount']]);
-////                    }
-//
-////                    if ($service['quantity']) {
-////                        $ordersService->quantity()->create(['value' => $service['quantity']]);
-//////                    }
-//                }
-//            }
-//
+                    $order->services()->attach($service);
 
-            $this->validate(
-                $request, [
-                    'details' => 'nullable',
-                ]
-            );
-//            $items = $request->details;
-        $items = json_decode($request->details,true);
+                    $ordersService = OrderService::where('order_id', $order->id)
+                        ->where('service_id', $service['service_id'])
+//                        ->where('item_id',$service['item_id'])
+                        ->first();
+//                    if ($service['amount']) {
+//                        $ordersService->amount()->create(['value' => $service['amount']]);
+//                    }
+
+//                    if ($service['quantity']) {
+//                        $ordersService->quantity()->create(['value' => $service['quantity']]);
+////                    }
+                }
+            }
+
+//
+//            $this->validate(
+//                $request, [
+//                    'details' => 'nullable',
+//                ]
+//            );
+////            $items = $request->details;
+//        $items = json_decode($request->details,true);
 
 //        dd($items);
 
@@ -155,20 +159,23 @@ class OrderController extends Controller
 
 //             validate the details
 //             i.e. $item->price == $product->selling_price
-            $formattedDetails = collect($items)->transform(function($item) {
-                $service = Service::find($item['id']);
-                $item['price'] = $service->price;
-//                $item['purchasing_price'] = $product->purchasing_price;
-                $item['service_id'] = $item['id'];
-                unset($item['order_id']);
-//                unset($item['name']);
-                unset($item['amount']);
-//                unset($item['total']);
-                return $item;
-            });
-
-            $order->services()->sync($formattedDetails);
+//            $formattedDetails = collect($items)->transform(function($item) {
+//                $service = Service::find($item['id']);
+//                  $item['amount'] = $service->amount;
+//                  $item['quantity'] = $service->quantity;
+//                  $item['item_id'] = $service->item_id;
+//                  $item['service_id_id'] = $service->service_id;
+////                $item['purchasing_price'] = $product->purchasing_price;
+//                $item['service_id'] = $item['id'];
+//                unset($item['order_id']);
+////                unset($item['name']);
+////                unset($item['amount']);
+////                unset($item['total']);
+//                return $item;
+//            });
 //
+//            $order->services()->sync($formattedDetails);
+////
 ////
 //        });
 

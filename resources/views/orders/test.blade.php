@@ -12,13 +12,13 @@
                 <p class="text-gray-100 font-semibold">#</p>
             </th>
 
-            <th class="px-6 py-2">
+            <th class="px-4 py-2">
                 <p class="text-gray-100 font-semibold">{{__('Service Name')}}</p>
             </th>
 
-            <th class="px-6 py-2">
-                <p class="text-gray-100 font-semibold">{{__('Item Name')}}</p>
-            </th>
+            {{--<th class="px-6 py-2">--}}
+                {{--<p class="text-gray-100 font-semibold">{{__('Item Name')}}</p>--}}
+            {{--</th>--}}
 
             <th class="px-6 py-2">
                 <p class="text-gray-100 font-semibold">{{__('Quantity')}}</p>
@@ -32,21 +32,22 @@
             </th>
         </tr>
         </thead>
-        <tbody class="bg-gray-200" x-model="" x-show="services.length">
-        <template x-for="(service, index) in services" :key="index">
+        <body class="bg-gray-200"  x-show="services.length">
+
+        <template x-for="(service,index) in services" :key="index">
         <tr class="bg-white border-b-2 border-gray-200">
 
-<td x-text="index + 1" >
+<td x-text="index +1" >
 
 </td>
-            <td class="px-6 py-2">
+            <td class="px-2 py-2">
                 {{--<span class="text-center ml-2 px-8 font-semibold">John Doe</span>--}}
-                <input type="hidden"  x-model="service.id"/>
+                <input type="hidden"  x-model="service.service_id"/>
                 <select type="text"
-                        name="service_id"
+                        {{--name="service_id[]"--}}
                         {{--name="service_id"--}}
                         {{--x-bind:name="`serviceOrders[${field.id}][service_id]`"--}}
-                        {{--name="serviceOrders[1][service_id]`"--}}
+                        name="serviceOrders[service][service_id]`"
                         class="input text-center ml-2 px-8 font-semibold">
                     @foreach(\App\Models\Service::all() as $service)
                         <option value="{{$service->id}}">{{$service->name}}</option>
@@ -54,29 +55,30 @@
                 </select>
             </td>
 
-            <td class="px-6 py-2">
-                <select  type="text"
-                         name="item_id"
-                        {{--name="serviceOrders[1]['item_id']"--}}
-                        class="input">
-                    @foreach(\App\Models\Item::all() as $item)
-                        <option value="{{$item->id}}">{{$item->name}}</option>
-                    @endforeach
-                </select>
-            </td>
-            <td class="px-6 py-2">
-                <input x-model="field.quantity" type="text"
+            {{--<td class="px-2 py-2">--}}
+                {{--<select  type="text"--}}
+                         {{--x-model="service.item_id"--}}
+                         {{--name="item_id[]"--}}
+                        {{--name="serviceOrders[service]['item_id']"--}}
+                        {{--class="input">--}}
+                    {{--@foreach(\App\Models\Item::all() as $item)--}}
+                        {{--<option value="{{$item->id}}">{{$item->name}}</option>--}}
+                    {{--@endforeach--}}
+                {{--</select>--}}
+            {{--</td>--}}
+            <td class="px-2 py-2">
+                <input x-model="service.quantity" type="text"
                        {{--name="serviceOrders[1]['quantity']"--}}
-                               name="quantity"
+                               name="serviceOrders[service][quantity]"
                        class="input">
             </td>
-            <td class="px-6 py-2">
-                <input x-model="field.amount" type="text"
-                       {{--name="serviceOrders[1]['amount']"--}}
-                       name="amount"
+            <td class="px-2 py-2">
+                <input x-model="service.amount" type="text"
+                       name="serviceOrders[service]['amount']"
+                       {{--name="amount[]"--}}
                        class="input">
             </td>
-            <td class="px-6 py-2">
+            <td class="px-2 py-2">
 
                                         </svg>
                  <button type="button" @click="deleteService(service)" class="w-full"> <svg
@@ -95,7 +97,7 @@
             </td>
         </tr>
         </template>
-        </tbody>
+        </body>
     </table>
 
 
@@ -122,9 +124,14 @@ newService: '',
 
 addService() {
 this.services.push({
-id: '{{count($serviceOrders)}}',
-body: this.newService,
-completed: false
+    id: this.services.length + 1,
+    {{--id: '{{count($serviceOrders)}}',--}}
+    // item_id:'',
+    service_id:'',
+    quantity:'',
+    amount:'',
+    body: this.newService,
+    completed: false
 });
 this.newService = '';
 },
@@ -159,3 +166,42 @@ this.services.splice(position, 1);
 }
 }
 </script>
+
+{{--<script>--}}
+    {{--document.addEventListener('alpine:initializing', () => {--}}
+        {{--Alpine.data('services', () => ({--}}
+
+            {{--items: [],--}}
+
+
+            {{--addItem(service) {--}}
+                {{--let notExist = true;--}}
+                {{--console.log(service);--}}
+                {{--let {id, price, name} = service;--}}
+                {{--if (this.items.length) {--}}
+                    {{--this.items.map(item => {--}}
+                        {{--if (item.id == id) {--}}
+                            {{--item.quantity = Number(item.quantity) + 1;--}}
+                            {{--item.amount = item.price * item.quantity;--}}
+                            {{--notExist = false;--}}
+                        {{--}--}}
+                        {{--return item;--}}
+                    {{--});--}}
+                {{--}--}}
+
+                {{--if (notExist) {--}}
+                    {{--this.items.push({--}}
+                        {{--id: id,--}}
+                        {{--name: name,--}}
+                        {{--quantity: 1,--}}
+                        {{--amount: amount,--}}
+                        {{--// total: price--}}
+                    {{--});--}}
+                {{--}--}}
+                {{--// this.calculatePayments();--}}
+            {{--},--}}
+
+        {{--}))--}}
+    {{--})--}}
+
+{{--</script>--}}
