@@ -164,3 +164,7 @@ div#nav-content {
 }
 
 /*=======================*/
+.addColumn{
+    padding-right: 150px;
+    padding-left: 150px;
+}
