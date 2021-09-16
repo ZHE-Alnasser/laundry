@@ -57,7 +57,7 @@ class OrderDatatable extends LivewireDatatable
             DateColumn::name('created_at')->label(__('Created at'))->searchable(),
 
             Column::callback(['id'], function ($id) {
-                return view('components\table-actions', ['url' => url("orders/$id"), 'model' => 'Orders', 'id' => $id]);
+                return view('components\order-action', ['url' => url("orders/$id"), 'model' => 'Orders', 'id' => $id]);
             })
         ];
     }
