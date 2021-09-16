@@ -56,7 +56,7 @@ class OrderController extends Controller
     {
 //        $ser = Session::get('cart');
 //        $cart = new Cart($oldCart)
-//        dd($request);
+        dd($request);
 //$service = Input::get('services');
 //        DB::transaction(function () use ($request) {
 
@@ -120,14 +120,14 @@ class OrderController extends Controller
 
 //            dd($request->serviceOrders);
 //
-            if ($request->serviceOrders) {
-                foreach ($request->serviceOrders as $serviceOrder) {
-
-                    $order->services()->attach($serviceOrder);
+//            if ($request->serviceOrders) {
+//                foreach ($request->serviceOrders as $serviceOrder) {
+//
+//                    $order->services()->attach($serviceOrder);
 ////dd($service);
-                }
-            }
-//                    $ordersService = OrderService::where('order_id', $order->id)
+//                }
+//            }
+////                    $ordersService = OrderService::where('order_id', $order->id)
 ////                        ->where('service_id', $service['service_id'])
 ////                        ->where('item_id',$service['item_id'])
 //                        ->first();
@@ -158,12 +158,12 @@ class OrderController extends Controller
 
         if ($request->serviceOrders) {
 
-            foreach ($services as $serviceOrder) {
+            foreach ($services as $serviceOrders) {
 //                dd( $serviceOrder);
 ////        $user->roles()->sync([1 => ['expires' => true], 2, 3]);
 
-                $order->services()->attach([$serviceOrder['service_id'] =>
-                    ['amount' => $serviceOrder['amount'],'quantity'=>$serviceOrder['quantity']]]);
+                $order->services()->attach([$serviceOrders['service_id'] =>
+                    ['amount' => $serviceOrders['amount'],'quantity'=>$serviceOrders['quantity']]]);
 ////dd($service);
             }
         }

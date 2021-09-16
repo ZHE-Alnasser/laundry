@@ -1,5 +1,6 @@
 <!-- responsive table-->
-<div class="mt-2" x-data="services()">
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<div class="mt-2" x-data="handler() ">
 
 
     <table  class="max-w-5xl mx-auto table-auto">
@@ -32,22 +33,24 @@
             </th>
         </tr>
         </thead>
-        <tbody class="bg-gray-200" x-show="services.length">
+        <tbody class="bg-gray-200" >
 
-        <template x-for="service in services" :key="service.id">
+        {{--<template x-for="service in services" :key="service.id">--}}
+        <template x-for="(field, index) in fields" :key="index">
         <tr class="bg-white border-b-2 border-gray-200" >
-
+            <td x-text="index + 1"></td>
 {{--<td x-text="services.length" >--}}
 
 {{--</td>--}}
             <td class="px-2 py-2">
                 {{--<span class="text-center ml-2 px-8 font-semibold">John Doe</span>--}}
                 <input type="hidden"   />
-                <select type="text"  x-model="service.service_id"
+                <select type="text"  x-model="field.service_id"
                         {{--name="service_id[]"--}}
                         {{--name="service_id"--}}
                         {{--x-bind:name="`serviceOrders[${field.id}][service_id]`"--}}
-                        name="serviceOrders[service_id]`"
+                        x-bind:name="`serviceOrders[${field.id}][service_id]`"
+                                {{--name="service_id[]"--}}
                         class="input text-center ml-2 px-8 font-semibold">
                     @foreach(\App\Models\Service::all() as $service)
                         <option value="{{$service->id}}">{{$service->name}}</option>
@@ -69,21 +72,24 @@
             <td class="px-2 py-2">
                 <input  type="text"
                        {{--x-model="newService"--}}
-                                x-model="service.quantity"
-                       {{--name="serviceOrders[1]['quantity']"--}}
-                               name="serviceOrders[quantity]"
-                       class="input">
+                                x-model="field.quantity"
+                       {{--name="quantity[]"--}}
+                               {{--name="serviceOrders[${field.id}]['quantity']"--}}
+                        x-bind:name="`serviceOrders[${field.id}][quantity]`"
+
+                        class="input">
             </td>
             <td class="px-2 py-2">
-                <input x-model="service.amount" type="number"
-                       name="serviceOrders[amount]"
+                <input x-model="field.amount" type="number"
+                       x-bind:name="`serviceOrders[${field.id}][amount]`"
+                       {{--name="serviceOrders[$field.id]['amount']"--}}
                        {{--name="amount[]"--}}
                        class="input">
             </td>
             <td class="px-2 py-2">
 
                                         </svg>
-                 <button type="button" @click="deleteService(service)" class="w-full"> <svg
+                 <button type="button" @click="removeField(index)" class="w-full"> <svg
                          xmlns="http://www.w3.org/2000/svg"
                          class="h-5 w-5 text-red-700"
                          viewBox="0 0 20 20"
@@ -97,14 +103,20 @@
                                             </svg></button>
               </span>
             </td>
+
         </tr>
         </template>
+        <tfoot>
+        <tr>
+            <td colspan="4" class="text-right"><button type="button" class="btn btn-info" @click="addNewField()">+ Add Row</button></td>
+        </tr>
+        </tfoot>
         </tbody>
     </table>
 
 
     <div class="flex items-center addColumn text-sm mt-2">
-        <a @click="addService()">
+        <a  @click="addNewField()">
             <svg class="w-3 h-3 mr-3 focus:outline-none" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                 <path d="M12 4v16m8-8H4"></path>
             </svg>
@@ -114,62 +126,83 @@
 </div>
 
 <script>
-function services() {
-<!--x-data="{-->
-return {
-// filter: 'all',
-services: [],
-// editedTodo: null,
+{{--function handler() {--}}
+{{--<!--x-data="{-->--}}
+{{--return {--}}
+{{--// filter: 'all',--}}
+{{--services: [],--}}
+{{--// // editedTodo: null,--}}
+{{--//--}}
+{{--// newService: '',--}}
 
-newService: '',
-
-addService() {
-this.services.push({
-    // id: this.services.length + 1,
-    id: '{{count($serviceOrders)}}',
-    // item_id:'',
-    service_id:this.newService,
-    quantity:this.newService,
-    amount:this.newService,
-    // body: this.newService,
-    completed: false
-});
-this.newService = '';
-},
+{{--addService(){--}}
+{{--this.services.push({--}}
+    {{--id: this.services.length + 1,--}}
+    {{--id: '{{count($serviceOrders)}}',--}}
+    {{--// item_id:'',--}}
+    {{--service_id:'',--}}
+    {{--quantity:'',--}}
+    {{--amount:''--}}
+    {{--// body: this.newService,--}}
+    {{--// completed: false--}}
+{{--});--}}
+{{--// this.newService = '';--}}
+{{--},--}}
 {{--newService: '',--}}
 
-///     let notExist = true;
-//     console.log(services);
-//     let {id, amount, name} = service;
-//     if (this.services.length) {
-//         this.services.map(service => {
-//             if (service.id == id) {
-//                 service.quantity = Number(service.quantity) + 1;
-//                 service.amount = service.amount * service.quantity;
-//                 notExist = false;
-//             }
-//             return item;
-//         });
-//     }
-//
-//     if (notExist) {
-//         this.services.push({
-//             id: id,
-//             name: name,
-//             quantity: 1,
-//             amount: amount,
-//             // total: price
-//         });
-//     }
-// },
-deleteService(service){
-let position = this.services.indexOf(service);
-this.services.splice(position, 1);
-}
-}
+{{--///     let notExist = true;--}}
+{{--//     console.log(services);--}}
+{{--//     let {id, amount, name} = service;--}}
+{{--//     if (this.services.length) {--}}
+{{--//         this.services.map(service => {--}}
+{{--//             if (service.id == id) {--}}
+{{--//                 service.quantity = Number(service.quantity) + 1;--}}
+{{--//                 service.amount = service.amount * service.quantity;--}}
+{{--//                 notExist = false;--}}
+{{--//             }--}}
+{{--//             return item;--}}
+{{--//         });--}}
+{{--//     }--}}
+{{--//--}}
+{{--//     if (notExist) {--}}
+{{--//         this.services.push({--}}
+{{--//             id: id,--}}
+{{--//             name: name,--}}
+{{--//             quantity: 1,--}}
+{{--//             amount: amount,--}}
+{{--//             // total: price--}}
+{{--//         });--}}
+{{--//     }--}}
+{{--// },--}}
+{{--// deleteService(service){--}}
+{{--// let position = this.services.indexOf(service);--}}
+{{--// this.services.splice(position, 1);--}}
+{{--// }--}}
+
+    {{--removeField(index) {--}}
+        {{--this.services.splice(index, 1);--}}
+    {{--}--}}
+{{--}--}}
+{{--}--}}
+{{--</script>--}}
+function handler() {
+    return {
+        id: '{{count($serviceOrders)}}',
+        fields: [],
+        addNewField() {
+            this.fields.push({
+                id: this.id++,
+                service_id: '',
+                quantity: '',
+                amount: ''
+            });
+        },
+        removeField(index) {
+            this.fields.splice(index, 1);
+        }
+    }
 }
 </script>
-
 {{--<script>--}}
     {{--document.addEventListener('alpine:initializing', () => {--}}
         {{--Alpine.data('services', () => ({--}}

@@ -43,27 +43,14 @@
                             @endforeach
                         </select>
                     </td>
-                    <td><select x-model=field.item_id" type="text"
-
-
-                                {{--name="item_id"--}}
-                                x-bind:name="`serviceOrders[${field.id}]['item_id']`"
-
-                                {{--x-bind:name="`serviceOrders[${field.id}][item]`"--}}
-
-                                class="input">
-                            @foreach(\App\Models\Item::all() as $item)
-                                <option value="{{$item->id}}">{{$item->name}}</option>
-                            @endforeach
-                        </select></td>
                     <td><input x-model="field.quantity" type="text"
                                {{--name="quantity"--}}
 
-                               x-bind:name="`serviceOrders[${field.id}]['quantity']`"
+                               x-bind:name="serviceOrders[${field.id}]['quantity']"
                                class="input"></td>
                     <td><input x-model="field.amount" type="text"
                                {{--name="amount"--}}
-                               x-bind:name="`serviceOrders[${field.id}]['amount']`"
+                               x-bind:name="serviceOrders[${field.id}]['amount']"
                                class="input"></td>
                     <td>
                         <button type="button" class="  bg-red-600 w-full p-2 rounded-full hover:bg-red-700"
