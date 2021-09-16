@@ -17,8 +17,8 @@
 {{--@section('content')--}}
 <div class="bg-white">
 
-    <h1 class="text-center">{{setting('app_name', 'default value')}}</h1>
-    <div class="vat justify-center flex "><p class="px-1">{{__('VAT Number').__(':')}}</p><p>{{setting('vat', 'default value')}}</p></div>
+    <h1 class="text-center">{{setting('company_name')}}</h1>
+    <div class="vat justify-center flex "><p class="px-1">{{__('VAT Number').__(':')}}</p><p>{{setting('vat_number')}}</p></div>
     <div class="col ">
 
         @if($order->total)
@@ -29,12 +29,14 @@
                <div class="qr">
                 @php
                    // $qrText = setting('company_name')."
-                    $qrText = setting('app_name', 'default value')."
+                    $qrText = setting('company_name')."
                     \nInvoice number: ".$order->id."
-                    \nVAT Number: ".setting('vat', 'default value')."
+                    \nVAT Number: ".setting('vat_number')."
                     \nInvoice issue date: ".$order->created_at."
+                    \nVAT: ".$order->vat."
                     \nTotal amount with VAT: ".$order->total."
-                    \nVAT: ".$order->vat;
+                    \n";
+
 
 
                 @endphp
