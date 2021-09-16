@@ -93,6 +93,15 @@
   "Time Frames": "الإطار الزمني",
   "Time Frame": "الإطار الزمني",
   "Dashboard": "الرئيسية",
-  "Add Image": "إضافة صورة"
+  "Add Image": "إضافة صورة",
+  "Company Name": "اسم الشركة",
+  "Company Phone": "رقم الهاتف",
+  "Company Mobile": "رقم الهاتف المحمول",
+  "Company Email": "البريد الإلكتروني",
+  "Company Website": "الموقع الإلكتروني",
+  "Company Address 1": "عنوان الشركة 1",
+  "Company Address 2": "عنوان الشركة 2",
+  "Edit": "تعديل",
+  "Company Logo": "شعار الشركة"
 
 }

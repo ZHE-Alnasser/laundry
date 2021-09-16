@@ -8,9 +8,9 @@
             {{--<th class="px-16 py-2">--}}
                 {{--<span class="text-gray-100 font-semibold">Avatar</span>--}}
             {{--</th>--}}
-            <th class="px-6 py-2">
-                <p class="text-gray-100 font-semibold">#</p>
-            </th>
+            {{--<th class="px-6 py-2">--}}
+                {{--<p class="text-gray-100 font-semibold">#</p>--}}
+            {{--</th>--}}
 
             <th class="px-4 py-2">
                 <p class="text-gray-100 font-semibold">{{__('Service Name')}}</p>
@@ -32,18 +32,18 @@
             </th>
         </tr>
         </thead>
-        <body class="bg-gray-200"  x-show="services.length">
+        <tbody class="bg-gray-200" x-show="services.length">
 
-        <template x-for="(service,index) in services" :key="index">
-        <tr class="bg-white border-b-2 border-gray-200">
+        <template x-for="service in services" :key="service.id">
+        <tr class="bg-white border-b-2 border-gray-200" >
 
-<td x-text="index +1" >
+{{--<td x-text="services.length" >--}}
 
-</td>
+{{--</td>--}}
             <td class="px-2 py-2">
                 {{--<span class="text-center ml-2 px-8 font-semibold">John Doe</span>--}}
-                <input type="hidden"  x-model="service.service_id"/>
-                <select type="text"
+                <input type="hidden"   />
+                <select type="text"  x-model="service.service_id"
                         {{--name="service_id[]"--}}
                         {{--name="service_id"--}}
                         {{--x-bind:name="`serviceOrders[${field.id}][service_id]`"--}}
@@ -67,14 +67,16 @@
                 {{--</select>--}}
             {{--</td>--}}
             <td class="px-2 py-2">
-                <input x-model="service.quantity" type="text"
+                <input  type="text"
+                       {{--x-model="newService"--}}
+                                x-model="service.quantity"
                        {{--name="serviceOrders[1]['quantity']"--}}
                                name="serviceOrders[quantity]"
                        class="input">
             </td>
             <td class="px-2 py-2">
                 <input x-model="service.amount" type="number"
-                       name="serviceOrders['amount']"
+                       name="serviceOrders[amount]"
                        {{--name="amount[]"--}}
                        class="input">
             </td>
@@ -97,13 +99,12 @@
             </td>
         </tr>
         </template>
-        </body>
+        </tbody>
     </table>
 
 
-    <div class="flex items-center text-sm mt-2">
-        <a x-model="newService"
-                @click="addService()">
+    <div class="flex items-center addColumn text-sm mt-2">
+        <a @click="addService()">
             <svg class="w-3 h-3 mr-3 focus:outline-none" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                 <path d="M12 4v16m8-8H4"></path>
             </svg>
@@ -124,18 +125,20 @@ newService: '',
 
 addService() {
 this.services.push({
-    id: this.services.length + 1,
-    {{--id: '{{count($serviceOrders)}}',--}}
+    // id: this.services.length + 1,
+    id: '{{count($serviceOrders)}}',
     // item_id:'',
-    service_id:'',
-    quantity:'',
-    amount:'',
-    body: this.newService,
+    service_id:this.newService,
+    quantity:this.newService,
+    amount:this.newService,
+    // body: this.newService,
     completed: false
 });
 this.newService = '';
 },
-//     let notExist = true;
+{{--newService: '',--}}
+
+///     let notExist = true;
 //     console.log(services);
 //     let {id, amount, name} = service;
 //     if (this.services.length) {

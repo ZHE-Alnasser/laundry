@@ -178,7 +178,7 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
 
-        QCod\AppSettings\AppSettingsServiceProvider::class,
+//        QCod\AppSettings\AppSettingsServiceProvider::class,
 
     ],
 
@@ -232,7 +232,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        "AppSettings" => QCod\AppSettings\Facade::class
+//        "AppSettings" => QCod\AppSettings\Facade::class
 
     ],
 

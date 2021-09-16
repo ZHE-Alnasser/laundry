@@ -3,7 +3,7 @@
             <x-tabs :active="__('Information')">
                 @include('settings.partials.company-info')
             </x-tabs>
-            <button>{{__('submit')}}</button>
+           <div class="mx-5"><button class="btn mt-8">{{__('Edit')}}</button></div>
 
             {{--@include('app_settings::_settings')--}}
         </x-form>

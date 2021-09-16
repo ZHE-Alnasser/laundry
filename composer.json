@@ -23,7 +23,6 @@
         "livewire/livewire": "^2.5",
         "mediconesystems/livewire-datatables": "^0.5.1",
         "nesbot/carbon": "^2.53",
-        "qcod/laravel-app-settings": "^1.4",
         "simplesoftwareio/simple-qrcode": "^4.2",
         "spatie/laravel-activitylog": "^3.17",
         "spatie/laravel-medialibrary": "^9.7",
@@ -44,15 +43,15 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
         },
         "files": [
             "app/Helpers/helper.php"
         ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     },
     "scripts": {
         "post-autoload-dump": [

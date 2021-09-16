@@ -7,7 +7,8 @@ use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Filesystem\Cache;
 use Illuminate\Routing\Controller;
-use QCod\AppSettings\SavesSettings;
+//use QCod\AppSettings\SavesSettings;
+
 
 class SettingController extends Controller
 
@@ -17,7 +18,7 @@ class SettingController extends Controller
 
         $this->middleware('auth');
     }
-    use SavesSettings;
+//    use SavesSettings;
 
     public function index()
     {
@@ -34,7 +35,7 @@ class SettingController extends Controller
 
     public function update(Request $request, Setting $setting)
     {
-        $data = $request->except('_value','_token');
+        $data = $request->except('_method','_token');
 
         foreach ($data as $name => $value) {
 //            dd($value);
@@ -42,7 +43,7 @@ class SettingController extends Controller
         }
 
         // re-cache settings.
-        Cache::forget('settingsTable'); // it will be auto-cache again when it hits App Service provider.
+//        Cache::forget('settingsTable'); // it will be auto-cache again when it hits App Service provider.
 
 
         $file_path = null;

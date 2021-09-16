@@ -12,6 +12,7 @@ use BladeUIKit\Components\DateTime\Carbon;
 use BladeUIKit\Components\Forms\Inputs\Input;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Validator;
 //use Symfony\Component\Console\Input\Input;
@@ -88,7 +89,7 @@ class OrderController extends Controller
 ////////        $order->save();
 //          $service = $this->validate($request, [
 //                   'order_id' => 'nullable',
-//                    'item_id' => 'nullable',
+////                    'item_id' => 'nullable',
 //                    'service_id' => 'nullable',
 //                    'quantity' => 'nullable',
 //                    'amount' => 'nullable',
@@ -118,52 +119,62 @@ class OrderController extends Controller
 ////
 
 //            dd($request->serviceOrders);
-////
-            if ($request->serviceOrders) {
-                foreach ($request->serviceOrders as $service) {
 //
-                    $order->services()->attach($service);
-dd($order->services());
+            if ($request->serviceOrders) {
+                foreach ($request->serviceOrders as $serviceOrder) {
+
+                    $order->services()->attach($serviceOrder);
+////dd($service);
+                }
+            }
 //                    $ordersService = OrderService::where('order_id', $order->id)
 ////                        ->where('service_id', $service['service_id'])
 ////                        ->where('item_id',$service['item_id'])
 //                        ->first();
-//                    if ($service['amount']) {
-//                        $ordersService->amount()->create(['value' => $service['amount']]);
-//                    }
 
-//                    if ($service['quantity']) {
-//                        $ordersService->quantity()->create(['value' => $service['quantity']]);
-////                    }
-                }
-            }
+//                }
+//            }
 
 //
 //            $this->validate(
 //                $request, [
 //                    'details' => 'nullable',
-//                ]
-//            );
-////            $items = $request->details;
+////                ]
+////            );
+//////            $items = $request->details;
 //        $items = json_decode($request->details,true);
+//
+////        dd($items);
+//
+////        $xx = $x->map(function($item) {
+//
+////            return $item;
+////        });
+//
+//
+//        1. format of the array
+//
+        $services[] =  $request->serviceOrders;
 
-//        dd($items);
+        if ($request->serviceOrders) {
 
-//        $xx = $x->map(function($item) {
+            foreach ($services as $serviceOrder) {
+//                dd( $serviceOrder);
+////        $user->roles()->sync([1 => ['expires' => true], 2, 3]);
 
-//            return $item;
-//        });
-
-//        $user->roles()->sync([1 => ['expires' => true], 2, 3]);
-
-
-//             validate the details
-//             i.e. $item->price == $product->selling_price
+                $order->services()->attach([$serviceOrder['service_id'] =>
+                    ['amount' => $serviceOrder['amount'],'quantity'=>$serviceOrder['quantity']]]);
+////dd($service);
+            }
+        }
+//
+////             validate the details
+////             i.e. $item->price == $product->selling_price
 //            $formattedDetails = collect($items)->transform(function($item) {
 //                $service = Service::find($item['id']);
 //                  $item['amount'] = $service->amount;
 //                  $item['quantity'] = $service->quantity;
-//                  $item['item_id'] = $service->item_id;
+////                  $item['item_id'] = $service->item_id;
 //                  $item['service_id_id'] = $service->service_id;
 ////                $item['purchasing_price'] = $product->purchasing_price;
 //                $item['service_id'] = $item['id'];
@@ -173,7 +184,7 @@ dd($order->services());
 ////                unset($item['total']);
 //                return $item;
 //            });
-//
+////
 //            $order->services()->sync($formattedDetails);
 ////
 ////
