@@ -56,7 +56,7 @@ class OrderController extends Controller
     {
 //        $ser = Session::get('cart');
 //        $cart = new Cart($oldCart)
-        dd($request);
+//        dd($request);
 //$service = Input::get('services');
 //        DB::transaction(function () use ($request) {
 
@@ -100,8 +100,20 @@ class OrderController extends Controller
 //           $order->services()->attach($service);
 ////});
 //           $order->save();
-
-
+//        $services[] =  $request->serviceOrders;
+//
+//        if ($request->serviceOrders) {
+//            foreach ($services as $details) {
+//                $orderDetails = new OrderService();
+//                $orderDetails->order_id = $order->id;
+//                $orderDetails->service_id = $details['service'];
+//                $orderDetails->quantity = $details['quantity'];
+//                $orderDetails->quantity = $details['amount'];
+//                $quantity = $details['quantity'] ? $details['quantity'] : 1;
+////            $servicePrice = Service::find($details['service_id']);
+//                $orderDetails->save();
+//            }
+//        }
 //            $orderServices = [];
 //       foreach ($order->services as $productId => $items) {
 //           $items = $this->validate($request, [
@@ -119,21 +131,30 @@ class OrderController extends Controller
 ////
 
 //            dd($request->serviceOrders);
-//
-//            if ($request->serviceOrders) {
-//                foreach ($request->serviceOrders as $serviceOrder) {
-//
-//                    $order->services()->attach($serviceOrder);
-////dd($service);
-//                }
-//            }
-////                    $ordersService = OrderService::where('order_id', $order->id)
-////                        ->where('service_id', $service['service_id'])
-////                        ->where('item_id',$service['item_id'])
+
+            if ($request->serviceOrders) {
+                foreach ($request->serviceOrders as $service) {
+
+                    $order->services()->attach($service['service']);
+                    $orderService = OrderService::where('order_id', $order->id)->where('service_id', $service['service'])
+                        ->first();
+                    if ($service['amount']) {
+                        $orderService->amount()->create(['value' => $service['amount']]);
+                    }
+
+                    if ($service['quantity']) {
+                        $orderService->quantity()->create(['value' => $service['quantity']]);
+                    }
+//dd($service);
+                }
+            }
+//                    $ordersService = OrderService::where('order_id', $order->id)
+//                        ->where('service_id', $service['service_id'])
+//                        ->where('item_id',$service['item_id'])
 //                        ->first();
 
 //                }
-//            }
+////            }
 
 //
 //            $this->validate(
@@ -151,23 +172,23 @@ class OrderController extends Controller
 ////            return $item;
 ////        });
 //
-//
+////=================================================================================
 //        1. format of the array
 //
-        $services[] =  $request->serviceOrders;
-
-        if ($request->serviceOrders) {
-
-            foreach ($services as $serviceOrders) {
-//                dd( $serviceOrder);
-////        $user->roles()->sync([1 => ['expires' => true], 2, 3]);
-
-                $order->services()->attach([$serviceOrders['service_id'] =>
-                    ['amount' => $serviceOrders['amount'],'quantity'=>$serviceOrders['quantity']]]);
-////dd($service);
-            }
-        }
+//        $services[] =  $request->serviceOrders;
 //
+//        if ($request->serviceOrders) {
+//
+//            foreach ($services as $serviceOrders) {
+////                dd( $serviceOrder);
+//////        $user->roles()->sync([1 => ['expires' => true], 2, 3]);
+//
+//                $order->services()->attach([$serviceOrders['service'] =>
+//                    ['amount' => $serviceOrders['amount'],'quantity'=>$serviceOrders['quantity']]]);
+//////dd($service);
+//            }
+//        }
+//=================================================================================
 ////             validate the details
 ////             i.e. $item->price == $product->selling_price
 //            $formattedDetails = collect($items)->transform(function($item) {

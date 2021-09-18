@@ -1,9 +1,8 @@
 <!-- responsive table-->
-<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<div class="mt-2" x-data="handler() ">
+<div class="row mt-2" x-data="handler() ">
 
-
-    <table  class="max-w-5xl mx-auto table-auto">
+    <div class="col">
+    <table  class="max-w-5xl mx-auto table-auto" id="services_table">
         <thead class="justify-between">
         <tr class="bg-green-600">
             {{--<th class="px-16 py-2">--}}
@@ -44,12 +43,13 @@
 {{--</td>--}}
             <td class="px-2 py-2">
                 {{--<span class="text-center ml-2 px-8 font-semibold">John Doe</span>--}}
-                <input type="hidden"   />
-                <select type="text"  x-model="field.service_id"
+                <input type="hidden"  x-model="field.id"/>
+                {{--<input type="hidden"   />--}}
+                <select type="text"  x-model="field.service"
                         {{--name="service_id[]"--}}
                         {{--name="service_id"--}}
                         {{--x-bind:name="`serviceOrders[${field.id}][service_id]`"--}}
-                        x-bind:name="`serviceOrders[${field.id}][service_id]`"
+                        x-bind:name="`serviceOrders[${field.id}][service]`"
                                 {{--name="service_id[]"--}}
                         class="input text-center ml-2 px-8 font-semibold">
                     @foreach(\App\Models\Service::all() as $service)
@@ -114,15 +114,15 @@
         </tbody>
     </table>
 
-
-    <div class="flex items-center addColumn text-sm mt-2">
-        <a  @click="addNewField()">
-            <svg class="w-3 h-3 mr-3 focus:outline-none" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M12 4v16m8-8H4"></path>
-            </svg>
-        </a>
-        <span>{{__('Click to add more')}}</span>
     </div>
+    {{--<div class="flex items-center addColumn text-sm mt-2">--}}
+        {{--<a  @click="addNewField()">--}}
+            {{--<svg class="w-3 h-3 mr-3 focus:outline-none" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">--}}
+                {{--<path d="M12 4v16m8-8H4"></path>--}}
+            {{--</svg>--}}
+        {{--</a>--}}
+        {{--<span>{{__('Click to add more')}}</span>--}}
+    {{--</div>--}}
 </div>
 
 <script>
@@ -188,13 +188,30 @@
 function handler() {
     return {
         id: '{{count($serviceOrders)}}',
-        fields: [],
+        serviceName:'',
+        quantityName:'',
+        amountName:'',
+        fields: [
+            @php
+                if($order->services)
+$index=0;
+foreach ($serviceOrders as $service)
+{
+     $amount = optional($service->amount()->whereOrderId($order->id)->first())->value;
+     $description = optional($service->quantity()->whereOrderId($order->id)->first())->value;
+
+  echo  "{id: $index,quantity: '$quantity',amount: '$amount' ,service: '$service->id'},";
+$index++;
+}
+
+            @endphp
+        ],
         addNewField() {
             this.fields.push({
                 id: this.id++,
-                service_id: '',
                 quantity: '',
-                amount: ''
+                amount: '',
+                service: ''
             });
         },
         removeField(index) {
@@ -241,3 +258,4 @@ function handler() {
     {{--})--}}
 
 {{--</script>--}}
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>

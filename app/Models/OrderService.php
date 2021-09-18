@@ -9,27 +9,28 @@ use Illuminate\Database\Eloquent\Model;
 class OrderService extends pivot
 {
 //    use HasFactory;
-    protected $guarded = [];
+//    protected $guarded = [];
 
     protected $table = 'order_service';
-    use HasFactory, LogsActivity;
+    use HasFactory;
+//    use HasFactory, LogsActivity;
 
-//    protected static $logFillable = true;
-//    protected $fillable = [
-//        'order_id',
-//        'service_id',
+    protected static $logFillable = true;
+    protected $fillable = [
+        'order_id',
+        'service_id',
 //        'item_id',
 //        'amount',
 //        'quantity'
-//    ];
+    ];
 
-//    public function amount()
-//    {
-//        return $this->hasOne(CostMajor::class, 'major_university_id', 'id');
-//    }
-//
-//    public function quantity()
-//    {
-//        return $this->hasOne(AdditionalInfoMajor::class, 'major_university_id', 'id');
-//    }
+    public function amount()
+    {
+        return $this->hasOne(AmountService::class, 'order_service_id', 'id');
+    }
+
+    public function quantity()
+    {
+        return $this->hasOne(QuantityService::class, 'order_service_id', 'id');
+    }
 }

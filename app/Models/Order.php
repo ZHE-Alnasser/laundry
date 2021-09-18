@@ -25,7 +25,8 @@ class Order extends Model
 // protected $with = ['type'];
     public function services()
     {
-        return $this->belongsToMany(Service::class)->withPivot('order_id','service_id','quantity','amount');
+        return $this->belongsToMany(Service::class)->using(OrderService::class);
+            //->withPivot('order_id','service_id','quantity','amount');
 
 //        (Service::class,'order_service','order_id','service_id','item_id','quantity','amount');
     }
