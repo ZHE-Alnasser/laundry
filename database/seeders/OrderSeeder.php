@@ -14,7 +14,7 @@ class OrderSeeder extends Seeder
     public function run()
     {
         $items = [
-            ['without_vat' => '30',
+            ['sub_total' => '30',
                 'total' => '350',
                 'vat' => '50',
                 'customer_id' => '2',

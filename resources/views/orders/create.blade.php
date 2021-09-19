@@ -156,32 +156,33 @@
     </x-select>
 
     <div class="inline-flex flex-row w-full mt-8">
-        <div class="flex-col w-full">
-            <label>{{__('Discount')}}</label>
+        {{--<div class="flex-col w-full">--}}
+            {{--<label>{{__('Discount')}}</label>--}}
 
-            <x-input type="number" name="discount"  class="input"/>
+            {{--<x-input type="number" name="discount"  class="input"/>--}}
 
-        </div>
+        {{--</div>--}}
 
 
-        <div class="mr-6 flex-col w-full">
-            <label>{{__('VAT')}}</label>
-            <x-input type="number"  name="vat"  class="input"/>
+        {{--<div class="mr-6 flex-col w-full">--}}
+            {{--<label>{{__('VAT')}}</label>--}}
+            {{--<x-input type="number"  name="vat"  class="input"/>--}}
 
-        </div>
+        {{--</div>--}}
 
-        <div class="mr-6 flex-col w-full">
+        {{--<div class="mr-6 flex-col w-full">--}}
 
-            <label>{{__('Total Without VAT')}}</label>
-            <x-input type="number"  name="without_vat" class="input"/>
+            {{--<label>{{__('Sub Total')}}</label>--}}
 
-        </div>
+            {{--<x-input type="number"  name="sub_total" class="input"/>--}}
 
-        <div class="mr-6 flex-col w-full">
+        {{--</div>--}}
 
-            <label>{{__('Total With VAT')}}</label>
-            <x-input type="number" name="total"  class="input"/>
-        </div>
+        {{--<div class="mr-6 flex-col w-full">--}}
+
+            {{--<label>{{__('Total With VAT')}}</label>--}}
+            {{--<x-input type="number" name="total"  class="input"/>--}}
+        {{--</div>--}}
     </div>
     <div class="flex flex-col mt-8 md:flex-row">
         <div class="w-full  flex-1">

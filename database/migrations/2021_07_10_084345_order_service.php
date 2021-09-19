@@ -14,7 +14,7 @@ class OrderService extends Migration
             $table->foreignId('order_id');
 //            $table->foreignId('item_id');
             $table->decimal('price', 15, 2)->default(0);
-            $table->integer('quantity')->default(0);
+            $table->integer('qty')->default(0);
 
             $table->primary(['service_id','order_id']);
 //            $table->id();

@@ -15,7 +15,7 @@ class CreateOrdersTable extends Migration
             $table->foreignId('employee_id')->nullable();
             $table->foreignId('type_id')->nullable();
             $table->float('vat')->nullable();
-            $table->float('without_vat')->nullable();
+            $table->float('sub_total')->nullable();
             $table->float('total')->nullable();
             $table->string('discount')->nullable();
             $table->set('payment',['cash','card','transfer'])->nullable();

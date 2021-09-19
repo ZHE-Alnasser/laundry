@@ -58,7 +58,7 @@ class OrderController extends Controller
     {
 //        $ser = Session::get('cart');
 //        $cart = new Cart($oldCart)
-//        dd($request);
+        dd($request);
 //$service = Input::get('services');
 //        DB::transaction(function () use ($request) {
 
@@ -133,23 +133,30 @@ class OrderController extends Controller
 ////
 
 //            dd($request->serviceOrders);
-
-            if ($request->serviceOrders) {
-                foreach ($request->serviceOrders as $service) {
-
-                    $order->services()->attach($service['service']);
-                    $orderService = OrderService::where('order_id', $order->id)->where('service_id', $service['service'])
-                        ->first();
-                    if ($service['amount']) {
-                        $orderService->amount()->create(['value' => $service['amount']]);
-                    }
-
-                    if ($service['quantity']) {
-                        $orderService->quantity()->create(['value' => $service['quantity']]);
-                    }
-//dd($service);
-                }
+        $services = $request->input('services', []);
+        $quantities = $request->input('quantities', []);
+        for ($service=0; $service < count($services); $service++) {
+            if ($services[$service] != '') {
+                $order->services()->attach($services[$service], ['quantity' => $quantities[$service]]);
             }
+        }
+
+//            if ($request->serviceOrders) {
+//                foreach ($request->serviceOrders as $service) {
+//
+//                    $order->services()->attach($service['service']);
+//                    $orderService = OrderService::where('order_id', $order->id)->where('service_id', $service['service'])
+//                        ->first();
+//                    if ($service['amount']) {
+//                        $orderService->amount()->create(['value' => $service['amount']]);
+//                    }
+//
+//                    if ($service['quantity']) {
+//                        $orderService->quantity()->create(['value' => $service['quantity']]);
+//                    }
+////dd($service);
+//                }
+//            }
 //                    $ordersService = OrderService::where('order_id', $order->id)
 //                        ->where('service_id', $service['service_id'])
 //                        ->where('item_id',$service['item_id'])

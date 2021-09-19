@@ -45,7 +45,7 @@ class OrderDatatable extends LivewireDatatable
 
             Column::name('discount')->label(__('Discount'))->searchable(),
             Column::name('vat')->label(__('VAT'))->searchable(),
-            Column::name('without_vat')->label(__('Total amount without VAT'))->searchable(),
+            Column::name('sub_total')->label(__('Total amount without VAT'))->searchable(),
             Column::name('total')->label(__('Total amount with VAT'))->searchable(),
             Column::callback(['process'], function ($process) {
                 return __('process_'.$process);

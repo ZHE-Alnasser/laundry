@@ -34,7 +34,7 @@
                                 {{--</select>--}}
                             {{--</div>--}}
                             {{--<div class="form-group" style="width: 300px;">--}}
-                                {{--<input type="number" name="qty" class="form-control" placeholder="Enter quantity" required="" aria-label="item">--}}
+                                {{--<input type="number" name="qty" class="form-control" placeholder="Enter qty" required="" aria-label="item">--}}
                             {{--</div>--}}
                             {{--<input type="hidden" value="0" name="transid">--}}
                             {{--<button style="width: 300px;" class="btn btn-success my-2 my-sm-0" type="button">Add</button>--}}
@@ -63,7 +63,7 @@
                                 {{--@foreach($orders as $order)--}}
                                     {{--<tr>--}}
                                         {{--<td>{{ $order->cloth_name }}</td>--}}
-                                        {{--<td>{{ $order->quantity }}</td>--}}
+                                        {{--<td>{{ $order->qty }}</td>--}}
                                         {{--<td>{{ $order->unit_price }}</td>--}}
                                         {{--<td>{{ $order->sub_total}}</td>--}}
 
@@ -319,11 +319,11 @@
                 </tr>
                 <tr>
                     <th class="text-center">Tax Amount</th>
-                    <td class="text-center"><input type="number" name='tax_amount' id="tax_amount" placeholder='0.00' class="form-control" readonly/></td>
+                    <td class="text-center"><input type="number" name='vat' id="vat" placeholder='0.00' class="form-control" readonly/></td>
                 </tr>
                 <tr>
                     <th class="text-center">Grand Total</th>
-                    <td class="text-center"><input type="number" name='total_amount' id="total_amount" placeholder='0.00' class="form-control" readonly/></td>
+                    <td class="text-center"><input type="number" name='total' id="total" placeholder='0.00' class="form-control" readonly/></td>
                 </tr>
                 </tbody>
             </table>
@@ -380,7 +380,7 @@
         });
         $('#sub_total').val(total.toFixed(2));
         tax_sum=total/100*$('#tax').val();
-        $('#tax_amount').val(tax_sum.toFixed(2));
-        $('#total_amount').val((tax_sum+total).toFixed(2));
+        $('#vat').val(tax_sum.toFixed(2));
+        $('#total').val((tax_sum+total).toFixed(2));
     }
 </script>
