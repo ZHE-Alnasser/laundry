@@ -8,7 +8,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class QuantityService extends Model
 {
-    use HasFactory;
+    use HasFactory,LogsActivity;
     protected $table = 'quantity_service';
 //    protected $guarded = [];
     protected static $logFillable = true;

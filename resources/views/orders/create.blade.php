@@ -205,7 +205,7 @@
             {{--<x-input class="input" name="price" type="text" value="{{ old('price') }}" />--}}
 
 <div>
-@include('orders.test')
+@include('orders.example')
 
 </div>
             <div class="flex mt-3">

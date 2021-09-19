@@ -13,6 +13,7 @@
     <meta name="msapplication-config" content="/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <meta name="_token" content="{!! csrf_token() !!}">
+
     {{--<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>--}}
 
     {{--<script src="https://unpkg.com/feather-icons"></script>--}}
@@ -44,6 +45,7 @@
 <x-layouts._footer/>
 <script src="{{ mix('js/app.js') }}" defer></script>
 <script src="path/to/dist/feather.js"></script>
+@yield('scripts')
 @stack('modals')
 {{--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>--}}
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>--}}

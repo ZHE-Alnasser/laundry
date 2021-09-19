@@ -12,9 +12,10 @@ class OrderService extends pivot
 //    protected $guarded = [];
 
     protected $table = 'order_service';
-    use HasFactory;
-//    use HasFactory, LogsActivity;
-
+//    use HasFactory;
+    use HasFactory, LogsActivity;
+    protected $primaryKey = 'id';
+    protected $guarded=[];
     protected static $logFillable = true;
     protected $fillable = [
         'order_id',

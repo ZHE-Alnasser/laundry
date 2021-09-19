@@ -40,14 +40,16 @@ class OrderController extends Controller
     {
         $services=Service::all();
 //        $items=Item::all();
+        $orders=Order::all();
         $customers = User::customer()->get();
         $employees = User::employee()->get();
         $order=new Order;
+        $amount=1010;
         $serviceOrders=OrderService::all();
         $timeframes=TimeFrame::all();
 //        dd($serviceOrders);
         return view ('orders.create', compact('customers','employees','services','serviceOrders',
-            'order', 'timeframes'));
+            'order', 'timeframes','amount','orders'));
 
     }
 
