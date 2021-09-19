@@ -11,16 +11,16 @@ class Service extends Model
 {
     use HasFactory,HasSlug;
 
-protected static $logFillable = true;
-//    protected $guarded = [];
+//protected static $logFillable = true;
+    protected $guarded = [];
 
-    protected $fillable  = [
-//        'items.name',
-        'name',
-        'item.name',
-        'price',
-        'slug'
-    ];
+//    protected $fillable  = [
+////        'items.name',
+//        'name',
+//        'item.name',
+//        'price',
+//        'slug'
+//    ];
     public function orders()
     {
         return $this->belongsToMany(Order::class) ->using(OrderService::class);

@@ -169,7 +169,7 @@
             {{--</div>--}}
 
             {{--<div class="card-body">--}}
-                {{--<table class="table" id="products_table">--}}
+                {{--<table class="table" id="services_table">--}}
                     {{--<thead>--}}
                     {{--<tr>--}}
                         {{--<th>Product</th>--}}
@@ -177,13 +177,13 @@
                     {{--</tr>--}}
                     {{--</thead>--}}
                     {{--<tbody>--}}
-                    {{--<tr id="product0">--}}
+                    {{--<tr id="service0">--}}
                         {{--<td>--}}
                             {{--<select name="services[]" class="form-control">--}}
-                                {{--<option value="">-- choose product --</option>--}}
-                                {{--@foreach ($services as $product)--}}
-                                    {{--<option value="{{ $product->id }}">--}}
-                                        {{--{{ $product->name }} (${{ number_format($product->price, 2) }})--}}
+                                {{--<option value="">-- choose service --</option>--}}
+                                {{--@foreach ($services as $service)--}}
+                                    {{--<option value="{{ $service->id }}">--}}
+                                        {{--{{ $service->name }} (${{ number_format($service->price, 2) }})--}}
                                     {{--</option>--}}
                                 {{--@endforeach--}}
                             {{--</select>--}}
@@ -192,7 +192,7 @@
                             {{--<input type="number" name="quantities[]" class="form-control" value="1" />--}}
                         {{--</td>--}}
                     {{--</tr>--}}
-                    {{--<tr id="product1"></tr>--}}
+                    {{--<tr id="service1"></tr>--}}
                     {{--</tbody>--}}
                 {{--</table>--}}
 
@@ -217,15 +217,15 @@
             {{--$("#add_row").click(function (e) {--}}
                 {{--e.preventDefault();--}}
                 {{--let new_row_number = row_number - 1;--}}
-                {{--$('#product' + row_number).html($('#product' + new_row_number).html()).find('td:first-child');--}}
-                {{--$('#products_table').append('<tr id="product' + (row_number + 1) + '"></tr>');--}}
+                {{--$('#service' + row_number).html($('#service' + new_row_number).html()).find('td:first-child');--}}
+                {{--$('#services_table').append('<tr id="service' + (row_number + 1) + '"></tr>');--}}
                 {{--row_number++;--}}
             {{--});--}}
 
             {{--$("#delete_row").click(function (e) {--}}
                 {{--e.preventDefault();--}}
                 {{--if (row_number > 1) {--}}
-                    {{--$("#product" + (row_number - 1)).html('');--}}
+                    {{--$("#service" + (row_number - 1)).html('');--}}
                     {{--row_number--;--}}
                 {{--}--}}
             {{--});--}}
@@ -276,7 +276,17 @@
                 <tbody>
                 <tr id='addr0'>
                     <td>1</td>
-                    <td><input type="text" name='product[]'  placeholder='Enter Product Name' class="form-control"/></td>
+                    <td>
+                        <select name="services[]" class="form-control">
+                        <option value="">-- choose service --</option>
+                        @foreach ($services as $service)
+                            <option value="{{ $service->id }}">
+                                {{ $service->name }} (${{ number_format($service->price, 2) }})
+                            </option>
+                            @endforeach
+                            </select>
+                        {{--<input type="text" name='service[]'  placeholder='Enter Product Name' class="form-control"/>--}}
+                    </td>
                     <td><input type="number" name='qty[]' placeholder='Enter Qty' class="form-control qty" step="0" min="0"/></td>
                     <td><input type="number" name='price[]' placeholder='Enter Unit Price' class="form-control price" step="0.00" min="0"/></td>
                     <td><input type="number" name='total[]' placeholder='0.00' class="form-control total" readonly/></td>

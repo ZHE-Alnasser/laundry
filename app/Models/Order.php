@@ -15,20 +15,20 @@ class Order extends Model
 //    use LogsActivity;
 
     protected $guarded = [];
-    protected static $logFillable = true;
-    protected static $logAttributes = [
- 'customer.full_name',
- 'employee.full_name',
-        'vat',
-        'without_vat',
-        'total',
-        'payment',
-        'process',
-        'time_frame.name',
-        'discount',
-
-
-        ];
+//    protected static $logFillable = true;
+//    protected static $logAttributes = [
+// 'customer.full_name',
+// 'employee.full_name',
+//        'vat',
+//        'without_vat',
+//        'total',
+//        'payment',
+//        'process',
+//        'time_frame.name',
+//        'discount',
+//
+//
+//        ];
 //    protected $fillable = [
 //        'vat',
 //        'without_vat',
@@ -38,9 +38,10 @@ class Order extends Model
 // protected $with = ['type'];
     public function services()
     {
-        return $this->belongsToMany(Service::class)->using(OrderService::class);
+        return $this->belongsToMany(Service::class)->withPivot('quantity');
+//            ->using(OrderService::class);
 //        return $this->belongsToMany(Service::class)
-//            ->withPivot('order_id','service_id');
+//
 
 //        (Service::class,'order_service','order_id','service_id','item_id','quantity','amount');
     }
