@@ -17,12 +17,14 @@ protected static $logFillable = true;
     protected static $logAttributes = [
 //        'items.name',
         'name',
+        'item_id',
         'price',
+        'slug'
     ];
     public function orders()
     {
-        return $this->belongsToMany(Order::class)->using(OrderService::class);
-            //->withPivot('order_id','service_id','quantity','amount');
+        return $this->belongsToMany(Order::class)
+         ->withPivot('order_id','service_id','quantity','amount');
 
 //        (Order::class,'order_service','order_id','service_id','item_id','quantity','amount');
     }

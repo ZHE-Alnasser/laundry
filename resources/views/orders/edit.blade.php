@@ -33,7 +33,16 @@
                       </div>
                     </div>
 
+                    <div class="mt-8">
+                        <p>{{__('Time Frame')}} :<span class="text-red-600"> *</span></p>
+                        <x-select class="ml-4 select  " name="time_frame_id" id="time_frame_id" >
+                            @foreach($timeframes as $time)
+                                {{--@dd($customer)--}}
 
+                                <option  {{ $order->time_frame_id==$time->id?'selected':''}} value="{{$time->id}}">{{ $time->name }}</option>
+                            @endforeach
+                        </x-select>
+                    </div>
                    {{--<div class="mx-40">--}}
                         {{--<div class="flex flex-col md:flex-row">--}}
                             {{--<div class="w-full mx-2 flex-1">--}}
@@ -191,7 +200,7 @@
                     </div>
                 </x-form>
 
-            @include('orders.order-services.table')
+            @include('orders.test')
 
         </div>
         </div>

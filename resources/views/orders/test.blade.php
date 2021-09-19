@@ -35,7 +35,7 @@
         <tbody class="bg-gray-200" >
 
         {{--<template x-for="service in services" :key="service.id">--}}
-        <template x-for="(field, index) in fields" :key="index">
+        <template x-for="(field,index) in fields" :key="index">
         <tr class="bg-white border-b-2 border-gray-200" >
             <td x-text="index + 1"></td>
 {{--<td x-text="services.length" >--}}
@@ -52,7 +52,8 @@
                         x-bind:name="`serviceOrders[${field.id}][service]`"
                                 {{--name="service_id[]"--}}
                         class="input text-center ml-2 px-8 font-semibold">
-                    @foreach(\App\Models\Service::all() as $service)
+                    <option value="0"></option>
+                @foreach(\App\Models\Service::all() as $service)
                         <option value="{{$service->id}}">{{$service->name}}</option>
                     @endforeach
                 </select>
@@ -185,6 +186,8 @@
 {{--}--}}
 {{--}--}}
 {{--</script>--}}
+
+
 function handler() {
     return {
         id: '{{count($serviceOrders)}}',
@@ -197,8 +200,8 @@ function handler() {
 $index=0;
 foreach ($serviceOrders as $service)
 {
-     $amount = optional($service->amount()->whereOrderId($order->id)->first())->value;
-     $description = optional($service->quantity()->whereOrderId($order->id)->first())->value;
+    $amount = optional($service->amount()->whereOrderServiceId($order->id)->first())->value;
+    $quantity = optional($service->quantity()->whereOrderServiceId($order->id)->first())->value;
 
   echo  "{id: $index,quantity: '$quantity',amount: '$amount' ,service: '$service->id'},";
 $index++;

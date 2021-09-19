@@ -15,7 +15,7 @@ class OrderService extends Migration
 ////            $table->foreignId('item_id');
 //            $table->float('amount')->default(0);
 //            $table->integer('quantity')->default(0);
-//            $table->string('note',700)->nullable();
+            //            $table->string('note',700)->nullable();
 //            $table->primary(['service_id','order_id']);
             $table->id();
             $table->foreignIdFor(\App\Models\Order::class);

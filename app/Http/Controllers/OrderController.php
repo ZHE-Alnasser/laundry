@@ -222,20 +222,56 @@ class OrderController extends Controller
 
     public function edit(Order $order)
     {
+        $timeframes=TimeFrame::all();
         $orderService= OrderService::all();
-        $serviceOrders=$order->services()->with('order_id','service_id','item_id','amount','quantity');
+//        $serviceOrders=$order->services()->with('amount','quantity');
+        $serviceOrders=OrderService::all();
         $services=Service::all();
         $items=Item::all();
         $customers = User::customer()->get();
         $employees = User::employee()->get();
 
-        return view ('orders/edit',compact('order','customers','employees','items','services','serviceOrders','orderService'));
+        return view ('orders/edit',compact('order','customers','employees','items','services','serviceOrders','orderService','timeframes'));
     }
 
 
     public function update(Request $request, Order $order)
     {
-        $order->update($request->all());
+        //$order->update($request->all());
+        $data = request()->validate([
+            'without_vat' => 'required',
+            'total' => 'required',
+            'vat' => 'required',
+            'customer_id' => 'nullable',
+            'employee_id' => 'required',
+            'discount' => 'nullable',
+            'payment' => 'required',
+            'process' => 'required',
+            'requested_pickup_date' => 'nullable',
+            'requested_delivery_date' => 'nullable',
+            'agent_pickup_date' => 'nullable',
+            'time_frame_id' => 'required',
+
+        ]);
+        $order->update($data);
+      $order->services()->detach();
+        if ($request->serviceOrders) {
+            foreach ($request->serviceOrders as $service) {
+
+                $order->services()->attach($service['service']);
+                $orderService = OrderService::where('order_id', $order->id)->where('service_id', $service['service'])
+                    ->first();
+                if ($service['amount']) {
+                    $orderService->amount()->delete();
+                }
+                    $orderService->amount()->create(['value' => $service['amount']]);
+                }
+
+                if ($service['quantity']) {
+                    $orderService->quantity()->delete();
+                }
+                    $orderService->quantity()->create(['value' => $service['quantity']]);
+                }
         return redirect('orders/manage');
     }
 

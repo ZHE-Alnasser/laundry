@@ -14,8 +14,10 @@ class DatabaseSeeder extends Seeder
     {
 
          \App\Models\Item::factory(10)->create();
+//         \App\Models\Service::factory(5)->create();
 
         $this->call(CitySeeder::class);
+        $this->call(OrderSeeder::class);
         $this->call(TypeSeeder::class);
         $this->call(DistrictSeeder::class);
         $this->call(UserSeeder::class);
