@@ -16,7 +16,7 @@
                         @foreach($employees as $employee)
                             {{--@dd($customer)--}}
 
-                            <option {{ $order->employee_id==$employee->id?'selected':''}} value="{{$employee->id}}">{{ $employee->full_name }}</option>
+                            <option {{ $order->employee==$employee->id?'selected':''}} value="{{$employee->id}}">{{ $employee->full_name }}</option>
                         @endforeach
                     </x-select>
                     </div>
@@ -27,7 +27,7 @@
                         @foreach($customers as $customer)
                             {{--@dd($customer)--}}
 
-                            <option {{ $order->customer_id==$customer->id?'selected':''}} value="{{$customer->id}}">{{ $customer->full_name }}</option>
+                            <option {{ $order->customer_id==$customer->id?'selected':''}} value="{{$customer->id}}">{{ $customer->first_name }}</option>
                         @endforeach
                     </x-select>
                       </div>
@@ -68,8 +68,9 @@
 
                                 <label>{{__('Request Pickup Date')}}</label>
 
-                                    <x-input name="requested_pickup_date" type="text" value="{{$order->requested_pickup_date}}" class="input"/>
-
+                            <x-input name="requested_delivery_date" type="text"
+                                     x-init="$nextTick(() => {new flatpickr($el,{dateFormat: 'Y-m-d'})})"
+                                     value="{{$order->requested_pickup_date}}" class="date-range input"/>
 
                         </div>
 
@@ -98,8 +99,9 @@
 
                                 <label>{{__('Agent Deliver Date')}}</label>
 
-                                    <x-input name="agent_delivery_date" type="text" value="{{$order->agent_delivery_date}}" class="input"/>
-
+                            <x-input name="agent_pickup_date" type="text"
+                                     x-init="$nextTick(() => {new flatpickr($el,{dateFormat: 'Y-m-d'})})"
+                                     value="{{$order->agent_delivery_date}}" class="input"/>
                             </div>
 
 
@@ -120,7 +122,7 @@
                             label="{{__('Payment')}}">
                         <option value="1" {{$order->payment === 'cash' ? "selected" : "" }}>{{__('Cash')}}</option>
                         <option value="2" {{$order->payment === 'card' ? "selected" : "" }}>{{__('Card')}}</option>
-                        <option value="2" {{$order->payment === 'transfer' ? "selected" : "" }}>{{__('Transfer')}}</option>
+                        <option value="3" {{$order->payment === 'transfer' ? "selected" : "" }}>{{__('Transfer')}}</option>
                     </x-select>
 
                     {{--<div class="inline-flex flex-row w-full mt-8">--}}
@@ -156,11 +158,11 @@
                         <label class="label">{{__('Order Process')}}</label>
                         <x-select class="ml-4 select" name="process" id="process"
                                   label="{{__('state').' '.__('order')}}">
-                            <option value="1" {{$order->state === '1' ? "selected" : "" }}>{{__('Ready for Pickup')}}</option>
-                            <option value="2" {{$order->state === '2' ? "selected" : "" }}>{{__('Pickup')}}</option>
-                            <option value="3" {{$order->state === '3' ? "selected" : "" }}>{{__('In Laundry')}}</option>
-                            <option value="4" {{$order->state === '4' ? "selected" : "" }}>{{__('Ready for delivery')}}</option>
-                            <option value="4" {{$order->state === '5' ? "selected" : "" }}>{{__('deliver')}}</option>
+                            <option value="0" {{$order->process === 0 ? "selected" : "" }}>{{__('Ready for Pickup')}}</option>
+                            <option value="1" {{$order->process === 1 ? "selected" : "" }}>{{__('Pickup')}}</option>
+                            <option value="2" {{$order->process === 2 ? "selected" : "" }}>{{__('In Laundry')}}</option>
+                            <option value="3" {{$order->process === 3 ? "selected" : "" }}>{{__('Ready for delivery')}}</option>
+                            <option value="4" {{$order->process === 4 ? "selected" : "" }}>{{__('deliver')}}</option>
 
                         </x-select>
                             </div>
@@ -192,7 +194,7 @@
                         {{--</table>--}}
                     {{--</div>--}}
 
-                    @include('orders.example')
+                    @include('orders.services.edit')
                     <div class="flex p-2 mt-8">
                             <button type="Submit" class="btn ml-2">{{__('Save')}}</button>
                             <input type="button" class="btn-cancel"

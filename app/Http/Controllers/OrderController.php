@@ -232,6 +232,7 @@ class OrderController extends Controller
 
     public function edit(Order $order)
     {
+        $orders=Order::all();
         $timeframes=TimeFrame::all();
 //        $orderService= OrderService::all();
 //        $serviceOrders=$order->services()->with('amount','quantity');
@@ -241,7 +242,7 @@ class OrderController extends Controller
         $customers = User::customer()->get();
         $employees = User::employee()->get();
 
-        return view ('orders/edit',compact('order','customers','employees','items','services','timeframes'));
+        return view ('orders/edit',compact('order','customers','employees','items','services','timeframes','orders'));
     }
 
 
