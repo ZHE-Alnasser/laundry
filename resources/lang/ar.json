@@ -102,6 +102,8 @@
   "Company Address 1": "عنوان الشركة 1",
   "Company Address 2": "عنوان الشركة 2",
   "Edit": "تعديل",
-  "Company Logo": "شعار الشركة"
-
+  "Company Logo": "شعار الشركة",
+  "Sub Total": "الإجمالي بدون الضريبة",
+  "Vat Amount": "اجمالي الضريبة",
+  "Grand Total": "المبلغ الإجمالي مع الضريبة"
 }
