@@ -90,7 +90,7 @@ class RoleController extends Controller
     {
         $PermissionGroup = Permission::all()->groupBy('group');
         $rolePermissions = $role->permissions()->pluck('id')->toArray();
-        return view('roles.form', compact('role', 'PermissionGroup', 'rolePermissions'));
+        return view('roles.edit', compact('role', 'PermissionGroup', 'rolePermissions'));
     }
 
     /**

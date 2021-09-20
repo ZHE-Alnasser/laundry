@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-layouts.admin>
     <x-feedback/>
     <h1 class="mb-10 text-center text-xl">{{$role->name}}</h1>
     <div class="text-right">
@@ -6,17 +6,16 @@
         <x-form action="{{ route('roles.update',['role'=>$role->slug]) }}" method="PUT">
             @csrf
 
-            <label>{{__('Name').' '.__('Role')}}</label>
-            <x-input id="name" name="name" value="{{$role->name}}" placeholder="{{__('Name')}}"/>
+            <div class="mt-10"><label>{{__('Name').' '.__('Role')}}<span class="text-red-600"> *</span></label></div>
+            <x-input id="name" class="input" name="name" value="{{$role->name}}" placeholder="{{__('Name')}}"/>
 
-            <table>
+            <table class="table w-full mt-8">
                 <thead>
                 <tr>
                     <th>{{__('     ')}}</th>
-                    <th>{{__('Create')}}</th>
-                    <th>{{__('Edit')}}</th>
-                    <th>{{__('Delete')}}</th>
-                    <th>{{__('Show').''.__('History')}}</th>
+                    <th><p>{{__('Create')}}</p></th>
+                    <th><p>{{__('Edit')}}</p></th>
+                    <th><p>{{__('Delete')}}</p></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -27,7 +26,7 @@
                         </td>
                         @foreach($permissions as $permission)
                             <td>
-                                <input type="checkbox" name="permissions[]" value="{{$permission->id}}"
+                                <input class="rounded" type="checkbox" name="permissions[]" value="{{$permission->id}}"
                                         {{in_array($permission->id , $rolePermissions) ? 'checked' : '' }}/>
                             </td>
                         @endforeach
@@ -35,7 +34,7 @@
                 @endforeach
                 </tbody>
             </table>
-            <div class="flex mt-3">
+            <div class="flex mt-8">
                 <button type="submit" class="btn ml-3">
                     {{__('Edit')}}
                 </button>
@@ -45,4 +44,4 @@
             </div>
         </x-form>
     </div>
-</x-layouts.app>
+</x-layouts.admin>
