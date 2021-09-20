@@ -6,6 +6,7 @@ use App\Models\District;
 use App\Models\TimeFrame;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,6 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(SettingSeeder::class);
         $this->call(TimeFrameSeeder::class);
+        $this->call(PermissionSeeder::class);
+
         \App\Models\User::factory(10)->create();
 
     }

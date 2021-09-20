@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ItemDatatable;
 use App\Http\Controllers;
@@ -46,6 +47,9 @@ Route::get('settings', [App\Http\Controllers\SettingController::class, 'index'])
 Route::post('settings', [App\Http\Controllers\SettingController::class, 'update'])->name('settings.update');
 //Route::get(config('app_settings.url'), config('app_settings.controller').'@index');
 //Route::post(config('app_settings.url'), config('app_settings.controller').'@store');
+Route::get('/roles/manage', [App\Http\Controllers\RoleController::class, 'manage']);
+Route::resource('roles', RoleController::class);
+
 
 Route::resource('order_services', App\Http\Controllers\OrderServiceController::class);
 
@@ -67,3 +71,7 @@ Route::get('/logout', function(){
 //})->middleware(['auth'])->name('dashboard');
 //
 //require __DIR__.'/auth.php';
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
