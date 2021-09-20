@@ -81,6 +81,33 @@
                             {{--</div>--}}
 
                         {{--</div>--}}
+                                <div class="form-group {{ $errors->has('role_id') ? 'has-error' : '' }}">
+                                    <table class="table border w-full mt-8">
+                                        <thead>
+                                        <tr class="text-center">
+                                            <th><h2>{{__('Assign Role for the user')}}</h2></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($roles as $role)
+                                            <tr class="tr">
+                                                <td class="td p-2 text-center">
+                                                    <p class="text-s font-medium text-gray-600 ">
+                                                        {{ $role->name }}
+                                                        <input type="checkbox" id="role_id" name="role_id[]" value="{{ $role->id }}"
+                                                                {{in_array($role->id , $userRoles) ? 'checked' : '' }}/>
+                                                    </p>
+                                                </td>
+                                                @endforeach
+                                                @if($errors->has('role_id'))
+                                                    <p class="help-block">
+                                                        {{ $errors->first('role_id') }}
+                                                    </p>
+                                                @endif
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
 
                         <div class="flex p-2 mt-4">
                             <button type="Submit" class="btn ml-2">{{__('Save')}}</button>

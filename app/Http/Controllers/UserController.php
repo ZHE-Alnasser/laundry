@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\District;
+use App\Models\Role;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
@@ -43,9 +44,10 @@ class UserController extends Controller
 
     public function create()
     {
+        $roles = Role::all();
         $districts=District::all();
         $types =Type::all();
-        return view('/users/create',compact('types','districts'));
+        return view('/users/create',compact('types','roles','districts'));
     }
 
     public function store(Request $request)
@@ -63,10 +65,14 @@ class UserController extends Controller
 
         request()->merge(['password' => Hash::make($request['password'])]);
 
-        User::create(
+        $user=User::create(
             request()
                 ->only( 'first_name', 'last_name',  'district_id','password','email', 'password',
                     'type_id','phone'));
+        $roles = request()->validate([
+            'role_id' => 'nullable',
+        ]);
+        $user->syncRoles($roles);
 //        if($request->sms) {
 //            Notifier::sendSMS($request->message, $request->users);
 //            return redirect('notifications')->withMessage(__('Sent Successfully'));
@@ -83,9 +89,11 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
+        $roles = Role::all();
+        $userRoles = $user->roles()->pluck('id')->toArray();
         $districts= District::all();
         $types=Type::all();
-        return view('users.edit', compact('user','types','districts'));
+        return view('users.edit', compact('user','userRoles','roles','types','districts'));
 
     }
 
@@ -120,6 +128,11 @@ class UserController extends Controller
                 'district_id' => $request['district_id'],
 //                'is_active' => $request['is_active'],
             ])->save();
+
+            $roles = request()->validate([
+                'role_id' => 'nullable',
+            ]);
+            $user->syncRoles($roles);
         }
 
         if($request->is_active === '1')

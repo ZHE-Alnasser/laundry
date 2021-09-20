@@ -109,5 +109,6 @@
   "role": "صلاحية",
   "Role": "الصلاحية",
   "permissions": "التراخيص",
-  "Delete": "حذف"
+  "Delete": "حذف",
+  "Assign Role for the user": "الصلاحيات المتاحة للمستخدم"
 }
