@@ -233,25 +233,26 @@ class OrderController extends Controller
     public function edit(Order $order)
     {
         $timeframes=TimeFrame::all();
-        $orderService= OrderService::all();
+//        $orderService= OrderService::all();
 //        $serviceOrders=$order->services()->with('amount','quantity');
-        $serviceOrders=OrderService::all();
+//        $serviceOrders=OrderService::all();
         $services=Service::all();
         $items=Item::all();
         $customers = User::customer()->get();
         $employees = User::employee()->get();
 
-        return view ('orders/edit',compact('order','customers','employees','items','services','serviceOrders','orderService','timeframes'));
+        return view ('orders/edit',compact('order','customers','employees','items','services','timeframes'));
     }
 
 
     public function update(Request $request, Order $order)
     {
+//        dd($request);
         //$order->update($request->all());
         $data = request()->validate([
-            'without_vat' => 'required',
+            'sub_total' => 'required',
             'total' => 'required',
-            'vat' => 'required',
+            'vat' => 'nullable',
             'customer_id' => 'nullable',
             'employee_id' => 'required',
             'discount' => 'nullable',
@@ -265,23 +266,32 @@ class OrderController extends Controller
         ]);
         $order->update($data);
       $order->services()->detach();
-        if ($request->serviceOrders) {
-            foreach ($request->serviceOrders as $service) {
 
-                $order->services()->attach($service['service']);
-                $orderService = OrderService::where('order_id', $order->id)->where('service_id', $service['service'])
-                    ->first();
-                if ($service['amount']) {
-                    $orderService->amount()->delete();
-                }
-                    $orderService->amount()->create(['value' => $service['amount']]);
-                }
-
-                if ($service['quantity']) {
-                    $orderService->quantity()->delete();
-                }
-                    $orderService->quantity()->create(['value' => $service['quantity']]);
-                }
+        $services = $request->input('services', []);
+        $quantities = $request->input('qty', []);
+        for ($service=0; $service < count($services); $service++) {
+//            dd($services[$service]);
+            if ($services[$service] != '') {
+                $order->services()->attach($services[$service], ['qty' => $quantities[$service]]);
+            }
+        }
+//        if ($request->serviceOrders) {
+//            foreach ($request->serviceOrders as $service) {
+//
+//                $order->services()->attach($service['service']);
+//                $orderService = OrderService::where('order_id', $order->id)->where('service_id', $service['service'])
+//                    ->first();
+//                if ($service['amount']) {
+//                    $orderService->amount()->delete();
+//                }
+//                    $orderService->amount()->create(['value' => $service['amount']]);
+//                }
+//
+//                if ($service['quantity']) {
+//                    $orderService->quantity()->delete();
+//                }
+//                    $orderService->quantity()->create(['value' => $service['quantity']]);
+//                }
         return redirect('orders/manage');
     }
 

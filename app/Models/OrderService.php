@@ -25,13 +25,13 @@ class OrderService extends pivot
 ////        'quantity'
 //    ];
 
-    public function amount()
-    {
-        return $this->hasOne(AmountService::class, 'order_service_id', 'id');
-    }
-
-    public function quantity()
-    {
-        return $this->hasOne(QuantityService::class, 'order_service_id', 'id');
-    }
+//    public function amount()
+//    {
+//        return $this->hasOne(AmountService::class, 'order_service_id', 'id');
+//    }
+//
+//    public function quantity()
+//    {
+//        return $this->hasOne(QuantityService::class, 'order_service_id', 'id');
+//    }
 }

@@ -123,34 +123,34 @@
                         <option value="2" {{$order->payment === 'transfer' ? "selected" : "" }}>{{__('Transfer')}}</option>
                     </x-select>
 
-                    <div class="inline-flex flex-row w-full mt-8">
-                        <div class="flex-col w-full">
-                                <label>{{__('Discount')}}</label>
+                    {{--<div class="inline-flex flex-row w-full mt-8">--}}
+                        {{--<div class="flex-col w-full">--}}
+                                {{--<label>{{__('Discount')}}</label>--}}
 
-                                    <x-input name="discount" value="{{$order->discount}}" class="input"/>
+                                    {{--<x-input name="discount" value="{{$order->discount}}" class="input"/>--}}
 
-                            </div>
+                            {{--</div>--}}
 
 
-                        <div class="mr-6 flex-col w-full">
-                                <label>{{__('VAT')}}</label>
-                                    <x-input name="vat" value="{{$order->vat}}" class="input"/>
+                        {{--<div class="mr-6 flex-col w-full">--}}
+                                {{--<label>{{__('VAT')}}</label>--}}
+                                    {{--<x-input name="vat" value="{{$order->vat}}" class="input"/>--}}
 
-                        </div>
+                        {{--</div>--}}
 
-                        <div class="mr-6 flex-col w-full">
+                        {{--<div class="mr-6 flex-col w-full">--}}
 
-                        <label>{{__('Total Without VAT')}}</label>
-                                    <x-input name="without_vat" value="{{$order->without_vat}}" class="input"/>
+                        {{--<label>{{__('Total Without VAT')}}</label>--}}
+                                    {{--<x-input name="without_vat" value="{{$order->sub_total}}" class="input"/>--}}
 
-                        </div>
+                        {{--</div>--}}
 
-                        <div class="mr-6 flex-col w-full">
+                        {{--<div class="mr-6 flex-col w-full">--}}
 
-                        <label>{{__('Total With VAT')}}</label>
-                                    <x-input name="total" value="{{$order->total}}" class="input"/>
-                            </div>
-                        </div>
+                        {{--<label>{{__('Total With VAT')}}</label>--}}
+                                    {{--<x-input name="total" value="{{$order->total}}" class="input"/>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
                         <div class="flex flex-col mt-8 md:flex-row">
                             <div class="w-full  flex-1">
                         <label class="label">{{__('Order Process')}}</label>
@@ -166,32 +166,33 @@
                             </div>
                         </div>
 
-                    <div class="col-sm-offset-2 mt-8">
-                        <table class="table table-striped">
-                            <thead>
+                    {{--<div class="col-sm-offset-2 mt-8">--}}
+                        {{--<table class="table table-striped">--}}
+                            {{--<thead>--}}
 
-                            <tr>
-                                <td>#</td>
-                                <th>item</th>
-                                <th>Service</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($order->services as $item)
-                                <tr>
-                                    <td>{{$item->pivot->order_id}} </td>
-                                    <td>{{$item->pivot->item_id}} </td>
-                                    <td>{{$item->name}} </td>
-                                    <td>{{$item->pivot->quantity}}</td>
-                                    <td>{{$item->pivot->amount}}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                            {{--<tr>--}}
+                                {{--<td>#</td>--}}
+                                {{--<th>item</th>--}}
+                                {{--<th>Service</th>--}}
+                                {{--<th>Quantity</th>--}}
+                                {{--<th>Price</th>--}}
+                            {{--</tr>--}}
+                            {{--</thead>--}}
+                            {{--<tbody>--}}
+                            {{--@foreach($order->services as $item)--}}
+                                {{--<tr>--}}
+                                    {{--<td>{{$item->pivot->order_id}} </td>--}}
+                                    {{--<td>{{$item->pivot->item_id}} </td>--}}
+                                    {{--<td>{{$item->name}} </td>--}}
+                                    {{--<td>{{$item->pivot->qty}}</td>--}}
+                                    {{--<td>{{$item->pivot->amount}}</td>--}}
+                                {{--</tr>--}}
+                            {{--@endforeach--}}
+                            {{--</tbody>--}}
+                        {{--</table>--}}
+                    {{--</div>--}}
 
+                    @include('orders.example')
                     <div class="flex p-2 mt-8">
                             <button type="Submit" class="btn ml-2">{{__('Save')}}</button>
                             <input type="button" class="btn-cancel"
@@ -200,7 +201,6 @@
                     </div>
                 </x-form>
 
-            @include('orders.test')
 
         </div>
         </div>
