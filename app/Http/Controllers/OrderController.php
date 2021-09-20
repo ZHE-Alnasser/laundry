@@ -58,13 +58,13 @@ class OrderController extends Controller
     {
 //        $ser = Session::get('cart');
 //        $cart = new Cart($oldCart)
-        dd($request);
+//        dd($request);
 //$service = Input::get('services');
 //        DB::transaction(function () use ($request) {
 
 //            $data = $this->validate($request,[
             $data = request()->validate([
-                'without_vat' => 'required',
+                'sub_total' => 'required',
                 'total' => 'required',
                 'vat' => 'required',
                 'customer_id' => 'nullable',
@@ -134,13 +134,14 @@ class OrderController extends Controller
 
 //            dd($request->serviceOrders);
         $services = $request->input('services', []);
-        $quantities = $request->input('quantities', []);
+        $quantities = $request->input('qty', []);
         for ($service=0; $service < count($services); $service++) {
+//            dd($services[$service]);
             if ($services[$service] != '') {
-                $order->services()->attach($services[$service], ['quantity' => $quantities[$service]]);
+                $order->services()->attach($services[$service], ['qty' => $quantities[$service]]);
             }
         }
-
+//dd($services);
 //            if ($request->serviceOrders) {
 //                foreach ($request->serviceOrders as $service) {
 //
