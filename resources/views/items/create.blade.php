@@ -21,8 +21,17 @@
                 <label class=" font-extrabold leading-8 tracking-tight  sm:leading-9"
                        for="image">{{__('Add Image')}}</label>
                 <div class="mt-1">
+
                     {{--<x-media wire:ignore name="image" :entity="$item"/>--}}
-                    <x-input class="input" type="file" id="image" name="image"/>
+                    {{--<x-input class="input" type="file" id="image" name="image"/>--}}
+                    <label for="file-upload" class="btn-cancel ">
+                <span>
+
+                    {{__('Upload image')}}
+                </span>
+                        <i data-feather="image" class="ml-1"></i>
+                        <input  class="hidden" id="file-upload" type="file"/>
+                    </label>
                 </div>
             </div>
 
