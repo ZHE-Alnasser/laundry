@@ -75,7 +75,7 @@
 {{--</div>--}}
 @props(['active'])
 
-<div x-data="{
+<div  x-data="{
         activeTab: '{{ $active }}',
         tabs: [],
         tabHeadings: [],

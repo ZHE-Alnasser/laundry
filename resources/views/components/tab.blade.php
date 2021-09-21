@@ -1,6 +1,6 @@
 @props(['name'])
 
-<div x-data="{
+<div class=tab" x-data="{
         id: '',
         name: '{{ $name }}',
         show: false,

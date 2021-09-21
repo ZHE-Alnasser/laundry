@@ -133,7 +133,7 @@ div#nav-content {
     /*@apply  bg-base-300;*/
 /*}*/
 .side-items{
-    @apply flex items-center mt-2 py-2 px-8  text-gray-600 border-l-4 border-white
+    @apply flex items-center mt-2 py-2 px-2  text-gray-600 border-l-4 border-white
 }
 
 .side-items.active{

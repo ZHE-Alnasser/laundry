@@ -11,7 +11,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 class Order extends Model
 {
 
-    use HasFactory,LogsActivity;
+    use HasFactory;
 //    use LogsActivity;
 
     protected $guarded = [];
@@ -38,7 +38,7 @@ class Order extends Model
 // protected $with = ['type'];
     public function services()
     {
-        return $this->belongsToMany(Service::class)->withPivot('qty');
+        return $this->belongsToMany(Service::class)->withPivot('qty','price');
 //            ->using(OrderService::class);
 //        return $this->belongsToMany(Service::class)
 //

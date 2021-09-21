@@ -20,24 +20,27 @@
                 <tbody>
                 @foreach($orders as $order)
                     <tr data-entry-id="{{ $order->id }}">
-                        <td>
-                            {{ $order->id ?? '' }}
-                        </td>
-
-                        <td>
-                            <ul>
-                                @foreach($order->services as $item)
-                                    <li>{{ $item->name }} ({{ $item->pivot->qty }} x ${{ $item->price }})</li>
-                                @endforeach
-                            </ul>
-                        </td>
                         {{--<td>--}}
-                            <ul>
+                            {{--{{ $order->id ?? '' }}--}}
+                        {{--</td>--}}
+
+
+
+                               <tr> @foreach($order->services as $item)
+
+                                  <td>{{ $item->name }} ({{ $item->pivot->qty }} x ${{ $item->price }})</td>
+                                    <td>{{ $item->pivot->qty }}</td>
+                        @endforeach</tr>
+
+
+                        {{--<td>--}}
+
                                 @foreach($order->services as $item)
+                                    <ul>
                             <td><select name="services[]" class="input rounded-sm">
                                     {{--<option value="">-- choose service --</option>--}}
                                     @foreach ($services as $service)
-                                        <option value="{{ $service->id?'selected':''}}">
+                                        <option {{ $item->service_id==$service->id ?'selected':''}} value="{{$service->id}}">
                                             {{ $service->name }} (${{ number_format($service->price, 2) }})
                                         </option>
                                     @endforeach
@@ -46,9 +49,12 @@
                                     <td><input type="number" name='qty[]' value="{{ $item->pivot->qty }}"placeholder='Enter Qty' class="input rounded-sm qty" step="0" min="0"/></td>
 
                                     {{--<td> ({{ $item->pivot->qty }} x ${{ $item->price }})</td>--}}
+                                    <td><input type="number" name='price[]' placeholder='Enter Unit Price' class="input rounded-sm price" step="0.00" min="0"/></td>
+
                                     <td><input type="number" name='total[]' placeholder='0.00' class="input rounded-sm total" readonly/></td>
+                                    </ul>
                                 @endforeach
-                            </ul>
+
                         {{--</td>--}}
                         <td>
                             {{-- ... buttons ... --}}

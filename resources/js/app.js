@@ -8,6 +8,19 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 
+import Alpine from 'alpinejs';
+import handler from './handler.js'
+
+Alpine.data('handler', handler)
+
+
+window.Alpine = Alpine;
+
+Alpine.start();
+
+
+import "./flatpickr";
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -19,7 +32,7 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

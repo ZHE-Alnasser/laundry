@@ -30,12 +30,9 @@ class UsersDatatable extends LivewireDatatable
 
             Column::name('first_name')->label(__('First Name'))->searchable(),
             Column::name('last_name')->label(__('Last Name'))->searchable(),
-            Column::name('email')->label(__('Email'))->truncate()->searchable(),
             Column::name('district.name')->label(__('District'))->truncate()->searchable(),
-            Column::name('type.name')->label(__('Type'))->truncate()->searchable(),
             Column::name('phone')->label(__('Phone'))->searchable(),
 
-            DateColumn::name('created_at')->label(__('Created at'))->searchable(),
 
 
             Column::callback(['id'], function ($id) {

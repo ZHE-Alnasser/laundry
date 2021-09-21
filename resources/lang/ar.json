@@ -17,7 +17,7 @@
   "First Name": "الاسم الأول",
   "Last Name": "العائلة",
   "Type": "النوع",
-  "District": "المنطقة",
+  "District": "الحي",
   "Password":"كلمة السر",
   "Confirm Password": "تأكيد كلمة السر",
   "Cancel": "إلغاء",
@@ -70,7 +70,7 @@
   "Add Row": "إضافة حقل",
   "District Name": "أسم الحي",
   "Code": "الكود",
-  "Districts": "المناطق",
+  "Districts": "الأحياء",
   "City Name": "اسم المدينة",
   "Cities": "المدن",
   "Save Settings": "حفظ الإعدادات",
@@ -89,9 +89,9 @@
   "Morning Period":"الفترة الصباحية",
   "Evening Period": "الفترة المسائية",
   "Remove": "إزالة",
-  "Time Frame Name":"اسم الإطار الزمني",
-  "Time Frames": "الإطار الزمني",
-  "Time Frame": "الإطار الزمني",
+  "Time Frame Name":"اسم جدول التوصيل",
+  "Time Frames": "جدول التوصيل",
+  "Time Frame": "جدول التوصيل",
   "Dashboard": "الرئيسية",
   "Add Image": "إضافة صورة",
   "Company Name": "اسم الشركة",
@@ -110,5 +110,6 @@
   "Role": "الصلاحية",
   "permissions": "التراخيص",
   "Delete": "حذف",
-  "Assign Role for the user": "الصلاحيات المتاحة للمستخدم"
+  "Assign Role for the user": "الصلاحيات المتاحة للمستخدم",
+  "New Order": "طلب جديد"
 }

@@ -24,6 +24,9 @@ class SettingSeeder extends Seeder
             ['name' => 'company_email', 'value' => ''],
             ['name' => 'vat_number', 'value' => ''],
             ['name' => 'logo', 'value' => ''],
+//           Time Frame
+            ['name' => 'time_frame_name', 'value' => ''],
+            ['name' => 'time_frame_description', 'value' => ''],
 
             // General Information
             ['name' => 'vat_is_included', 'value' => true],

@@ -23,7 +23,7 @@ class Service extends Model
 //    ];
     public function orders()
     {
-        return $this->belongsToMany(Order::class)->withPivot('qty');
+        return $this->belongsToMany(Order::class)->withPivot('qty','price');
 //         ->withPivot('order_id','service_id','quantity','amount');
 
 //        (Order::class,'order_service','order_id','service_id','item_id','quantity','amount');

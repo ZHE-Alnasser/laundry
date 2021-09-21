@@ -34,52 +34,49 @@
                 </div>
                 <hr class="mb-2">
 
-                @guest
-                    @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="links"
-                               href="{{ route('login') }}">
-                                <span class="ml-2">{{ __('Login') }}</span>
-                            </a>
-                        </li>
-                    @endif
+                               {{--@guest--}}
+                {{--@if (Route::has('login'))--}}
+                {{--<li class="nav-item">--}}
+                {{--<a class="links"--}}
+                {{--href="{{ route('login') }}">--}}
+                {{--<span class="ml-2">{{ __('Login') }}</span>--}}
+                {{--</a>--}}
+                {{--</li>--}}
+                {{--@endif--}}
 
-                    @if (Route::has('register'))
-                        <li class="nav-item ">
-                            <a class="links"
-                               href="{{ route('register') }}">
-                                <span class="ml-2">{{ __('Register') }}</span>
-                            </a>
-                        </li>
-                    @endif
-                @else
+                {{--@if (Route::has('register'))--}}
+                {{--<li class="nav-item ">--}}
+                {{--<a class="links"--}}
+                {{--href="{{ route('register') }}">--}}
+                {{--<span class="ml-2">{{ __('Register') }}</span>--}}
+                {{--</a>--}}
+                {{--</li>--}}
+                {{--@endif--}}
+                {{--@else--}}
 
-                    <li class="nav-item">
-                        <a class="links"
-                           href="/dashboard">
-                            <span class="ml-2">{{__('Manage')}}</span>
-                        </a>
-                    </li>
-                    {{--<li class="nav-item">--}}
-                        {{--<a class="links"--}}
-                           {{--href="/user/profile">--}}
-                            {{--<span class="ml-2">{{__('My Profile')}}</span>--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                    <li class="nav-item ">
-                        <a class="links"
-                           href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                   document.getElementById('logout-form').submit();">
-                            <span class="ml-2">{{ __('Logout') }}</span>
-                        </a>
-                    </li>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                @endguest
+                {{--<li class="nav-item">--}}
+                {{--<a class="links"--}}
+                {{--href="/user/profile">--}}
+                {{--<span class="ml-2">{{__('My Profile')}}</span>--}}
+                {{--</a>--}}
+                {{--</li>--}}
+                {{--<li class="nav-item ">--}}
+                {{--<a class="links"--}}
+                {{--href="{{ route('logout') }}"--}}
+                {{--onclick="event.preventDefault();--}}
+                {{--document.getElementById('logout-form').submit();">--}}
+                {{--<span class="ml-2">{{ __('Logout') }}</span>--}}
+                {{--</a>--}}
+                {{--</li>--}}
 
+                {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
+                {{--@csrf--}}
+                {{--</form>--}}
+                {{--@endguest--}}
+
+
+                <li><button class="btn my-2">{{__('New Order')}}</button></li>
             </ul>
 
         </div>

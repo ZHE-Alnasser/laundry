@@ -32,7 +32,7 @@
                         {{--<input type="text" name='service[]'  placeholder='Enter Product Name' class="form-control"/>--}}
                     </td>
                     <td><input type="number" name='qty[]' placeholder='Enter Qty' class="input rounded-sm qty" step="0" min="0"/></td>
-                    <td><input type="number" name='price[]' placeholder='Enter Unit Price' class="input rounded-sm price" step="0.00" min="0"/></td>
+                    <td><input type="text" name='price[]' placeholder='Enter Unit Price' class="input rounded-sm price" step="0.00" min="0"/></td>
                     <td><input type="number" name='total[]' placeholder='0.00' class="input rounded-sm total" readonly/></td>
                 </tr>
                 <tr id='addr1'></tr>

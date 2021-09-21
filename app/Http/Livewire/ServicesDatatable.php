@@ -39,7 +39,6 @@ class ServicesDatatable extends LivewireDatatable
 //            Column::name('item.name')->searchable(),
             Column::name('price')->label('Price')->searchable(),
             Column::name('description')->label('Description')->searchable(),
-            DateColumn::name('created_at')->label('Created at')->searchable(),
 
 
             Column::callback(['slug', 'name'], function ($slug) {
