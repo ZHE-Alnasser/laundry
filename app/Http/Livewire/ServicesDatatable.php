@@ -32,13 +32,13 @@ class ServicesDatatable extends LivewireDatatable
     public function columns()
     {
         return [
-            NumberColumn::name('id'),
+            NumberColumn::name('id')->label(__('#')),
 
-            Column::name('name')->searchable(),
+            Column::name('name')->label(__('Name'))->searchable(),
 
 //            Column::name('item.name')->searchable(),
-            Column::name('price')->label('Price')->searchable(),
-            Column::name('description')->label('Description')->searchable(),
+            Column::name('price')->label(__('Price'))->searchable(),
+            Column::name('description')->label(__('Description'))->searchable(),
 
 
             Column::callback(['slug', 'name'], function ($slug) {

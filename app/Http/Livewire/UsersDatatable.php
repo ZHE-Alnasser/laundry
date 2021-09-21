@@ -26,7 +26,7 @@ class UsersDatatable extends LivewireDatatable
     public function columns()
     {
         return [
-            NumberColumn::name('id'),
+            NumberColumn::name('id')->label(__('#')),
 
             Column::name('first_name')->label(__('First Name'))->searchable(),
             Column::name('last_name')->label(__('Last Name'))->searchable(),

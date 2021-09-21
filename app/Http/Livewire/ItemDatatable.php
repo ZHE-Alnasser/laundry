@@ -27,9 +27,9 @@ class ItemDatatable extends LivewireDatatable
     public function columns()
     {
         return [
-            NumberColumn::name('id'),
+            NumberColumn::name('id')->label(__('#')),
 
-            Column::name('name')->searchable()->label('Name'),
+            Column::name('name')->searchable()->label(__('Name')),
 
             //DateColumn::name('created_at')->searchable(),
 

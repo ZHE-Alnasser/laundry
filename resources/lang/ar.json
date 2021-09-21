@@ -12,7 +12,7 @@
   "Orders": "الطلبات",
   "Services":"الخدمات",
   "Types": "الأنواع",
-  "Items": "العناصر",
+  "Items": "المنتجات",
   "Create": "إنشاء",
   "First Name": "الاسم الأول",
   "Last Name": "العائلة",
@@ -24,7 +24,7 @@
   "Register": "تسجيل",
   "Login": "تسجيل الدخول",
   "Save": "حفظ",
-  "Item Name": "اسم العنصر",
+  "Item Name": "اسم المنتج",
   "Service Name": "اسم الخدمة",
   "Price": "السعر",
   "Type Name": "اسم النوع",
@@ -111,5 +111,6 @@
   "permissions": "التراخيص",
   "Delete": "حذف",
   "Assign Role for the user": "الصلاحيات المتاحة للمستخدم",
-  "New Order": "طلب جديد"
+  "New Order": "طلب جديد",
+  "Company Information": "معلومات الشركة"
 }
