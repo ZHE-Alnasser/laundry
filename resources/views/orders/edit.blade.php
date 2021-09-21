@@ -16,8 +16,8 @@
                         @foreach($employees as $employee)
                             {{--@dd($customer)--}}
 
-                            {{--<option {{ $order->employee==$employee->id?'selected':''}} value="{{$employee->id}}">{{ $employee->name }}</option>--}}
-                            <option  value="{{$employee->id}}">{{ $employee->name }}</option>
+                            <option {{ $order->employee_id==$employee->id?'selected':''}} value="{{$employee->id}}">{{ $employee->name }}</option>
+                            {{--<option  value="{{$employee->id}}">{{ $employee->name }}</option>--}}
                         @endforeach
                     </x-select>
                     </div>
@@ -28,8 +28,8 @@
                         @foreach($customers as $customer)
                             {{--@dd($customer)--}}
 
-                            {{--<option {{ $order->customer_id==$customer->id?'selected':''}} value="{{$customer->id}}">{{ $customer->name }}</option>--}}
-                            <option  value="{{$customer->id}}">{{ $customer->name }}</option>
+                            <option {{ $order->customer_id==$customer->id?'selected':''}} value="{{$customer->id}}">{{ $customer->name }}</option>
+                            {{--<option  value="{{$customer->id}}">{{ $customer->name }}</option>--}}
                         @endforeach
                     </x-select>
                       </div>
