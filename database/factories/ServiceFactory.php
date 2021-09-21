@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Item;
 use App\Models\Service;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -23,8 +24,8 @@ class ServiceFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'item_id' => $this->faker->item_id,
-            'price' => $this->faker->price,
+            'item_id' => Item::inRandomOrder()->first(),
+            'price' => 1000,
             'slug' => $this->faker->slug,
         ];
     }
