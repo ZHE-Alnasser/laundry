@@ -67,7 +67,7 @@
   "Date": "التاريخ",
   "Accountant": "المحاسب",
   "Order Id": "رقم الفاتورة",
-  "Add Row": "إضافة حقل",
+  "Add Row": "إضافة سطر",
   "District Name": "أسم الحي",
   "Code": "الكود",
   "Districts": "الأحياء",
@@ -112,5 +112,6 @@
   "Delete": "حذف",
   "Assign Role for the user": "الصلاحيات المتاحة للمستخدم",
   "New Order": "طلب جديد",
-  "Company Information": "معلومات الشركة"
+  "Company Information": "معلومات الشركة",
+  "Delete Row":"حذف سطر"
 }

@@ -10,7 +10,7 @@
             <table class="table table-bordered table-hover" id="tab_logic">
                 <thead>
                 <tr>
-                    <th class="text-center"><p> # </p></th>
+                    {{--<th class="text-center"><p> # </p></th>--}}
                     <th class="text-center"><p>{{__('Services')}}</p></th>
                     <th class="text-center"><p>{{__('Quantity')}}</p></th>
                     <th class="text-center"><p>{{__('Price')}}</p></th>
@@ -18,25 +18,25 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($orders as $order)
-                    <tr data-entry-id="{{ $order->id }}">
+                {{--@foreach($orders as $order)--}}
+                    {{--<tr data-entry-id="{{ $order->id }}">--}}
                         {{--<td>--}}
                             {{--{{ $order->id ?? '' }}--}}
                         {{--</td>--}}
 
 
 
-                               <tr> @foreach($order->services as $item)
+                               {{--<tr> @foreach($order->services as $item)--}}
 
-                                  <td>{{ $item->name }} ({{ $item->pivot->qty }} x ${{ $item->price }})</td>
-                                    <td>{{ $item->pivot->qty }}</td>
-                        @endforeach</tr>
+                                  {{--<td>{{ $item->name }} ({{ $item->pivot->qty }} x ${{ $item->price }})</td>--}}
+                                    {{--<td>{{ $item->pivot->qty }}</td>--}}
+                        {{--@endforeach</tr>--}}
 
 
                         {{--<td>--}}
 
                                 @foreach($order->services as $item)
-                                    <ul>
+                                    <tr>
                             <td><select name="services[]" class="input rounded-sm">
                                     {{--<option value="">-- choose service --</option>--}}
                                     @foreach ($services as $service)
@@ -46,13 +46,13 @@
                                     @endforeach
                                 </select> </td>
 
-                                    <td><input type="number" name='qty[]' value="{{ $item->pivot->qty }}"placeholder='Enter Qty' class="input rounded-sm qty" step="0" min="0"/></td>
+                                    <td><input type="number" name='qty[]' value="{{ $item->pivot->qty }}" placeholder='Enter Qty' class="input rounded-sm qty" step="0" min="0"/></td>
 
                                     {{--<td> ({{ $item->pivot->qty }} x ${{ $item->price }})</td>--}}
-                                    <td><input type="number" name='price[]' placeholder='Enter Unit Price' class="input rounded-sm price" step="0.00" min="0"/></td>
+                                    <td><input type="number" name='price[]' value="{{ $item->pivot->price}}" placeholder='Enter Unit Price' class="input rounded-sm price" step="0.00" min="0"/></td>
 
                                     <td><input type="number" name='total[]' placeholder='0.00' class="input rounded-sm total" readonly/></td>
-                                    </ul>
+                                    </tr>
                                 @endforeach
 
                         {{--</td>--}}
@@ -60,16 +60,16 @@
                             {{-- ... buttons ... --}}
                         </td>
 
-                    </tr>
-                @endforeach
+                    {{--</tr>--}}
+                {{--@endforeach--}}
                 </tbody>
             </table>
         </div>
     </div>
-    <div class="row clearfix">
-        <div class="col-md-12">
+    <div class="clearfix">
+        <div class="flex justify-around ">
             <button type="button" id="add_row" class="bg-gray-200 p-2 rounded-sm float-endpull-left">+ {{__('Add Row')}}</button>
-            <button type="button" id='delete_row' class=" btn-outline  text-red-400">{{__('Delete Row')}}</button>
+            <button type="button" id='delete_row' class=" text-red-400">{{__('Delete Row')}}</button>
         </div>
     </div>
     <div class="row clearfix" style="margin-top:20px">

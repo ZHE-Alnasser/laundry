@@ -137,9 +137,16 @@ class OrderController extends Controller
         $quantities = $request->input('qty', []);
         $price=$request->input('price', []);
         for ($service=0; $service < count($services); $service++) {
-//            dd($price[$service]);
+
             if ($services[$service] != '') {
-                $order->services()->attach($services[$service], ['qty' => $quantities[$service]],['price' => $price[$service]]);
+//
+                $order->services()->attach(
+                    $services[$service], [
+                        'qty' => $quantities[$service],
+                        'price' => $price[$service]
+                    ]
+                );
+
             }
         }
 //dd($services);
