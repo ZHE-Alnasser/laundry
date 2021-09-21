@@ -77,15 +77,15 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
-    public function getFullNameAttribute()
-    {
-        return $this->attributes['first_name'] . ' ' . $this->attributes['last_name'];
-    }
+//    public function getFullNameAttribute()
+//    {
+//        return $this->attributes['first_name'] . ' ' . $this->attributes['last_name'];
+//    }
 
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom(['first_name', 'last_name'])
+            ->generateSlugsFrom(['name'])
             ->saveSlugsTo('slug')
             ->slugsShouldBeNoLongerThan(50);
     }

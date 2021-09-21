@@ -7,12 +7,12 @@
             @csrf
             <div class="mt-5">
             <label>{{__('First Name')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input" name="first_name" value="{{ old('first_name') }}"/>
+            <x-input class="input" name="name" value="{{ old('first_name') }}"/>
             </div>
-            <div class="mt-5">
-            <label>{{__('Last Name')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input " name="last_name" value="{{ old('last_name') }}"/>
-            </div>
+            {{--<div class="mt-5">--}}
+            {{--<label>{{__('Last Name')}}<span class="text-red-600"> *</span></label>--}}
+            {{--<x-input class="input " name="last_name" value="{{ old('last_name') }}"/>--}}
+            {{--</div>--}}
             <div class="mt-5">
            <div><label>{{__('Type')}}</label><span class="text-red-600"> *</span></div>
                 {{--<x-input class="w-full" name="item_id" value="{{ old('item_id') }}" placeholder="{{__('item')}}"/>--}}

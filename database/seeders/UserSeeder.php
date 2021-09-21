@@ -16,8 +16,8 @@ class UserSeeder extends Seeder
         if (User::first()) return;
         $users = [
             [
-                'first_name' => 'a',
-                'last_name' => 'a',
+                'name' => 'a',
+//                'last_name' => 'a',
                 'email' => 'a@a.com',
                 'type_id'=>'1',
                 'email_verified_at' => now(),

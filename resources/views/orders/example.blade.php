@@ -22,7 +22,7 @@
                     <td>1</td>
                     <td>
                         <select name="services[]" class="input rounded-sm">
-                        <option value="">-- choose service --</option>
+                        <option value="">-- {{__('choose service')}} --</option>
                         @foreach ($services as $service)
                             <option value="{{ $service->id }}">
                                 {{ $service->name }} (${{ number_format($service->price, 2) }})
@@ -33,7 +33,7 @@
                     </td>
                     <td><input type="number" name='qty[]' placeholder='Enter Qty' class="input rounded-sm qty" step="0" min="0"/></td>
                     <td><input type="text" name='price[]' placeholder='Enter Unit Price' class="input rounded-sm price" step="0.00" min="0"/></td>
-                    <td><input type="number" name='total[]' placeholder='0.00' class="input rounded-sm total" readonly/></td>
+                    <td><input type="number" name='amount[]' placeholder='0.00' class="input rounded-sm total" readonly/></td>
                 </tr>
                 <tr id='addr1'></tr>
                 </tbody>
@@ -41,7 +41,7 @@
         </div>
     </div>
     <div class="row clearfix">
-        <div class="col-md-12">
+        <div class="flex justify-around ">
             <button type="button" id="add_row" class="bg-gray-200 p-2 rounded-sm float-endpull-left">+ {{__('Add Row')}}</button>
             <button type="button" id='delete_row' class=" btn-outline  text-red-400">{{__('Delete Row')}}</button>
         </div>

@@ -69,13 +69,14 @@
         <div class="col"><p>@lang('Order Id'): <b>{{sprintf('%04d',$order->id)}}</b></p>
 
 
-            <div class="col"><p>@lang('Accountant'): <b>{{optional($order->employee)->full_name}}</b></p></div>
+
+            <div class="col"><p>@lang('Accountant'): <b>{{optional($order->employee)->name}}</b></p></div>
             {{--<div class="col"><p>@lang('Accountant'): <b>{{auth()->user()->full_name}}</b></p></div>--}}
 {{--@dd(auth()->user()->id)--}}
             <div class="col"></div>
             {{--@dd($order->employee)--}}
             {{--@dd($order->customer_id)--}}
-            <div class="col">  <p>@lang('Customer Name'): <b>{{optional($order->customer)->full_name}}</b></p></div>
+            <div class="col">  <p>@lang('Customer Name'): <b>{{optional($order->customer)->name}}</b></p></div>
                 {{--@dd($customer->full_name)--}}
             {{--@dd($order->customer->full_name)--}}
 
@@ -110,7 +111,7 @@
 
                     {{--@dd($item->pivot->selling_price)--}}
                     {{--@dd($order->services)--}}
-                    <td>{{$item->name}} </td> <td>{{$item->pivot->quantity}}</td> <td> {{$item->pivot->amount}}</td>
+                    <td>{{$item->name}} </td> <td>{{$item->pivot->qty}}</td> <td> {{$item->pivot->price}}</td>
                 </tr>
 
 
@@ -124,7 +125,7 @@
 
             {{--</thead>--}}
             <tr>
-                <td class="bg-light">@lang('Total amount without VAT'): </td><td>{{$order->without_vat}}</td>
+                <td class="bg-light">@lang('Total amount without VAT'): </td><td>{{$order->sub_total}}</td>
             </tr>
             <tr>
                 <td class="bg-light">@lang('Total VAT'): 15%</td><td>{{$order->vat }}</td>

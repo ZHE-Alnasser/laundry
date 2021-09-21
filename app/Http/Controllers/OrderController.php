@@ -136,6 +136,7 @@ class OrderController extends Controller
         $services = $request->input('services', []);
         $quantities = $request->input('qty', []);
         $price=$request->input('price', []);
+        $amount=$request->input('amount', []);
         for ($service=0; $service < count($services); $service++) {
 
             if ($services[$service] != '') {
@@ -143,7 +144,8 @@ class OrderController extends Controller
                 $order->services()->attach(
                     $services[$service], [
                         'qty' => $quantities[$service],
-                        'price' => $price[$service]
+                        'price' => $price[$service],
+                        'amount'=>$amount[$service]
                     ]
                 );
 
@@ -274,14 +276,30 @@ class OrderController extends Controller
 
         ]);
         $order->update($data);
-      $order->services()->detach();
+//      $order->services()->detach();
 
         $services = $request->input('services', []);
         $quantities = $request->input('qty', []);
+        $price=$request->input('price', []);
+        $amount=$request->input('amount', []);
         for ($service=0; $service < count($services); $service++) {
 //            dd($services[$service]);
             if ($services[$service] != '') {
-                $order->services()->attach($services[$service], ['qty' => $quantities[$service]]);
+//                $order->services()->attach($services[$service], ['qty' => $quantities[$service]]);
+                $order->services()->detach(
+                    $services[$service], [
+                        'qty' => $quantities[$service],
+                        'price' => $price[$service],
+                        'amount'=>$amount[$service]
+                    ]
+                );
+                $order->services()->attach(
+                    $services[$service], [
+                        'qty' => $quantities[$service],
+                        'price' => $price[$service],
+                        'amount'=>$amount[$service]
+                    ]
+                );
             }
         }
 //        if ($request->serviceOrders) {

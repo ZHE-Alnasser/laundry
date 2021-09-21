@@ -113,5 +113,6 @@
   "Assign Role for the user": "الصلاحيات المتاحة للمستخدم",
   "New Order": "طلب جديد",
   "Company Information": "معلومات الشركة",
-  "Delete Row":"حذف سطر"
+  "Delete Row":"حذف سطر",
+  "choose service": "اختر خدمة"
 }

@@ -51,7 +51,7 @@
                                     {{--<td> ({{ $item->pivot->qty }} x ${{ $item->price }})</td>--}}
                                     <td><input type="number" name='price[]' value="{{ $item->pivot->price}}" placeholder='Enter Unit Price' class="input rounded-sm price" step="0.00" min="0"/></td>
 
-                                    <td><input type="number" name='total[]' placeholder='0.00' class="input rounded-sm total" readonly/></td>
+                                    <td><input type="number" name='amount[]' value="{{ $item->pivot->amount}}" placeholder='0.00' class="input rounded-sm total" readonly/></td>
                                     </tr>
                                 @endforeach
 
@@ -66,12 +66,12 @@
             </table>
         </div>
     </div>
-    <div class="clearfix">
-        <div class="flex justify-around ">
-            <button type="button" id="add_row" class="bg-gray-200 p-2 rounded-sm float-endpull-left">+ {{__('Add Row')}}</button>
-            <button type="button" id='delete_row' class=" text-red-400">{{__('Delete Row')}}</button>
-        </div>
-    </div>
+    {{--<div class="clearfix">--}}
+        {{--<div class="flex justify-around ">--}}
+            {{--<button type="button" id="add_row" class="bg-gray-200 p-2 rounded-sm float-endpull-left">+ {{__('Add Row')}}</button>--}}
+            {{--<button type="button" id='delete_row' class=" text-red-400">{{__('Delete Row')}}</button>--}}
+        {{--</div>--}}
+    {{--</div>--}}
     <div class="row clearfix" style="margin-top:20px">
         <div class="pull-right col-md-4">
             <table class="table table-bordered table-hover" id="tab_logic_total">

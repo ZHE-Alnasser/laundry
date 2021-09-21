@@ -54,7 +54,7 @@
                     @foreach($employees as $employee)
                         {{--@dd($customer)--}}
 
-                        <option value="{{$employee->id}}">{{ $employee->full_name }}</option>
+                        <option value="{{$employee->id}}">{{ $employee->name }}</option>
                     @endforeach
                 </x-select>
             </div>
@@ -65,7 +65,7 @@
                     @foreach($customers as $customer)
                         {{--@dd($customer)--}}
 
-                        <option { value="{{$customer->id}}">{{ $customer->full_name }}</option>
+                        <option  value="{{$customer->id}}">{{ $customer->name }}</option>
                     @endforeach
                 </x-select>
             </div>
