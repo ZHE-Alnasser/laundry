@@ -10,9 +10,9 @@
 
                         <div class="flex flex-col md:flex-row">
                             <div class="w-full mx-2 mt-5 flex-1">
-                                <label>{{__('First Name')}}</label>
+                                <label>{{__('Name')}}</label>
                                 <div class="divUser">
-                                    <x-input name="first_name" value="{{$user->name}}" class="input"/>
+                                    <x-input name="name" value="{{$user->name}}" class="input"/>
                                 </div>
                             </div>
                             {{--<div class="w-full mx-2 mt-5 flex-1">--}}

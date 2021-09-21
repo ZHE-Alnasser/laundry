@@ -54,8 +54,7 @@ class UserController extends Controller
     {
 
         Validator::make($request->all(), [
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
             'type_id' => ['required', 'string', 'max:255'],
             'district_id'=>'nullable','string', 'max:255',
             'phone' =>['required', 'digits:10'],
@@ -67,7 +66,7 @@ class UserController extends Controller
 
         $user=User::create(
             request()
-                ->only( 'first_name', 'last_name',  'district_id','password','email', 'password',
+                ->only( 'name',  'district_id','password','email', 'password',
                     'type_id','phone'));
         $roles = request()->validate([
             'role_id' => 'nullable',
@@ -103,8 +102,7 @@ class UserController extends Controller
 //     dd($user);
         Validator::make($request->all(),
             [
-                'first_name' => ['required', 'string', 'max:255'],
-                'last_name' => ['required', 'string', 'max:255'],
+                'name' => ['required', 'string', 'max:255'],
                 'phone' => ['required', 'string', 'max:255'],
                 'type_id' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'email', 'max:255'],
@@ -120,8 +118,7 @@ class UserController extends Controller
             $this->updateVerifiedUser($user, $request);
         } else {
             $user->forceFill([
-                'first_name' => $request['first_name'],
-                'last_name' => $request['last_name'],
+                'name' => $request['name'],
                 'phone' => $request['phone'],
                 'email' => $request['email'],
                 'type_id'=>$request['type_id'],

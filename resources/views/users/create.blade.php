@@ -6,8 +6,8 @@
         <x-form action="{{url('users')}}" method="post" has-files>
             @csrf
             <div class="mt-5">
-            <label>{{__('First Name')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input" name="name" value="{{ old('first_name') }}"/>
+            <label>{{__('Name')}}<span class="text-red-600"> *</span></label>
+            <x-input class="input" name="name" value="{{ old('name') }}"/>
             </div>
             {{--<div class="mt-5">--}}
             {{--<label>{{__('Last Name')}}<span class="text-red-600"> *</span></label>--}}
