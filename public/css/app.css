@@ -3186,17 +3186,25 @@ h2, p, a, label {
 	margin-left: auto;
 	margin-right: auto;
 }
-.mx-3 {
-	margin-left: 0.75rem;
-	margin-right: 0.75rem;
+.my-5 {
+	margin-top: 1.25rem;
+	margin-bottom: 1.25rem;
 }
 .mx-2 {
 	margin-left: 0.5rem;
 	margin-right: 0.5rem;
 }
+.mx-3 {
+	margin-left: 0.75rem;
+	margin-right: 0.75rem;
+}
 .my-3 {
 	margin-top: 0.75rem;
 	margin-bottom: 0.75rem;
+}
+.-my-2 {
+	margin-top: -0.5rem;
+	margin-bottom: -0.5rem;
 }
 .my-2 {
 	margin-top: 0.5rem;
@@ -3210,6 +3218,10 @@ h2, p, a, label {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 }
+.mx-40 {
+	margin-left: 10rem;
+	margin-right: 10rem;
+}
 .-mx-1 {
 	margin-left: -0.25rem;
 	margin-right: -0.25rem;
@@ -3217,18 +3229,6 @@ h2, p, a, label {
 .mx-10 {
 	margin-left: 2.5rem;
 	margin-right: 2.5rem;
-}
-.mx-40 {
-	margin-left: 10rem;
-	margin-right: 10rem;
-}
-.mx-1 {
-	margin-left: 0.25rem;
-	margin-right: 0.25rem;
-}
-.my-5 {
-	margin-top: 1.25rem;
-	margin-bottom: 1.25rem;
 }
 .-mx-2 {
 	margin-left: -0.5rem;
@@ -3328,8 +3328,8 @@ h2, p, a, label {
 .mt-0 {
 	margin-top: 0px;
 }
-.mb-10 {
-	margin-bottom: 2.5rem;
+.-mb-px {
+	margin-bottom: -1px;
 }
 .mb-1 {
 	margin-bottom: 0.25rem;
@@ -3337,14 +3337,17 @@ h2, p, a, label {
 .mt-16 {
 	margin-top: 4rem;
 }
-.ml-auto {
-	margin-left: auto;
-}
 .mb-5 {
 	margin-bottom: 1.25rem;
 }
+.ml-auto {
+	margin-left: auto;
+}
 .mr-auto {
 	margin-right: auto;
+}
+.mb-10 {
+	margin-bottom: 2.5rem;
 }
 .ml-10 {
 	margin-left: 2.5rem;
@@ -3358,11 +3361,11 @@ h2, p, a, label {
 .-mr-4 {
 	margin-right: -1rem;
 }
-.-mb-px {
-	margin-bottom: -1px;
-}
 .block {
 	display: block;
+}
+.inline-block {
+	display: inline-block;
 }
 .inline {
 	display: inline;
@@ -3426,9 +3429,6 @@ h2, p, a, label {
 }
 .h-24 {
 	height: 6rem;
-}
-.h-4\/6 {
-	height: 66.666667%;
 }
 .min-h-screen {
 	min-height: 100vh;
@@ -3517,9 +3517,6 @@ h2, p, a, label {
 .max-w-screen-lg {
 	max-width: 1024px;
 }
-.max-w-5xl {
-	max-width: 64rem;
-}
 .flex-1 {
 	flex: 1 1 0%;
 }
@@ -3528,9 +3525,6 @@ h2, p, a, label {
 }
 .flex-grow {
 	flex-grow: 1;
-}
-.table-auto {
-	table-layout: auto;
 }
 .origin-top-left {
 	transform-origin: top left;
@@ -3631,9 +3625,6 @@ h2, p, a, label {
 .justify-around {
 	justify-content: space-around;
 }
-.justify-evenly {
-	justify-content: space-evenly;
-}
 .gap-6 {
 	gap: 1.5rem;
 }
@@ -3681,6 +3672,11 @@ h2, p, a, label {
 	margin-right: calc(1rem * var(--tw-space-x-reverse));
 	margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+	--tw-divide-y-reverse: 0;
+	border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+	border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
 .divide-x > :not([hidden]) ~ :not([hidden]) {
 	--tw-divide-x-reverse: 0;
 	border-right-width: calc(1px * var(--tw-divide-x-reverse));
@@ -3707,6 +3703,9 @@ h2, p, a, label {
 }
 .overflow-hidden {
 	overflow: hidden;
+}
+.overflow-x-auto {
+	overflow-x: auto;
 }
 .overflow-y-auto {
 	overflow-y: auto;
@@ -3790,20 +3789,17 @@ h2, p, a, label {
 .border-r {
 	border-right-width: 1px;
 }
-.border-b-8 {
-	border-bottom-width: 8px;
-}
 .border-b-4 {
 	border-bottom-width: 4px;
+}
+.border-b-8 {
+	border-bottom-width: 8px;
 }
 .border-solid {
 	border-style: solid;
 }
 .border-dashed {
 	border-style: dashed;
-}
-.border-none {
-	border-style: none;
 }
 .border-gray-300 {
 	--tw-border-opacity: 1;
@@ -3840,21 +3836,17 @@ h2, p, a, label {
 	--tw-border-opacity: 1;
 	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
 }
+.border-blue-400 {
+	--tw-border-opacity: 1;
+	border-color: rgba(96, 165, 250, var(--tw-border-opacity));
+}
 .border-green-400 {
 	--tw-border-opacity: 1;
 	border-color: rgba(52, 211, 153, var(--tw-border-opacity));
 }
-.border-blue-200 {
-	--tw-border-opacity: 1;
-	border-color: rgba(191, 219, 254, var(--tw-border-opacity));
-}
 .border-blue-600 {
 	--tw-border-opacity: 1;
 	border-color: rgba(37, 99, 235, var(--tw-border-opacity));
-}
-.border-blue-400 {
-	--tw-border-opacity: 1;
-	border-color: rgba(96, 165, 250, var(--tw-border-opacity));
 }
 .border-gray-800 {
 	--tw-border-opacity: 1;
@@ -3908,6 +3900,9 @@ h2, p, a, label {
 	--tw-bg-opacity: 1;
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
+.bg-transparent {
+	background-color: transparent;
+}
 .bg-blue-100 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(219, 234, 254, var(--tw-bg-opacity));
@@ -3932,13 +3927,6 @@ h2, p, a, label {
 	--tw-bg-opacity: 1;
 	background-color: rgba(29, 78, 216, var(--tw-bg-opacity));
 }
-.bg-green-600 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
-}
-.bg-transparent {
-	background-color: transparent;
-}
 .bg-gray-600 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(75, 85, 99, var(--tw-bg-opacity));
@@ -3954,10 +3942,6 @@ h2, p, a, label {
 .bg-gray-300 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
-}
-.bg-green-500 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
@@ -4079,10 +4063,6 @@ h2, p, a, label {
 	padding-left: 2rem;
 	padding-right: 2rem;
 }
-.px-16 {
-	padding-left: 4rem;
-	padding-right: 4rem;
-}
 .pt-6 {
 	padding-top: 1.5rem;
 }
@@ -4119,9 +4099,6 @@ h2, p, a, label {
 .pt-3 {
 	padding-top: 0.75rem;
 }
-.pb-10 {
-	padding-bottom: 2.5rem;
-}
 .pl-10 {
 	padding-left: 2.5rem;
 }
@@ -4130,6 +4107,9 @@ h2, p, a, label {
 }
 .pr-10 {
 	padding-right: 2.5rem;
+}
+.pb-10 {
+	padding-bottom: 2.5rem;
 }
 .pb-8 {
 	padding-bottom: 2rem;
@@ -4233,14 +4213,14 @@ h2, p, a, label {
 .leading-4 {
 	line-height: 1rem;
 }
+.leading-none {
+	line-height: 1;
+}
 .leading-6 {
 	line-height: 1.5rem;
 }
 .leading-8 {
 	line-height: 2rem;
-}
-.leading-none {
-	line-height: 1;
 }
 .tracking-widest {
 	letter-spacing: 0.1em;
@@ -4318,10 +4298,6 @@ h2, p, a, label {
 	--tw-text-opacity: 1;
 	color: rgba(96, 165, 250, var(--tw-text-opacity));
 }
-.text-red-400 {
-	--tw-text-opacity: 1;
-	color: rgba(248, 113, 113, var(--tw-text-opacity));
-}
 .text-red-700 {
 	--tw-text-opacity: 1;
 	color: rgba(185, 28, 28, var(--tw-text-opacity));
@@ -4350,6 +4326,10 @@ h2, p, a, label {
 	--tw-text-opacity: 1;
 	color: rgba(0, 0, 0, var(--tw-text-opacity));
 }
+.text-red-400 {
+	--tw-text-opacity: 1;
+	color: rgba(248, 113, 113, var(--tw-text-opacity));
+}
 .text-blue-100 {
 	--tw-text-opacity: 1;
 	color: rgba(219, 234, 254, var(--tw-text-opacity));
@@ -4360,10 +4340,6 @@ h2, p, a, label {
 }
 .text-transparent {
 	color: transparent;
-}
-.text-gray-100 {
-	--tw-text-opacity: 1;
-	color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
 .text-green-300 {
 	--tw-text-opacity: 1;
@@ -5311,232 +5287,23 @@ div#nav-content {
      border-color:#c17900;
      /*@apply btn-primary;*/
  }
-.btn-delete {
-        font-family: 'Tajawal', sans-serif;
-        border-color: transparent;
-        border-color: hsla(var(--n)/var(--tw-border-opacity,1));
-        cursor: pointer;
-        display: inline-flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        text-align: center;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;
-        transition-duration: .15s;
-        transition-duration: .2s;
-        transition-timing-function: cubic-bezier(.4,0,.2,1);
-        border-radius: var(--rounded-btn,.5rem);
-        height: 3rem;
-        font-size: .875rem;
-        line-height: 1.25rem;
-        line-height: 2;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        min-height: 3rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        text-transform: var(--btn-text-case,uppercase);
-        border-width: var(--border-btn,1px);
-        -webkit-animation: button-pop var(--animation-btn,.25s) ease-out;
-        animation: button-pop var(--animation-btn,.25s) ease-out;
-        --tw-bg-opacity: 1;
-        background-color: hsla(var(--n)/var(--tw-bg-opacity,1));
-        --tw-border-opacity: 1;
-        --tw-text-opacity: 1;
-        color: hsla(var(--nc)/var(--tw-text-opacity,1));
+.btn-delete{
+    background: #cd1f0f;
+    border:#cd1f0f;
+   color:white;
 
-    }
-.btn-delete:focus {
-	outline: 2px solid transparent;
-	outline-offset: 2px;
+    /*@apply btn btn-secondary;*/
 }
-.btn-delete-disabled, .btn-delete[disabled] {
-	pointer-events: none;
-	--tw-bg-opacity: 1;
-	--tw-bg-opacity: 0.2;
-	background-color: hsla(var(--n)/var(--tw-bg-opacity,1));
-	--tw-border-opacity: 0;
-	--tw-text-opacity: 1;
-	--tw-text-opacity: 0.2;
-	color: hsla(var(--bc)/var(--tw-text-opacity,1));
-}
-.btn-delete.loading, .btn-delete.loading:hover {
-	pointer-events: none;
-	pointer-events: none;
-}
-.btn-delete.loading:before {
-	border-radius: 9999px;
-	border-width: 2px;
-	height: 1rem;
-	margin-right: .5rem;
-	width: 1rem;
-	-webkit-animation: spin 2s linear infinite;
-	animation: spin 2s linear infinite;
-	content: "";
-	border-color: transparent currentColor currentColor transparent;
-}
-@media (prefers-reduced-motion:reduce) {
+.btn-delete:hover {
+    background: #951e0f;
 
-	.btn-delete.loading:before {
-		-webkit-animation: spin 10s linear infinite;
-		animation: spin 10s linear infinite;
-	}
 }
-.btn-delete-group>input[type=radio].btn {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
+.btn-add{
+    background: #8e9290;
+    border: #8e9290;
 }
-.btn-delete-group>input[type=radio].btn:before {
-	content: attr(data-title);
-}
-.btn-delete .badge {
-	--tw-bg-opacity: 1;
-	background-color: hsla(var(--b1)/var(--tw-bg-opacity,1));
-	border-color: transparent;
-	--tw-text-opacity: 1;
-	color: hsla(var(--bc)/var(--tw-text-opacity,1));
-}
-.btn-delete .badge-outline {
-	background-color: transparent;
-	--tw-border-opacity: 1;
-	border-color: hsla(var(--b2)/var(--tw-border-opacity,1));
-	--tw-text-opacity: 1;
-	color: hsla(var(--b2)/var(--tw-text-opacity,1));
-}
-.btn-outline.btn-delete .badge {
-	--tw-bg-opacity: 1;
-	background-color: hsla(var(--s)/var(--tw-bg-opacity,1));
-	--tw-border-opacity: 1;
-	border-color: hsla(var(--s)/var(--tw-border-opacity,1));
-	--tw-text-opacity: 1;
-	color: hsla(var(--sc)/var(--tw-text-opacity,1));
-}
-.btn-outline.btn-delete .badge-outline {
-	background-color: transparent;
-	--tw-border-opacity: 1;
-	border-color: hsla(var(--s)/var(--tw-border-opacity,1));
-	--tw-text-opacity: 1;
-	color: hsla(var(--s)/var(--tw-text-opacity,1));
-}
-.btn-outline.btn-delete:hover .badge {
-	--tw-bg-opacity: 1;
-	background-color: hsla(var(--sc)/var(--tw-bg-opacity,1));
-	--tw-border-opacity: 1;
-	border-color: hsla(var(--sc)/var(--tw-border-opacity,1));
-	--tw-text-opacity: 1;
-	color: hsla(var(--s)/var(--tw-text-opacity,1));
-}
-.btn-outline.btn-delete:hover .badge.outline {
-	--tw-bg-opacity: 1;
-	background-color: hsla(var(--sf)/var(--tw-bg-opacity,1));
-	--tw-border-opacity: 1;
-	border-color: hsla(var(--sc)/var(--tw-border-opacity,1));
-	--tw-text-opacity: 1;
-	color: hsla(var(--sc)/var(--tw-text-opacity,1));
-}
-.btn-delete:active:focus, .btn-delete:active:hover {
-	-webkit-animation: none;
-	animation: none;
-	transform: scale(var(--btn-focus-scale,.95));
-	-webkit-animation: none;
-	animation: none;
-	transform: scale(var(--btn-focus-scale,.95));
-}
-.btn-delete-active, .btn-delete:hover {
-	--tw-bg-opacity: 1;
-	background-color: hsla(var(--nf)/var(--tw-bg-opacity,1));
-	--tw-border-opacity: 1;
-	border-color: hsla(var(--nf)/var(--tw-border-opacity,1));
-}
-.btn-delete:focus-visible {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--nf));
-}
-.btn-delete {
-	--tw-bg-opacity: 1;
-	background-color: hsla(var(--s)/var(--tw-bg-opacity,1));
-	--tw-border-opacity: 1;
-	border-color: hsla(var(--s)/var(--tw-border-opacity,1));
-	--tw-text-opacity: 1;
-	color: hsla(var(--sc)/var(--tw-text-opacity,1));
-}
-.btn-delete.btn-active, .btn-delete:hover {
-	--tw-bg-opacity: 1;
-	background-color: hsla(var(--sf)/var(--tw-bg-opacity,1));
-	--tw-border-opacity: 1;
-	border-color: hsla(var(--sf)/var(--tw-border-opacity,1));
-	--tw-bg-opacity: 1;
-	background-color: hsla(var(--sf)/var(--tw-bg-opacity,1));
-	--tw-border-opacity: 1;
-	border-color: hsla(var(--sf)/var(--tw-border-opacity,1));
-}
-.btn-delete:focus-visible {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--s));
-}
-.btn-delete.glass.btn-active, .btn-delete.glass:hover {
-	--glass-opacity: 25%;
-	--glass-border-opacity: 15%;
-	--glass-opacity: 25%;
-	--glass-border-opacity: 15%;
-}
-.btn-delete.glass:focus-visible {
-	box-shadow: 0 0 0 2px currentColor;
-}
-.btn-outline.btn-delete {
-	--tw-text-opacity: 1;
-	color: hsla(var(--s)/var(--tw-text-opacity,1));
-}
-.btn-outline.btn-delete:hover {
-	--tw-bg-opacity: 1;
-	background-color: hsla(var(--sf)/var(--tw-bg-opacity,1));
-	--tw-border-opacity: 1;
-	border-color: hsla(var(--sf)/var(--tw-border-opacity,1));
-	--tw-text-opacity: 1;
-	color: hsla(var(--sc)/var(--tw-text-opacity,1));
-}
-.btn-delete.loading.btn-circle:before, .btn-delete.loading.btn-square:before {
-	margin-right: 0;
-	margin-right: 0;
-}
-.btn-delete.loading.btn-lg:before, .btn-delete.loading.btn-xl:before {
-	height: 1.25rem;
-	width: 1.25rem;
-	height: 1.25rem;
-	width: 1.25rem;
-}
-.btn-delete.loading.btn-sm:before, .btn-delete.loading.btn-xs:before {
-	height: .75rem;
-	width: .75rem;
-	height: .75rem;
-	width: .75rem;
-}
-.btn-delete-group>.btn-active, .btn-delete-group>input[type=radio]:checked.btn {
-	--tw-bg-opacity: 1;
-	background-color: hsla(var(--p)/var(--tw-bg-opacity,1));
-	--tw-border-opacity: 1;
-	border-color: hsla(var(--p)/var(--tw-border-opacity,1));
-	--tw-text-opacity: 1;
-	color: hsla(var(--pc)/var(--tw-text-opacity,1));
-}
-.btn-delete-group>.btn-active:focus-visible, .btn-delete-group>input[type=radio]:checked.btn:focus-visible {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--p));
-}
-.btn-delete-group>.btn:not(:first-child) {
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
-	margin-left: -1px;
-}
-.btn-delete-group>.btn:not(:last-child) {
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 0;
-}
-.drawer-toggle:focus-visible~.drawer-content .drawer-button.btn-delete {
-	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--s));
+.btn-add:hover{
+    background: #636765;
 }
 .btn-cancel {
         font-family: 'Tajawal', sans-serif;
@@ -6245,13 +6012,13 @@ div#nav-content {
 	--tw-bg-opacity: 1;
 	background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
 }
-.hover\:bg-blue-100:hover {
-	--tw-bg-opacity: 1;
-	background-color: rgba(219, 234, 254, var(--tw-bg-opacity));
-}
 .hover\:bg-red-700:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(185, 28, 28, var(--tw-bg-opacity));
+}
+.hover\:bg-blue-100:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(219, 234, 254, var(--tw-bg-opacity));
 }
 .hover\:bg-blue-200:hover {
 	--tw-bg-opacity: 1;
@@ -6294,10 +6061,6 @@ div#nav-content {
 }
 .hover\:shadow-lg:hover {
 	--tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.hover\:shadow:hover {
-	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .focus\:z-10:focus {
@@ -6479,9 +6242,29 @@ div#nav-content {
 		margin-bottom: -1px;
 	}
 
+	.sm\:-mx-6 {
+		margin-left: -1.5rem;
+		margin-right: -1.5rem;
+	}
+
 	.sm\:my-0 {
 		margin-top: 0px;
 		margin-bottom: 0px;
+	}
+
+	.sm\:mx-10 {
+		margin-left: 2.5rem;
+		margin-right: 2.5rem;
+	}
+
+	.sm\:mx-40 {
+		margin-left: 10rem;
+		margin-right: 10rem;
+	}
+
+	.sm\:mx-3 {
+		margin-left: 0.75rem;
+		margin-right: 0.75rem;
 	}
 
 	.sm\:ml-3 {
@@ -6506,6 +6289,10 @@ div#nav-content {
 
 	.sm\:ml-6 {
 		margin-left: 1.5rem;
+	}
+
+	.sm\:mr-6 {
+		margin-right: 1.5rem;
 	}
 
 	.sm\:ml-0 {
@@ -6538,6 +6325,10 @@ div#nav-content {
 
 	.sm\:w-full {
 		width: 100%;
+	}
+
+	.sm\:w-1\/2 {
+		width: 50%;
 	}
 
 	.sm\:w-1\/3 {
@@ -6591,6 +6382,10 @@ div#nav-content {
 
 	.sm\:flex-row {
 		flex-direction: row;
+	}
+
+	.sm\:flex-col {
+		flex-direction: column;
 	}
 
 	.sm\:items-start {
@@ -6799,6 +6594,11 @@ div#nav-content {
 
 	.lg\:col-span-4 {
 		grid-column: span 4 / span 4;
+	}
+
+	.lg\:-mx-8 {
+		margin-left: -2rem;
+		margin-right: -2rem;
 	}
 
 	.lg\:mt-0 {

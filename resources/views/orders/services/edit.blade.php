@@ -4,12 +4,19 @@
 
 <!------ Include the above in your HEAD tag ---------->
 
-<div class="container">
-    <div class="mt-10 clearfix">
-        <div class="col-md-12">
-            <table class="table table-bordered table-hover" id="tab_logic">
-                <thead>
-                <tr>
+{{--<div class="container">--}}
+    {{--<div class="mt-10 clearfix">--}}
+        {{--<div class="col-md-12">--}}
+            {{--<table class="table table-bordered table-hover" id="tab_logic">--}}
+                {{--<thead>--}}
+                {{--<tr>--}}
+<div class="flex flex-col mt-5">
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                <table class="min-w-full divide-y divide-gray-200" id="tab_logic">
+                    <thead class="bg-gray-50">
+                    <tr>
                     {{--<th class="text-center"><p> # </p></th>--}}
                     <th class="text-center"><p>{{__('Services')}}</p></th>
                     <th class="text-center"><p>{{__('Quantity')}}</p></th>
@@ -65,6 +72,7 @@
                 </tbody>
             </table>
         </div>
+        </div>
     </div>
     {{--<div class="clearfix">--}}
         {{--<div class="flex justify-around ">--}}
@@ -72,7 +80,7 @@
             {{--<button type="button" id='delete_row' class=" text-red-400">{{__('Delete Row')}}</button>--}}
         {{--</div>--}}
     {{--</div>--}}
-    <div class="row clearfix" style="margin-top:20px">
+    <div  style="margin-top:20px">
         <div class="pull-right col-md-4">
             <table class="table table-bordered table-hover" id="tab_logic_total">
                 <tbody>

@@ -46,8 +46,8 @@
             {{--</div>--}}
 
 
-<div class="flex">
-            <div class="flex-col w-1/2">
+<div class="sm:flex">
+            <div class="mx-2 sm:flex-col sm:w-1/2">
                 <label>{{__('Employee Name')}}<span class="text-red-600"> *</span></label>
 
                 <x-select class="ml-4 select  " name="customer_id" id="customer" >
@@ -58,7 +58,7 @@
                     @endforeach
                 </x-select>
             </div>
-            <div class="mr-6 flex-col w-1/2">
+            <div class="mx-2 sm:mr-6 mt-5 sm:mt-0  sm:flex-col sm:w-1/2">
                 <label>{{__('Customer Name')}}<span class="text-red-600"> *</span></label>
 
                 <x-select class="ml-4 select  " name="employee_id" id="employees" >
@@ -70,7 +70,7 @@
                 </x-select>
             </div>
 </div>
-            <div class="mt-8">
+            <div class="mx-2 mt-5">
             <p>{{__('Time Frame')}} :<span class="text-red-600"> *</span></p>
                 <x-select class="ml-4 select  " name="time_frame_id" id="time_frame_id" >
                     @foreach($timeframes as $time)
@@ -80,8 +80,8 @@
                     @endforeach
                 </x-select>
             </div>
-    <div class="inline-flex flex-row w-full mt-8">
-        <div class="flex-col w-full">
+    <div class=" sm:flex w-full mt-5">
+        <div class="mx-2 flex-col w-full">
 
             <label>{{__('Request Pickup Date')}}</label>
 
@@ -92,7 +92,7 @@
 
         </div>
 
-        <div class="mr-6 flex-col w-full ">
+        <div class="mt-5 sm:mt-0 mx-2 flex-col w-full ">
             <label>{{__('Request Delivery Date')}}</label>
 
             <x-input name="requested_delivery_date" type="text"
@@ -102,8 +102,8 @@
         </div>
     </div>
 
-    <div class="inline-flex flex-row w-full mt-8">
-        <div class=" flex-col w-full">
+    <div class="sm:flex flex-row w-full mt-5">
+        <div class="mx-2 flex-col w-full">
 
             <label>{{__('Agent Pickup Date')}}</label>
             <div class="divUser">
@@ -113,7 +113,7 @@
             </div>
         </div>
 
-        <div class="mr-6 flex-col w-full">
+        <div class="mx-2 mt-5 sm:mt-0 flex-col w-full">
 
             <label>{{__('Agent Deliver Date')}}</label>
 
@@ -147,15 +147,14 @@
     {{--</script>--}}
 
 
-    <label class="label mt-8">{{__('Payment Method')}}</label>
-    <x-select class=" select " name="payment" id="type"
+    <label class="label  mt-5">{{__('Payment Method')}}</label>
+    <x-select class=" select mx-2 " name="payment" id="type"
               label="{{__('Payment')}}">
         <option value="1" >{{__('Cash')}}</option>
         <option value="2" >{{__('Card')}}</option>
         <option value="3" >{{__('Transfer')}}</option>
     </x-select>
 
-    <div class="inline-flex flex-row w-full mt-8">
         {{--<div class="flex-col w-full">--}}
             {{--<label>{{__('Discount')}}</label>--}}
 
@@ -183,8 +182,8 @@
             {{--<label>{{__('Total With VAT')}}</label>--}}
             {{--<x-input type="number" name="total"  class="input"/>--}}
         {{--</div>--}}
-    </div>
-    <div class="flex flex-col mt-8 md:flex-row">
+
+    <div class="flex mx-2 flex-col mt-5 md:flex-row">
         <div class="w-full  flex-1">
             <label class="label">{{__('Order Process')}}</label>
             <x-select class="ml-4 select" name="process" id="process"
@@ -206,10 +205,10 @@
             {{--<x-input class="input" name="price" type="text" value="{{ old('price') }}" />--}}
 
 <div>
-@include('orders.example')
+@include('orders.services.create')
 
 </div>
-            <div class="flex mt-3">
+            <div class="flex mt-8">
                 <button type='submit' class="btn ml-3">{{__('Create')}}</button>
 
                 <input type="button" class="btn-cancel"

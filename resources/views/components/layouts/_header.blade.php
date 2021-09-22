@@ -2,14 +2,14 @@
 
 
     <div class="w-full container mx-auto flex flex-grow items-center justify-between mt-0 ">
-        <button id="nav-toggle"
-                class="md:hidden rounded-lg focus:outfoline-none focus:shadow-outline mr-3">
-            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-                <path x-show="!open" fill-rule="evenodd"
-                      d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
-                      clip-rule="evenodd"></path>
-            </svg>
-        </button>
+        {{--<button id="nav-toggle"--}}
+                {{--class="md:hidden rounded-lg focus:outfoline-none focus:shadow-outline mr-3">--}}
+            {{--<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">--}}
+                {{--<path x-show="!open" fill-rule="evenodd"--}}
+                      {{--d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"--}}
+                      {{--clip-rule="evenodd"></path>--}}
+            {{--</svg>--}}
+        {{--</button>--}}
         <div class="flex justify-between items-center lg:ml-0 ml-3">
             <a href="/home" class="font-bold text-xl text-indigo-600">
                 {{--<img src="{{asset('img/logo.png')}}" alt="logo" class="w-20 m-1">--}}
@@ -17,7 +17,7 @@
         </div>
 
 
-        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden
+        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto
         lg:mt-0 lg:bg-transparent text-black lg:p-0 lg:mr-0 mr-3"
              id="nav-content">
             <ul class="flex flex-col lg:flex-row list-none ">
@@ -75,8 +75,8 @@
                 {{--</form>--}}
                 {{--@endguest--}}
 
-
-                <li><button class="btn my-2">{{__('New Order')}}</button></li>
+<div class="mx-auto">
+                <li><button class="btn my-2" onClick="window.location.replace('/orders/create')">{{__('New Order')}}</button></li></div>
             </ul>
 
         </div>
@@ -84,8 +84,8 @@
     </div>
 </nav>
 
-<script>
-    document.getElementById('nav-toggle').onclick = function () {
-        document.getElementById("nav-content").classList.toggle("hidden");
-    }
-</script>
+{{--<script>--}}
+    {{--document.getElementById('nav-toggle').onclick = function () {--}}
+        {{--document.getElementById("nav-content").classList.toggle("hidden");--}}
+    {{--}--}}
+{{--</script>--}}

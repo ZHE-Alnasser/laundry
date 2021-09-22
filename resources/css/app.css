@@ -94,8 +94,24 @@ div#nav-content {
 
 
 .btn-delete{
-    @apply btn btn-secondary;
+    background: #cd1f0f;
+    border:#cd1f0f;
+   color:white;
+
+    /*@apply btn btn-secondary;*/
 }
+.btn-delete:hover {
+    background: #951e0f;
+
+}
+.btn-add{
+    background: #8e9290;
+    border: #8e9290;
+}
+.btn-add:hover{
+    background: #636765;
+}
+
 .btn-cancel{
     @apply btn btn-outline btn-secondary;
 }

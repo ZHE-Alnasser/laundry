@@ -7,7 +7,7 @@
                 <x-form action="{{ route('services.update',['service'=>$service->slug]) }} " method="PUT">
                     @csrf
                     {{--@method('PUT')--}}
-<div class="mx-40">
+<div class="sm:mx-40">
                     <div class="flex flex-col md:flex-row">
                         <div class="w-full mx-2 flex-1">
                             <label>{{__('Service Name')}}</label>

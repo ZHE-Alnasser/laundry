@@ -47,7 +47,21 @@
         {{--<nav class="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">--}}
 
         <div class="bg-white pb-3 ">
-            <nav class="mt-2 menu">
+
+                <button class="flex-row text-gray-500 cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent
+        rounded bg-transparent block md:hidden outline-none focus:outline-none mr-2"
+                        type="button" onclick="toggleNavbar('example-collapse-navbar')">
+                    <div class="flex flex1">
+
+                        <svg fill="currentColor" viewBox="0 0 20 20" class="flex-row w-6 h-6">
+                            <path fill-rule="evenodd"
+                                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                                  clip-rule="evenodd"></path>
+                        </svg>
+                       <h1 class="px-2"> {{__("Manage")}}</h1>
+                    </div>
+                </button>
+            <nav class="mt-2 mx-5 menu" id="example-collapse-navbar">
                 <a class="side-items" href="/dashboard"><i data-feather="home" class="ml-1"></i><span class="side-text">{{__("Dashboard")}}</span></a>
                 @canany(['Update-Orders','Create-Orders','Delete-Orders'])
                 <a class="side-items" href="/orders/manage"><i data-feather="shopping-cart" class="ml-1"></i><span class="side-text">{{__("Orders")}}</span></a>
@@ -80,7 +94,7 @@
                     {{--<a class="side-items" href="/types/manage"><i data-feather="type" class="ml-1"></i><span class="side-text">{{__("Types")}}</span></a>--}}
 
                 @canany(['Update-Roles','Create-Roles','Delete-Roles'])
-                    <a class="side-items" {{(Request::is('roles') || Request::is('roles/*')) ? 'primary-color-bg text-white' : ''}} href="/roles"><i data-feather="settings" class="ml-1"></i><span class="side-text">{{__("Roles")}}</span></a>
+                    <a class="side-items" {{(Request::is('roles') || Request::is('roles/*')) ? 'primary-color-bg text-white' : ''}} href="/roles"><i data-feather="key" class="ml-1"></i><span class="side-text">{{__("Roles")}}</span></a>
                 @endcanany
                 {{--<a class="side-items" href="/timeframes/manage"><i data-feather="clock" class="ml-1"></i><span class="side-text">{{__("Time Frame")}}</span></a>--}}
                 @canany(['Update-Settings','Create-Settings','Delete-Settings'])
@@ -137,4 +151,10 @@
     <script>
         feather.replace()
     </script>
+<script>
+    function toggleNavbar(collapseID) {
+        document.getElementById(collapseID).classList.toggle("hidden");
+        document.getElementById(collapseID).classList.toggle("flex");
+    }
+</script>
 {{--</x-layouts.base>--}}

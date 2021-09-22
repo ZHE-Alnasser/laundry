@@ -8,8 +8,8 @@
             <div>
                 <x-form action="{{ route('orders.update',['order'=>$order->id]) }} " method="PUT">
                     @csrf
-                  <div class="inline-flex flex-row w-full">
-                    <div class="flex-col w-1/2">
+                  <div class="sm:flex  w-full">
+                    <div class="mx-2 sm:flex-col sm:w-1/2">
                     <label>{{__('Employee Name')}}<span class="text-red-600"> *</span></label>
 
                     <x-select class="ml-4 select  " name="customer_id" id="employees" >
@@ -21,7 +21,7 @@
                         @endforeach
                     </x-select>
                     </div>
-                      <div class="mr-6 flex-col w-1/2">
+                      <div class="mx-2 sm:flex-col mt-5 sm:mt-0  sm:w-1/2">
                         <label>{{__('Customer Name')}}<span class="text-red-600"> *</span></label>
 
                     <x-select class="ml-4 select  " name="employee_id" id="employees" >
@@ -37,7 +37,7 @@
 
                     <div class="mt-8">
                         <p>{{__('Time Frame')}} :<span class="text-red-600"> *</span></p>
-                        <x-select class="ml-4 select  " name="time_frame_id" id="time_frame_id" >
+                        <x-select class="mx-2 ml-4 select  " name="time_frame_id" id="time_frame_id" >
                             @foreach($timeframes as $time)
                                 {{--@dd($customer)--}}
 
@@ -65,8 +65,8 @@
                                 {{--</select>--}}
                             {{--</div>--}}
                         {{--</div>--}}
-                    <div class="inline-flex flex-row w-full mt-8">
-                        <div class="flex-col w-full">
+                    <div class=" sm:flex  w-full mt-8">
+                        <div class="mx-2 flex-col w-full">
 
                                 <label>{{__('Request Pickup Date')}}</label>
 
@@ -76,7 +76,7 @@
 
                         </div>
 
-                        <div class="mr-6 flex-col w-full ">
+                        <div class="mx-2 mt-5 sm:mt-0  flex-col w-full ">
                                 <label>{{__('Request Delivery Date')}}</label>
 
                                     <x-input name="requested_delivery_date" type="text"
@@ -86,8 +86,8 @@
                         </div>
                     </div>
 
-                    <div class="inline-flex flex-row w-full mt-8">
-                        <div class=" flex-col w-full">
+                    <div class="sm:flex flex-row w-full mt-8">
+                        <div class=" mx-2 flex-col w-full">
 
                                 <label>{{__('Agent Pickup Date')}}</label>
                                 <div class="divUser">
@@ -97,7 +97,7 @@
                                 </div>
                             </div>
 
-                        <div class="mr-6 flex-col w-full">
+                        <div class="mx-2 sm:flex mt-5 sm:mt-0  flex-col w-full">
 
                                 <label>{{__('Agent Deliver Date')}}</label>
 
@@ -120,7 +120,7 @@
 
 
                     <label class="label mt-8">{{__('Payment Method')}}</label>
-                    <x-select class=" select " name="payment" id="type"
+                    <x-select class=" select mx-2 " name="payment" id="type"
                             label="{{__('Payment')}}">
                         <option value="1" {{$order->payment === 'cash' ? "selected" : "" }}>{{__('Cash')}}</option>
                         <option value="2" {{$order->payment === 'card' ? "selected" : "" }}>{{__('Card')}}</option>
@@ -155,10 +155,10 @@
                                     {{--<x-input name="total" value="{{$order->total}}" class="input"/>--}}
                             {{--</div>--}}
                         {{--</div>--}}
-                        <div class="flex flex-col mt-8 md:flex-row">
+                        <div class=" flex flex-col mt-8 md:flex-row">
                             <div class="w-full  flex-1">
                         <label class="label">{{__('Order Process')}}</label>
-                        <x-select class="ml-4 select" name="process" id="process"
+                        <x-select class="ml-4 mx-2 select" name="process" id="process"
                                   label="{{__('state').' '.__('order')}}">
                             <option value="0" {{$order->process === 0 ? "selected" : "" }}>{{__('Ready for Pickup')}}</option>
                             <option value="1" {{$order->process === 1 ? "selected" : "" }}>{{__('Pickup')}}</option>

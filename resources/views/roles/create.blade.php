@@ -1,7 +1,7 @@
 <x-layouts.admin>
     <h1>{{__('Create').' '.__('role')}}</h1>
     <x-feedback/>
-    <div class="mx-3 text-right">
+    <div class="sm:mx-3 text-right">
         <x-form action="{{url('roles')}}" method="post">
             @csrf
 <div class="mt-10">
