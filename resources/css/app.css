@@ -184,3 +184,21 @@ div#nav-content {
     padding-right: 150px;
     padding-left: 150px;
 }
+
+.card{
+    --tw-border-opacity: 0.1 !important;
+    padding:20px;
+    border-color: #1d6076;
+    /*@apply border-gray-600 border-2 rounded-xl*/
+    @apply lg:m-2 mb-3 px-10
+}
+.card:hover{
+background: rgba(29, 96, 118, 0.56);
+
+}
+.text-color{
+    color:#1d6076;
+}
+/*svg{*/
+    /*color:#1d6076;*/
+/*}*/
