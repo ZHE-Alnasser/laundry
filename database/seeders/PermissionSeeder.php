@@ -20,10 +20,10 @@ class PermissionSeeder extends Seeder
         $entities =
             [
                 ['group' => __('Orders'), 'name' => 'Orders'],
-                ['group' => __('Users'), 'name' => 'Usrs'],
+                ['group' => __('Users'), 'name' => 'Users'],
                 ['group' => __('Items'), 'name' => 'Items'],
                 ['group' => __('Services'), 'name' => 'Services'],
-//                ['group' => __('Roles'), 'name' => 'Roles'],
+                ['group' => __('Roles'), 'name' => 'Roles'],
                 ['group' => __('Districts'), 'name' => 'Districts'],
                 ['group' => __('Cities'), 'name' => 'Cities'],
                 ['group' => __('Settings'), 'name' => 'Settings'],

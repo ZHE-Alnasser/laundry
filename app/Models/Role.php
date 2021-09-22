@@ -18,7 +18,6 @@ class Role extends BaseRole
 {
 //    use Base, Categorizable, Taggable, Notable, InteractsWithMedia;
     protected $guarded = ['id'];
-    protected $appends = ['cover'];
 
     public function getRouteKeyName()
     {
