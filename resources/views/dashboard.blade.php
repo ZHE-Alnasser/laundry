@@ -4,11 +4,11 @@
             {{--<x-index-card>--}}
                 {{--<h1 class=" mx-10 text-center text-3xl">{{__('Welcome')}}</h1>--}}
                 {{--<h2 class=" mt-10 text-center text-2xl ">{{$firstName}} {{$lastName}}</h2>--}}
-            <div class="grid grid-cols-4 grid-flow-row gap-2">
+            <div class="md:grid grid-cols-4 grid-flow-row gap-2">
                 <div class=" bg-teal-400 card rounded-2xl border-2 border-gray-400">
                     <a href="{{url('users')}}">
                         <img src="{{asset('img/svg/users.svg')}}"/>
-                    <span class="text-center text-3xl text-color">{{__('Users')}}</span>
+                    <span class="text-center text-4xl text-color">{{__('Users')}}</span>
                     </a>
                     </div>
 
@@ -17,32 +17,32 @@
 
                 <img src="{{asset('img/svg/order.svg')}}"/>
 
-                    <span class="text-center text-3xl text-color">@lang('Orders')</span>
+                    <h2 class="text-center text-4xl text-color">@lang('Orders')</h2>
 
              </a></div>
     <div class=" bg-teal-400 card rounded-2xl border-2 border-gray-400 ">  <a href="{{url('items')}}">
             <div class="info-box bg-green">
                 <img src="{{asset('img/svg/item.svg')}}"/>
-                <span class="text-center text-3xl text-color">@lang('Items')</span>
+                <h2 class="text-center text-4xl text-color">@lang('Items')</h2>
 
             </div></a></div>
     <div class=" bg-teal-400 card rounded-2xl border-2 border-gray-400 ">  <a href="{{url('services/manage')}}">
             <div class="info-box bg-green">
                 <img src="{{asset('img/svg/service.svg')}}"/>
-                <span class="text-center text-3xl text-color">@lang('Services')</span>
+                <h2 class="text-center text-4xl text-color">@lang('Services')</h2>
 
             </div></a></div>
     <div class=" bg-teal-400 card rounded-2xl border-2 border-gray-400 ">  <a href="{{url('cities')}}">
             <div class="info-box bg-green">
                 <img src="{{asset('img/svg/city.svg')}}"/>
-                <span class="text-center text-3xl text-color">@lang('Cities')</span>
+                <h2 class="text-center text-4xl text-color">@lang('Cities')</h2>
 
             </div></a></div>
 
     <div class=" bg-teal-400 card rounded-2xl border-2 border-gray-400 ">  <a href="{{url('districts')}}">
             <div class="info-box bg-green">
                 <img src="{{asset('img/svg/map.svg')}}"/>
-                <span class="text-center text-3xl text-color">@lang('Districts')</span>
+                <h2 class="text-center text-4xl text-color">@lang('Districts')</h2>
 
             </div></a></div>
 
@@ -50,14 +50,14 @@
             <div class="info-box bg-green">
                 <img src="{{asset('img/svg/role.svg')}}"/>
 
-                <span class="text-center text-color">@lang('Roles')</span>
+                <h2 class="text-center text-4xl  text-color">@lang('Roles')</h2>
 
             </div></a></div>
 
                 <div class=" bg-teal-400 card rounded-2xl border-2 border-gray-400 ">  <a href="{{url('settings')}}">
             <div class="info-box bg-green">
                 <img src="{{asset('img/svg/settings.svg')}}"/>
-                <span class="text-center text-3xl text-color">@lang('Settings')</span>
+                <h2 class="text-center text-4xl text-color">@lang('Settings')</h2>
 
             </div></a></div>
 </div>
