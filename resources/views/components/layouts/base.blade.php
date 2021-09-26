@@ -34,7 +34,7 @@
     @stack('styles')
     @livewireStyles
 </head>
-<body dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}} " data-theme="light"
+<body dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}"  data-theme="light"
       class="min-h-screen bg-base-200" id="wrapper">
 
 
