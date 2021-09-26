@@ -61,7 +61,7 @@ class User extends Authenticatable
     public function scopeCustomer($qry)
     {
         return $qry->whereHas('type', function (Builder $qry) {
-            $qry->where('name', 'Customer');
+            $qry->where('id', '1');
         });
 
     }
@@ -69,7 +69,7 @@ class User extends Authenticatable
     public function scopeEmployee($qry)
     {
         return $qry->whereHas('type', function (Builder $qry) {
-            $qry->where('name', 'Employee');
+            $qry->where('id', '2');
         });
     }
 

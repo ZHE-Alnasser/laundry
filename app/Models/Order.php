@@ -55,7 +55,7 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, 'customer_id')
             ->whereHas('type',function (Builder $qry) {
-                $qry->where('name', 'Customer');
+                $qry->where('id', '1');
             });
 
     }
@@ -63,7 +63,7 @@ class Order extends Model
     public function employee()
     {
         return $this->belongsTo(User::class, 'employee_id')->whereHas('type', function (Builder $qry) {
-            $qry->where('name', 'Employee');
+            $qry->where('id', '2');
         });
 //            ->where('type', 'Employee');
     }

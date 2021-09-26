@@ -50,7 +50,7 @@
             <div class="mx-2 sm:flex-col sm:w-1/2">
                 <label>{{__('Employee Name')}}<span class="text-red-600"> *</span></label>
 
-                <x-select class="ml-4 select  " name="customer_id" id="customer" >
+                <x-select class="ml-4 select  " name="employee_id" id="employees" >
                     @foreach($employees as $employee)
                         {{--@dd($customer)--}}
 
@@ -61,7 +61,7 @@
             <div class="mx-2 sm:mr-6 mt-5 sm:mt-0  sm:flex-col sm:w-1/2">
                 <label>{{__('Customer Name')}}<span class="text-red-600"> *</span></label>
 
-                <x-select class="ml-4 select  " name="employee_id" id="employees" >
+                <x-select class="ml-4 select  " name="customer_id" id="customers" >
                     @foreach($customers as $customer)
                         {{--@dd($customer)--}}
 

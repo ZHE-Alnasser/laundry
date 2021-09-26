@@ -12,11 +12,11 @@
                     <div class="mx-2 sm:flex-col sm:w-1/2">
                     <label>{{__('Employee Name')}}<span class="text-red-600"> *</span></label>
 
-                    <x-select class="ml-4 select  " name="customer_id" id="employees" >
+                    <x-select class="ml-4 select  " name="employee_id" id="employees" >
                         @foreach($employees as $employee)
                             {{--@dd($customer)--}}
 
-                            <option {{ $order->employee_id==$employee->id?'selected':''}} value="{{$employee->id}}">{{ $employee->name }}</option>
+                            <option {{ $order->employee_id==$employee->id?'selected':''}} value="{{$employee->id}}">{{$employee->name }}</option>
                             {{--<option  value="{{$employee->id}}">{{ $employee->name }}</option>--}}
                         @endforeach
                     </x-select>
@@ -24,11 +24,11 @@
                       <div class="mx-2 sm:flex-col mt-5 sm:mt-0  sm:w-1/2">
                         <label>{{__('Customer Name')}}<span class="text-red-600"> *</span></label>
 
-                    <x-select class="ml-4 select  " name="employee_id" id="employees" >
+                    <x-select class="ml-4 select  " name="customer_id" id="customers" >
                         @foreach($customers as $customer)
                             {{--@dd($customer)--}}
 
-                            <option {{ $order->customer_id==$customer->id?'selected':''}} value="{{$customer->id}}">{{ $customer->name }}</option>
+                            <option {{ $order->customer_id==$customer->id?'selected':''}} value="{{$customer->id}}">{{$customer->name }}</option>
                             {{--<option  value="{{$customer->id}}">{{ $customer->name }}</option>--}}
                         @endforeach
                     </x-select>
