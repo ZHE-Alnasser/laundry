@@ -40,7 +40,7 @@ class TimeFramesDatatable extends LivewireDatatable
             Column::callback(['id', 'name'], function ($id,$name) {
 //                return view('components\table-actions',['url' => url("services/$slug"), 'model' => 'TimeFrames']);
 //                return view('components\table-actions', ['id' => $id,'name' => $name]);
-                return view('components\table-actions',['url' => url("timeframes/$id"), 'model' => 'TimeFrames','id' => $id, 'name' => $name]);
+                return view('components.table-actions',['url' => url("timeframes/$id"), 'model' => 'TimeFrames','id' => $id, 'name' => $name]);
 
             })
         ];

@@ -35,7 +35,7 @@ class ItemDatatable extends LivewireDatatable
 
 
             Column::callback(['id', 'name'], function ($id,$name) {
-                return view('components\table-actions',['url' => url("items/$id"), 'model' => 'Items','id' => $id, 'name' => $name]);
+                return view('components.table-actions',['url' => url("items/$id"), 'model' => 'Items','id' => $id, 'name' => $name]);
 //                return view('components\table-actions', ['id' => $id, 'name' => $name]);
             })
         ];

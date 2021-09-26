@@ -31,7 +31,7 @@ Column::name('name')->label(__('Name'))->searchable(),
 
 
 Column::callback(['id', 'name'], function ($id,$name) {
-    return view('components\table-actions',['url' => url("types/$id"), 'model' => 'Types','id' => $id, 'name' => $name]);
+    return view('components.table-actions',['url' => url("types/$id"), 'model' => 'Types','id' => $id, 'name' => $name]);
 //                return view('components\table-actions', ['id' => $id, 'name' => $name]);
 })
 ];

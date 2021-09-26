@@ -35,7 +35,7 @@ class UsersDatatable extends LivewireDatatable
 
 
             Column::callback(['id'], function ($id) {
-                return view('components\table-actions',['url' => url("users/$id"), 'model' => 'Users','id' => $id]);
+                return view('components.table-actions',['url' => url("users/$id"), 'model' => 'Users','id' => $id]);
             })
         ];
     }

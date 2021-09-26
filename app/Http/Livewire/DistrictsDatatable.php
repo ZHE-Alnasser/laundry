@@ -33,7 +33,7 @@ class DistrictsDatatable extends LivewireDatatable
 
 
             Column::callback(['id', 'name'], function ($id,$name) {
-                return view('components\table-actions',['url' => url("districts/$id"), 'model' => 'Districts','id' => $id, 'name' => $name]);
+                return view('components.table-actions',['url' => url("districts/$id"), 'model' => 'Districts','id' => $id, 'name' => $name]);
 //                return view('components\table-actions', ['id' => $id, 'name' => $name]);
             })
         ];

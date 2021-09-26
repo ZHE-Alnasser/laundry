@@ -31,7 +31,7 @@ class CitiesDatatable extends LivewireDatatable
 
 
             Column::callback(['id'], function ($id) {
-                return view('components\table-actions',['url' => url("cities/$id"), 'model' => 'Cities','id' => $id]);
+                return view('components.table-actions',['url' => url("cities/$id"), 'model' => 'Cities','id' => $id]);
             })
         ];
     }
