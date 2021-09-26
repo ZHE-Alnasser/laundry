@@ -120,5 +120,15 @@
   "Roles": "الصلاحيات",
   "Search": "ابحث",
   "Export": "تحميل",
-  "Whoops! Something went wrong.": "عذرًا! هناك خطأ ما"
+  "Whoops! Something went wrong.": "عذرًا! هناك خطأ ما",
+  "deliver": "تم تسليمه",
+  "Customer": "عميل",
+  "Employee": "موظف",
+  "sub total": "الإجمالي بدون الضريبة",
+  "total": "الإجمالي مع الضريبة",
+  "vat": "اجمالي الضريبة",
+  "employee_id": "الموظف",
+  "payment": "طريقة الدفع",
+  "process": "العملية",
+  "time frame id": "جدول التوصيل"
 }

@@ -12,7 +12,7 @@ class TypeSeeder extends Seeder
         $types =[
             ['name'=> __('Customer')],
             ['name'=> __('Employee')],
-            ['name'=>__('agent')],
+//            ['name'=>__('agent')],
         ];
         \DB::table('types')->insert($types);
     }
