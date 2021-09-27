@@ -6223,6 +6223,11 @@ background: rgba(29, 96, 118, 0.56);
 		margin-right: 0.75rem;
 	}
 
+	.sm\:mx-20 {
+		margin-left: 5rem;
+		margin-right: 5rem;
+	}
+
 	.sm\:ml-3 {
 		margin-left: 0.75rem;
 	}
