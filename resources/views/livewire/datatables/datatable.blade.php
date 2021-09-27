@@ -1,3 +1,4 @@
+
 <div>
     @if($beforeTableSlot)
         <div class="mt-8">
@@ -154,8 +155,8 @@
                         </div>
 
                         <div class="flex justify-end text-gray-600">
-                            {{__('Results')}} {{ $this->results->firstItem() }} - {{ $this->results->lastItem() }} {{__('of')}}
-                            {{ $this->results->total() }}
+                           <p> {{__('Results')}} {{ $this->results->firstItem() }} - {{ $this->results->lastItem() }} {{__('of')}}
+                            {{ $this->results->total() }}</p>
                         </div>
                     @endif
                 </div>

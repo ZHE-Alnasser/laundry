@@ -4051,6 +4051,9 @@ h2, p, a, label {
 .pr-6 {
 	padding-right: 1.5rem;
 }
+.pb-2 {
+	padding-bottom: 0.5rem;
+}
 .text-left {
 	text-align: left;
 }

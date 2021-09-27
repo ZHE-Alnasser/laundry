@@ -130,5 +130,8 @@
   "employee_id": "الموظف",
   "payment": "طريقة الدفع",
   "process": "العملية",
-  "time frame id": "جدول التوصيل"
+  "time frame id": "جدول التوصيل",
+  "Print": "طباعة",
+  "Results": "النتائج",
+  "of": "من"
 }

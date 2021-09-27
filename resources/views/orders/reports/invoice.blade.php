@@ -17,7 +17,7 @@
 {{--@section('content')--}}
 <div class="bg-white">
 
-    <h1 class="text-center">{{setting('company_name')}}</h1>
+    <h2 class="text-center">{{setting('company_name')}}</h2>
     <div class="vat justify-center flex "><p class="px-1">{{__('VAT Number').__(':')}}</p><p>{{setting('vat_number')}}</p></div>
     <div class="col ">
 

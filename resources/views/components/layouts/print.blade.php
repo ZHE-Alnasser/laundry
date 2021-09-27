@@ -70,7 +70,7 @@
     <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui@2.1.16/dist/css/coreui.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Tajawal:500&display=swap" rel="stylesheet">
-
+    {{--<link rel="stylesheet" href="{{ mix('css/app.css') }}">--}}
     <style>
         .btn:not(.default-color), a.btn:not(.default-color) {
             color: var(--white) !important;
@@ -113,7 +113,7 @@
 </head>
 <body>
 
-<button class="btn btn-info  d-print-none my-5" onclick="myFunction()">@lang('print')</button>
+<button class="btn  btn-info d-print-none pb-2 my-5" onclick="myFunction()">@lang('Print')</button>
 
 <script>
     function myFunction() {
