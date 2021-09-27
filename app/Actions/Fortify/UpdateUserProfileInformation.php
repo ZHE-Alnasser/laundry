@@ -13,8 +13,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     public function update($user, array $input)
     {
         Validator::make($input, [
-            'first_name' => 'required', 'string', 'max:255',
-            'last_name' => 'required', 'string', 'max:255',
+            'name' => 'required', 'string', 'max:255',
+//            'last_name' => 'required', 'string', 'max:255',
             'type_id' => 'required', 'string', 'max:255',
             'district_id'=>'nullable','string','max:255',
             'phone' =>'required', 'digits:10',

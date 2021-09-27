@@ -15,15 +15,15 @@ class HomeController extends Controller
     public function manage()
     {
 
-        $firstName = auth()->user()->first_name;
-        $lastName = auth()->user()->last_name;
-        return view('/dashboard', compact('firstName', 'lastName'));
+        $name = auth()->user()->name;
+
+        return view('/dashboard', compact('name'));
     }
     public function index()
     {
-        $firstName = auth()->user()->first_name;
-        $lastName = auth()->user()->last_name;
-        return view('/dashboard', compact('firstName', 'lastName'));
+//        $firstName = auth()->user()->first_name;
+//        $lastName = auth()->user()->last_name;
+        return view('/dashboard');
     }
 
 

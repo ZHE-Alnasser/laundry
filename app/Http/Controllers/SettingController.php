@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Setting;
 use Illuminate\Http\Request;
-use Illuminate\Filesystem\Cache;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Cache;
+
 //use QCod\AppSettings\SavesSettings;
 
 
@@ -35,6 +36,7 @@ class SettingController extends Controller
 
     public function update(Request $request, Setting $setting)
     {
+//        dd($request);
         $data = $request->except('_method','_token');
 
         foreach ($data as $name => $value) {
@@ -43,7 +45,7 @@ class SettingController extends Controller
         }
 
         // re-cache settings.
-//        Cache::forget('settingsTable'); // it will be auto-cache again when it hits App Service provider.
+        Cache::forget('settingsTable'); // it will be auto-cache again when it hits App Service provider.
 
 
         $file_path = null;
