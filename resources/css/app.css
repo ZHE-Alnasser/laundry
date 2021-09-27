@@ -53,6 +53,9 @@ div#nav-content {
     justify-content: end;
 
 }
+input{
+    color: #0f0f0f;
+}
 .navbar-expand-lg{
     /*background: #0caef8;*/
     background: white;
