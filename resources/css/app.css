@@ -54,7 +54,7 @@ div#nav-content {
 
 }
 input{
-    color: #0f0f0f;
+    color: #0f0f0f !important;
 }
 .navbar-expand-lg{
     /*background: #0caef8;*/

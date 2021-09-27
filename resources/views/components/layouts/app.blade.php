@@ -12,8 +12,8 @@
         <div class="flex-1">
             <div class="py-2 px-5  pb-10">
                 <x-feedback/>
-                {{--{{ $slot??'' }}--}}
-                @yield('content')
+                {{ $slot??'' }}
+                {{--@yield('content')--}}
             </div>
         </div>
     </div>
