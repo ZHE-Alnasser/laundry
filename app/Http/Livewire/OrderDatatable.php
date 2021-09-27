@@ -50,9 +50,7 @@ class OrderDatatable extends LivewireDatatable
             Column::callback(['process'], function ($process) {
                 return __('process_'.$process);
             })->searchable()->label(__('Process')),
-           Column::callback(['time_frame_id'], function ($period) {
-                return __('time_'.$period);
-            })->searchable()->label(__('Time Period')),
+           Column::name('time_frame_name')->searchable()->label(__('Time Period')),
 
             DateColumn::name('created_at')->label(__('Created at'))->searchable(),
 

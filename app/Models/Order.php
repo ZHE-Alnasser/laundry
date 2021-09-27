@@ -46,10 +46,10 @@ class Order extends Model
 //        (Service::class,'order_service','order_id','service_id','item_id','quantity','amount');
     }
 
-    public function time_frame()
-    {
-        return $this->belongsTo(TimeFrame::class);
-    }
+//    public function time_frame()
+//    {
+//        return $this->belongsTo(TimeFrame::class);
+//    }
 
     public function customer()
     {

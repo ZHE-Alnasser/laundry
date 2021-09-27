@@ -37,12 +37,19 @@
 
                     <div class="mt-8">
                         <p>{{__('Time Frame')}} :<span class="text-red-600"> *</span></p>
-                        <x-select class="mx-2 ml-4 select  " name="time_frame_id" id="time_frame_id" >
-                            @foreach($timeframes as $time)
+                        {{--<x-select class="mx-2 ml-4 select  " name="time_frame_id" id="time_frame_id" >--}}
+                            {{--@foreach($timeframes as $time)--}}
                                 {{--@dd($customer)--}}
 
-                                <option  {{ $order->time_frame_id==$time->id?'selected':''}} value="{{$time->id}}">{{ $time->name }}</option>
-                            @endforeach
+                                {{--<option  {{ $order->time_frame_id==$time->id?'selected':''}} value="{{$time->id}}">{{ $time->name }}</option>--}}
+                            {{--@endforeach--}}
+                        {{--</x-select>--}}
+                        <x-select class="ml-4 select  " name="time_frame_name" id="time_frame_name" >
+                            {{--@foreach($timeframes as $time)--}}
+                            {{--@dd($customer)--}}
+
+                            <option  {{  $order->time_frame_name==setting('time_frame_name')?'selected':''}}:value="time_frame_name">{{setting('time_frame_name')}}</option>
+                            {{--@endforeach--}}
                         </x-select>
                     </div>
                    {{--<div class="mx-40">--}}
@@ -70,7 +77,7 @@
 
                                 <label>{{__('Request Pickup Date')}}</label>
 
-                            <x-input name="requested_delivery_date" type="text"
+                            <x-input name="requested_pickup_date" type="text"
                                      x-init="$nextTick(() => {new flatpickr($el,{dateFormat: 'Y-m-d'})})"
                                      value="{{$order->requested_pickup_date}}" class="date-range input"/>
 
@@ -101,7 +108,7 @@
 
                                 <label>{{__('Agent Deliver Date')}}</label>
 
-                            <x-input name="agent_pickup_date" type="text"
+                            <x-input name="agent_delivery_date" type="text"
                                      x-init="$nextTick(() => {new flatpickr($el,{dateFormat: 'Y-m-d'})})"
                                      value="{{$order->agent_delivery_date}}" class="input"/>
                             </div>

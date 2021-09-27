@@ -22,7 +22,7 @@ class OrderSeeder extends Seeder
                 'discount' => '50',
                 'payment' => '1',
                 'process' => '2',
-                'time_frame_id' => '1'],
+                'time_frame_name' => 'name'],
         ];
         \DB::table('orders')->insert($items);
     }
