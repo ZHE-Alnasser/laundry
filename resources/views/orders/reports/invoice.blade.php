@@ -7,7 +7,7 @@
     <style>
 
         a, h1, h2, h3, h4, h5, h6, p, .using-font, label, .btn, th, p {
-            font-family: 'Courier New', sans-serif;
+            font-family: 'Tajawal', sans-serif;
             /*font-family: 'Amiri', sans-serif;*/
             font-size: 30px;
         }
