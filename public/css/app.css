@@ -1428,9 +1428,12 @@ html {
 	line-height: 1.75rem;
 }
 
-    h1,h2,p,a,label, .btn {
+    h1,h2,p,a,label,div .btn {
         font-family: 'Tajawal', sans-serif;
 
+    }
+    span{
+        font-family: 'Tajawal', sans-serif;
     }
 h2, p, a, label {
 	--tw-text-opacity: 1;
@@ -4030,6 +4033,9 @@ h2, p, a, label {
 .pb-10 {
 	padding-bottom: 2.5rem;
 }
+.pb-2 {
+	padding-bottom: 0.5rem;
+}
 .pl-10 {
 	padding-left: 2.5rem;
 }
@@ -4050,9 +4056,6 @@ h2, p, a, label {
 }
 .pr-6 {
 	padding-right: 1.5rem;
-}
-.pb-2 {
-	padding-bottom: 0.5rem;
 }
 .text-left {
 	text-align: left;
@@ -5107,52 +5110,6 @@ span.flatpickr-weekday {
     transform: translate3d(0, 0, 0);
   }
 }
-@layer base {
-    /* arabic */
-    @font-face {
-        font-family: 'Tajawal';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/tajawal/v4/Iurf6YBj_oCad4k1l4qkHrRpiYlJ.woff2) format('woff2');
-        unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
-    }
-    /* latin */
-    @font-face {
-        font-family: 'Tajawal';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url(https://fonts.gstatic.com/s/tajawal/v4/Iurf6YBj_oCad4k1l4qkHrFpiQ.woff2) format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
-
-    h1 {
-        color:#eb9d00;
-    }
-
-    h1 {
-		font-family: Tajawal, sans-serif;
-	}
-
-    h1 {
-		font-size: 1.5rem;
-		line-height: 2rem;
-	}
-    h2 {
-		font-size: 1.25rem;
-		line-height: 1.75rem;
-	}
-
-    h1,h2,p,a,label, .btn {
-        font-family: 'Tajawal', sans-serif;
-
-    }
-h2, p, a, label {
-		--tw-text-opacity: 1;
-		color: rgba(75, 85, 99, var(--tw-text-opacity));
-	}
-}
 body{
     text-align: start !important;
 }
@@ -5242,46 +5199,48 @@ input{
 .btn-add:hover{
     background: #636765;
 }
-.btn-cancel {
+div .btn-cancel {
         font-family: 'Tajawal', sans-serif;
-        border-color: transparent;
-        border-color: hsla(var(--n)/var(--tw-border-opacity,1));
-        cursor: pointer;
-        display: inline-flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        text-align: center;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;
-        transition-duration: .15s;
-        transition-duration: .2s;
-        transition-timing-function: cubic-bezier(.4,0,.2,1);
-        border-radius: var(--rounded-btn,.5rem);
-        height: 3rem;
-        font-size: .875rem;
-        line-height: 1.25rem;
-        line-height: 2;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        min-height: 3rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        text-transform: var(--btn-text-case,uppercase);
-        border-width: var(--border-btn,1px);
-        -webkit-animation: button-pop var(--animation-btn,.25s) ease-out;
-        animation: button-pop var(--animation-btn,.25s) ease-out;
-        --tw-bg-opacity: 1;
-        background-color: hsla(var(--n)/var(--tw-bg-opacity,1));
-        --tw-border-opacity: 1;
-        --tw-text-opacity: 1;
-        color: hsla(var(--nc)/var(--tw-text-opacity,1));
 
     }
+.btn-cancel {
+	border-color: transparent;
+	border-color: hsla(var(--n)/var(--tw-border-opacity,1));
+	cursor: pointer;
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	text-align: center;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;
+	transition-duration: .15s;
+	transition-duration: .2s;
+	transition-timing-function: cubic-bezier(.4,0,.2,1);
+	border-radius: var(--rounded-btn,.5rem);
+	height: 3rem;
+	font-size: .875rem;
+	line-height: 1.25rem;
+	line-height: 2;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	min-height: 3rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	text-transform: var(--btn-text-case,uppercase);
+	border-width: var(--border-btn,1px);
+	-webkit-animation: button-pop var(--animation-btn,.25s) ease-out;
+	animation: button-pop var(--animation-btn,.25s) ease-out;
+	--tw-bg-opacity: 1;
+	background-color: hsla(var(--n)/var(--tw-bg-opacity,1));
+	--tw-border-opacity: 1;
+	--tw-text-opacity: 1;
+	color: hsla(var(--nc)/var(--tw-text-opacity,1));
+}
 .btn-cancel:focus {
 	outline: 2px solid transparent;
 	outline-offset: 2px;
@@ -5637,46 +5596,48 @@ input{
 .drawer-toggle:focus-visible~.drawer-content .drawer-button.btn-cancel {
 	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--s));
 }
-.btn-error {
+div .btn-error {
         font-family: 'Tajawal', sans-serif;
-        border-color: transparent;
-        border-color: hsla(var(--n)/var(--tw-border-opacity,1));
-        cursor: pointer;
-        display: inline-flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        text-align: center;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;
-        transition-duration: .15s;
-        transition-duration: .2s;
-        transition-timing-function: cubic-bezier(.4,0,.2,1);
-        border-radius: var(--rounded-btn,.5rem);
-        height: 3rem;
-        font-size: .875rem;
-        line-height: 1.25rem;
-        line-height: 2;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        min-height: 3rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        text-transform: var(--btn-text-case,uppercase);
-        border-width: var(--border-btn,1px);
-        -webkit-animation: button-pop var(--animation-btn,.25s) ease-out;
-        animation: button-pop var(--animation-btn,.25s) ease-out;
-        --tw-bg-opacity: 1;
-        background-color: hsla(var(--n)/var(--tw-bg-opacity,1));
-        --tw-border-opacity: 1;
-        --tw-text-opacity: 1;
-        color: hsla(var(--nc)/var(--tw-text-opacity,1));
 
     }
+.btn-error {
+	border-color: transparent;
+	border-color: hsla(var(--n)/var(--tw-border-opacity,1));
+	cursor: pointer;
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	text-align: center;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;
+	transition-duration: .15s;
+	transition-duration: .2s;
+	transition-timing-function: cubic-bezier(.4,0,.2,1);
+	border-radius: var(--rounded-btn,.5rem);
+	height: 3rem;
+	font-size: .875rem;
+	line-height: 1.25rem;
+	line-height: 2;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	min-height: 3rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	text-transform: var(--btn-text-case,uppercase);
+	border-width: var(--border-btn,1px);
+	-webkit-animation: button-pop var(--animation-btn,.25s) ease-out;
+	animation: button-pop var(--animation-btn,.25s) ease-out;
+	--tw-bg-opacity: 1;
+	background-color: hsla(var(--n)/var(--tw-bg-opacity,1));
+	--tw-border-opacity: 1;
+	--tw-text-opacity: 1;
+	color: hsla(var(--nc)/var(--tw-text-opacity,1));
+}
 .btn-error:focus {
 	outline: 2px solid transparent;
 	outline-offset: 2px;
@@ -6201,14 +6162,19 @@ background: rgba(29, 96, 118, 0.56);
 		margin-bottom: -1px;
 	}
 
+	.sm\:mx-3 {
+		margin-left: 0.75rem;
+		margin-right: 0.75rem;
+	}
+
 	.sm\:-mx-6 {
 		margin-left: -1.5rem;
 		margin-right: -1.5rem;
 	}
 
-	.sm\:mx-40 {
-		margin-left: 10rem;
-		margin-right: 10rem;
+	.sm\:mx-20 {
+		margin-left: 5rem;
+		margin-right: 5rem;
 	}
 
 	.sm\:my-0 {
@@ -6221,14 +6187,9 @@ background: rgba(29, 96, 118, 0.56);
 		margin-right: 2.5rem;
 	}
 
-	.sm\:mx-3 {
-		margin-left: 0.75rem;
-		margin-right: 0.75rem;
-	}
-
-	.sm\:mx-20 {
-		margin-left: 5rem;
-		margin-right: 5rem;
+	.sm\:mx-40 {
+		margin-left: 10rem;
+		margin-right: 10rem;
 	}
 
 	.sm\:ml-3 {
