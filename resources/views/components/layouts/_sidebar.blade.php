@@ -74,6 +74,9 @@
                     {{--</svg><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>--}}
                     <i data-feather="users" class="ml-1"></i> <span class="side-text">{{__('Users')}}</span></a>
                 @endcanany
+                @canany(['Update-Roles','Create-Roles','Delete-Roles'])
+                    <a class="side-items" {{(Request::is('roles') || Request::is('roles/*')) ? 'primary-color-bg text-white' : ''}} href="/roles"><i data-feather="key" class="ml-1"></i><span class="side-text">{{__("Roles")}}</span></a>
+                @endcanany
                 @canany(['Update-Items','Create-Items','Delete-Items'])
                  <a class="side-items" href="/items/manage"><i data-feather="shopping-bag" class="ml-1"></i><span class="side-text">{{__("Items")}}</span></a>
                 @endcanany
@@ -93,9 +96,7 @@
                 @endcanany
                     {{--<a class="side-items" href="/types/manage"><i data-feather="type" class="ml-1"></i><span class="side-text">{{__("Types")}}</span></a>--}}
 
-                @canany(['Update-Roles','Create-Roles','Delete-Roles'])
-                    <a class="side-items" {{(Request::is('roles') || Request::is('roles/*')) ? 'primary-color-bg text-white' : ''}} href="/roles"><i data-feather="key" class="ml-1"></i><span class="side-text">{{__("Roles")}}</span></a>
-                @endcanany
+
                 {{--<a class="side-items" href="/timeframes/manage"><i data-feather="clock" class="ml-1"></i><span class="side-text">{{__("Time Frame")}}</span></a>--}}
                 @canany(['Update-Settings','Create-Settings','Delete-Settings'])
                 <a class="side-items" href="/settings"><i data-feather="settings" class="ml-1"></i><span class="side-text">{{__("Settings")}}</span></a>
