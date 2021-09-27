@@ -95,7 +95,7 @@
             </div>
         </div>
         <div id="second" class="hidden p-4">
-            <div class="flex sm:mx-20">
+            <div class="md:flex sm:mx-20">
                 <div class="flex flex-col mt-4 md:flex-row">
                     <div class="w-full mx-2 flex-1">
                         <label>{{__('Time Frame Name')}}</label>
