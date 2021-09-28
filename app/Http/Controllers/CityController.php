@@ -9,7 +9,7 @@ class CityController extends Controller
 {
     function __construct()
     {
-
+        $this->addMiddlewaresFor('Cities');
         $this->middleware('auth');
     }
 

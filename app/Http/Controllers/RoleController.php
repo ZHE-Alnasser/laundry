@@ -19,7 +19,11 @@ class RoleController extends Controller
 //        $this->addMiddlewaresFor('Roles');
 //        $this->middleware('auth');
 //    }
-
+    function __construct()
+    {
+        $this->addMiddlewaresFor('Roles');
+        $this->middleware('auth');
+    }
     public function index()
     {
         return view('roles.manage');

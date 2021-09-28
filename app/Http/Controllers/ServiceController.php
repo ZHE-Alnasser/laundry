@@ -11,7 +11,7 @@ class ServiceController extends Controller
 {
     function __construct()
     {
-//        $this->addMiddlewaresFor('Services');
+        $this->addMiddlewaresFor('Services');
         $this->middleware('auth');
     }
     public function index()

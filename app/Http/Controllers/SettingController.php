@@ -16,7 +16,7 @@ class SettingController extends Controller
 {
     function __construct()
     {
-
+//        $this->addMiddlewaresFor('Settings');
         $this->middleware('auth');
     }
 //    use SavesSettings;

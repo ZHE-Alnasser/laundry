@@ -10,7 +10,7 @@ class DistrictController extends Controller
 {
     function __construct()
     {
-
+        $this->addMiddlewaresFor('Districts');
         $this->middleware('auth');
     }
 

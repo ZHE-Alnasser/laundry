@@ -9,7 +9,7 @@ class TypeController extends Controller
 {
     function __construct()
     {
-
+        $this->addMiddlewaresFor('Type');
         $this->middleware('auth');
     }
     public function manage()

@@ -9,7 +9,7 @@ class TimeFrameController extends Controller
 {
     function __construct()
     {
-        $this->addMiddlewaresFor('Items');
+        $this->addMiddlewaresFor('TimeFrames');
         $this->middleware('auth');
     }
 

@@ -27,7 +27,7 @@ class UserController extends Controller
 
     function __construct()
     {
-
+        $this->addMiddlewaresFor('Users');
         $this->middleware('auth');
     }
     public function manage()

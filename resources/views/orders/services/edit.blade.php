@@ -158,7 +158,7 @@
 {{--</script>--}}
 
 
-<x-layouts.app>
+{{--<x-layouts.app>--}}
     <div class="row" x-data="handler">
         <div class="col">
             <table class="table border-collapse w-full text-center" id="majors_table">
@@ -238,4 +238,4 @@
     @endpush
 
 
-</x-layouts.app>
+{{--</x-layouts.app>--}}
