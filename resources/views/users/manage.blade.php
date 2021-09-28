@@ -2,6 +2,7 @@
 
 
 <x-layouts.admin>
+    <div class="flex justify-between mb-5 flex-row mt-5">
     <a class="btn inline-flex mb-2 justify-center items-center" href="{{"/users/create"}}">
         <svg class="w-6 h-6 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -12,7 +13,12 @@
         </svg>
         <span>{{__('Create')}}</span>
     </a>
+    <a class="btn inline-flex mb-2 justify-center items-center" href="{{"/roles"}}">
+        <i data-feather="key" class="ml-1"></i>
+        <span>{{__('Manage Roles')}}</span>
+    </a>
 
+    </div>
 <div>
     @livewire('users-datatable')
 </div>
