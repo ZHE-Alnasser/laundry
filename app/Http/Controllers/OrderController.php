@@ -21,9 +21,10 @@ class OrderController extends Controller
 {
     function __construct()
     {
-
+        $this->addMiddlewaresFor('Orders');
         $this->middleware('auth');
     }
+
     public function manage()
     {
         return view('orders.manage');

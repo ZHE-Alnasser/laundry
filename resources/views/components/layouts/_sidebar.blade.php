@@ -78,7 +78,7 @@
                     {{--<a class="side-items" {{(Request::is('roles') || Request::is('roles/*')) ? 'primary-color-bg text-white' : ''}} href="/roles"><i data-feather="key" class="ml-1"></i><span class="side-text">{{__("Roles")}}</span></a>--}}
                 {{--@endcanany--}}
                 @canany(['Update-Items','Create-Items','Delete-Items'])
-                 <a class="side-items" href="/items/manage"><i data-feather="shopping-bag" class="ml-1"></i><span class="side-text">{{__("Items")}}</span></a>
+                 <a class="side-items" {{(request()->is('item') || request()->is('items/*')) ? 'primary-color-bg text-white' : ''}} href="/items/manage"><i data-feather="shopping-bag" class="ml-1"></i><span class="side-text">{{__("Items")}}</span></a>
                 @endcanany
                 @canany(['Update-Services','Create-Services','Delete-Services'])
                     <a class="side-items" href="/services/manage">

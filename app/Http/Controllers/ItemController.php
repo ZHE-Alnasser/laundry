@@ -10,9 +10,10 @@ class ItemController extends Controller
 
     function __construct()
     {
-
+        $this->addMiddlewaresFor('Items');
         $this->middleware('auth');
     }
+
     public function manage()
     {
         return view('items.manage');

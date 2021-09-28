@@ -47,8 +47,8 @@
                         <x-select class="ml-4 select  " name="time_frame_name" id="time_frame_name" >
                             {{--@foreach($timeframes as $time)--}}
                             {{--@dd($customer)--}}
-
-                            <option  {{  $order->time_frame_name==setting('time_frame_name')?'selected':''}}:value="time_frame_name">{{setting('time_frame_name')}}</option>
+{{--@dd($order->time_frame_name,setting('time_frame_name'))--}}
+                            <option  {{  $order->time_frame_name==setting('time_frame_name')?'selected':''}} :value="time_frame_name">{{setting('time_frame_name')}}</option>
                             {{--@endforeach--}}
                         </x-select>
                     </div>
