@@ -9,9 +9,9 @@ require('./bootstrap');
 window.Vue = require('vue').default;
 
 import Alpine from 'alpinejs';
-import handler from './handler.js'
+// import handler from './handler.js'
 
-Alpine.data('handler', handler)
+// Alpine.data('handler', handler)
 
 
 window.Alpine = Alpine;

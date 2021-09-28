@@ -4947,9 +4947,7 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
-/* harmony import */ var _handler_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./handler.js */ "./resources/js/handler.js");
-/* harmony import */ var _handler_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_handler_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _flatpickr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./flatpickr */ "./resources/js/flatpickr.js");
+/* harmony import */ var _flatpickr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./flatpickr */ "./resources/js/flatpickr.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -4958,9 +4956,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default;
+ // import handler from './handler.js'
+// Alpine.data('handler', handler)
 
-
-alpinejs__WEBPACK_IMPORTED_MODULE_0__.default.data('handler', (_handler_js__WEBPACK_IMPORTED_MODULE_1___default()));
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__.default;
 alpinejs__WEBPACK_IMPORTED_MODULE_0__.default.start();
 
@@ -5054,29 +5052,6 @@ __webpack_require__.r(__webpack_exports__);
 // flatpckr('.date-range',options);
 
 window.flatpickr = flatpickr__WEBPACK_IMPORTED_MODULE_0__.default; //
-
-/***/ }),
-
-/***/ "./resources/js/handler.js":
-/*!*********************************!*\
-  !*** ./resources/js/handler.js ***!
-  \*********************************/
-/***/ (() => {
-
-function handler() {
-  return {
-    fields: [],
-    addNewField: function addNewField() {
-      this.fields.push({
-        txt1: '',
-        txt2: ''
-      });
-    },
-    removeField: function removeField(index) {
-      this.fields.splice(index, 1);
-    }
-  };
-}
 
 /***/ }),
 

@@ -244,6 +244,7 @@ class OrderController extends Controller
 
     public function edit(Order $order)
     {
+
         $orders=Order::all();
         $timeframes=TimeFrame::all();
 //        $orderService= OrderService::all();
@@ -296,6 +297,7 @@ class OrderController extends Controller
                         'amount'=>$amount[$service]
                     ]
                 );
+//                dd($order->services());
                 $order->services()->attach(
                     $services[$service], [
                         'qty' => $quantities[$service],

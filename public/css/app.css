@@ -2326,6 +2326,12 @@ h2, p, a, label {
 	--tw-text-opacity: 1;
 	color: hsla(var(--b2)/var(--tw-text-opacity,1));
 }
+.btn-outline .badge {
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--nf)/var(--tw-border-opacity,1));
+	--tw-text-opacity: 1;
+	color: hsla(var(--nc)/var(--tw-text-opacity,1));
+}
 .btn-outline.btn-primary .badge {
 	--tw-bg-opacity: 1;
 	background-color: hsla(var(--p)/var(--tw-bg-opacity,1));
@@ -2334,12 +2340,61 @@ h2, p, a, label {
 	--tw-text-opacity: 1;
 	color: hsla(var(--pc)/var(--tw-text-opacity,1));
 }
+.btn-outline.btn-secondary .badge {
+	--tw-bg-opacity: 1;
+	background-color: hsla(var(--s)/var(--tw-bg-opacity,1));
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--s)/var(--tw-border-opacity,1));
+	--tw-text-opacity: 1;
+	color: hsla(var(--sc)/var(--tw-text-opacity,1));
+}
+.btn-outline.btn-accent .badge {
+	--tw-bg-opacity: 1;
+	background-color: hsla(var(--a)/var(--tw-bg-opacity,1));
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--a)/var(--tw-border-opacity,1));
+	--tw-text-opacity: 1;
+	color: hsla(var(--ac)/var(--tw-text-opacity,1));
+}
+.btn-outline .badge.outline {
+	background-color: transparent;
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--nf)/var(--tw-border-opacity,1));
+}
 .btn-outline.btn-primary .badge-outline {
 	background-color: transparent;
 	--tw-border-opacity: 1;
 	border-color: hsla(var(--p)/var(--tw-border-opacity,1));
 	--tw-text-opacity: 1;
 	color: hsla(var(--p)/var(--tw-text-opacity,1));
+}
+.btn-outline.btn-secondary .badge-outline {
+	background-color: transparent;
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--s)/var(--tw-border-opacity,1));
+	--tw-text-opacity: 1;
+	color: hsla(var(--s)/var(--tw-text-opacity,1));
+}
+.btn-outline.btn-accent .badge-outline {
+	background-color: transparent;
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--a)/var(--tw-border-opacity,1));
+	--tw-text-opacity: 1;
+	color: hsla(var(--a)/var(--tw-text-opacity,1));
+}
+.btn-outline:hover .badge {
+	--tw-bg-opacity: 1;
+	background-color: hsla(var(--b2)/var(--tw-bg-opacity,1));
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--b2)/var(--tw-border-opacity,1));
+	--tw-text-opacity: 1;
+	color: hsla(var(--bc)/var(--tw-text-opacity,1));
+}
+.btn-outline:hover .badge.outline {
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--b2)/var(--tw-border-opacity,1));
+	--tw-text-opacity: 1;
+	color: hsla(var(--nc)/var(--tw-text-opacity,1));
 }
 .btn-outline.btn-primary:hover .badge {
 	--tw-bg-opacity: 1;
@@ -2356,6 +2411,38 @@ h2, p, a, label {
 	border-color: hsla(var(--pc)/var(--tw-border-opacity,1));
 	--tw-text-opacity: 1;
 	color: hsla(var(--pc)/var(--tw-text-opacity,1));
+}
+.btn-outline.btn-secondary:hover .badge {
+	--tw-bg-opacity: 1;
+	background-color: hsla(var(--sc)/var(--tw-bg-opacity,1));
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--sc)/var(--tw-border-opacity,1));
+	--tw-text-opacity: 1;
+	color: hsla(var(--s)/var(--tw-text-opacity,1));
+}
+.btn-outline.btn-secondary:hover .badge.outline {
+	--tw-bg-opacity: 1;
+	background-color: hsla(var(--sf)/var(--tw-bg-opacity,1));
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--sc)/var(--tw-border-opacity,1));
+	--tw-text-opacity: 1;
+	color: hsla(var(--sc)/var(--tw-text-opacity,1));
+}
+.btn-outline.btn-accent:hover .badge {
+	--tw-bg-opacity: 1;
+	background-color: hsla(var(--ac)/var(--tw-bg-opacity,1));
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--ac)/var(--tw-border-opacity,1));
+	--tw-text-opacity: 1;
+	color: hsla(var(--a)/var(--tw-text-opacity,1));
+}
+.btn-outline.btn-accent:hover .badge.outline {
+	--tw-bg-opacity: 1;
+	background-color: hsla(var(--af)/var(--tw-bg-opacity,1));
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--ac)/var(--tw-border-opacity,1));
+	--tw-text-opacity: 1;
+	color: hsla(var(--ac)/var(--tw-text-opacity,1));
 }
 .btn:active:focus,.btn:active:hover {
 	-webkit-animation: none;
@@ -2426,6 +2513,20 @@ h2, p, a, label {
 .btn-link:focus-visible {
 	box-shadow: 0 0 0 2px currentColor;
 }
+.btn-outline {
+	background-color: transparent;
+	border-color: currentColor;
+	--tw-text-opacity: 1;
+	color: hsla(var(--bc)/var(--tw-text-opacity,1));
+}
+.btn-outline:hover {
+	--tw-bg-opacity: 1;
+	background-color: hsla(var(--bc)/var(--tw-bg-opacity,1));
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--bc)/var(--tw-border-opacity,1));
+	--tw-text-opacity: 1;
+	color: hsla(var(--b1)/var(--tw-text-opacity,1));
+}
 .btn-outline.btn-primary {
 	--tw-text-opacity: 1;
 	color: hsla(var(--p)/var(--tw-text-opacity,1));
@@ -2437,6 +2538,30 @@ h2, p, a, label {
 	border-color: hsla(var(--pf)/var(--tw-border-opacity,1));
 	--tw-text-opacity: 1;
 	color: hsla(var(--pc)/var(--tw-text-opacity,1));
+}
+.btn-outline.btn-secondary {
+	--tw-text-opacity: 1;
+	color: hsla(var(--s)/var(--tw-text-opacity,1));
+}
+.btn-outline.btn-secondary:hover {
+	--tw-bg-opacity: 1;
+	background-color: hsla(var(--sf)/var(--tw-bg-opacity,1));
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--sf)/var(--tw-border-opacity,1));
+	--tw-text-opacity: 1;
+	color: hsla(var(--sc)/var(--tw-text-opacity,1));
+}
+.btn-outline.btn-accent {
+	--tw-text-opacity: 1;
+	color: hsla(var(--a)/var(--tw-text-opacity,1));
+}
+.btn-outline.btn-accent:hover {
+	--tw-bg-opacity: 1;
+	background-color: hsla(var(--af)/var(--tw-bg-opacity,1));
+	--tw-border-opacity: 1;
+	border-color: hsla(var(--af)/var(--tw-border-opacity,1));
+	--tw-text-opacity: 1;
+	color: hsla(var(--ac)/var(--tw-text-opacity,1));
 }
 .btn.loading.btn-circle:before,.btn.loading.btn-square:before {
 	margin-right: 0;

@@ -4,19 +4,12 @@
 
 <!------ Include the above in your HEAD tag ---------->
 
-{{--<div class="container">--}}
-    {{--<div class="mt-10 clearfix">--}}
-        {{--<div class="col-md-12">--}}
-            {{--<table class="table table-bordered table-hover" id="tab_logic">--}}
-                {{--<thead>--}}
-                {{--<tr>--}}
-<div class="flex flex-col mt-5">
-    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                <table class="min-w-full divide-y divide-gray-200" id="tab_logic">
-                    <thead class="bg-gray-50">
-                    <tr>
+<div class="container">
+    <div class="mt-10 clearfix">
+        <div class="col-md-12">
+            <table class="table table-bordered table-hover" id="tab_logic">
+                <thead>
+                <tr>
                     {{--<th class="text-center"><p> # </p></th>--}}
                     <th class="text-center"><p>{{__('Services')}}</p></th>
                     <th class="text-center"><p>{{__('Quantity')}}</p></th>
@@ -25,79 +18,75 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{--@foreach($orders as $order)--}}
-                    {{--<tr data-entry-id="{{ $order->id }}">--}}
-                        {{--<td>--}}
-                            {{--{{ $order->id ?? '' }}--}}
-                        {{--</td>--}}
+                @foreach($order->services as $item)
+                <tr >
+                    {{--<td>1</td>--}}
+
+                    <td><select name="services[]" class="input rounded-sm">
+                            {{--<option value="">-- choose service --</option>--}}
+                            @foreach ($services as $service)
+                                <option {{ $item->service_id==$service->id ?'selected':''}} value="{{$service->id}}">
+                                    {{ $service->name }} (${{ number_format($service->price, 2) }})
+                                </option>
+                            @endforeach
+                        </select> </td>
+
+                    {{--<input type="text" name='service[]'  placeholder='Enter Product Name' class="form-control"/>--}}
+
+                    <td><input type="number" name='qty[]' value="{{ $item->pivot->qty }}" placeholder='Enter Qty' class="input rounded-sm qty" step="0" min="0"/></td>
+                    <td><input type="number" name='price[]' value="{{ $item->pivot->price}}" placeholder='Enter Unit Price' class="input rounded-sm price" step="0.00" min="0"/></td>
+                    <td><input type="number" name='amount[]' value="{{ $item->pivot->amount}}" placeholder='0.00' class="input rounded-sm total" readonly/></td>
+                </tr>
+                @endforeach
+                {{--<tr id='addr1'></tr>--}}
 
 
-
-                               {{--<tr> @foreach($order->services as $item)--}}
-
-                                  {{--<td>{{ $item->name }} ({{ $item->pivot->qty }} x ${{ $item->price }})</td>--}}
-                                    {{--<td>{{ $item->pivot->qty }}</td>--}}
-                        {{--@endforeach</tr>--}}
-
-
-                        {{--<td>--}}
-
-                                @foreach($order->services as $item)
-                                    <tr>
-                            <td><select name="services[]" class="input rounded-sm">
-                                    {{--<option value="">-- choose service --</option>--}}
-                                    @foreach ($services as $service)
-                                        <option {{ $item->service_id==$service->id ?'selected':''}} value="{{$service->id}}">
-                                            {{ $service->name }} (${{ number_format($service->price, 2) }})
-                                        </option>
-                                    @endforeach
-                                </select> </td>
-
-                                    <td><input type="number" name='qty[]' value="{{ $item->pivot->qty }}" placeholder='Enter Qty' class="input rounded-sm qty" step="0" min="0"/></td>
-
-                                    {{--<td> ({{ $item->pivot->qty }} x ${{ $item->price }})</td>--}}
-                                    <td><input type="number" name='price[]' value="{{ $item->pivot->price}}" placeholder='Enter Unit Price' class="input rounded-sm price" step="0.00" min="0"/></td>
-
-                                    <td><input type="number" name='amount[]' value="{{ $item->pivot->amount}}" placeholder='0.00' class="input rounded-sm total" readonly/></td>
-                                    </tr>
-                                @endforeach
-
-                        {{--</td>--}}
-                        <td>
-                            {{-- ... buttons ... --}}
-                        </td>
-
-                    {{--</tr>--}}
-                {{--@endforeach--}}
+                <tr id='addr0'>
+                    {{--<td>1</td>--}}
+                    <td>
+                        <select name="services[]" class="input rounded-sm">
+                            <option value="">-- choose service --</option>
+                            @foreach ($services as $service)
+                                <option value="{{ $service->id }}">
+                                    {{ $service->name }} (${{ number_format($service->price, 2) }})
+                                </option>
+                            @endforeach
+                        </select>
+                        {{--<input type="text" name='service[]'  placeholder='Enter Product Name' class="form-control"/>--}}
+                    </td>
+                    <td><input type="number" name='qty[]' placeholder='Enter Qty' class="input rounded-sm qty" step="0" min="0"/></td>
+                    <td><input type="number" name='price[]' placeholder='Enter Unit Price' class="input rounded-sm price" step="0.00" min="0"/></td>
+                    <td><input type="number" name='amount[]' placeholder='0.00' class="input rounded-sm total" readonly/></td>
+                </tr>
+                <tr id='addr1'></tr>
                 </tbody>
             </table>
         </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <button type="button" id="add_row" class="bg-gray-200 p-2 rounded-sm float-endpull-left">+ {{__('Add Row')}}</button>
+            <button type="button" id='delete_row' class=" btn-outline  text-red-400">{{__('Delete Row')}}</button>
         </div>
     </div>
-    {{--<div class="clearfix">--}}
-        {{--<div class="flex justify-around ">--}}
-            {{--<button type="button" id="add_row" class="bg-gray-200 p-2 rounded-sm float-endpull-left">+ {{__('Add Row')}}</button>--}}
-            {{--<button type="button" id='delete_row' class=" text-red-400">{{__('Delete Row')}}</button>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-    <div  style="margin-top:20px">
+    <div class="row clearfix" style="margin-top:20px">
         <div class="pull-right col-md-4">
             <table class="table table-bordered table-hover" id="tab_logic_total">
                 <tbody>
                 <tr>
                     <th class="text-center"><p>{{__('Sub Total')}}</p></th>
-                    <td class="text-center"><input type="number" value="{{$order->sub_total}}" name='sub_total' placeholder='0.00' class="input rounded-sm" id="sub_total" readonly/></td>
+                    <td class="text-center"><input value="{{$order->sub_total}}" type="number" name='sub_total' placeholder='0.00' class="input rounded-sm" id="sub_total" readonly/></td>
                 </tr>
                 <tr>
                     <th class="text-center"><p>{{__('VAT')}}</p></th>
                     <td class="text-center"><div class="input-group flex mb-2 mb-sm-0">
-                            <input type="number" class="input rounded-sm" id="tax" value="15" placeholder="0">
+                            <input type="number"  class="input rounded-sm" id="tax" value="15" placeholder="0">
                             <div class="input-group-addon  mt-4  mx-2"><p>%</p></div>
                         </div></td>
                 </tr>
                 <tr>
                     <th class="text-center"><p>{{__('Vat Amount')}}</p></th>
-                    <td class="text-center"><input type="number" value="{{$order->vat}}" name='vat' id="vat" placeholder='0.00' class="input rounded-sm" readonly/></td>
+                    <td class="text-center"><input value="{{$order->vat}}" type="number" name='vat' id="vat" placeholder='0.00' class="input rounded-sm" readonly/></td>
                 </tr>
                 <tr>
                     <th class="text-center"><p>{{__('Grand Total')}}</p></th>

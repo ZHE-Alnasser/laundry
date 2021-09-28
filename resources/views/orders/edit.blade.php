@@ -209,7 +209,8 @@
                             <input type="button" class="btn-cancel"
                                    name="cancel" value="{{__('Cancel')}}" onClick="window.location.replace('/services/manage')"/>
                         </div>
-                    </div>
+                    {{--</div>--}}
+
                 </x-form>
 
 
