@@ -109,41 +109,47 @@
    {{----}}
         </div>
 
-        <div class="flex mt-5">
+        <div class="sm:flex mt-5">
 
         <div class="mx-auto">
-            <div class="card">
-                <h2 class="mb-2">{{__('Total Customers')}}</h2>
-                <div class="mb-2 text-center">
-                <span class="text-2xl" >{{$todayCustomers}}</span></div>
+            <div class="card bg-blue-300">
+                <h2 class="mx-5 text-white mb-2">{{__('Total Customers')}}</h2>
+                <div class="mb-2 mx-10 text-center">
+                <span class="text-2xl" >{{$todayCustomers}}</span>
+                    <i data-feather="users" class="mb-2 ml-1"></i>
+                </div>
                 <div class="card-text"> <h3 >{{__('Today')}}</h3></div>
             </div></div>
          <div class="mx-auto">
-             <div class="card">
-                 <h2 class="mb-2">{{__('Total Orders')}}</h2>
-                 <div class="mb-2 text-center">
+             <div class="card bg-pink-300">
+                 <h2 class="mx-5 text-white mb-2">{{__('Total Orders')}}</h2>
+                 <div class="mb-2 mx-10 text-center">
                  <span class="text-2xl">{{$today}}</span>
+                     <i data-feather="dollar-sign" class="mb-2 ml-1"></i>
                  </div>
                  <div class="card-text"><h3 >{{__('Today')}}</h3></div>
 
              </div>
          </div>
          <div class="mx-auto">
-             <div class="card">
+             <div class="card bg-green-300">
 
-                 <h2 class="mb-2">{{__('Total Orders')}}</h2>
-                 <div class="mb-2 text-center">
+                 <h2 class="mx-5 text-white mb-2">{{__('Total Orders')}}</h2>
+                 <div class="mb-2 mx-10 text-center">
                  <span class="text-2xl">{{$thisMonth}}</span>
+                     <i data-feather="dollar-sign" class="mb-2 ml-1"></i>
                  </div>
                      <div class="card-text"><h3>{{__('This Month')}}</h3></div>
 
              </div>
          </div>  <div class="mx-auto">
-             <div class="card">
+             <div class="card bg-red-100">
 
-                 <h2 class="mb-2">{{__('Total Orders')}}</h2>
-                 <div class="mb-2 text-center">
+                 <h2 class="mx-5 text-white mb-2">{{__('Total Orders')}}</h2>
+                 <div class="mb-2 mx-10 text-center">
                  <span class="text-2xl">{{$thisYear}}</span>
+                     <i data-feather="dollar-sign" class="mb-2 ml-1"></i>
+
                  </div>
                      <div class="card-text"><h3>{{__('This Year')}}</h3></div>
 
