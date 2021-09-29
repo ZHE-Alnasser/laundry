@@ -35,7 +35,7 @@
                       </div>
                     </div>
 
-                    <div class="mt-8">
+                    <div class="mx-2 mt-8">
                         <p>{{__('Time Frame')}} :<span class="text-red-600"> *</span></p>
                         {{--<x-select class="mx-2 ml-4 select  " name="time_frame_id" id="time_frame_id" >--}}
                             {{--@foreach($timeframes as $time)--}}

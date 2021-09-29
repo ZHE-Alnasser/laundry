@@ -449,6 +449,18 @@ button,
   cursor: pointer;
 }
 
+/**
+ * Override legacy focus reset from Normalize with modern Firefox focus styles.
+ *
+ * This is actually an improvement over the new defaults in Firefox in our testing,
+ * as it triggers the better focus styles even for links, which still use a dotted
+ * outline in Firefox by default.
+ */
+ 
+:-moz-focusring {
+	outline: auto;
+}
+
 table {
   border-collapse: collapse;
 }
@@ -545,6 +557,14 @@ img,
 video {
   max-width: 100%;
   height: auto;
+}
+
+/**
+ * Ensure the default browser behavior of the `hidden` attribute.
+ */
+
+[hidden] {
+  display: none;
 }
 
 *, ::before, ::after {
@@ -1432,7 +1452,7 @@ html {
         font-family: 'Tajawal', sans-serif;
 
     }
-    span{
+    span,.table{
         font-family: 'Tajawal', sans-serif;
     }
 h2, p, a, label {
@@ -1997,39 +2017,6 @@ h2, p, a, label {
 .checkbox:focus {
 	outline: 2px solid transparent;
 	outline-offset: 2px;
-}
-.dropdown {
-	display: inline-block;
-	position: relative;
-}
-.dropdown>:focus {
-	outline: 2px solid transparent;
-	outline-offset: 2px;
-}
-.dropdown .dropdown-content {
-	opacity: 0;
-	position: absolute;
-	visibility: hidden;
-	z-index: 50;
-	--tw-translate-x: 0;
-	--tw-translate-y: 0;
-	--tw-rotate: 0;
-	--tw-skew-x: 0;
-	--tw-skew-y: 0;
-	--tw-scale-x: 1;
-	--tw-scale-x: .95;
-	--tw-scale-y: 1;
-	--tw-scale-y: .95;
-	transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-	transform-origin: top;
-	transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;
-	transition-duration: .15s;
-	transition-duration: .2s;
-	transition-timing-function: cubic-bezier(.4,0,.2,1);
-}
-.dropdown.dropdown-hover:hover .dropdown-content,.dropdown.dropdown-open .dropdown-content,.dropdown:not(.dropdown-hover):focus-within .dropdown-content,.dropdown:not(.dropdown-hover):focus .dropdown-content {
-	opacity: 1;
-	visibility: visible;
 }
 .form-control {
 	display: flex;
@@ -2745,10 +2732,6 @@ h2, p, a, label {
 .drawer-toggle:focus-visible~.drawer-content .drawer-button.btn-link {
 	box-shadow: 0 0 0 2px currentColor;
 }
-.dropdown.dropdown-hover:hover .dropdown-content,.dropdown.dropdown-open .dropdown-content,.dropdown:focus-within .dropdown-content,.dropdown:focus .dropdown-content {
-	--tw-scale-x: 1;
-	--tw-scale-y: 1;
-}
 .label a:hover {
 	--tw-text-opacity: 1;
 	color: hsla(var(--bc)/var(--tw-text-opacity,1));
@@ -3245,13 +3228,13 @@ h2, p, a, label {
 	margin-left: 1.25rem;
 	margin-right: 1.25rem;
 }
-.-my-2 {
-	margin-top: -0.5rem;
-	margin-bottom: -0.5rem;
-}
 .my-3 {
 	margin-top: 0.75rem;
 	margin-bottom: 0.75rem;
+}
+.-my-2 {
+	margin-top: -0.5rem;
+	margin-bottom: -0.5rem;
 }
 .my-2 {
 	margin-top: 0.5rem;
@@ -3357,17 +3340,17 @@ h2, p, a, label {
 .mb-2 {
 	margin-bottom: 0.5rem;
 }
-.mb-0 {
-	margin-bottom: 0px;
-}
 .-ml-28 {
 	margin-left: -7rem;
+}
+.mb-3 {
+	margin-bottom: 0.75rem;
 }
 .-mt-px {
 	margin-top: -1px;
 }
-.mb-3 {
-	margin-bottom: 0.75rem;
+.mb-5 {
+	margin-bottom: 1.25rem;
 }
 .mr-1 {
 	margin-right: 0.25rem;
@@ -3375,17 +3358,11 @@ h2, p, a, label {
 .mt-0 {
 	margin-top: 0px;
 }
-.-mb-px {
-	margin-bottom: -1px;
-}
 .mb-1 {
 	margin-bottom: 0.25rem;
 }
 .ml-auto {
 	margin-left: auto;
-}
-.mb-5 {
-	margin-bottom: 1.25rem;
 }
 .mr-auto {
 	margin-right: auto;
@@ -3402,11 +3379,17 @@ h2, p, a, label {
 .mr-5 {
 	margin-right: 1.25rem;
 }
+.mb-0 {
+	margin-bottom: 0px;
+}
 .mt-16 {
 	margin-top: 4rem;
 }
 .-mr-4 {
 	margin-right: -1rem;
+}
+.-mb-px {
+	margin-bottom: -1px;
 }
 .block {
 	display: block;
@@ -3848,11 +3831,11 @@ h2, p, a, label {
 .border-r {
 	border-right-width: 1px;
 }
-.border-b-4 {
-	border-bottom-width: 4px;
-}
 .border-b-8 {
 	border-bottom-width: 8px;
+}
+.border-b-4 {
+	border-bottom-width: 4px;
 }
 .border-solid {
 	border-style: solid;
@@ -3895,10 +3878,6 @@ h2, p, a, label {
 	--tw-border-opacity: 1;
 	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
 }
-.border-blue-400 {
-	--tw-border-opacity: 1;
-	border-color: rgba(96, 165, 250, var(--tw-border-opacity));
-}
 .border-green-400 {
 	--tw-border-opacity: 1;
 	border-color: rgba(52, 211, 153, var(--tw-border-opacity));
@@ -3906,6 +3885,10 @@ h2, p, a, label {
 .border-blue-600 {
 	--tw-border-opacity: 1;
 	border-color: rgba(37, 99, 235, var(--tw-border-opacity));
+}
+.border-blue-400 {
+	--tw-border-opacity: 1;
+	border-color: rgba(96, 165, 250, var(--tw-border-opacity));
 }
 .border-gray-800 {
 	--tw-border-opacity: 1;
@@ -5279,7 +5262,7 @@ span.flatpickr-weekday {
         font-family: 'Tajawal', sans-serif;
 
     }
-    span{
+    span,.table{
         font-family: 'Tajawal', sans-serif;
     }
 h2, p, a, label {
@@ -6101,13 +6084,13 @@ background: rgba(29, 96, 118, 0.56);
 	--tw-bg-opacity: 1;
 	background-color: rgba(30, 64, 175, var(--tw-bg-opacity));
 }
-.hover\:bg-blue-500:hover {
-	--tw-bg-opacity: 1;
-	background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
-}
 .hover\:bg-gray-300:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
+}
+.hover\:bg-blue-500:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
 }
 .hover\:bg-red-700:hover {
 	--tw-bg-opacity: 1;
@@ -6339,6 +6322,11 @@ background: rgba(29, 96, 118, 0.56);
 		margin-bottom: -1px;
 	}
 
+	.sm\:mx-10 {
+		margin-left: 2.5rem;
+		margin-right: 2.5rem;
+	}
+
 	.sm\:mx-3 {
 		margin-left: 0.75rem;
 		margin-right: 0.75rem;
@@ -6349,24 +6337,19 @@ background: rgba(29, 96, 118, 0.56);
 		margin-right: -1.5rem;
 	}
 
-	.sm\:mx-20 {
-		margin-left: 5rem;
-		margin-right: 5rem;
-	}
-
 	.sm\:my-0 {
 		margin-top: 0px;
 		margin-bottom: 0px;
 	}
 
-	.sm\:mx-10 {
-		margin-left: 2.5rem;
-		margin-right: 2.5rem;
-	}
-
 	.sm\:mx-40 {
 		margin-left: 10rem;
 		margin-right: 10rem;
+	}
+
+	.sm\:mx-20 {
+		margin-left: 5rem;
+		margin-right: 5rem;
 	}
 
 	.sm\:ml-3 {
@@ -6635,10 +6618,6 @@ background: rgba(29, 96, 118, 0.56);
 		min-height: 100vh;
 	}
 
-	.md\:w-1\/2 {
-		width: 50%;
-	}
-
 	.md\:w-1\/4 {
 		width: 25%;
 	}
@@ -6649,6 +6628,10 @@ background: rgba(29, 96, 118, 0.56);
 
 	.md\:w-64 {
 		width: 16rem;
+	}
+
+	.md\:w-1\/2 {
+		width: 50%;
 	}
 
 	.md\:grid-cols-3 {

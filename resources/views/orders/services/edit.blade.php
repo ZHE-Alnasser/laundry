@@ -163,21 +163,55 @@
         <div class="col">
             <table class="table border-collapse w-full text-center" id="majors_table">
                 <thead class="thead-light">
-                <th>#</th>
-                <th>{{__('Name')}}</th>
+                {{--<th>#</th>--}}
+                <th>{{__('Service Name')}}</th>
+                <th>{{__('Quantity')}}</th>
                 <th>{{__('Price')}}</th>
+                <th>{{__('Amount')}}</th>
+                <th>{{__('Remove')}}</th>
 
                 <th></th>
 
                 </thead>
                 <tbody>
+                @foreach($order->services as $item)
+                <tr>
+                    {{--<td ></td>--}}
+
+                        {{--<input type="hidden" x-model="field.id"/>--}}
+
+                        <td><select name="services[]" class="input rounded-sm">
+                        <option value="">-- choose service --</option>
+                        @foreach ($services as $service)
+
+                            {{--@dd($item->service_id,$service->id)--}}
+                        <option {{ $service->id==$item->service_id ?'selected':''}} value="{{$service->id}}">
+                        {{ $service->name }} (${{ number_format($service->price, 2) }})
+                        </option>
+                        @endforeach
+                        </select> </td>
+                        {{--<input type="text" x-model="field.service"/></td>--}}
+                    <td> <input class="input rounded-sm" type="number" value="{{ $item->pivot->qty }}" ></td>
+                    <td> <input class="input rounded-sm" type="number" value="{{ $item->pivot->price}}"/></td>
+                    <td> <input class="input rounded-sm" type="number" value="{{ $item->pivot->amount}}"/></td>
+
+                    <td>
+                        <button type="button" class="bg-red-600 px-4 py-2 rounded-full text-xl text-white "
+                                @click="removeField(field)">&times;
+                        </button>
+                    </td>
+                </tr>
+                @endforeach
                 <template x-for="(field, index) in fields" :key="index">
+                {{--<template x-for="item in items" :key="item.id"">--}}
                     <tr>
-                        <td x-text="index + 1"></td>
-                        <td>
-                            <input type="hidden" x-model="field.id"/>
-                            <input type="text" x-model="field.name"/>
-                            <input type="number" x-model="field.price"/>
+                        {{--<td x-text="index + 1"></td>--}}
+                       <td>
+                            <input class="input rounded-sm" type="hidden" x-model="field.id"/>
+                            <input class="input rounded-sm" type="text" x-model="field.service"/></td>
+                        <td> <input class="input rounded-sm" type="number" x-model="field.quantity"/></td>
+                        <td> <input class="input rounded-sm" type="number" x-model="field.price"/></td>
+                        <td> <input class="input rounded-sm" type="number" x-model="field.amount"/></td>
 
                         <td>
                             <button type="button" class="bg-red-600 px-4 py-2 rounded-full text-xl text-white "
@@ -200,15 +234,16 @@
     </div>
 
 
-    @push('scripts')
+    {{--@push('scripts')--}}
         <script>
 
 
             document.addEventListener('alpine:init', () => {
                 Alpine.data('handler', () => ({
                     id: 0,
-                    name: '',
+                    service: '',
                     price: 0,
+                    quantity:1,
 
                     fields: [
                         // {id: 0, name: '', price: 0}
@@ -217,8 +252,10 @@
                     addNewField() {
                         this.fields.push({
                             id: this.id++,
-                            name: '',
+                            service: '',
                             price: 0,
+                            amount: 0,
+                            quantity:1,
                         });
                     },
                     removeField(field) {
@@ -228,14 +265,35 @@
                         // this.id = this.id--;
                         return true;
                         // this.fields.splice(index, 1);
-                    }
+                    },
+                    adjustBy(item, quantity = 1)
+                    {
+                        let newQuantity = item.quantity + (Number(quantity));
+                        this.adjustQuantity(item, newQuantity)
 
+                    },
+                    adjustQuantity(item, quantity = 1)
+                    {
+                        if (quantity < 1) return;
+                        item.quantity = Number(quantity);
+                        item.total = item.price * item.quantity;
+                        this.calculatePayments();
+                    },
 
+                    calculatePayments(calValue = 0)
+                    {
+                        this.total_amount = this.items.reduce((n, {total}) => n + total, 0);
+                        this.paid = calValue;
+
+                        this.change = Math.round(((this.paid - this.total_amount) + Number.EPSILON) * 100) / 100;
+                    },
                 }))
             })
 
         </script>
-    @endpush
+    {{--@endpush--}}
+
+
 
 
 {{--</x-layouts.app>--}}
