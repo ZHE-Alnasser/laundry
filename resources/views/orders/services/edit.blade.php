@@ -179,21 +179,22 @@
                     {{--<td ></td>--}}
 
                         {{--<input type="hidden" x-model="field.id"/>--}}
-
+{{--@dd($item)--}}
+                    {{--@dd($item->pivot->service_id)--}}
                         <td><select name="services[]" class="input rounded-sm">
                         <option value="">-- choose service --</option>
                         @foreach ($services as $service)
 
-                            {{--@dd($item->service_id,$service->id)--}}
-                        <option {{ $service->id==$item->service_id ?'selected':''}} value="{{$service->id}}">
+
+                        <option {{ $service->id==$item->pivot->service_id ?'selected':''}} value="{{$service->id}}">
                         {{ $service->name }} (${{ number_format($service->price, 2) }})
                         </option>
                         @endforeach
                         </select> </td>
                         {{--<input type="text" x-model="field.service"/></td>--}}
-                    <td> <input class="input rounded-sm" type="number" value="{{ $item->pivot->qty }}" ></td>
-                    <td> <input class="input rounded-sm" type="number" value="{{ $item->pivot->price}}"/></td>
-                    <td> <input class="input rounded-sm" type="number" value="{{ $item->pivot->amount}}"/></td>
+                    <td> <input class="input rounded-sm" name="qty[]" type="number" value="{{ $item->pivot->qty }}" ></td>
+                    <td> <input class="input rounded-sm" name="price[]" type="number" value="{{ $item->pivot->price}}"/></td>
+                    <td> <input class="input rounded-sm" name="amount[]" type="number" value="{{ $item->pivot->amount}}"/></td>
 
                     <td>
                         <button type="button" class="bg-red-600 px-4 py-2 rounded-full text-xl text-white "
@@ -208,10 +209,21 @@
                         {{--<td x-text="index + 1"></td>--}}
                        <td>
                             <input class="input rounded-sm" type="hidden" x-model="field.id"/>
-                            <input class="input rounded-sm" type="text" x-model="field.service"/></td>
-                        <td> <input class="input rounded-sm" type="number" x-model="field.quantity"/></td>
-                        <td> <input class="input rounded-sm" type="number" x-model="field.price"/></td>
-                        <td> <input class="input rounded-sm" type="number" x-model="field.amount"/></td>
+                            {{--<input class="input rounded-sm" type="text" x-model="field.service"/>--}}
+                      <select name="services[]" class="input rounded-sm">
+                                <option value="">-- choose service --</option>
+                                @foreach ($services as $service)
+
+
+                                    <option value="{{$service->id}}">
+                                        {{ $service->name }} (${{ number_format($service->price, 2) }})
+                                    </option>
+                                @endforeach
+                            </select> </td>
+                       </td>
+                        <td> <input class="input rounded-sm" name="qty[]" type="number" x-model="field.quantity"/></td>
+                        <td> <input class="input rounded-sm" name="price[]" type="number" x-model="field.price"/></td>
+                        <td> <input class="input rounded-sm" name="amount[]" type="number" x-model="field.amount"/></td>
 
                         <td>
                             <button type="button" class="bg-red-600 px-4 py-2 rounded-full text-xl text-white "
@@ -231,6 +243,33 @@
                 </tfoot>
             </table>
         </div>
+    </div>
+<div class="row clearfix" style="margin-top:20px">
+    <div class="pull-right col-md-4">
+    <table class="table table-bordered table-hover" id="tab_logic_total">
+    <tbody>
+    <tr>
+    <th class="text-center"><p>{{__('Sub Total')}}</p></th>
+    <td class="text-center"><input value="{{$order->sub_total}}" type="number" name='sub_total' placeholder='0.00' class="input rounded-sm" id="sub_total" readonly/></td>
+    </tr>
+    <tr>
+    <th class="text-center"><p>{{__('VAT')}}</p></th>
+    <td class="text-center"><div class="input-group flex mb-2 mb-sm-0">
+    <input type="number"  class="input rounded-sm" id="tax" value="15" placeholder="0">
+    <div class="input-group-addon  mt-4  mx-2"><p>%</p></div>
+    </div></td>
+    </tr>
+    <tr>
+    <th class="text-center"><p>{{__('Vat Amount')}}</p></th>
+    <td class="text-center"><input value="{{$order->vat}}" type="number" name='vat' id="vat" placeholder='0.00' class="input rounded-sm" readonly/></td>
+    </tr>
+    <tr>
+    <th class="text-center"><p>{{__('Grand Total')}}</p></th>
+    <td class="text-center"><input type="number" value="{{$order->total}}" name='total' id="total" placeholder='0.00' class="input rounded-sm" readonly/></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
     </div>
 
 
