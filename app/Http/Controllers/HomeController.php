@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 class HomeController extends Controller
@@ -17,8 +18,10 @@ class HomeController extends Controller
     {
 
 
-//        $orders = Order::whereMonth('created_at',\Carbon\Carbon::now()->subMonth()->month)
-//            ->orderBy('total','desc')->paginate(30);
+        $orders = Order::whereMonth('created_at',\Carbon\Carbon::now()->month)
+            ->orderBy('total','desc')->paginate(30);
+//  $orders = Order::whereWeek('created_at',\Carbon\Carbon::now()->week())
+//            ->orderBy('total','desc')->paginate(7);
 
 
         $today =Order::whereDay('created_at',today())->sum('total');
@@ -31,8 +34,11 @@ class HomeController extends Controller
 //        dd($thisYear);
         $name = auth()->user()->name;
         $todayCustomers = Order::select('customer_id')->distinct()->whereDay('created_at',today())->count();
+        $services = Service::withCount('orders')
+
+            ->orderBy('orders_count', 'desc')->paginate(5);
 //
-        return view('/dashboard', compact('name','today','thisMonth','todayCustomers','thisYear'));
+        return view('/dashboard', compact('name','today','thisMonth','todayCustomers','thisYear','services','orders'));
     }
     public function index()
     {

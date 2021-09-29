@@ -1452,7 +1452,7 @@ html {
         font-family: 'Tajawal', sans-serif;
 
     }
-    span,.table{
+    table,span,.table{
         font-family: 'Tajawal', sans-serif;
     }
 h2, p, a, label {
@@ -3200,6 +3200,9 @@ h2, p, a, label {
 .col-span-6 {
 	grid-column: span 6 / span 6;
 }
+.m-5 {
+	margin: 1.25rem;
+}
 .m-2 {
 	margin: 0.5rem;
 }
@@ -3216,9 +3219,17 @@ h2, p, a, label {
 	margin-left: auto;
 	margin-right: auto;
 }
+.my-5 {
+	margin-top: 1.25rem;
+	margin-bottom: 1.25rem;
+}
 .mx-5 {
 	margin-left: 1.25rem;
 	margin-right: 1.25rem;
+}
+.mx-2 {
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
 }
 .my-2 {
 	margin-top: 0.5rem;
@@ -3240,10 +3251,6 @@ h2, p, a, label {
 	margin-top: 0.75rem;
 	margin-bottom: 0.75rem;
 }
-.mx-2 {
-	margin-left: 0.5rem;
-	margin-right: 0.5rem;
-}
 .mx-40 {
 	margin-left: 10rem;
 	margin-right: 10rem;
@@ -3251,10 +3258,6 @@ h2, p, a, label {
 .mx-3 {
 	margin-left: 0.75rem;
 	margin-right: 0.75rem;
-}
-.my-5 {
-	margin-top: 1.25rem;
-	margin-bottom: 1.25rem;
 }
 .-mx-2 {
 	margin-left: -0.5rem;
@@ -4146,6 +4149,9 @@ h2, p, a, label {
 .pt-8 {
 	padding-top: 2rem;
 }
+.pt-3 {
+	padding-top: 0.75rem;
+}
 .pl-10 {
 	padding-left: 2.5rem;
 }
@@ -4154,9 +4160,6 @@ h2, p, a, label {
 }
 .pr-10 {
 	padding-right: 2.5rem;
-}
-.pt-3 {
-	padding-top: 0.75rem;
 }
 .pb-10 {
 	padding-bottom: 2.5rem;
@@ -5270,7 +5273,7 @@ span.flatpickr-weekday {
         font-family: 'Tajawal', sans-serif;
 
     }
-    span,.table{
+    table,span,.table{
         font-family: 'Tajawal', sans-serif;
     }
 h2, p, a, label {

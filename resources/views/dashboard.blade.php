@@ -107,9 +107,10 @@
             {{--</div></a></div>--}}
 {{--</div>--}}
    {{----}}
+
         </div>
 
-        <div class="sm:flex mt-5">
+        <div class="sm:flex mx-5 mt-5">
 
         <div class="mx-auto">
             <div class="card bg-blue-300">
@@ -155,6 +156,14 @@
 
              </div></div>
         </div>
+
+
+        <div class="sm:flex">
+            <div class=" sm:w-1/3 m-5 sm:flex-1">@include('dashboard.orders')</div>
+            <div class="sm:w-1/3 m-5 sm:flex-1">@include('dashboard.top-items')</div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     </x-layouts.admin>
 
 
