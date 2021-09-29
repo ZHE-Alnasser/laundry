@@ -76,7 +76,13 @@
                 {{--@endguest--}}
 
 <div class="mx-auto">
-                <li><button class="btn my-2" onClick="window.location.replace('/orders/create')">{{__('New Order')}}</button></li></div>
+                <li>
+                    {{--<a href="/orders" ><i data-feather="shopping-cart" class="ml-1"></i></a>--}}
+                    {{--<a href="/services/manage" ><i data-feather="package" class="ml-1"></i></a>--}}
+                    {{--<a href="/dashboard" ><i data-feather="home" class="ml-1"></i></a>--}}
+
+                    <button class="btn my-2" onClick="window.location.replace('/orders/create')">{{__('New Order')}}</button>
+                </li></div>
             </ul>
 
         </div>

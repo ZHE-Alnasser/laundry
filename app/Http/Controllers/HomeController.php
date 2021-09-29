@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class HomeController extends Controller
 {
 
@@ -15,15 +16,39 @@ class HomeController extends Controller
     public function manage()
     {
 
-        $name = auth()->user()->name;
 
-        return view('/dashboard', compact('name'));
+//        $orders = Order::whereMonth('created_at',\Carbon\Carbon::now()->subMonth()->month)
+//            ->orderBy('total','desc')->paginate(30);
+
+
+        $today =Order::whereDay('created_at',today())->sum('total');
+
+
+
+        $thisMonth = Order::whereMonth('created_at', \Carbon\Carbon::now()->month)->sum('total');
+
+        $thisYear = Order::whereYear('created_at',\Carbon\Carbon::now()->year)->sum('total');
+//        dd($thisYear);
+        $name = auth()->user()->name;
+        $todayCustomers = Order::select('customer_id')->distinct()->whereDay('created_at',today())->count();
+//
+        return view('/dashboard', compact('name','today','thisMonth','todayCustomers','thisYear'));
     }
     public function index()
     {
-//        $firstName = auth()->user()->first_name;
-//        $lastName = auth()->user()->last_name;
-        return view('/dashboard');
+
+        $orders = Order::whereMonth('created_at',\Carbon\Carbon::now()->subMonth()->month)
+            ->orderBy('total','desc')->paginate(30);
+
+
+        $today =Order::whereDay('created_at',today())->sum('total');
+dd($today);
+
+
+        $thisMonth = Order::whereMonth('created_at',\Carbon\Carbon::now()->subMonth()->month)->sum('total');
+        $name = auth()->user()->name;
+
+        return view('/dashboard', compact('name',$orders,$today,$thisMonth));
     }
 
 

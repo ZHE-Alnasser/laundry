@@ -209,6 +209,9 @@ background: rgba(29, 96, 118, 0.56);
 .text-color{
     color:#1d6076;
 }
-/*svg{*/
-    /*color:#1d6076;*/
-/*}*/
+.card-text{
+    text-align: end;
+}
+.card{
+    @apply bg-white overflow-hidden p-5 no-underline hover:no-underline shadow-lg rounded-2xl;
+}
