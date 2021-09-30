@@ -42,19 +42,23 @@ class HomeController extends Controller
     }
     public function index()
     {
+        $thisYear = Order::whereYear('created_at',\Carbon\Carbon::now()->year)->sum('total');
 
         $orders = Order::whereMonth('created_at',\Carbon\Carbon::now()->subMonth()->month)
             ->orderBy('total','desc')->paginate(30);
-
+        $todayCustomers = Order::select('customer_id')->distinct()->whereDay('created_at',today())->count();
 
         $today =Order::whereDay('created_at',today())->sum('total');
-dd($today);
+//dd($today);
+        $services = Service::withCount('orders')
 
+            ->orderBy('orders_count', 'desc')->paginate(5);
+//
 
         $thisMonth = Order::whereMonth('created_at',\Carbon\Carbon::now()->subMonth()->month)->sum('total');
         $name = auth()->user()->name;
 
-        return view('/dashboard', compact('name',$orders,$today,$thisMonth));
+        return view('/dashboard', compact('name','orders','today','thisMonth','services','todayCustomers','thisYear'));
     }
 
 

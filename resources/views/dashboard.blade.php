@@ -16,7 +16,7 @@
                 </a>
                 <div class="lg:visible invisible flex">
                     <h2 class=" mx-10 text-center text-3xl">{{__('Welcome')}}</h2>
-                    <p>{{$name}}</p>
+                    <p class="mt-2">{{$name}}</p>
 
                 </div>
             </div>
