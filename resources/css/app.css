@@ -214,18 +214,22 @@ input{
     color:#1d6076;
 }
 .card{
-    @apply text-white overflow-hidden p-5 no-underline hover:no-underline shadow-lg rounded-2xl;
+    @apply bg-white text-white overflow-hidden p-5 no-underline hover:no-underline shadow-lg rounded-2xl;
 }
 .bg-card-1{
-    background: #2CCEC2;
+    color: #2CCEC2;
     opacity: 80%;
 }
 .bg-card-2{
-    background: #c22cce;
+    color: #c22cce;
    opacity: 80%;
 
 }
 .bg-card-3{
-    background: #52CAF5;
+    color: #52CAF5;
+    opacity: 80%;
+}
+.bg-card-4{
+    color: #38ce2c;
     opacity: 80%;
 }

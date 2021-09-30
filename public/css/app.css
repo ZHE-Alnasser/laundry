@@ -3352,14 +3352,14 @@ h2, p, a, label {
 .-mt-px {
 	margin-top: -1px;
 }
+.mb-5 {
+	margin-bottom: 1.25rem;
+}
 .mr-1 {
 	margin-right: 0.25rem;
 }
 .mt-0 {
 	margin-top: 0px;
-}
-.mb-5 {
-	margin-bottom: 1.25rem;
 }
 .-mb-px {
 	margin-bottom: -1px;
@@ -6036,6 +6036,8 @@ div .btn-error {
 .card {
 	overflow: hidden;
 	border-radius: 1rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 	padding: 1.25rem;
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
@@ -6047,16 +6049,20 @@ div .btn-error {
 	text-decoration: none;
 }
 .bg-card-1{
-    background: #2CCEC2;
+    color: #2CCEC2;
     opacity: 80%;
 }
 .bg-card-2{
-    background: #c22cce;
+    color: #c22cce;
    opacity: 80%;
 
 }
 .bg-card-3{
-    background: #52CAF5;
+    color: #52CAF5;
+    opacity: 80%;
+}
+.bg-card-4{
+    color: #38ce2c;
     opacity: 80%;
 }
 .focus-within\:z-10:focus-within {
