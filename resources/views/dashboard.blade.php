@@ -36,7 +36,6 @@
                             <a href="/services/manage" ><i data-feather="package" class="ml-1"></i></a>
                             <a href="/dashboard" ><i data-feather="home" class="ml-1"></i></a>
 
-                            {{--<button class="btn my-2" onClick="window.location.replace('/orders/create')">{{__('New Order')}}</button>--}}
                         </li></div>
                 </ul>
 
@@ -113,7 +112,7 @@
         <div class="sm:flex mx-5 mt-5">
 
         <div class="mx-auto">
-            <div class="card bg-blue-300">
+            <div class="card bg-card-1">
                 <h2 class="mx-5 text-white mb-2">{{__('Total Customers')}}</h2>
                 <div class="mb-2 mx-10 text-center">
                 <span class="text-2xl" >{{$todayCustomers}}</span>
@@ -122,7 +121,7 @@
                 <div class="card-text"> <h3 >{{__('Today')}}</h3></div>
             </div></div>
          <div class="mx-auto">
-             <div class="card bg-pink-300">
+             <div class="card bg-card-2">
                  <h2 class="mx-5 text-white mb-2">{{__('Total Orders')}}</h2>
                  <div class="mb-2 mx-10 text-center">
                  <span class="text-2xl">{{$today}}</span>
@@ -134,7 +133,6 @@
          </div>
          <div class="mx-auto">
              <div class="card bg-green-300">
-
                  <h2 class="mx-5 text-white mb-2">{{__('Total Orders')}}</h2>
                  <div class="mb-2 mx-10 text-center">
                  <span class="text-2xl">{{$thisMonth}}</span>
@@ -144,7 +142,7 @@
 
              </div>
          </div>  <div class="mx-auto">
-             <div class="card bg-red-100">
+             <div class="card bg-card-3">
 
                  <h2 class="mx-5 text-white mb-2">{{__('Total Orders')}}</h2>
                  <div class="mb-2 mx-10 text-center">

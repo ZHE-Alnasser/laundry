@@ -200,7 +200,6 @@
 
                     <td>
 
-
                         <button type="button" class="bg-red-600 px-4 py-2 rounded-full text-xl text-white "
                                 @click="removeField(field)">&times;
                         </button>

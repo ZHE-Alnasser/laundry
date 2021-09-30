@@ -61,7 +61,7 @@
                        <h1 class="px-2"> {{__("Manage")}}</h1>
                     </div>
                 </button>
-            <nav class="mt-2 mx-5 menu" id="example-collapse-navbar">
+            <nav class="mt-2 mx-5 sm:mx-0 menu" id="example-collapse-navbar">
                 <a class="side-items" href="/dashboard"><i data-feather="home" class="ml-1"></i><span class="side-text">{{__("Dashboard")}}</span></a>
                 @canany(['Update-Orders','Create-Orders','Delete-Orders'])
                 <a class="side-items" href="/orders/manage"><i data-feather="shopping-cart" class="ml-1"></i><span class="side-text">{{__("Orders")}}</span></a>
