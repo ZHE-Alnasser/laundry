@@ -39,19 +39,19 @@ class OrderController extends Controller
 
     public function create()
     {
-        $services=Service::all();
+        $services = Service::all();
 //        $items=Item::all();
 
-        $orders=Order::all();
+        $orders = Order::all();
         $customers = User::customer()->get();
         $employees = User::employee()->get();
-        $order=new Order;
-        $amount=1010;
-        $serviceOrders=OrderService::all();
-        $timeframes=TimeFrame::all();
+        $order = new Order;
+        $amount = 1010;
+        $serviceOrders = OrderService::all();
+        $timeframes = TimeFrame::all();
 //        dd($serviceOrders);
-        return view ('orders.create', compact('customers','employees','services','serviceOrders',
-            'order', 'timeframes','amount','orders'));
+        return view('orders.create', compact('customers', 'employees', 'services', 'serviceOrders',
+            'order', 'timeframes', 'amount', 'orders'));
 
     }
 
@@ -65,32 +65,32 @@ class OrderController extends Controller
 //        DB::transaction(function () use ($request) {
 
 //            $data = $this->validate($request,[
-            $data = request()->validate([
-                'sub_total' => 'required',
-                'total' => 'required',
-                'vat' => 'required',
-                'customer_id' => 'nullable',
-                'employee_id' => 'required',
-                'discount' => 'nullable',
-                'payment' => 'required',
-                'process' => 'required',
-                'requested_pickup_date' => 'nullable',
-                'requested_delivery_date' => 'nullable',
-                'agent_pickup_date' => 'nullable',
-                'agent_delivery_date' => 'nullable',
+        $data = request()->validate([
+            'sub_total' => 'required',
+            'total' => 'required',
+            'vat' => 'required',
+            'customer_id' => 'nullable',
+            'employee_id' => 'required',
+            'discount' => 'nullable',
+            'payment' => 'required',
+            'process' => 'required',
+            'requested_pickup_date' => 'nullable',
+            'requested_delivery_date' => 'nullable',
+            'agent_pickup_date' => 'nullable',
+            'agent_delivery_date' => 'nullable',
 //            'time' => ['required','integer','between:7,21'],
-                'time_frame_name' => 'required',
+            'time_frame_name' => 'required',
 //            'agent_deliver $this->validate($request,y_date'=>'nullable',
 //                'item_id.*' => 'required',
 //                'service_id.*' => 'required',
 //                'quantity.*' => 'required',
 //                'amount.*' => 'required',
 
-            ]);
+        ]);
 
 //  dd($data);
 //
-           $order= Order::create($data);
+        $order = Order::create($data);
 ////////        $order->save();
 //          $service = $this->validate($request, [
 //                   'order_id' => 'nullable',
@@ -138,9 +138,9 @@ class OrderController extends Controller
 //            dd($request->serviceOrders);
         $services = $request->input('services', []);
         $quantities = $request->input('qty', []);
-        $price=$request->input('price', []);
-        $amount=$request->input('amount', []);
-        for ($service=0; $service < count($services); $service++) {
+        $price = $request->input('price', []);
+        $amount = $request->input('amount', []);
+        for ($service = 0; $service < count($services); $service++) {
 
             if ($services[$service] != '') {
 //
@@ -148,7 +148,7 @@ class OrderController extends Controller
                     $services[$service], [
                         'qty' => $quantities[$service],
                         'price' => $price[$service],
-                        'amount'=>$amount[$service]
+                        'amount' => $amount[$service]
                     ]
                 );
 
@@ -246,17 +246,17 @@ class OrderController extends Controller
     public function edit(Order $order)
     {
 
-        $orders=Order::all();
-        $timeframes=TimeFrame::all();
+        $orders = Order::all();
+        $timeframes = TimeFrame::all();
 //        $orderService= OrderService::all();
 //        $serviceOrders=$order->services()->with('amount','quantity');
 //        $serviceOrders=OrderService::all();
-        $services=Service::all();
-        $items=Item::all();
+        $services = Service::all();
+        $items = Item::all();
         $customers = User::customer()->get();
         $employees = User::employee()->get();
 
-        return view ('orders/edit',compact('order','customers','employees','items','services','timeframes','orders'));
+        return view('orders/edit', compact('order', 'customers', 'employees', 'items', 'services', 'timeframes', 'orders'));
     }
 
 
@@ -285,9 +285,9 @@ class OrderController extends Controller
 
         $services = $request->input('services', []);
         $quantities = $request->input('qty', []);
-        $price=$request->input('price', []);
-        $amount=$request->input('amount', []);
-        for ($service=0; $service < count($services); $service++) {
+        $price = $request->input('price', []);
+        $amount = $request->input('amount', []);
+        for ($service = 0; $service < count($services); $service++) {
 //            dd($services[$service]);
             if ($services[$service] != '') {
 //                $order->services()->attach($services[$service], ['qty' => $quantities[$service]]);
@@ -295,7 +295,7 @@ class OrderController extends Controller
                     $services[$service], [
                         'qty' => $quantities[$service],
                         'price' => $price[$service],
-                        'amount'=>$amount[$service]
+                        'amount' => $amount[$service]
                     ]
                 );
 //                dd($order->services());
@@ -303,7 +303,7 @@ class OrderController extends Controller
                     $services[$service], [
                         'qty' => $quantities[$service],
                         'price' => $price[$service],
-                        'amount'=>$amount[$service]
+                        'amount' => $amount[$service]
                     ]
                 );
             }
@@ -330,16 +330,18 @@ class OrderController extends Controller
 
     public function destroy(Order $order)
     {
-        //
-    }
-    public function invoice(Order $order)
-    {
-      $employees= User::employee()->get();
-      $customers=User::customer()->get();
-      $orders= Order::all();
-//      dd($customer);
-        return view('orders.reports.invoice', compact('order','employees','customers','orders'));
+        $order->delete();
+        return back();
+
     }
 
+    public function invoice(Order $order)
+    {
+        $employees = User::employee()->get();
+        $customers = User::customer()->get();
+        $orders = Order::all();
+//      dd($customer);
+        return view('orders.reports.invoice', compact('order', 'employees', 'customers', 'orders'));
+    }
 
 }
