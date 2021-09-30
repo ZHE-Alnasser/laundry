@@ -175,12 +175,14 @@
                 </thead>
                 <tbody>
                 @foreach($order->services as $item)
+
                 <tr>
                     {{--<td ></td>--}}
 
                         {{--<input type="hidden" x-model="field.id"/>--}}
 {{--@dd($item)--}}
                     {{--@dd($item->pivot->service_id)--}}
+
                         <td><select name="services[]" class="input rounded-sm">
                         <option value="">-- choose service --</option>
                         @foreach ($services as $service)
@@ -197,10 +199,13 @@
                     <td> <input class="input rounded-sm" name="amount[]" type="number" value="{{ $item->pivot->amount}}"/></td>
 
                     <td>
+
+
                         <button type="button" class="bg-red-600 px-4 py-2 rounded-full text-xl text-white "
                                 @click="removeField(field)">&times;
                         </button>
                     </td>
+
                 </tr>
                 @endforeach
                 <template x-for="(field, index) in fields" :key="index">
@@ -286,6 +291,22 @@
 
                     fields: [
                         // {id: 0, name: '', price: 0}
+
+
+                    {{--@php--}}
+                        {{--if($order->services)--}}
+        {{--$index=0;--}}
+        {{--foreach ($order->services as $item)--}}
+        {{--{--}}
+        {{--$service=$item->pivot->service_id;--}}
+        {{--$price=$item->pivot->price;--}}
+            {{--$quantity = $item->pivot->qty;--}}
+            {{--$amount = $item->pivot->amount;--}}
+          {{--echo  "{id: $index,service: '$service',price: '$price' ,quantity: '$quantity',amount,'$amount'},";--}}
+       {{--$index++;--}}
+        {{--}--}}
+
+                    {{--@endphp--}}
 
                     ],
                     addNewField() {
