@@ -32,9 +32,15 @@
 
                     <div class="mx-auto">
                         <li>
+                            @canany(['Update-Orders','Create-Orders','Delete-Orders'])
                             <a href="/orders" ><i data-feather="shopping-cart" class="ml-1"></i></a>
+                            @endcan
+                                @canany(['Update-Services','Create-Services','Delete-Services'])
                             <a href="/services/manage" ><i data-feather="package" class="ml-1"></i></a>
+                                @endcan
+                                {{--@canany(['Update-Orders','Create-Orders','Delete-Orders'])--}}
                             <a href="/dashboard" ><i data-feather="home" class="ml-1"></i></a>
+                                    {{--@endcan--}}
 
                         </li></div>
                 </ul>
