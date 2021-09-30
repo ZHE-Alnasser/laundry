@@ -62,12 +62,12 @@
                     </div>
                 </button>
             <nav class="mt-2 mx-5 sm:mx-0 menu" id="example-collapse-navbar">
-                <a class="side-items" href="/dashboard"><i data-feather="home" class="ml-1"></i><span class="side-text">{{__("Dashboard")}}</span></a>
+                <a class="side-items{{active('dashboard')}}"  href="/dashboard"><i data-feather="home" class="ml-1"></i><span class="side-text">{{__("Dashboard")}}</span></a>
                 @canany(['Update-Orders','Create-Orders','Delete-Orders'])
-                <a class="side-items" href="/orders/manage"><i data-feather="shopping-cart" class="ml-1"></i><span class="side-text">{{__("Orders")}}</span></a>
+                <a class="side-items{{active('orders')}}" href="/orders/manage"><i data-feather="shopping-cart" class="ml-1"></i><span class="side-text">{{__("Orders")}}</span></a>
 @endcanany
                 @canany(['Update-Users','Create-Users','Delete-Users'])
-                <a class="side-items" href="/users/manage">
+                <a class="side-items{{active('users')}}" href="/users/manage">
 
                     {{--<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">--}}
                         {{--<path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />--}}
@@ -78,10 +78,10 @@
                     {{--<a class="side-items" {{(Request::is('roles') || Request::is('roles/*')) ? 'primary-color-bg text-white' : ''}} href="/roles"><i data-feather="key" class="ml-1"></i><span class="side-text">{{__("Roles")}}</span></a>--}}
                 {{--@endcanany--}}
                 @canany(['Update-Items','Create-Items','Delete-Items'])
-                 <a class="side-items" {{(request()->is('item') || request()->is('items/*')) ? 'primary-color-bg text-white' : ''}} href="/items/manage"><i data-feather="shopping-bag" class="ml-1"></i><span class="side-text">{{__("Items")}}</span></a>
+                 <a class="side-items{{active('items')}}" {{(request()->is('item') || request()->is('items/*')) ? 'primary-color-bg text-white' : ''}} href="/items/manage"><i data-feather="shopping-bag" class="ml-1"></i><span class="side-text">{{__("Items")}}</span></a>
                 @endcanany
                 @canany(['Update-Services','Create-Services','Delete-Services'])
-                    <a class="side-items" href="/services/manage">
+                    <a class="side-items{{active('services')}}" href="/services/manage">
                     <i data-feather="package" class="ml-1"></i>
                     {{--<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">--}}
                         {{--<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />--}}
@@ -92,14 +92,14 @@
                 {{--<a class="side-items" href="/cities/manage"><i data-feather="map" class="ml-1"></i><span class="side-text">{{__("Cities")}}</span></a>--}}
                 {{--@endcanany--}}
                 @canany(['Update-Districts','Create-Districts','Delete-Districts'])
-                    <a class="side-items" href="/districts/manage"><i data-feather="map-pin" class="ml-1"></i><span class="side-text">{{__("Delivery Map")}}</span></a>
+                    <a class="side-items{{active('districts')}}" href="/districts/manage"><i data-feather="map-pin" class="ml-1"></i><span class="side-text">{{__("Delivery Map")}}</span></a>
                 @endcanany
                     {{--<a class="side-items" href="/types/manage"><i data-feather="type" class="ml-1"></i><span class="side-text">{{__("Types")}}</span></a>--}}
 
 
                 {{--<a class="side-items" href="/timeframes/manage"><i data-feather="clock" class="ml-1"></i><span class="side-text">{{__("Time Frame")}}</span></a>--}}
                 @canany(['Update-Settings','Create-Settings','Delete-Settings'])
-                <a class="side-items" href="/settings"><i data-feather="settings" class="ml-1"></i><span class="side-text">{{__("Settings")}}</span></a>
+                <a class="side-items{{active('settings')}}" href="/settings"><i data-feather="settings" class="ml-1"></i><span class="side-text">{{__("Settings")}}</span></a>
                @endcanany
                 @guest
                     @if (Route::has('login'))
