@@ -4,7 +4,7 @@
         <div class=" m-5 flex-1">
             <h2 class="text-gray-800 font-bold">{{__('Most Requested Services')}}</h2>
             <hr class="my-5">
-            <div class="row">
+            {{--<div class="row">--}}
                 <table class=" text-gray-600 w-full using-font col-11 mx-2">
                     <thead class="bg-gray-100">
                     <th class="py-3">@lang('Service Name')</th>
@@ -34,13 +34,13 @@
                             <td></td>
                             <td></td>
 
-                        </tr>
+
 
                     {{--@endforeach--}}
 
                 </table>
             </div>
-        </div>
+        {{--</div>--}}
 
         {{--</x-card>--}}
 

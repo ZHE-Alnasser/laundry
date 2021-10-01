@@ -30,7 +30,7 @@
 
                     <hr class="mb-2">
 
-                    <div class="mx-auto">
+                    <div class="mx-auto ">
                         <li>
                             @canany(['Update-Orders','Create-Orders','Delete-Orders'])
                             <a href="/orders" ><i data-feather="shopping-cart" class="ml-1"></i></a>
@@ -117,7 +117,7 @@
 
         <div class="sm:flex mx-5 mt-5">
 
-        <div class="mx-auto">
+        <div class="mx-auto mb-3">
             <div class="card bg-card-1">
                 <h2 class="mx-5  mb-2">{{__('Total Customers')}}</h2>
                 <div class="mb-2 mx-10 text-center">
@@ -126,7 +126,7 @@
                 </div>
                 <div class="card-text"> <h3 >{{__('Today')}}</h3></div>
             </div></div>
-         <div class="mx-auto">
+         <div class="mx-auto mb-3">
              <div class="card bg-card-2">
                  <h2 class="mx-5  mb-2">{{__('Total Orders')}}</h2>
                  <div class="mb-2 mx-10 text-center">
@@ -137,7 +137,7 @@
 
              </div>
          </div>
-         <div class="mx-auto">
+         <div class="mx-auto mb-3">
              <div class="card bg-card-3">
                  <h2 class="mx-5  mb-2">{{__('Total Orders')}}</h2>
                  <div class="mb-2 mx-10 text-center">
@@ -147,7 +147,7 @@
                      <div class="card-text"><h3>{{__('This Month')}}</h3></div>
 
              </div>
-         </div>  <div class="mx-auto">
+         </div>  <div class="mx-auto mb-3">
              <div class="card bg-card-4">
 
                  <h2 class="mx-5  mb-2">{{__('Total Orders')}}</h2>
