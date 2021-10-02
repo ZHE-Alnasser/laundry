@@ -141,8 +141,9 @@
   "Today": "اليوم",
   "This Month": "هذا الشهر",
   "This Year": "هذه السنة",
-  "Total Customers": "اجمالي الزبائن",
+  "Total Customers": "اجمالي العملاء",
   "Most Requested Services": "أكثر الخدمات طلبا",
   "Best Orders in One Month":"أفضل الطلبات في شهر",
-  "Number of Orders": "عدد الطلبات"
+  "Number of Orders": "عدد الطلبات",
+  "Sorry! you dont have the permission to enter this page": "آسف! ليس لديك صلاحية دخول هذه الصفحة"
 }

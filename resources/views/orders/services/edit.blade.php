@@ -159,8 +159,8 @@
 
 
 {{--<x-layouts.app>--}}
-    <div class="row" x-data="handler">
-        <div class="col">
+    <div class="" x-data="handler">
+        <div class="overflow-x-auto  col">
             <table class="table border-collapse w-full text-center" id="majors_table">
                 <thead class="thead-light">
                 {{--<th>#</th>--}}
@@ -200,8 +200,10 @@
 
                     <td>
 
-                        <button type="button" class="bg-red-600 px-4 py-2 rounded-full text-xl text-white "
-                                @click="removeField(field)">&times;
+                        {{--<button type="button" class="bg-red-600 px-4 py-2 rounded-full text-xl text-white "--}}
+                                {{--@click="removeField(field)">&times;--}}
+                        {{--</button>--}}
+                        <button type="button" class="itemToDelete">&times;
                         </button>
                     </td>
 
@@ -230,8 +232,10 @@
                         <td> <input class="input rounded-sm" name="amount[]" type="number" x-model="field.amount"/></td>
 
                         <td>
-                            <button type="button" class="bg-red-600 px-4 py-2 rounded-full text-xl text-white "
-                                    @click="removeField(field)">&times;
+                            {{--<button type="button" class="bg-red-600 px-4 py-2 rounded-full text-xl text-white "--}}
+                                    {{--@click="removeField(field)">&times;--}}
+                            {{--</button>--}}
+                            <button type="button" class="itemToDelete">&times;
                             </button>
                         </td>
                     </tr>
@@ -283,31 +287,32 @@
 
             document.addEventListener('alpine:init', () => {
                 Alpine.data('handler', () => ({
-                    id: 0,
+                  id: '{{count($order->services)}}',
                     service: '',
                     price: 0,
                     quantity:1,
 
                     fields: [
-                        // {id: 0, name: '', price: 0}
+                        // {id: 0, service: 'service', price: 0, amount: 9}
+
+            {{--@php--}}
+                          {{--//  if($order->services)--}}
+            {{--$index=0;--}}
+            {{--foreach ($order->services as $item)--}}
+            {{--{--}}
+            {{--$service=$item->pivot->service_id;--}}
+            {{--$price=$item->pivot->price;--}}
+                {{--$quantity = $item->pivot->qty;--}}
+                {{--$amount = $item->pivot->amount;--}}
+              {{--echo  "{id: $index,service: '$service',price: '$price' ,quantity: '$quantity',amount,'$amount'},";--}}
+           {{--$index++;--}}
+            {{--}--}}
 
 
-                    {{--@php--}}
-                        {{--if($order->services)--}}
-        {{--$index=0;--}}
-        {{--foreach ($order->services as $item)--}}
-        {{--{--}}
-        {{--$service=$item->pivot->service_id;--}}
-        {{--$price=$item->pivot->price;--}}
-            {{--$quantity = $item->pivot->qty;--}}
-            {{--$amount = $item->pivot->amount;--}}
-          {{--echo  "{id: $index,service: '$service',price: '$price' ,quantity: '$quantity',amount,'$amount'},";--}}
-       {{--$index++;--}}
-        {{--}--}}
-
-                    {{--@endphp--}}
+                       {{--@endphp--}}
 
                     ],
+
                     addNewField() {
                         this.fields.push({
                             id: this.id++,
@@ -346,8 +351,23 @@
 
                         this.change = Math.round(((this.paid - this.total_amount) + Number.EPSILON) * 100) / 100;
                     },
+
                 }))
+
             })
+            function handleClick(event) {
+                if (event.target.className == 'itemToDelete') {
+                    // get row containing clicked button
+                    var row = event.target.parentNode.parentNode;
+                    // remove row element
+                    row.parentNode.removeChild(row);
+                }
+            }
+
+            window.addEventListener('DOMContentLoaded', function() {
+                // register click handler for whole table for efficiency
+                document.querySelector('.table').addEventListener('click',handleClick, false);
+            }, false);
 
         </script>
     {{--@endpush--}}

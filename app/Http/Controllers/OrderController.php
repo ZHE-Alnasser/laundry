@@ -250,13 +250,13 @@ class OrderController extends Controller
         $timeframes = TimeFrame::all();
 //        $orderService= OrderService::all();
 //        $serviceOrders=$order->services()->with('amount','quantity');
-//        $serviceOrders=OrderService::all();
+        $serviceOrders=OrderService::all();
         $services = Service::all();
         $items = Item::all();
         $customers = User::customer()->get();
         $employees = User::employee()->get();
 
-        return view('orders/edit', compact('order', 'customers', 'employees', 'items', 'services', 'timeframes', 'orders'));
+        return view('orders/edit', compact('order', 'customers', 'employees', 'items', 'services', 'timeframes', 'orders','serviceOrders'));
     }
 
 
