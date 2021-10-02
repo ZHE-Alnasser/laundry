@@ -48,7 +48,7 @@
                             {{--@foreach($timeframes as $time)--}}
                             {{--@dd($customer)--}}
 {{--@dd($order->time_frame_name,setting('time_frame_name'))--}}
-                            <option  {{  $order->time_frame_name==setting('time_frame_name')?'selected':''}} :value="time_frame_name">{{setting('time_frame_name')}} {{setting('time_frame_description')}}</option>
+                            <option  {{  $order->time_frame_name}}  {{$order->time_frame_description =setting('time_frame_name')?'selected':''}} :value="time_frame_name">{{setting('time_frame_name')}} {{setting('time_frame_description')}}</option>
                             {{--@endforeach--}}
                         </x-select>
                     </div>
@@ -118,10 +118,10 @@
 
 
                     <script>
-                        flatpickr('#requested_pickup_date')
-                        flatpickr('#agent_pickup_date')
-                        flatpickr('#requested_delivery_date')
-                        flatpickr('#agent_delivery_date')
+                        // flatpickr('#requested_pickup_date')
+                        // flatpickr('#agent_pickup_date')
+                        // flatpickr('#requested_delivery_date')
+                        // flatpickr('#agent_delivery_date')
 
                     </script>
 
