@@ -89,4 +89,8 @@ class User extends Authenticatable
             ->saveSlugsTo('slug')
             ->slugsShouldBeNoLongerThan(50);
     }
+    public function customerOrders()
+    {
+        return $this->hasMany(Order::class,'customer_id');
+    }
 }

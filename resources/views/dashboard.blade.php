@@ -166,6 +166,11 @@
             <div class=" sm:w-1/3 m-5 sm:flex-1">@include('dashboard.orders')</div>
             <div class="sm:w-1/3 m-5 sm:flex-1">@include('dashboard.top-items')</div>
         </div>
+ <div class="sm:flex">
+
+     <div class=" sm:w-1/3 m-5 sm:flex-1">@include('dashboard.top-customers')</div>
+     <div></div>
+        </div>
 
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     </x-layouts.app>

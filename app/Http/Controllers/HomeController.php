@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 class HomeController extends Controller
@@ -20,9 +21,16 @@ class HomeController extends Controller
 
         $orders = Order::whereMonth('created_at',\Carbon\Carbon::now()->month)
             ->orderBy('total','desc')->paginate(30);
+
+        $topCustomers = User::customer()->withCount('customerOrders')
+
+            ->orderBy('customer_orders_count', 'desc')->take(5)->get();
+
+//        $orders = Order::whereMonth('created_at',\Carbon\Carbon::now()->month)
+//            ->orderBy('total','desc')->paginate(30);
 // group by customer
 
-        // $latestOrders = Order::latest()->take(10);
+         $latestOrders = Order::latest()->take(10);
 //  $orders = Order::whereWeek('created_at',\Carbon\Carbon::now()->week())
 //            ->orderBy('total','desc')->paginate(7);
 
@@ -41,10 +49,11 @@ class HomeController extends Controller
 
             ->orderBy('orders_count', 'desc')->paginate(5);
 //
-        return view('/dashboard', compact('name','today','thisMonth','todayCustomers','thisYear','services','orders'));
+        return view('/dashboard', compact('name','today','thisMonth','todayCustomers','thisYear','services','orders','latestOrders','topCustomers'));
     }
     public function index()
     {
+        $latestOrders = Order::latest()->take(10);
         $thisYear = Order::whereYear('created_at',\Carbon\Carbon::now()->year)->sum('total');
 
         $orders = Order::whereMonth('created_at',\Carbon\Carbon::now()->subMonth()->month)
@@ -61,7 +70,7 @@ class HomeController extends Controller
         $thisMonth = Order::whereMonth('created_at',\Carbon\Carbon::now()->subMonth()->month)->sum('total');
         $name = auth()->user()->name;
 
-        return view('/dashboard', compact('name','orders','today','thisMonth','services','todayCustomers','thisYear'));
+        return view('/dashboard', compact('name','orders','today','thisMonth','services','todayCustomers','thisYear','latestOrders'));
     }
 
 
