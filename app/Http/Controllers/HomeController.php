@@ -53,6 +53,9 @@ class HomeController extends Controller
     }
     public function index()
     {
+        $topCustomers = User::customer()->withCount('customerOrders')
+
+            ->orderBy('customer_orders_count', 'desc')->take(5)->get();
         $latestOrders = Order::latest()->take(10);
         $thisYear = Order::whereYear('created_at',\Carbon\Carbon::now()->year)->sum('total');
 
@@ -70,7 +73,7 @@ class HomeController extends Controller
         $thisMonth = Order::whereMonth('created_at',\Carbon\Carbon::now()->subMonth()->month)->sum('total');
         $name = auth()->user()->name;
 
-        return view('/dashboard', compact('name','orders','today','thisMonth','services','todayCustomers','thisYear','latestOrders'));
+        return view('/dashboard', compact('name','orders','today','thisMonth','services','todayCustomers','thisYear','latestOrders','topCustomers'));
     }
 
 

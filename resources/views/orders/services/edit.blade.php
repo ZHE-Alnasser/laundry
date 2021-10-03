@@ -209,9 +209,11 @@
 
                 </tr>
             @endforeach
-            <template x-for="(field, index) in fields" :key="index">
+
+            <template  x-for="(field, index) in fields" :key="index">
                 {{--<template x-for="item in items" :key="item.id"">--}}
-                <tr>
+                <tr >
+                    <div x-data="{price:'100'}">
                     {{--<td x-text="index + 1"></td>--}}
                     <td>
                         <input class="input rounded-sm" type="hidden" x-model="field.id"/>
@@ -221,14 +223,16 @@
                             @foreach ($services as $service)
 
 
-                                <option x-price="{{number_format($service->price, 2)}}" value="{{$service->id}}">
+                                <option x-data="{
+    bodys: {{  $service->price }} }
+ " x-price="{{number_format($service->price, 2)}}" value="{{$service->id}}">
                                     {{ $service->name }} (${{ number_format($service->price, 2) }})
                                 </option>
                             @endforeach
                         </x-select>
                     </td>
                     <td> <x-input class="input rounded-sm" name="qty[]" type="number" x-model="field.quantity"/></td>
-                    <td> <x-input class="input rounded-sm" name="price[]" type="number" x-model="field.price"/></td>
+                    <td> <x-input x-text="bodys" class="input rounded-sm" name="price[]" type="number" x-model="field.price"/></td>
                     <td> <x-input class="input rounded-sm" name="amount[]" type="number" x-model="field.amount"/></td>
 
                     <td>
@@ -238,8 +242,10 @@
                         <button type="button" class="itemToDelete">&times;
                         </button>
                     </td>
+                    </div>
                 </tr>
             </template>
+
             </tbody>
             <tfoot class="bg-blue">
             <tr class="bg-blue">
@@ -252,6 +258,8 @@
         </table>
     </div>
 </div>
+
+
 <div class="row clearfix" style="margin-top:20px">
     <div class="pull-right col-md-4">
         <table class="table table-bordered table-hover" id="tab_logic_total">
