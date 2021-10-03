@@ -6,11 +6,11 @@
         <x-form action="{{url('districts')}}" method="post" has-files>
             @csrf
             <label>{{__('District Name')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input" name="name" value="{{ old('name') }}"/>
+            <x-input required  class="input" name="name" value="{{ old('name') }}"/>
 
             <div class="mt-5">
                 <div><label>{{__('City')}}</label><span class="text-red-600"> *</span></div>
-                <x-select name="city_id" id="city_id" class="select">
+                <x-select required name="city_id" id="city_id" class="select">
                     @foreach($cities as $city )
                         <option value="{{$city->id}}">{{ $city->name }} </option>
                     @endforeach
@@ -18,7 +18,7 @@
             </div>
             <div class="mt-5">
             <label>{{__('Code')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input" name="code" value="{{ old('code') }}"/>
+            <x-input required class="input" name="code" value="{{ old('code') }}"/>
             </div>
 
             <div class="flex mt-8">

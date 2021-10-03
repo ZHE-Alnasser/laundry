@@ -50,7 +50,7 @@
             <div class="mx-2 sm:flex-col sm:w-1/2">
                 <label>{{__('Employee Name')}}<span class="text-red-600"> *</span></label>
 
-                <x-select class="ml-4 select  " name="employee_id" id="employees" >
+                <x-select required class="ml-4 select  " name="employee_id" id="employees" >
                     @foreach($employees as $employee)
                         {{--@dd($customer)--}}
 
@@ -61,7 +61,7 @@
             <div class="mx-2 sm:mr-6 mt-5 sm:mt-0  sm:flex-col sm:w-1/2">
                 <label>{{__('Customer Name')}}<span class="text-red-600"> *</span></label>
 
-                <x-select class="ml-4 select  " name="customer_id" id="customers" >
+                <x-select required class="ml-4 select  " name="customer_id" id="customers" >
                     @foreach($customers as $customer)
                         {{--@dd($customer)--}}
 
@@ -72,7 +72,7 @@
 </div>
             <div class="mx-2 mt-5">
             <p>{{__('Time Frame')}} :<span class="text-red-600"> *</span></p>
-                <x-select class="ml-4 select  " name="time_frame_id" id="time_frame_id" >
+                <x-select required class="ml-4 select  " name="time_frame_id" id="time_frame_id" >
                     @foreach($timeframes as $time)
                         {{--@dd($customer)--}}
 
@@ -147,8 +147,8 @@
     {{--</script>--}}
 
 
-    <label class="label  mt-5">{{__('Payment Method')}}</label>
-    <x-select class=" select mx-2 " name="payment" id="type"
+    <label class="label  mt-5">{{__('Payment Method')}}<span class="text-red-600"> *</span></label>
+    <x-select required class=" select mx-2 " name="payment" id="type"
               label="{{__('Payment')}}">
         <option value="1" >{{__('Cash')}}</option>
         <option value="2" >{{__('Card')}}</option>
@@ -185,8 +185,8 @@
 
     <div class="flex mx-2 flex-col mt-5 md:flex-row">
         <div class="w-full  flex-1">
-            <label class="label">{{__('Order Process')}}</label>
-            <x-select class="ml-4 select" name="process" id="process"
+            <label class="label">{{__('Order Process')}}<span class="text-red-600"> *</span></label>
+            <x-select required class="ml-4 select" name="process" id="process"
                       label="{{__('state').' '.__('order')}}">
                 <option value="1" >{{__('Ready for Pickup')}}</option>
                 <option value="2" >{{__('Pickup')}}</option>

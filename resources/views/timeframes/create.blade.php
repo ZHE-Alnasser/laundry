@@ -6,7 +6,7 @@
         <x-form action="{{url('timeframes')}}" method="post" has-files>
             @csrf
             <label>{{__('Time Frame Name')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input" name="name" value="{{ old('name') }}"/>
+            <x-input required  class="input" name="name" value="{{ old('name') }}"/>
 
 <div class="mt-5">
             <label>{{__('Description')}}<span class="text-red-600"> *</span></label>

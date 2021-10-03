@@ -12,7 +12,7 @@
                     <div class="mx-2 sm:flex-col sm:w-1/2">
                     <label>{{__('Employee Name')}}<span class="text-red-600"> *</span></label>
 
-                    <x-select class="ml-4 select  " name="employee_id" id="employees" >
+                    <x-select required class="ml-4 select  " name="employee_id" id="employees" >
                         @foreach($employees as $employee)
                             {{--@dd($customer)--}}
 
@@ -24,7 +24,7 @@
                       <div class="mx-2 sm:flex-col mt-5 sm:mt-0  sm:w-1/2">
                         <label>{{__('Customer Name')}}<span class="text-red-600"> *</span></label>
 
-                    <x-select class="ml-4 select  " name="customer_id" id="customers" >
+                    <x-select required class="ml-4 select  " name="customer_id" id="customers" >
                         @foreach($customers as $customer)
                             {{--@dd($customer)--}}
 
@@ -44,7 +44,7 @@
                                 {{--<option  {{ $order->time_frame_id==$time->id?'selected':''}} value="{{$time->id}}">{{ $time->name }}</option>--}}
                             {{--@endforeach--}}
                         {{--</x-select>--}}
-                        <x-select class="ml-4 select  " name="time_frame_name" id="time_frame_name" >
+                        <x-select required class="ml-4 select  " name="time_frame_name" id="time_frame_name" >
                             @foreach($timeframes as $time)
                             {{--@dd($customer)--}}
 {{--@dd($order->time_frame_name,setting('time_frame_name'))--}}
@@ -127,8 +127,8 @@
                     </script>
 
 
-                    <label class="label mt-8">{{__('Payment Method')}}</label>
-                    <x-select class=" select mx-2 " name="payment" id="type"
+                    <label class="label mt-8">{{__('Payment Method')}}<span class="text-red-600"> *</span></label>
+                    <x-select required class=" select mx-2 " name="payment" id="type"
                             label="{{__('Payment')}}">
                         <option value="1" {{$order->payment === 'cash' ? "selected" : "" }}>{{__('Cash')}}</option>
                         <option value="2" {{$order->payment === 'card' ? "selected" : "" }}>{{__('Card')}}</option>
@@ -165,8 +165,8 @@
                         {{--</div>--}}
                         <div class=" flex flex-col mt-8 md:flex-row">
                             <div class="w-full  flex-1">
-                        <label class="label">{{__('Order Process')}}</label>
-                        <x-select class="ml-4 mx-2 select" name="process" id="process"
+                        <label class="label">{{__('Order Process')}}<span class="text-red-600"> *</span></label>
+                        <x-select required class="ml-4 mx-2 select" name="process" id="process"
                                   label="{{__('state').' '.__('order')}}">
                             <option value="0" {{$order->process === 0 ? "selected" : "" }}>{{__('Ready for Pickup')}}</option>
                             <option value="1" {{$order->process === 1 ? "selected" : "" }}>{{__('Pickup')}}</option>

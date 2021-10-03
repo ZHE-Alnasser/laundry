@@ -10,9 +10,9 @@
                     <div class="mx-40">
                         <div class="flex flex-col md:flex-row">
                             <div class="w-full mx-2 flex-1">
-                                <label>{{__('Time Frame Name')}}</label>
+                                <label>{{__('Time Frame Name')}}<span class="text-red-600"> *</span></label>
                                 <div >
-                                    <x-input name="name" value="{{$timeframe->name}}" class="input"/>
+                                    <x-input required name="name" value="{{$timeframe->name}}" class="input"/>
                                 </div>
                             </div>
                         </div>

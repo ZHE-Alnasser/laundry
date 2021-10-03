@@ -9,25 +9,25 @@
 
                     <div class="flex flex-col md:flex-row">
                         <div class="w-full sm:mx-10 flex-1">
-                            <label>{{__('District Name')}}</label>
+                            <label>{{__('District Name')}}<span class="text-red-600"> *</span></label>
                             <div >
-                                <x-input name="name" value="{{$district->name}}" class="input"/>
+                                <x-input required name="name" value="{{$district->name}}" class="input"/>
                             </div>
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row">
                         <div class="w-full sm:mx-10 flex-1">
-                            <label>{{__('Code')}}</label>
+                            <label>{{__('Code')}}<span class="text-red-600"> *</span></label>
                             <div >
-                                <x-input name="code" value="{{$district->code}}" class="input"/>
+                                <x-input required name="code" value="{{$district->code}}" class="input"/>
                             </div>
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row">
                         <div class="w-full sm:mx-10 mt-5 flex-1">
-                            <label>{{__('City')}}</label>
+                            <label>{{__('City')}}<span class="text-red-600"> *</span></label>
 
-                                <x-select name="city_id" id="city_id" class="input">
+                                <x-select required  name="city_id" id="city_id" class="input">
                                     @foreach($cites as $city )
                                         <option {{$district->city_id==$city->id?'selected':''}} value="{{$city->id}}">{{ $city->name }} </option>
                                     @endforeach

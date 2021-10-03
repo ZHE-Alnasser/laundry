@@ -207,6 +207,7 @@ return [
         'currency'=>'العملة',
         'allow_selling_out_of_stock'=>'السماح بالبيع عند عدم وجود المنتج',
         'port'=>'المنفذ',
-        'server'=>'السيرفر'
+        'server'=>'السيرفر',
+        'service'=>'الخدمة'
     ],
 ];

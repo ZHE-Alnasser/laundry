@@ -10,9 +10,9 @@
 
                         <div class="flex flex-col md:flex-row">
                             <div class="w-full mx-2 mt-5 flex-1">
-                                <label>{{__('Name')}}</label>
+                                <label>{{__('Name')}}<span class="text-red-600"> *</span></label>
                                 <div class="divUser">
-                                    <x-input name="name" value="{{$user->name}}" class="input"/>
+                                    <x-input required name="name" value="{{$user->name}}" class="input"/>
                                 </div>
                             </div>
                             {{--<div class="w-full mx-2 mt-5 flex-1">--}}
@@ -24,22 +24,22 @@
 
                         <div class="flex flex-col md:flex-row">
                             <div class="w-full mx-2 mt-5 flex-1">
-                                <label>{{__('Email')}}</label>
+                                <label>{{__('Email')}}<span class="text-red-600"> *</span></label>
                                 <div class="divUser">
-                                    <x-input name="email" value="{{$user->email}}" class="input"/>
+                                    <x-input required  name="email" value="{{$user->email}}" class="input"/>
                                 </div>
                             </div>
                             <div class="w-full mx-2 mt-5 flex-1">
-                                <label>{{__('Phone')}}</label>
+                                <label>{{__('Phone')}}<span class="text-red-600"> *</span></label>
                                 <div class="divUser">
-                                    <x-input name="phone" value="{{$user->phone}}" class="input"/></div>
+                                    <x-input required name="phone" value="{{$user->phone}}" class="input"/></div>
                             </div>
                         </div>
                         <div class="flex flex-col md:flex-row">
                             <div class="w-full mx-2 mt-5 flex-1">
-                                <label>{{__('District')}}</label>
+                                <label>{{__('District')}}<span class="text-red-600"> *</span></label>
                                 <div class="divUser">
-                                    <x-select name="district_id" id="district_id" class="input">
+                                    <x-select required name="district_id" id="district_id" class="input">
                                         @foreach($districts as $district )
                                             <option {{$user->district_id==$district->id?'selected':''}} value="{{$district->id}}">{{ $district->name }} </option>
                                         @endforeach
@@ -48,9 +48,9 @@
 
                             <div class="flex flex-col md:flex-row">
                                 <div class="w-full mt-5 flex-1">
-                                    <label>{{__('Type')}}</label>
+                                    <label>{{__('Type')}}<span class="text-red-600"> *</span></label>
                                     <div class="divUser">
-                                        <x-select name="type_id" class="input"  id="type_id">
+                                        <x-select required name="type_id" class="input"  id="type_id">
                                             @foreach($types as $type )
                                                 <option {{$user->type_id==$type->id?'selected':''}} value="{{$type->id}}">{{ $type->name }} </option>
                                             @endforeach

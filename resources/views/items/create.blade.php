@@ -5,8 +5,8 @@
     <div class="w-full  mt-6 px-6 py-4 overflow-hidden ">
         <x-form action="{{url('items')}}" method="post" has-files>
             @csrf
-            <label>{{__('Item Name')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input" name="name" value="{{ old('name') }}"/>
+            <label>{{__('Item Name')}}<span class="text-red-600" > *</span></label>
+            <x-input required class="input" name="name" value="{{ old('name') }}"/>
 
             {{--<label for="file-upload" class="btn">--}}
                 {{--<span>--}}

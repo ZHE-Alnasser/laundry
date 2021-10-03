@@ -9,9 +9,9 @@
 
                     <div class="flex flex-col md:flex-row">
                         <div class="w-full sm:mx-10 flex-1">
-                            <label>{{__('City Name')}}</label>
+                            <label>{{__('City Name')}}<span class="text-red-600"> *</span></label>
                             <div >
-                                <x-input name="name" value="{{$city->name}}" class="input"/>
+                                <x-input required  name="name" value="{{$city->name}}" class="input"/>
                             </div>
                         </div>
                     </div>

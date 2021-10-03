@@ -7,7 +7,7 @@
             @csrf
             <div class="mt-5">
             <label>{{__('Name')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input" name="name" value="{{ old('name') }}"/>
+            <x-input required class="input" name="name" value="{{ old('name') }}"/>
             </div>
             {{--<div class="mt-5">--}}
             {{--<label>{{__('Last Name')}}<span class="text-red-600"> *</span></label>--}}
@@ -16,7 +16,7 @@
             <div class="mt-5">
            <div><label>{{__('Type')}}</label><span class="text-red-600"> *</span></div>
                 {{--<x-input class="w-full" name="item_id" value="{{ old('item_id') }}" placeholder="{{__('item')}}"/>--}}
-            <x-select name="type_id" id="type_id" class="select">
+            <x-select required name="type_id" id="type_id" class="select">
                 @foreach($types as $type )
                     <option value="{{$type->id}}">{{ $type->name }} </option>
                 @endforeach
@@ -24,28 +24,28 @@
             </div>
 <div class="mt-5">
             <label>{{__('Email')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input" name="email" type="email" value="{{ old('email') }}" />
+            <x-input required  class="input" name="email" type="email" value="{{ old('email') }}" />
 </div>
             <div class="mt-5">
             <label>{{__('Phone')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input" name="phone" type="text" value="{{ old('phone') }}" />
+            <x-input required class="input" name="phone" type="text" value="{{ old('phone') }}" />
             </div>
             <div class="mt-5">
             <div><label class="mt-5">{{__('District')}}</label><span class="text-red-600"> *</span></div>
-            <x-select name="district_id" id="district_id" class="select">
+            <x-select required  name="district_id" id="district_id" class="select">
                 @foreach($districts as $district )
                     <option value="{{$district->id}}">{{ $district->name }} </option>
                 @endforeach
             </x-select>
             </div>
             <div class="mt-5">
-            <label>{{ __('Password') }}"</label>
+            <label>{{ __('Password') }}<span class="text-red-600"> *</span></label>
                 <x-input id="password" class="input" type="password" name="password" required
                              autocomplete="new-password"/>
 
             </div>
             <div class="mt-5">
-            <label>{{ __('Confirm Password') }}"</label>
+            <label>{{ __('Confirm Password') }}<span class="text-red-600"> *</span></label>
                 <x-input id="password_confirmation" class="input" type="password"
                              name="password_confirmation" required autocomplete="new-password"/>
             </div>

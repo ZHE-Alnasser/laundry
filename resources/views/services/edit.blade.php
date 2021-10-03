@@ -10,17 +10,17 @@
 <div class="sm:mx-40">
                     <div class="flex flex-col md:flex-row">
                         <div class="w-full mx-2 flex-1">
-                            <label>{{__('Service Name')}}</label>
+                            <label>{{__('Service Name')}}<span class="text-red-600"> *</span></label>
                             <div >
-                                <x-input name="name" value="{{$service->name}}" class="input"/>
+                                <x-input required name="name" value="{{$service->name}}" class="input"/>
                             </div>
                         </div>
                     </div>
                         <div class="flex flex-col mt-4 md:flex-row">
                         <div class="w-full mx-2 mt-4 flex-1">
-                            <label>{{__('Item Name')}}</label>
+                            <label>{{__('Item Name')}}<span class="text-red-600"> *</span></label>
 
-                            <x-select name="item_id" class="input"  id="item_id">
+                            <x-select required name="item_id" class="input"  id="item_id">
                                 @foreach($items as $item )
                                     <option {{$service->item_id==$item->id?'selected':''}} value="{{$item->id}}">{{ $item->name }} </option>
                                 @endforeach
@@ -29,9 +29,9 @@
                     </div>
                     <div class="flex flex-col mt-4 md:flex-row">
                      <div class="w-full mx-2 flex-1">
-                       <label>{{__('Price')}}</label>
+                       <label>{{__('Price')}}<span class="text-red-600"> *</span></label>
 
-                          <x-input name="price" value="{{$service->price}}" class="input"/>
+                          <x-input required  name="price" value="{{$service->price}}" class="input"/>
                         </div>
                       </div>
                     <div class="flex flex-col mt-4 md:flex-row">

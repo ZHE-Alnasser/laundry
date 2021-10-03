@@ -6,7 +6,7 @@
         <x-form action="{{url('cities')}}" method="post" has-files>
             @csrf
             <label>{{__('City Name')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input" name="name" value="{{ old('name') }}"/>
+            <x-input required  class="input" name="name" value="{{ old('name') }}"/>
 
 
             <div class="flex mt-8">

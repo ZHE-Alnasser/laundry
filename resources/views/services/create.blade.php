@@ -6,11 +6,11 @@
         <x-form action="{{url('services')}}" method="post" has-files>
             @csrf
             <label>{{__('Service Name')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input" name="name" value="{{ old('name') }}"/>
+            <x-input required class="input" name="name" value="{{ old('name') }}"/>
             <div  class="mt-5">
             <label>{{__('Item Name')}}</label><span class="text-red-600"> *</span>
             {{--<x-input class="w-full" name="item_id" value="{{ old('item_id') }}" placeholder="{{__('item')}}"/>--}}
-            <x-select name="item_id" id="item_id" class="input">
+            <x-select required name="item_id" id="item_id" class="input">
                 @foreach($items as $item )
                     <option value="{{$item->id}}">{{ $item->name }} </option>
                 @endforeach
@@ -18,7 +18,7 @@
             </div>
             <div  class="mt-5">
             <label class="mt-5">{{__('Price')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input" name="price" type="text" value="{{ old('price') }}" />
+            <x-input required class="input" name="price" type="text" value="{{ old('price') }}" />
             </div>
           <div  class="mt-5">
             <label>{{__('Description')}}</label>
