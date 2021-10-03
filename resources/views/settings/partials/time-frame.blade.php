@@ -1,4 +1,4 @@
-<x-tab :name="__('Time frame')">
+<x-tab :name="__('Time Frame')">
     <div class="">
         <a class="btn inline-flex mb-2 justify-center items-center" href="{{"/settings"}}">
             <svg class="w-6 h-6 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

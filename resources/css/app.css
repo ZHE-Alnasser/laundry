@@ -35,11 +35,11 @@
         @apply text-xl;
     }
 
-    h1,h2,h3,p,a,label,div .btn {
+    h1,h2,h3,p,as,label,div .btn{
         font-family: 'Tajawal', sans-serif;
 
     }
-    table,span,.table{
+    table,span,form,.table{
         font-family: 'Tajawal', sans-serif;
     }
     h2,p,a,label{

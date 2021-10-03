@@ -1443,11 +1443,11 @@ html {
 	line-height: 1.75rem;
 }
 
-    h1,h2,h3,p,a,label,div .btn {
+    h1,h2,h3,p,as,label,div .btn{
         font-family: 'Tajawal', sans-serif;
 
     }
-    table,span,.table{
+    table,span,form,.table{
         font-family: 'Tajawal', sans-serif;
     }
     h2, p, a, label {
@@ -5233,7 +5233,7 @@ input{
 .btn-add:hover{
     background: #636765;
 }
-div .btn-cancel {
+div .btn-cancel{
         font-family: 'Tajawal', sans-serif;
 
     }
@@ -5630,7 +5630,7 @@ div .btn-cancel {
 .drawer-toggle:focus-visible~.drawer-content .drawer-button.btn-cancel {
 	box-shadow: 0 0 0 2px hsl(var(--b1)),0 0 0 4px hsl(var(--s));
 }
-div .btn-error {
+div .btn-error{
         font-family: 'Tajawal', sans-serif;
 
     }
@@ -6229,6 +6229,11 @@ div .btn-error {
 		margin-bottom: -1px;
 	}
 
+	.sm\:mx-10 {
+		margin-left: 2.5rem;
+		margin-right: 2.5rem;
+	}
+
 	.sm\:-mx-6 {
 		margin-left: -1.5rem;
 		margin-right: -1.5rem;
@@ -6237,11 +6242,6 @@ div .btn-error {
 	.sm\:my-0 {
 		margin-top: 0px;
 		margin-bottom: 0px;
-	}
-
-	.sm\:mx-10 {
-		margin-left: 2.5rem;
-		margin-right: 2.5rem;
 	}
 
 	.sm\:mx-3 {
