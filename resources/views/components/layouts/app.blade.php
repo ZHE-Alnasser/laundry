@@ -1,4 +1,4 @@
-@extends('components.layouts.admin')
+@extends('components.layouts.base')
 
 {{--@section('header')--}}
 
