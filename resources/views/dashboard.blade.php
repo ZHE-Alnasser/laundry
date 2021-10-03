@@ -21,34 +21,38 @@
                 </div>
             </div>
 
+            {{--<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto--}}
+        {{--lg:mt-0 lg:bg-transparent text-black lg:p-0 lg:mr-0 mr-3"--}}
+                 {{--id="nav-content">--}}
 
-            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto
-        lg:mt-0 lg:bg-transparent text-black lg:p-0 lg:mr-0 mr-3"
-                 id="nav-content">
+                {{--<ul class="flex flex-col lg:flex-row list-none ">--}}
 
-                <ul class="flex flex-col lg:flex-row list-none ">
+                    {{--<hr class="mb-2">--}}
 
-                    <hr class="mb-2">
-
-                    <div class="mx-auto ">
-                        <li>
-                            @canany(['Update-Orders','Create-Orders','Delete-Orders'])
-                            <a href="/orders" ><i data-feather="shopping-cart" class="ml-1"></i></a>
-                            @endcan
-                                @canany(['Update-Services','Create-Services','Delete-Services'])
-                            <a href="/services/manage" ><i data-feather="package" class="ml-1"></i></a>
-                                @endcan
+                    {{--<div class="mx-auto ">--}}
+                        {{--<li>--}}
+                            {{--@canany(['Update-Orders','Create-Orders','Delete-Orders'])--}}
+                            {{--<a href="/orders" ><i data-feather="shopping-cart" class="ml-1"></i></a>--}}
+                            {{--@endcan--}}
+                                {{--@canany(['Update-Services','Create-Services','Delete-Services'])--}}
+                            {{--<a href="/services/manage" ><i data-feather="package" class="ml-1"></i></a>--}}
+                                {{--@endcan--}}
                                 {{--@canany(['Update-Orders','Create-Orders','Delete-Orders'])--}}
-                            <a href="/dashboard" ><i data-feather="home" class="ml-1"></i></a>
+                            {{--<a href="/dashboard" ><i data-feather="home" class="ml-1"></i></a>--}}
                                     {{--@endcan--}}
 
-                        </li></div>
-                </ul>
+                        {{--</li></div>--}}
+                {{--</ul>--}}
 
-            </div>
+            {{--</div>--}}
 
         </div>
+        <div class="flex mt-5 mx-5">
+          <div>  <button class="btn my-2 mx-2" onClick="window.location.replace('/orders/create')"><i data-feather="shopping-cart" class="ml-1"></i><span class="hidden sm:flex">{{__('New Order')}}</span></button></div>
+            <div> <button class="btn my-2 mx-2" onClick="window.location.replace('/users/create')"><i data-feather="user-plus" class="ml-1"></i><span class="hidden sm:flex">{{__('Add User')}}</span></button></div>
+            <div> <button class="btn my-2 mx-2" onClick="window.location.replace('/items/create')"><i data-feather="file-plus" class="ml-1"></i><span class="hidden sm:flex">{{__('Add Item')}}</span></button></div>
 
+        </div>
 
         {{--<div class="mt-5 ">--}}
             {{--<x-indediv>--}}
