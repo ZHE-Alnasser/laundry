@@ -1,4 +1,4 @@
-<x-card>
+<div class ="card">
     <div class=" m-5 flex-1">
     <h2 class="text-gray-800 font-bold">{{__('Best Orders in One Month')}}</h2>
         <hr class="my-5">
@@ -6,7 +6,7 @@
         <div id="chart" style="min-height: 237.981px;"> <apexchart type="line" width="380" hight="300" :options="chartOptions" :series="series"></apexchart> </div>
     </div>
     </div>
-</x-card>
+</div>
 
 <x-chart>
     <script>

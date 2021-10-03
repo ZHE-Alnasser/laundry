@@ -42,9 +42,9 @@
     table,span,.table{
         font-family: 'Tajawal', sans-serif;
     }
-h2,p,a,label{
-    @apply text-gray-600;
-}
+    h2,p,a,label{
+        @apply text-gray-600;
+    }
 }
 body{
     text-align: start !important;
@@ -67,7 +67,7 @@ input{
     background: white;
 }
 .links-color{
-/*background-color: white;*/
+    /*background-color: white;*/
 }
 /*.hover-color{*/
 /*background-color: aliceblue;*/
@@ -89,23 +89,23 @@ input{
 
 
 .btn {
-     /*color: #eb9d00;*/
-     background: #2CCEC2;
-     border-color:#2CCEC2; ;
-     /*@apply btn-primary;*/
- }
+    /*color: #eb9d00;*/
+    background: #2CCEC2;
+    border-color:#2CCEC2;
+    @apply rounded-2xl;
+}
 .btn:hover {
-     /*color: #eb9d00;*/
-     background: #29a095;
-     border-color:#29a095;
-     /*@apply btn-primary;*/
- }
+    /*color: #eb9d00;*/
+    background: #29a095;
+    border-color:#29a095;
+    /*@apply btn-primary;*/
+}
 
 
 .btn-delete{
     background: #eb2700;
     border:#eb2700;
-   color:white;
+    color:white;
 
     /*@apply btn btn-secondary;*/
 }
@@ -146,16 +146,16 @@ input{
 }
 
 /*.side-items{*/
-    /*font-weight: 500;*/
-    /*@apply flex items-center mt-2 mx-3 py-2 px-8 bg-base-200  font-tajawal border-white text-primary  rounded-lg*/
+/*font-weight: 500;*/
+/*@apply flex items-center mt-2 mx-3 py-2 px-8 bg-base-200  font-tajawal border-white text-primary  rounded-lg*/
 /*}*/
 
 /*.side-items:hover {*/
-    /*--tw-border-opacity: 0.2;*/
-    /*@apply bg-base-300 text-primary-focus;*/
+/*--tw-border-opacity: 0.2;*/
+/*@apply bg-base-300 text-primary-focus;*/
 /*}*/
 /*.side-items:active{*/
-    /*@apply  bg-base-300;*/
+/*@apply  bg-base-300;*/
 /*}*/
 .side-items{
     color: #1d6076;
@@ -169,9 +169,9 @@ input{
     @apply bg-blue-100  ;
 }
 .side-items:hover{
-  color: #29a095;
-   border-color: #29a095;
-    @apply bg-blue-100  ;
+    color: #29a095;
+    border-color: #29a095;
+    @apply bg-blue-100 ;
 }
 
 .side-text{
@@ -196,11 +196,11 @@ input{
 }
 
 /*.card{*/
-    /*--tw-border-opacity: 0.1 !important;*/
-    /*padding:20px;*/
-    /*border-color: #1d6076;*/
-    /*!*@apply border-gray-600 border-2 rounded-xl*!*/
-    /*@apply lg:m-2 mb-3 px-10*/
+/*--tw-border-opacity: 0.1 !important;*/
+/*padding:20px;*/
+/*border-color: #1d6076;*/
+/*!*@apply border-gray-600 border-2 rounded-xl*!*/
+/*@apply lg:m-2 mb-3 px-10*/
 /*}*/
 /*.card:hover{*/
 /*background: rgba(29, 96, 118, 0.56);*/
@@ -222,7 +222,7 @@ input{
 }
 .bg-card-2{
     color: #c22cce;
-   opacity: 80%;
+    opacity: 80%;
 
 }
 .bg-card-3{

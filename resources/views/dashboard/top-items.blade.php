@@ -1,4 +1,4 @@
-<x-card>
+<div class="card">
 
         {{--<x-card>--}}
         <div class=" m-5 flex-1">
@@ -44,4 +44,4 @@
 
         {{--</x-card>--}}
 
-</x-card>
+</div>

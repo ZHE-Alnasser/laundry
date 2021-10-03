@@ -1,7 +1,7 @@
 
-    <x-layouts.admin>
+    <x-layouts.app>
 
-        <div class="w-full container mx-auto flex flex-grow items-center justify-between mt-0 ">
+        <div class="w-full  mx-auto flex flex-grow items-center justify-between mt-0 ">
             {{--<button id="nav-toggle"--}}
             {{--class="md:hidden rounded-lg focus:outfoline-none focus:shadow-outline mr-3">--}}
             {{--<svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">--}}
@@ -113,7 +113,7 @@
 {{--</div>--}}
    {{----}}
 
-        </div>
+
 
         <div class="sm:flex mx-5 mt-5">
 
@@ -168,7 +168,7 @@
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    </x-layouts.admin>
+    </x-layouts.app>
 
 
 
