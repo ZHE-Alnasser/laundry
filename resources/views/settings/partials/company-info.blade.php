@@ -110,6 +110,16 @@
                         <label>{{__('Description')}}</label>
 
                         <x-input name="time_frame_description" :value="setting('time_frame_description')" class="input"/>
+                        <div class="w-full px-1">
+                            <label>{{__('Language')}}</label>
+                            <div class="mt-3">
+                                <x-select name="language">
+                                    <option value="ar" {{setting('language')=='ar'?'selected':''}}>{{__('Arabic')}}</option>
+                                    <option value="en" {{setting('language')=='en'?'selected':''}}>{{__('English')}}</option>
+                                    <option value="ur" {{setting('language')=='ur'?'selected':''}}>{{__('Urdu')}}</option>
+                                </x-select>
+                            </div>
+                        </div>
 
                     </div>
                 </div>

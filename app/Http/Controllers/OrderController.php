@@ -344,4 +344,6 @@ class OrderController extends Controller
         return view('orders.reports.invoice', compact('order', 'employees', 'customers', 'orders'));
     }
 
+
+
 }
