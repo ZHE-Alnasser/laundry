@@ -92,7 +92,7 @@ input{
     /*color: #eb9d00;*/
     background: #2CCEC2;
     border-color:#2CCEC2;
-    @apply rounded-2xl;
+    /*@apply rounded-2xl;*/
 }
 .btn:hover {
     /*color: #eb9d00;*/
@@ -214,7 +214,7 @@ input{
     color:#1d6076;
 }
 .card{
-    @apply bg-white text-white overflow-hidden p-5 no-underline hover:no-underline shadow-lg rounded-2xl;
+    @apply bg-white text-white overflow-hidden p-5 no-underline hover:no-underline shadow-lg rounded-lg;
 }
 .bg-card-1{
     color: #2CCEC2;
