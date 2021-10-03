@@ -39,13 +39,7 @@ class OrderDatatable extends LivewireDatatable
                 return optional(User::find($user))->name;
             })->label(__('Customer Name'))->searchable(),
 
-            Column::callback(['employee_id'], function ($user) {
-                return optional(User::find($user))->name;
-            })->label(__('Employee Name'))->searchable(),
 
-            Column::name('discount')->label(__('Discount'))->searchable(),
-            Column::name('vat')->label(__('VAT'))->searchable(),
-            Column::name('sub_total')->label(__('Total amount without VAT'))->searchable(),
             Column::name('total')->label(__('Total amount with VAT'))->searchable(),
             Column::callback(['process'], function ($process) {
                 return __('process_'.$process);
@@ -53,7 +47,7 @@ class OrderDatatable extends LivewireDatatable
             Column::callback(['time_frame_id'], function ($period) {
         return __('time_'.$period);
             })->searchable()->label(__('Time Period')),
-            DateColumn::name('created_at')->label(__('Created at'))->searchable(),
+//            DateColumn::name('created_at')->label(__('Created at'))->searchable(),
 
             Column::callback(['id'], function ($id) {
                 return view('components.order-action', ['url' => url("orders/$id"), 'model' => 'Orders', 'id' => $id]);

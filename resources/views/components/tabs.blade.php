@@ -23,8 +23,8 @@
         >
             <button x-text="tab"
                     @click="activeTab = tab"
-                    class="px-4 py-1 mx-1 text-sm rounded hover:bg-blue-500 hover:text-white"
-                    :class="tab === activeTab ? 'bg-blue-500 text-white' : 'text-gray-800'"
+                    class="px-4 py-1 mx-1 text-sm rounded hover:bg-blue-300 hover:text-white"
+                    :class="tab === activeTab ? 'bg-blue-300 text-white' : 'text-gray-800'"
                     :id="`tab-${index + 1}`"
                     role="tab"
                     type="button"
