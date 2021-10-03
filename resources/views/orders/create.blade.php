@@ -188,11 +188,11 @@
             <label class="label">{{__('Order Process')}}<span class="text-red-600"> *</span></label>
             <x-select required class="ml-4 select" name="process" id="process"
                       label="{{__('state').' '.__('order')}}">
-                <option value="1" >{{__('Ready for Pickup')}}</option>
-                <option value="2" >{{__('Pickup')}}</option>
-                <option value="3" >{{__('In Laundry')}}</option>
-                <option value="4" >{{__('Ready for delivery')}}</option>
-                <option value="5" >{{__('deliver')}}</option>
+                <option value="0" >{{__('Ready for Pickup')}}</option>
+                <option value="1" >{{__('Pickup')}}</option>
+                <option value="2" >{{__('In Laundry')}}</option>
+                <option value="3" >{{__('Ready for delivery')}}</option>
+                <option value="4" >{{__('deliver')}}</option>
 
             </x-select>
         </div>

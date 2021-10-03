@@ -23,7 +23,7 @@
                     <td class="text-center py-3"><span>
                             {{$user->name}}</span></td>
 
-                    <td> {{$user->customer_orders_count}}</td>
+                    <td class="text-center py-3"> {{$user->customer_orders_count}}</td>
 
                 </tr>
             @endforeach

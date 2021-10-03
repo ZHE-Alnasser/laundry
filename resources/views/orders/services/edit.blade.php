@@ -183,7 +183,7 @@
                     {{--@dd($item)--}}
                     {{--@dd($item->pivot->service_id)--}}
 
-                    <td><select name="services[]" class="input rounded-sm">
+                    <td><x-select name="services[]" class="input rounded-sm">
                             <option value="">-- choose service --</option>
                             @foreach ($services as $service)
 
@@ -192,11 +192,11 @@
                                     {{ $service->name }} (${{ number_format($service->price, 2) }})
                                 </option>
                             @endforeach
-                        </select> </td>
+                        </x-select> </td>
                     {{--<input type="text" x-model="field.service"/></td>--}}
-                    <td> <input class="input rounded-sm" name="qty[]" type="number" value="{{ $item->pivot->qty }}" ></td>
-                    <td> <input class="input rounded-sm" name="price[]" type="number" value="{{ $item->pivot->price}}"/></td>
-                    <td> <input class="input rounded-sm" name="amount[]" type="number" value="{{ $item->pivot->amount}}"/></td>
+                    <td> <x-input class="input rounded-sm" name="qty[]" type="number" value="{{ $item->pivot->qty }}" /></td>
+                    <td> <x-input class="input rounded-sm" name="price[]" type="number" value="{{ $item->pivot->price}}"/></td>
+                    <td> <x-input class="input rounded-sm" name="amount[]" type="number" value="{{ $item->pivot->amount}}"/></td>
 
                     <td>
 
@@ -216,7 +216,7 @@
                     <td>
                         <input class="input rounded-sm" type="hidden" x-model="field.id"/>
                         {{--<input class="input rounded-sm" type="text" x-model="field.service"/>--}}
-                        <select name="services[]" class="input rounded-sm">
+                        <x-select name="services[]" class="input rounded-sm">
                             <option value="">-- choose service --</option>
                             @foreach ($services as $service)
 
@@ -225,11 +225,11 @@
                                     {{ $service->name }} (${{ number_format($service->price, 2) }})
                                 </option>
                             @endforeach
-                        </select>
+                        </x-select>
                     </td>
-                    <td> <input class="input rounded-sm" name="qty[]" type="number" x-model="field.quantity"/></td>
-                    <td> <input class="input rounded-sm" name="price[]" type="number" x-model="field.price"/></td>
-                    <td> <input class="input rounded-sm" name="amount[]" type="number" x-model="field.amount"/></td>
+                    <td> <x-input class="input rounded-sm" name="qty[]" type="number" x-model="field.quantity"/></td>
+                    <td> <x-input class="input rounded-sm" name="price[]" type="number" x-model="field.price"/></td>
+                    <td> <x-input class="input rounded-sm" name="amount[]" type="number" x-model="field.amount"/></td>
 
                     <td>
                         {{--<button type="button" class="bg-red-600 px-4 py-2 rounded-full text-xl text-white "--}}
