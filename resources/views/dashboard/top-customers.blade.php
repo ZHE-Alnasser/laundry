@@ -2,7 +2,7 @@
 
     {{--<x-card>--}}
     <div class=" m-5 flex-1">
-        <h2 class="text-gray-800 font-bold">{{__('Top Customers')}}</h2>
+        <h2 class="text-gray-800 font-bold">{{__('Most Purchased Customers')}}</h2>
         <hr class="my-5">
         {{--<div class="row">--}}
         <table class=" text-gray-600 w-full using-font col-11 mx-2">
@@ -18,9 +18,10 @@
 
             {{--@foreach ($users as $user)--}}
             @foreach ($topCustomers as $user)
-                <tr>
 
-                    <td>{{$user->name}}</td>
+                <tr class=" border-b">
+                    <td class="text-center py-3"><span>
+                            {{$user->name}}</span></td>
 
                     <td> {{$user->customer_orders_count}}</td>
 

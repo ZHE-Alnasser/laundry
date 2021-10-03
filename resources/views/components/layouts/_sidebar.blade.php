@@ -46,7 +46,7 @@
     {{--<div class="flex flex-col w-full md:w-64 text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0">--}}
         {{--<nav class="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">--}}
 
-        <div class="bg-white pb-3  rounded-lg">
+        <div class="bg-white pb-3  ">
 
                 <button class="flex-row text-gray-500 cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent
         rounded bg-transparent block md:hidden outline-none focus:outline-none mr-2"

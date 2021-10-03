@@ -3,7 +3,7 @@
     <h2 class="text-gray-800 font-bold">{{__('Latest 10 Orders')}}</h2>
         <hr class="my-5">
     <div>
-        <div id="chart" style="min-height: 237.981px;"> <apexchart type="line" width="380" hight="300" :options="chartOptions" :series="series"></apexchart> </div>
+        <div id="chart" style="min-height: 237.981px;"> <apexchart  type="line" width="380" hight="100" :options="chartOptions" :series="series"></apexchart> </div>
     </div>
     </div>
 </div>
@@ -21,9 +21,11 @@
 
 
                 @endphp
+
         var options = {
                 chart: {
-                    type: 'line'
+                    type: 'area',
+                    height: 250
                 },
                 series: [{
                     name: 'orders',
@@ -31,7 +33,10 @@
                 }],
                 xaxis: {
                     categories: [1,2,3,4,5,6,7,8,9,10]
-                }
+                },
+                    stroke: {
+                        curve: 'straight',
+                    }
             }
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
