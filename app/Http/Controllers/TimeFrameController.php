@@ -9,7 +9,7 @@ class TimeFrameController extends Controller
 {
     function __construct()
     {
-        $this->addMiddlewaresFor('TimeFrames');
+//        $this->addMiddlewaresFor('TimeFrames');
         $this->middleware('auth');
     }
 
@@ -35,7 +35,7 @@ class TimeFrameController extends Controller
         TimeFrame::create($data);
 
 
-        return redirect('timeframes/manage')
+        return redirect('settings')
             ->with('success', 'Your TimeFrames has been created successfully');
     }
 
@@ -57,7 +57,7 @@ class TimeFrameController extends Controller
     {
 
         $timeframe->update($request->all());
-        return redirect('timeframes/manage');
+        return redirect('settings');
     }
 
 

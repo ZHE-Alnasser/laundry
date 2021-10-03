@@ -79,7 +79,7 @@ class OrderController extends Controller
             'agent_pickup_date' => 'nullable',
             'agent_delivery_date' => 'nullable',
 //            'time' => ['required','integer','between:7,21'],
-            'time_frame_name' => 'required',
+            'time_frame_id' => 'required',
 //            'agent_deliver $this->validate($request,y_date'=>'nullable',
 //                'item_id.*' => 'required',
 //                'service_id.*' => 'required',
