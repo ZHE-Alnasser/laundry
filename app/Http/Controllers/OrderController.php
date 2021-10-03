@@ -277,7 +277,7 @@ class OrderController extends Controller
             'requested_delivery_date' => 'nullable',
             'agent_pickup_date' => 'nullable',
             'agent_delivery_date' => 'nullable',
-            'time_frame_name' => 'required',
+            'time_frame_id' => 'required',
 
         ]);
         $order->update($data);
