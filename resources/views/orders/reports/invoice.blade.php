@@ -18,7 +18,10 @@
 <div class="bg-white">
 
     <h2 class="text-center">{{setting('company_name')}}</h2>
+    <h2 class="text-center">{{setting('company_address_1')}}</h2>
+
     <div class="vat justify-center flex "><p class="px-1">{{__('VAT Number').__(':')}}</p><p>{{setting('vat_number')}}</p></div>
+
     <div class="col ">
 
         @if($order->total)
@@ -119,7 +122,7 @@
 
         </table>
 
-        <table class="table text-center table-bordered table-condensed using-font col-4 mx-2 mt-5">
+        <table class="table text-center table-bordered table-condensed using-font col-6 mx-2 mt-5">
             {{--<thead class="bg-light">--}}
             {{--<th>@lang('الاجمالي')</th>--}}
 
