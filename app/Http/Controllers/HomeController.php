@@ -20,6 +20,9 @@ class HomeController extends Controller
 
         $orders = Order::whereMonth('created_at',\Carbon\Carbon::now()->month)
             ->orderBy('total','desc')->paginate(30);
+// group by customer
+
+        // $latestOrders = Order::latest()->take(10);
 //  $orders = Order::whereWeek('created_at',\Carbon\Carbon::now()->week())
 //            ->orderBy('total','desc')->paginate(7);
 

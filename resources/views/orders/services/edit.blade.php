@@ -221,11 +221,11 @@
                             @foreach ($services as $service)
 
 
-                                <option value="{{$service->id}}">
+                                <option x-price="{{number_format($service->price, 2)}}" value="{{$service->id}}">
                                     {{ $service->name }} (${{ number_format($service->price, 2) }})
                                 </option>
                             @endforeach
-                        </select> </td>
+                        </select>
                     </td>
                     <td> <input class="input rounded-sm" name="qty[]" type="number" x-model="field.quantity"/></td>
                     <td> <input class="input rounded-sm" name="price[]" type="number" x-model="field.price"/></td>
@@ -258,7 +258,7 @@
             <tbody>
             <tr>
                 <th class="text-center"><p>{{__('Sub Total')}}</p></th>
-                <td class="text-center"><input value="{{$order->sub_total}}" type="number" name='sub_total' placeholder='0.00' class="input rounded-sm" id="sub_total" readonly/></td>
+                <td class="text-center"><input value="{{$order->sub_total}}" type="number" name='sub_total' placeholder='0.00' class="input rounded-sm" id="sub_total" /></td>
             </tr>
             <tr>
                 <th class="text-center"><p>{{__('VAT')}}</p></th>
@@ -269,11 +269,11 @@
             </tr>
             <tr>
                 <th class="text-center"><p>{{__('Vat Amount')}}</p></th>
-                <td class="text-center"><input value="{{$order->vat}}" type="number" name='vat' id="vat" placeholder='0.00' class="input rounded-sm" readonly/></td>
+                <td class="text-center"><input value="{{$order->vat}}" type="number" name='vat' id="vat" placeholder='0.00' class="input rounded-sm" /></td>
             </tr>
             <tr>
                 <th class="text-center"><p>{{__('Grand Total')}}</p></th>
-                <td class="text-center"><input type="number" value="{{$order->total}}" name='total' id="total" placeholder='0.00' class="input rounded-sm" readonly/></td>
+                <td class="text-center"><input type="number" value="{{$order->total}}" name='total' id="total" placeholder='0.00' class="input rounded-sm" /></td>
             </tr>
             </tbody>
         </table>
@@ -291,6 +291,7 @@
             service: '',
             price: 0,
             quantity:1,
+            total:0,
 
             fields: [
                 // {id: 0, service: 'service', price: 0, amount: 9}
@@ -313,7 +314,7 @@
 
             ],
 
-            addNewField() {
+            addNewField(field) {
                 this.fields.push({
                     id: this.id++,
                     service: '',
@@ -346,7 +347,7 @@
 
             calculatePayments(calValue = 0)
             {
-                this.total_amount = this.items.reduce((n, {total}) => n + total, 0);
+                this.total = this.fields.reduce((n, {total}) => n + total, 0);
                 this.paid = calValue;
 
                 this.change = Math.round(((this.paid - this.total_amount) + Number.EPSILON) * 100) / 100;

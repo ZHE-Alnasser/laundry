@@ -1,17 +1,12 @@
 @props(['name'])
 
-<div class=tab" x-data="{
-        id: '',
-        name: '{{ $name }}',
-        show: false,
-        showIfActive(active) {
-            this.show = (this.name === active);
-        }
-    }"
-     x-show="show"
-     role="tabpanel"
-     :aria-labelledby="`tab-${id}`"
-     :id="`tab-panel-${id}`"
+<div
+        x-ref="{{$name}}"
+        x-show="activeTab == $el.getAttribute('x-ref')"
+        role="tabpanel"
+        :aria-labelledby="`tab-${$el.getAttribute('x-ref')}`"
+        :id="`tab-panel-${$el.getAttribute('x-ref')}`"
+        class="h-full"
 >
     {{ $slot }}
 </div>

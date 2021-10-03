@@ -100,6 +100,7 @@
                     <div class="w-full mx-2 flex-1">
                         <label>{{__('Time Frame Name')}}</label>
                         <div >
+
                             <x-input name="time_frame_name" :value="setting('time_frame_name')" class="input"/>
                         </div>
                     </div>
@@ -165,3 +166,7 @@
     document.getElementById("default-tab").click();
 
 </script>
+
+
+
+
