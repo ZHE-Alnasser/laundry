@@ -10,6 +10,8 @@
             </svg>
             <span>{{__('Create')}}</span>
         </a>
+        <div>
         @livewire('time-frames-datatable')
+        </div>
     </div>
 </x-tab>
