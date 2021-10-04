@@ -45,8 +45,8 @@
 @yield('content')
 
 <x-layouts._footer/>
-<script src="{{ mix('js/app.js') }}" defer></script>
-<script src="path/to/dist/feather.js"></script>
+{{--<script src="{{ mix('js/app.js') }}" defer></script>--}}
+{{--<script src="path/to/dist/feather.js"></script>--}}
 
 {{--@yield('content')--}}
 @stack('modals')

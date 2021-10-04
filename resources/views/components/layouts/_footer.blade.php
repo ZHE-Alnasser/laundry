@@ -5,10 +5,10 @@
     </div>
 </footer>
 
-<script src="{{ mix('js/app.js') }}"></script>
-<script>
-    feather.replace()
-</script>
-
 @livewireScripts
+<script src="{{ mix('js/app.js') }}"></script>
+{{--<script>--}}
+{{--    feather.replace()--}}
+{{--</script>--}}
+
 @stack('scripts')
