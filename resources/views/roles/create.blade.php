@@ -1,4 +1,5 @@
-<x-layouts.admin>
+<x-layouts.app>
+    <x-card>
     <h1>{{__('Create').' '.__('role')}}</h1>
     <x-feedback/>
     <div class="sm:mx-3 text-right">
@@ -43,4 +44,5 @@
             </div>
         </x-form>
     </div>
-</x-layouts.admin>
+    </x-card>
+</x-layouts.app>

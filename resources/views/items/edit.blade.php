@@ -1,5 +1,5 @@
-<x-layouts.admin>
-    {{--<x-card>--}}
+<x-layouts.app>
+    <x-card>
     <x-feedback/>
     <div class="w-full">
         <div class="mt-8 p-4">
@@ -49,5 +49,5 @@
             </div>
         </div>
     </div>
-    {{--</x-card>--}}
-</x-layouts.admin>
+    </x-card>
+</x-layouts.app>

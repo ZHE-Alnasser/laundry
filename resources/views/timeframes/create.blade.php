@@ -1,5 +1,6 @@
-<x-layouts.admin>
+<x-layouts.app>
     <x-feedback/>
+    <x-card>
     <h1 class="px-6">{{__('Create').' '.__('Time Frames')}}</h1>
 
     <div class="mt-6 px-6 py-4 overflow-hidden ">
@@ -22,6 +23,7 @@
             </div>
         </x-form>
     </div>
-</x-layouts.admin>
+    </x-card>
+</x-layouts.app>
 
 

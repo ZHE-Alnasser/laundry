@@ -1,12 +1,12 @@
-<x-layouts.admin>
-    {{--<x-card>--}}
+<x-layouts.app>
+    <x-card>
         <x-feedback/>
         <div class="w-full">
             <div class="mt-8 p-4">
                 <div>
                     <x-form action="{{ route('users.update',['user'=>$user->id]) }} " method="PUT">
                         @csrf
-                        {{--@method('PUT')--}}
+
 
                         <div class="flex flex-col md:flex-row">
                             <div class="w-full mx-2 mt-5 flex-1">
@@ -15,11 +15,7 @@
                                     <x-input required name="name" value="{{$user->name}}" class="input"/>
                                 </div>
                             </div>
-                            {{--<div class="w-full mx-2 mt-5 flex-1">--}}
-                                {{--<label>{{__('Last Name')}}</label>--}}
-                                {{--<div class="divUser">--}}
-                                    {{--<x-input name="last_name" value="{{$user->last_name}}" class="input"/></div>--}}
-                            {{--</div>--}}
+
                         </div>
 
                         <div class="flex flex-col md:flex-row">
@@ -45,7 +41,8 @@
                                         @endforeach
                                     </x-select>
                             </div>
-
+                            </div>
+                        </div>
                             <div class="flex flex-col md:flex-row">
                                 <div class="w-full mt-5 flex-1">
                                     <label>{{__('Type')}}<span class="text-red-600"> *</span></label>
@@ -114,9 +111,11 @@
                             <input type="button" class="btn-cancel"
                                    name="cancel" value="{{__('Cancel')}}" onClick="window.location.replace('/users/manage')"/>
                         </div>
+
+
                     </x-form>
                 </div>
             </div>
         </div>
-    {{--</x-card>--}}
-</x-layouts.admin>
+    </x-card>
+</x-layouts.app>

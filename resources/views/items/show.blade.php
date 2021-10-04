@@ -1,5 +1,5 @@
 <x-layouts.app>
-    {{--<x-card>--}}
+    <x-card>
     {{--@section('content')--}}
 
     <div class="lg:p-6 pl-3">
@@ -14,7 +14,7 @@
     <h1 class="mt-3 text-4xl">{{$item->name}}</h1>
 
     {{--@endsection--}}
-    {{--</x-card>--}}
+    </x-card>
 </x-layouts.app>
 
 
