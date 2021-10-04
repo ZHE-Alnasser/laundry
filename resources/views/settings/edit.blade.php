@@ -8,7 +8,7 @@
             @include('settings.partials.general')
 
             </x-tabs>
-            <button type="submit" class="btn mt-8">{{__('Edit')}}</button>
+            <button class="btn mt-8">{{__('Edit')}}</button>
 
         </x-form>
     </x-card>

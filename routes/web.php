@@ -45,8 +45,7 @@ Route::get('orders/reports/invoice/{order}', [App\Http\Controllers\OrderControll
 
 Route::get('settings', [App\Http\Controllers\SettingController::class, 'index'])->name('settings.index');
 Route::post('settings', [App\Http\Controllers\SettingController::class, 'update'])->name('settings.update');
-//Route::get(config('app_settings.url'), config('app_settings.controller').'@index');
-//Route::post(config('app_settings.url'), config('app_settings.controller').'@store');
+
 Route::get('/roles/manage', [App\Http\Controllers\RoleController::class, 'manage']);
 Route::resource('roles', RoleController::class);
 
