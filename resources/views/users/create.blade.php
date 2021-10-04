@@ -1,6 +1,7 @@
 <x-layouts.app>
-    <x-feedback/>
+
     <x-card>
+        {{--<x-feedback/>--}}
     <h1 class="px-6">{{__('Create').' '.__('User')}}</h1>
 
     <div class="  mt-6 px-6 py-4 overflow-hidden ">
@@ -40,6 +41,26 @@
             </x-select>
             </div>
             <div class="mt-5">
+                <label>{{__('Longitude')}}</label>
+                <x-input class="input" name="longitude" value="{{ old('longitude') }}"/>
+            </div>
+            <div class="mt-5">
+                <label>{{__('Latitude')}}<span class="text-red-600"> *</span></label>
+                <x-input class="input" name="latitude" value="{{ old('latitude') }}"/>
+            </div>
+            <div class="mt-5 inline-flex items-center space-x-4 form-group {{ $errors->has('is_active') ? 'has-error' : '' }}">
+                <input name="is_active" type="hidden" value="0">
+            <input type="checkbox" class="checkbox checkbox-accent" id="is_active" name="is_active"
+                   >
+            <p class="flex-1 text-s font-medium text-gray-600 "> {{__('Approved')}}</p>
+            @if($errors->has('is_active'))
+                <p class="help-block">
+                    {{ $errors->first('is_active') }}
+                </p>
+        @endif
+    </div>
+
+        <div class="mt-5">
             <label>{{ __('Password') }}<span class="text-red-600"> *</span></label>
                 <x-input id="password" class="input" type="password" name="password" required
                              autocomplete="new-password"/>

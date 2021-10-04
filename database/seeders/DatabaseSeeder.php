@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingSeeder::class);
         $this->call(TimeFrameSeeder::class);
         $this->call(PermissionSeeder::class);
+        $this->call(RoleSeeder::class);
 
         \App\Models\User::factory(10)->create();
         \App\Models\Service::factory(10)->create();

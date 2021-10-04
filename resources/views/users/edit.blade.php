@@ -59,9 +59,25 @@
                                         {{--<x-input name="address_2"  value="{{$user->address_2}}" class="input"/></div>--}}
                                 </div>
 
-
-
-
+                        </div>
+                        <div class="mt-5">
+                            <label>{{__('Longitude')}}<span class="text-red-600"> *</span></label>
+                            <x-input required class="input" name="longitude" value="{{$user->longitude}}"/>
+                        </div>
+                        <div class="mt-5">
+                            <label>{{__('Latitude')}}<span class="text-red-600"> *</span></label>
+                            <x-input required class="input" name="latitude" value="{{$user->latitude}}"/>
+                        </div>
+                        <div class="mt-5 inline-flex items-center space-x-4 form-group {{ $errors->has('is_active') ? 'has-error' : '' }}">
+                            <input name="is_active" type="hidden" value="0">
+                            <input type="checkbox" class="checkbox checkbox-accent" id="is_active" name="is_active"
+                                   value="1"{{ (isset($user) && $user->is_active) || old('is_active', 0) === 1 ? 'checked' : '' }}>
+                            <p class="flex-1 text-s font-medium text-gray-600 "> {{__('Approved')}}</p>
+                            @if($errors->has('is_active'))
+                                <p class="help-block">
+                                    {{ $errors->first('is_active') }}
+                                </p>
+                            @endif
                         </div>
 
                         {{--<div class="inline-flex items-center space-x-4 p-5">--}}
@@ -78,7 +94,20 @@
                             {{--</div>--}}
 
                         {{--</div>--}}
-                                <div class="form-group {{ $errors->has('role_id') ? 'has-error' : '' }}">
+                        <div class="mt-5">
+                            <label>{{ __('Password') }}<span class="text-red-600"> *</span></label>
+                            <x-input id="password" class="input" type="password" name="password" required
+                                     autocomplete="new-password"/>
+
+                        </div>
+                        <div class="mt-5">
+                            <label>{{ __('Confirm Password') }}<span class="text-red-600"> *</span></label>
+                            <x-input id="password_confirmation" class="input" type="password"
+                                     name="password_confirmation" required autocomplete="new-password"/>
+                        </div>
+
+
+                        <div class="form-group {{ $errors->has('role_id') ? 'has-error' : '' }}">
                                     <table class="table border w-full mt-8">
                                         <thead>
                                         <tr class="text-center">

@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->string('discount')->nullable();
             $table->set('payment',['cash','card','transfer'])->nullable();
             $table->boolean('is_done')->default(false);
+            $table->boolean('deliver')->default(false);
             $table->integer('process')->default(0);
             $table->string('time_frame_id');
             $table->integer('pickup_agent_id')->nullable();

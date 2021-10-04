@@ -57,17 +57,20 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'type_id' => ['required', 'string', 'max:255'],
             'district_id'=>'nullable','string', 'max:255',
+            'longitude' => 'required',
+            'latitude' => 'required',
             'phone' =>['required', 'digits:10'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
         ])->validate();
 
         request()->merge(['password' => Hash::make($request['password'])]);
+        request()->merge(['is_active' => $request->is_active == 'on' ? true : false]);
 
         $user=User::create(
             request()
-                ->only( 'name',  'district_id','password','email', 'password',
-                    'type_id','phone'));
+                ->only( 'name',  'district_id','password','longitude','latitude','email', 'password',
+                    'type_id','phone','is_active'));
         $roles = request()->validate([
             'role_id' => 'nullable',
         ]);
@@ -107,7 +110,9 @@ class UserController extends Controller
                 'type_id' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'email', 'max:255'],
                 'district_id'=>'nullable','string', 'max:255',
-//                'is_active' => 'required',
+                'longitude' => 'required',
+                'latitude' => 'required',
+                'is_active' => 'required',
             ])->validateWithBag('updateProfileInformation');
 
         if (isset($request['photo'])) {
@@ -123,7 +128,9 @@ class UserController extends Controller
                 'email' => $request['email'],
                 'type_id'=>$request['type_id'],
                 'district_id' => $request['district_id'],
-//                'is_active' => $request['is_active'],
+                'longitude' => $request['longitude'],
+                'latitude' => $request['latitude'],
+                'is_active' => $request['is_active'],
             ])->save();
 
             $roles = request()->validate([
@@ -132,11 +139,11 @@ class UserController extends Controller
             $user->syncRoles($roles);
         }
 
-        if($request->is_active === '1')
-        {
-            Notification::route('mail', $request->email)
-                ->notify(new Approve($user));
-        }
+//        if($request->is_active === '1')
+//        {
+//            Notification::route('mail', $request->email)
+//                ->notify(new Approve($user));
+//        }
         return redirect('/users/manage')->withSuccess(__('User Has Been Updated'));
 
     }

@@ -19,6 +19,9 @@ class CreateUsersTable extends Migration
             $table->integer('district_id')->unsigned()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('longitude')->nullable();
+            $table->string('latitude')->nullable();
+            $table->boolean('is_active')->default(false);
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
