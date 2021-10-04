@@ -3,7 +3,8 @@
     <h2 class="text-gray-800 font-bold">{{__('Latest 10 Orders')}}</h2>
         <hr class="my-5">
     <div>
-        <div id="chart" style="min-height: 237.981px;"> <apexchart  type="line" width="380" hight="100" :options="chartOptions" :series="series"></apexchart> </div>
+        <div id="chart" style="min-height: 237.981px;">
+            <apexchart  type="line" width="380" hight="100" :options="chartOptions" :series="series"></apexchart> </div>
     </div>
     </div>
 </div>
