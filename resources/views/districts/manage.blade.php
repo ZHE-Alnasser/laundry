@@ -1,4 +1,5 @@
-<x-layouts.admin >
+<x-layouts.app >
+    <x-card>
     <div class="flex justify-between mb-5 flex-row mt-5">
     <a class="btn inline-flex mb-2 justify-center items-center" href="{{"/districts/create"}}">
         <svg class="w-6 h-6 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -20,6 +21,6 @@
 
         @livewire('districts-datatable')
     </div>
-
-</x-layouts.admin>
+    </x-card>
+</x-layouts.app>
 

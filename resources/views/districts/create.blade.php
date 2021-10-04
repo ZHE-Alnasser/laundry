@@ -1,4 +1,5 @@
-<x-layouts.admin>
+<x-layouts.app>
+    <x-card>
     <x-feedback/>
     <h1 class="px-6">{{__('Create').' '.__('Districts')}}</h1>
 
@@ -29,6 +30,8 @@
             </div>
         </x-form>
     </div>
-</x-layouts.admin>
+
+</x-card>
+</x-layouts.app>
 
 

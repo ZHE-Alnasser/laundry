@@ -1,5 +1,7 @@
-<x-layouts.admin>
+<x-layouts.app>
+    <x-card>
     <x-feedback/>
+
     <h1 class="mb-10 text-center text-xl">{{$role->name}}</h1>
     <div class="text-right">
 
@@ -44,4 +46,5 @@
             </div>
         </x-form>
     </div>
-</x-layouts.admin>
+    </x-card>
+</x-layouts.app>

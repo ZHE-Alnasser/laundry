@@ -1,12 +1,12 @@
-@extends('components.layouts.base')
+{{--@extends('components.layouts.base')--}}
 
 {{--@section('header')--}}
-<x-layouts._header/>
+{{--<x-layouts._header/>--}}
 {{--@endsection--}}
 
-@push('styles')
-    @bukStyles(true)
-@endpush
+{{--@push('styles')--}}
+    {{--@bukStyles(true)--}}
+{{--@endpush--}}
 
 {{--@push('scripts')--}}
 {{--@bukScripts(true)--}}
@@ -16,20 +16,46 @@
 {{--</script>--}}
 {{--@endpush--}}
 
-@section('content')
-    <div class="flex flex-col sm:flex-row md:flex-row ">
+{{--@section('content')--}}
+    {{--<div class="flex flex-col sm:flex-row md:flex-row ">--}}
+        {{--<div>--}}
+            {{--<x-layouts._sidebar/>--}}
+        {{--</div>--}}
+        {{--<div class="flex-grow m-2">--}}
+            {{--<x-card>--}}
+                {{--@yield('content')--}}
+                {{--{{$slot??''}}--}}
+            {{--</x-card>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+
+{{--@endsection--}}
+
+<x-layouts.base>
+    <div class="flex flex-col sm:flex-row md:flex-row " >
         <div>
             <x-layouts._sidebar/>
         </div>
-        <div class="flex-grow m-2">
-            {{--<x-card>--}}
+
+        <div class="flex-grow">
+            <x-layouts._header/>
+            <div class="p-2 sm:p-5">
+                {{--                {{ isset($breadcrumbs)??Breadcrumbs::render($breadcrumbs) }}--}}
+                {{--                {{ Breadcrumbs::render() }}--}}
+
+                {{--                <x-card>--}}
+                <x-feedback/>
                 @yield('content')
                 {{$slot??''}}
-            {{--</x-card>--}}
+                {{--                </x-card>--}}
+            </div>
         </div>
     </div>
 
-@endsection
+    <x-layouts._footer/>
+</x-layouts.base>
+{{--@endsection--}}
+
 
 
 

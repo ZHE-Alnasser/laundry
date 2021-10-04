@@ -1,5 +1,5 @@
-<x-layouts.admin>
-    {{--<x-card>--}}
+<x-layouts.add>
+    <x-card>
     <x-feedback/>
 
 
@@ -219,5 +219,5 @@
         </div>
         </div>
     </div>
-    {{--</x-card>--}}
-</x-layouts.admin>
+    </x-card>
+</x-layouts.add>
