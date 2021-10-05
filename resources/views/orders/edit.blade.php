@@ -1,4 +1,4 @@
-<x-layouts.add>
+<x-layouts.app>
     <x-card>
     <x-feedback/>
 
@@ -14,10 +14,10 @@
 
                     <x-select required class="ml-4 select  " name="employee_id" id="employees" >
                         @foreach($employees as $employee)
-                            {{--@dd($customer)--}}
+
 
                             <option {{ $order->employee_id==$employee->id?'selected':''}} value="{{$employee->id}}">{{$employee->name }}</option>
-                            {{--<option  value="{{$employee->id}}">{{ $employee->name }}</option>--}}
+                      #
                         @endforeach
                     </x-select>
                     </div>
@@ -26,53 +26,36 @@
 
                     <x-select required class="ml-4 select  " name="customer_id" id="customers" >
                         @foreach($customers as $customer)
-                            {{--@dd($customer)--}}
+
 
                             <option {{ $order->customer_id==$customer->id?'selected':''}} value="{{$customer->id}}">{{$customer->name }}</option>
-                            {{--<option  value="{{$customer->id}}">{{ $customer->name }}</option>--}}
+
                         @endforeach
                     </x-select>
                       </div>
                     </div>
 
+
+                    <div class="mx-2 flex mt-5">
+                        <input type="checkbox" class="checkbox checkbox-accent" id="delivery" name="delivery"
+                               value="1"{{ (isset($order) && $order->delivery) || old('delivery', 0) === 1 ? 'checked' : '' }} >
+                        <p class="flex-1 text-s mx-2 font-medium text-gray-600 "> {{__('Delivery')}}</p>
+                    </div>
+
                     <div class="mx-2 mt-8">
                         <p>{{__('Time Frame')}} :<span class="text-red-600"> *</span></p>
-                        {{--<x-select class="mx-2 ml-4 select  " name="time_frame_id" id="time_frame_id" >--}}
-                            {{--@foreach($timeframes as $time)--}}
-                                {{--@dd($customer)--}}
 
-                                {{--<option  {{ $order->time_frame_id==$time->id?'selected':''}} value="{{$time->id}}">{{ $time->name }}</option>--}}
-                            {{--@endforeach--}}
-                        {{--</x-select>--}}
                         <x-select required class="ml-4 select  " name="time_frame_id" id="time_frame_id" >
                             @foreach($timeframes as $time)
-                            {{--@dd($customer)--}}
-{{--@dd($order->time_frame_name,setting('time_frame_name'))--}}
+
                             <option  {{  $order->time_frame_id == $time->id ?'selected':''}} value="{{$time->id}}">{{$time->name}} {{$time->description}}</option>
-                            {{--<option  {{  $order->time_frame_name}}  {{$order->time_frame_description =setting('time_frame_name')?'selected':''}} :value="time_frame_name">{{setting('time_frame_name')}} {{setting('time_frame_description')}}</option>--}}
+
                             @endforeach
                         </x-select>
                     </div>
-                   {{--<div class="mx-40">--}}
-                        {{--<div class="flex flex-col md:flex-row">--}}
-                            {{--<div class="w-full mx-2 flex-1">--}}
-                                {{--<label>{{__('Service Name')}}</label>--}}
-                                {{--<div >--}}
-                                    {{--<x-input name="service_id" value="{{$services->name}}" class="input"/>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="flex flex-col mt-4 md:flex-row">--}}
-                            {{--<div class="w-full mx-2 flex-1">--}}
-                                {{--<label>{{__('Item Name')}}</label>--}}
 
-                                {{--<select name="item_id" class="input"  id="item_id">--}}
-                                    {{--@foreach($items as $item )--}}
-                                        {{--<option {{$services->item_id==$item->id?'selected':''}} value="{{$item->id}}">{{ $item->name }} </option>--}}
-                                    {{--@endforeach--}}
-                                {{--</select>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
+
+
                     <div class=" sm:flex  w-full mt-8">
                         <div class="mx-2 flex-col w-full">
 
@@ -220,4 +203,4 @@
         </div>
     </div>
     </x-card>
-</x-layouts.add>
+</x-layouts.app>

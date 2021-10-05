@@ -71,6 +71,13 @@
                 </x-select>
             </div>
 </div>
+
+
+            <div class="mx-2 flex mt-5">
+                <input type="checkbox" class="checkbox checkbox-accent" id="delivery" name="delivery"
+                >
+                <p class="flex-1 text-s mx-2 font-medium text-gray-600 "> {{__('Delivery')}}</p>
+            </div>
             <div class="mx-2 mt-5">
             <p>{{__('Time Frame')}} :<span class="text-red-600"> *</span></p>
                 <x-select required class="ml-4 select  " name="time_frame_id" id="time_frame_id" >
@@ -81,6 +88,8 @@
                     @endforeach
                 </x-select>
             </div>
+
+
     <div class=" sm:flex w-full mt-5">
         <div class="mx-2 flex-col w-full">
 
@@ -124,28 +133,12 @@
                      class="input"/>
 
 
-            {{--<x-input--}}
-                    {{--name="serviceOrders[1]['service_id']"--}}
-                    {{--type="text"  class="input"/>--}}
-            {{--<input name="serviceOrders[{1}]['order_id']" type="number"  class="input"/>--}}
-            {{--<input name="serviceOrders[{1}][{1}]['service_id']" type="number"  class="input"/>--}}
-            {{--<x-input name="serviceOrders[{1}][{1}]['item_id']" type="number"  class="input"/>--}}
-            {{--<x-input name="serviceOrders[{1}][{1}]['quantity']`" type="number"  class="input"/>--}}
-            {{--<x-input name="serviceOrders[{1}][{1}]['amount']`" type="number"  class="input"/>--}}
 
         </div>
 
 
     </div>
 
-
-    {{--<script>--}}
-        {{--flatpickr('#requested_pickup_date')--}}
-        {{--flatpickr('#agent_pickup_date')--}}
-        {{--flatpickr('#requested_delivery_date')--}}
-        {{--flatpickr('#agent_delivery_date')--}}
-
-    {{--</script>--}}
 
 
     <label class="label  mt-5">{{__('Payment Method')}}<span class="text-red-600"> *</span></label>
@@ -198,12 +191,7 @@
             </x-select>
         </div>
     </div>
-    {{--<label>{{__('Pick Up Time Frame')}}</label>--}}
-     {{--<p>{{__('please Indicate the time in hour between 7 and 21')}}</p>--}}
-    {{--<x-input type="number" name="time"  class="input"/>--}}
 
-    {{--<label>{{__('price')}}<span class="text-red-600"> *</span></label>--}}
-            {{--<x-input class="input" name="price" type="text" value="{{ old('price') }}" />--}}
 
 <div>
 @include('orders.services.create')
