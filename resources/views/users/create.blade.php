@@ -11,13 +11,9 @@
             <label>{{__('Name')}}<span class="text-red-600"> *</span></label>
             <x-input required class="input" name="name" value="{{ old('name') }}"/>
             </div>
-            {{--<div class="mt-5">--}}
-            {{--<label>{{__('Last Name')}}<span class="text-red-600"> *</span></label>--}}
-            {{--<x-input class="input " name="last_name" value="{{ old('last_name') }}"/>--}}
-            {{--</div>--}}
+
             <div class="mt-5">
            <div><label>{{__('Type')}}</label><span class="text-red-600"> *</span></div>
-                {{--<x-input class="w-full" name="item_id" value="{{ old('item_id') }}" placeholder="{{__('item')}}"/>--}}
             <x-select required name="type_id" id="type_id" class="select">
                 @foreach($types as $type )
                     <option value="{{$type->id}}">{{ $type->name }} </option>
@@ -50,7 +46,7 @@
             </div>
             <div class="mt-5 inline-flex items-center space-x-4 form-group {{ $errors->has('is_active') ? 'has-error' : '' }}">
                 <input name="is_active" type="hidden" value="0">
-            <input type="checkbox" class="checkbox checkbox-accent" id="is_active" name="is_active"
+            <input type="checkbox" class="checkbox checkbox-primary" id="is_active" name="is_active"
                    >
             <p class="flex-1 text-s font-medium text-gray-600 "> {{__('Approved')}}</p>
             @if($errors->has('is_active'))

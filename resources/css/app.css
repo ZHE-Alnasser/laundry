@@ -28,7 +28,7 @@
     }
 
     h1 {
-        color:#2CCEC2;
+        color:#42CDFE;
         @apply text-2xl  font-tajawal;
     }
     h2 {
@@ -78,7 +78,7 @@ input{
 }
 .links:focus{
     /*color: #2563eb;*/
-    color: #2CCEC2;
+    color: #42CDFE;
     @apply  outline-none  ring-offset-2 rounded-lg;
 }
 .links:hover{
@@ -90,14 +90,14 @@ input{
 
 .btn {
     /*color: #eb9d00;*/
-    background: #2CCEC2;
-    border-color:#2CCEC2;
+    background: #42CDFE;
+    border-color:#42CDFE;
     /*@apply rounded-2xl;*/
 }
 .btn:hover {
     /*color: #eb9d00;*/
-    background: #29a095;
-    border-color:#29a095;
+    background: #0485c4;
+    border-color:#0485c4;
     /*@apply btn-primary;*/
 }
 
@@ -158,20 +158,20 @@ input{
 /*@apply  bg-base-300;*/
 /*}*/
 .side-items{
-    color: #1d6076;
+    color: #0485c4;
     @apply flex items-center mt-2 py-2 px-2 border-l-4 border-white
 }
 
 .side-items.active{
     /*@apply flex items-center mt-1 py-2 px-8 bg-gray-200 text-primary-focus border-l-4 border-gray-700*/
-    color: #29a095;
-    border-color: #29a095;
-    @apply bg-blue-100  ;
+    color: #0485c4;
+    border-color: #0485c4;
+    @apply bg-blue-100;
 }
 .side-items:hover{
-    color: #29a095;
-    border-color: #29a095;
-    @apply bg-blue-100 ;
+    color: #0485c4;
+    border-color: #0485c4;
+    @apply bg-blue-100;
 }
 
 .side-text{
@@ -207,29 +207,30 @@ input{
 
 /*}*/
 .text-color{
-    color:#1d6076;
+    color:#0485c4;
 }
 .card-text{
     text-align: end;
-    color:#1d6076;
+    color:#0485c4;
 }
 .card{
     @apply bg-white text-white overflow-hidden p-5 no-underline hover:no-underline shadow-lg rounded-lg;
 }
 .bg-card-1{
-    color: #2CCEC2;
+
+    color: #fe7342;
     opacity: 80%;
 }
 .bg-card-2{
-    color: #c22cce;
+    color: #fe42cd;
     opacity: 80%;
 
 }
 .bg-card-3{
-    color: #52CAF5;
+    color: #42CDFE;
     opacity: 80%;
 }
 .bg-card-4{
-    color: #38ce2c;
+    color: #42fe73;
     opacity: 80%;
 }
