@@ -155,7 +155,13 @@
   "Add User": "اضافة مستخدم",
   "Add Item":"اضافة منتج",
   "Admin": "مشرف",
-  "Delivery": "توصيل"
+  "Delivery": "توصيل",
+  "VAT Rate": "قيمة الضريبة",
+  "Report": "تقرير",
+  "Report VAT": "تقرير الضريبة المضافة",
+  "Reports": "التقارير",
+  "Report Orders Per Month": "تقرير الطلبات حسب الشهر",
+  "Orders Per Month": " الطلبات حسب الشهر"
 
 
 }

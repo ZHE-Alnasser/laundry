@@ -42,6 +42,8 @@ Route::resource('timeframes', App\Http\Controllers\TimeFrameController::class);
 Route::get('/orders/manage', [App\Http\Controllers\OrderController::class, 'manage'])->name('/orders.manage');
 Route::resource('orders', App\Http\Controllers\OrderController::class);
 Route::get('orders/reports/invoice/{order}', [App\Http\Controllers\OrderController::class, 'invoice']);
+Route::get('orders/reports/vat', [App\Http\Controllers\OrderController::class, 'vat']);
+Route::get('orders/reports/per-month', [App\Http\Controllers\OrderController::class, 'perMonth']);
 
 Route::get('settings', [App\Http\Controllers\SettingController::class, 'index'])->name('settings.index');
 Route::post('settings', [App\Http\Controllers\SettingController::class, 'update'])->name('settings.update');

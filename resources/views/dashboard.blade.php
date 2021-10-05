@@ -15,7 +15,7 @@
                     {{--<img src="{{asset('img/logo.png')}}" alt="logo" class="w-20 m-1">--}}
                 </a>
                 <div class="lg:visible invisible flex">
-                    <h2 class=" mx-10 text-center text-3xl">{{__('Welcome')}}</h2>
+                    <h2 class=" px-8 text-center text-3xl">{{__('Welcome')}}</h2>
                     <p class="mt-2">{{$name}}</p>
 
                 </div>
