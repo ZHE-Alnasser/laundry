@@ -36,6 +36,12 @@ Route::resource('cities', App\Http\Controllers\CityController::class);
 Route::get('/districts/manage', [App\Http\Controllers\DistrictController::class, 'manage'])->name('/districts.manage');
 Route::resource('districts', App\Http\Controllers\DistrictController::class);
 
+Route::get('/branches/manage', [App\Http\Controllers\BranchController::class, 'manage'])->name('/branches.manage');
+Route::resource('branches', App\Http\Controllers\BranchController::class);
+
+Route::get('/expenses/manage', [App\Http\Controllers\ExpenseController::class, 'manage'])->name('/expenses.manage');
+Route::resource('expenses', App\Http\Controllers\ExpenseController::class);
+
 Route::get('/timeframes/manage', [App\Http\Controllers\TimeFrameController::class, 'manage'])->name('/time-frames.manage');
 Route::resource('timeframes', App\Http\Controllers\TimeFrameController::class);
 

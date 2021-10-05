@@ -208,6 +208,11 @@ return [
         'allow_selling_out_of_stock'=>'السماح بالبيع عند عدم وجود المنتج',
         'port'=>'المنفذ',
         'server'=>'السيرفر',
-        'service'=>'الخدمة'
+        'service'=>'الخدمة',
+        'expense'=>'المصروف',
+        'branch'=>'فرع',
+        'Item'=>'المنتج'
+
+
     ],
 ];

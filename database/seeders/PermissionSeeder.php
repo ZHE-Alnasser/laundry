@@ -27,11 +27,9 @@ class PermissionSeeder extends Seeder
                 ['group' => __('Districts'), 'name' => 'Districts'],
                 ['group' => __('Cities'), 'name' => 'Cities'],
                 ['group' => __('Settings'), 'name' => 'Settings'],
-//                ['group' => __('Universities'), 'name' => 'Universities'],
-//                ['group' => __('Majors'), 'name' => 'Majors'],
-//                ['group' => __('Links'), 'name' => 'Links'],
-//                ['group' => __('Roles'), 'name' => 'Roles'],
-//                ['group' => __('Users'), 'name' => 'Users'],
+                ['group' => __('Branches'), 'name' => 'Branches'],
+                ['group' => __('Expenses'), 'name' => 'Expenses'],
+
         ];
 
 

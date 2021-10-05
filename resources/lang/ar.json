@@ -161,7 +161,12 @@
   "Report VAT": "تقرير الضريبة المضافة",
   "Reports": "التقارير",
   "Report Orders Per Month": "تقرير الطلبات حسب الشهر",
-  "Orders Per Month": " الطلبات حسب الشهر"
+  "Orders Per Month": " الطلبات حسب الشهر",
+  "Branch Address": "عنوان الفرع",
+  "Expenses": "المصروفات",
+  "Expense Name": "اسم المصروف",
+  "Branches": "الفروع",
+  "Address": "العنوان"
 
 
 }
