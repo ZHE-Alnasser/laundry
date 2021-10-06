@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\District;
+use App\Models\Item;
 use App\Models\TimeFrame;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -14,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-         \App\Models\Item::factory(10)->create();
+//         \App\Models\Item::factory(10)->create();
 //         \App\Models\Service::factory(5)->create();
 
         $this->call(CitySeeder::class);
@@ -26,9 +27,11 @@ class DatabaseSeeder extends Seeder
         $this->call(TimeFrameSeeder::class);
         $this->call(PermissionSeeder::class);
         $this->call(RoleSeeder::class);
+        $this->call(ItemSeeder::class);
+        $this->call(ServiceSeeder::class);
 
         \App\Models\User::factory(10)->create();
-        \App\Models\Service::factory(10)->create();
+//        \App\Models\Service::factory(10)->create();
 
     }
 }

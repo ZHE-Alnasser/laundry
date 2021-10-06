@@ -41,8 +41,8 @@ class ServicesDatatable extends LivewireDatatable
             Column::name('description')->label(__('Description'))->searchable(),
 
 
-            Column::callback(['slug', 'name'], function ($slug) {
-                return view('components.table-actions',['url' => url("services/$slug"), 'model' => 'Services']);
+            Column::callback(['id', 'name'], function ($id) {
+                return view('components.table-actions',['url' => url("services/$id"), 'model' => 'Services']);
 //                return view('components\table-actions', ['id' => $id, 'name' => $name]);
             })
         ];
