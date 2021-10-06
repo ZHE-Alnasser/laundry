@@ -3,7 +3,6 @@
 @import 'tailwindcss/utilities';
 
 
-/*@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@700&display=swap');*/
 
 @import "flatpickr/dist/flatpickr";
 
@@ -63,21 +62,16 @@ input{
     color:#0f0f0f !important;
 }
 .navbar-expand-lg{
-    /*background: #0caef8;*/
+
     background: white;
 }
-.links-color{
-    /*background-color: white;*/
-}
-/*.hover-color{*/
-/*background-color: aliceblue;*/
-/*}*/
+
 .links
 {
     @apply  lg:px-5 py-3 flex items-center text-gray-600 uppercase font-bold  hover:opacity-75;
 }
 .links:focus{
-    /*color: #2563eb;*/
+
     color: #42CDFE;
     @apply  outline-none  ring-offset-2 rounded-lg;
 }
@@ -89,16 +83,16 @@ input{
 
 
 .btn {
-    /*color: #eb9d00;*/
+
     background: #42CDFE;
     border-color:#42CDFE;
-    /*@apply rounded-2xl;*/
+
 }
 .btn:hover {
-    /*color: #eb9d00;*/
+
     background: #0485c4;
     border-color:#0485c4;
-    /*@apply btn-primary;*/
+
 }
 
 
@@ -145,25 +139,14 @@ input{
     @apply input-bordered mt-1 border-opacity-0;
 }
 
-/*.side-items{*/
-/*font-weight: 500;*/
-/*@apply flex items-center mt-2 mx-3 py-2 px-8 bg-base-200  font-tajawal border-white text-primary  rounded-lg*/
-/*}*/
 
-/*.side-items:hover {*/
-/*--tw-border-opacity: 0.2;*/
-/*@apply bg-base-300 text-primary-focus;*/
-/*}*/
-/*.side-items:active{*/
-/*@apply  bg-base-300;*/
-/*}*/
 .side-items{
     color: #0485c4;
     @apply flex items-center mt-2 py-2 px-2 border-l-4 border-white
 }
 
 .side-items.active{
-    /*@apply flex items-center mt-1 py-2 px-8 bg-gray-200 text-primary-focus border-l-4 border-gray-700*/
+
     color: #0485c4;
     border-color: #0485c4;
     @apply bg-blue-100;
@@ -195,17 +178,7 @@ input{
     padding-left: 150px;
 }
 
-/*.card{*/
-/*--tw-border-opacity: 0.1 !important;*/
-/*padding:20px;*/
-/*border-color: #1d6076;*/
-/*!*@apply border-gray-600 border-2 rounded-xl*!*/
-/*@apply lg:m-2 mb-3 px-10*/
-/*}*/
-/*.card:hover{*/
-/*background: rgba(29, 96, 118, 0.56);*/
 
-/*}*/
 .text-color{
     color:#0485c4;
 }
@@ -214,23 +187,30 @@ input{
     color:#0485c4;
 }
 .card{
-    @apply bg-white text-white overflow-hidden p-5 no-underline hover:no-underline shadow-lg rounded-lg;
+    @apply bg-white text-white overflow-hidden  p-5 no-underline hover:no-underline shadow-lg rounded-lg;
 }
 .bg-card-1{
 
     color: #fe7342;
     opacity: 80%;
+    padding-left:60px;
+    padding-right: 60px;
 }
 .bg-card-2{
     color: #fe42cd;
     opacity: 80%;
-
+    padding-left:60px;
+    padding-right: 60px;
 }
 .bg-card-3{
     color: #42CDFE;
     opacity: 80%;
+    padding-left:60px;
+    padding-right: 60px;
 }
 .bg-card-4{
     color: #42fe73;
     opacity: 80%;
+    padding-left:60px;
+    padding-right: 60px;
 }
