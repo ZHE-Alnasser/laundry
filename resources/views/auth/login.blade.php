@@ -56,8 +56,9 @@
     <section class="flex flex-col md:flex-row h-screen items-center">
 
         <div class="bg-blue-600 hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
-            <img src="https://images.unsplash.com/photo-1444313431167-e7921088a9d3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1441&q=100"
+            {{--<img src="https://images.unsplash.com/photo-1444313431167-e7921088a9d3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1441&q=100"--}}
             {{--<img src="https://www.freepik.com/premium-photo/front-view-pile-laundry_6436890.htm"--}}
+            <img src="/img/pile-laundry.jpg"
                  alt="" class="w-full h-full object-cover">
         </div>
 
