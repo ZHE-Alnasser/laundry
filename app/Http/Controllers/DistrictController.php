@@ -45,7 +45,7 @@ class DistrictController extends Controller
 
 
         return redirect('districts/manage')
-            ->with('success', 'Your Services has been created successfully');
+            ->with('success', __('Your District has been created successfully'));
     }
 
 

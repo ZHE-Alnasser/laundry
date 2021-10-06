@@ -39,7 +39,7 @@ class CategoryController extends Controller
 
 
         return redirect('categories/manage')
-            ->with('success', 'Your Services has been created successfully');
+            ->with('success', __('Your Category has been created successfully'));
 
     }
 

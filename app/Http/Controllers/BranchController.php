@@ -39,7 +39,7 @@ class BranchController extends Controller
 
 
         return redirect('branches/manage')
-            ->with('success', 'Your Branch has been created successfully');
+            ->with('success', __('Your Branch has been created successfully'));
     }
 
 

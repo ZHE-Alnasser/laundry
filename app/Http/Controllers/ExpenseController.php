@@ -40,7 +40,7 @@ class ExpenseController extends Controller
 
 
         return redirect('expenses/manage')
-            ->with('success', 'Your Expenses has been created successfully');
+            ->with('success', __('Your Expense has been created successfully'));
     }
 
 

@@ -10,7 +10,7 @@
                 <x-input required class="input" name="name" value="{{ old('name') }}"/>
                 <div class="mt-5">
                 <label>{{__('Amount')}}<span class="text-red-600" > *</span></label>
-                <x-input required class="input" name="amount" value="{{ old('amount') }}"/>
+                <x-input required class="input" type="number" name="amount" value="{{ old('amount') }}"/>
                 </div>
                 <div class="flex mt-8">
                     <button type='submit' class="btn ml-3">{{__('Create')}}</button>

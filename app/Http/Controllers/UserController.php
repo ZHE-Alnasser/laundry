@@ -76,11 +76,8 @@ class UserController extends Controller
             'role_id' => 'nullable',
         ]);
         $user->syncRoles($roles);
-//        if($request->sms) {
-//            Notifier::sendSMS($request->message, $request->users);
-//            return redirect('notifications')->withMessage(__('Sent Successfully'));
-//        }
-        return redirect('/users/manage')->withSuccess(__('Sent Successfully'));
+
+        return redirect('/users/manage')->withSuccess(__('Your User has been created successfully'));
     }
 
 

@@ -43,7 +43,7 @@ class ItemController extends Controller
 
 
         return redirect('items/manage')
-            ->with('success', 'Your Item has been created successfully');
+            ->with('success', __('Your Item has been created successfully'));
     }
 
 

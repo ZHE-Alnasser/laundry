@@ -39,7 +39,7 @@ class CityController extends Controller
 
 
         return redirect('cities/manage')
-            ->with('success', 'Your Services has been created successfully');
+            ->with('success', __('Your City has been created successfully'));
 
     }
 

@@ -43,7 +43,7 @@ class ServiceController extends Controller
 
 
         return redirect('services/manage')
-            ->with('success', 'Your Services has been created successfully');
+            ->with('success', __('Your Service has been created successfully'));
     }
 
 

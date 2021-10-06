@@ -34,11 +34,7 @@ class RoleController extends Controller
         return view('roles.manage');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
 
@@ -49,12 +45,7 @@ class RoleController extends Controller
         return view('roles.create', compact('role', 'PermissionGroup','rolePermissions'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -70,26 +61,15 @@ class RoleController extends Controller
         $role->syncPermissions($permissions);
 
         return redirect('roles/manage')
-            ->with('success', 'Your Role has been created successfully');
+            ->with('success', __('Your Role has been created successfully'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  Role  $role
-     * @return \Illuminate\Http\Response
-     */
     public function show(Role $role)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  Role  $role
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Role $role)
     {
         $PermissionGroup = Permission::all()->groupBy('group');
@@ -97,13 +77,7 @@ class RoleController extends Controller
         return view('roles.edit', compact('role', 'PermissionGroup', 'rolePermissions'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int  Role  $role
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Role $role)
     {
         $data = $request->validate([
@@ -123,12 +97,7 @@ class RoleController extends Controller
         return redirect('roles/manage');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  Role  $role
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Role $role)
     {
 

@@ -171,7 +171,19 @@
   "Category": "القسم",
   "category": "قسم",
   "Categories":"اللأقسام",
-  "Category Name": "اسم القسم"
-
-
+  "Category Name": "اسم القسم",
+  "Your Service has been created successfully": "تم انشاء الخدمة بنجاح",
+  "Your Item has been created successfully": "تم انشاء المنتج بنجاح",
+  "Your Order has been created successfully": "تم انشاء الطلب بنجاح",
+  "Your Branch has been created successfully": "تم انشاء الفرع بنجاح",
+  "Your Category has been created successfully": "تم انشاء القسم بنجاح",
+  "Your City has been created successfully": "تم انشاء المدينة بنجاح",
+  "Your District has been created successfully": "تم انشاء الحي بنجاح",
+  "Your Expense has been created successfully": "تم انشاء المصروف بنجاح",
+  "Your Time Frame has been created successfully": "تم انشاء جدول التوصيل بنجاح",
+  "Your User has been created successfully": "تم انشاء المستخدم بنجاح",
+  "Your Role has been created successfully": "تم انشاء الصلاحية بنجاح",
+  "Sent Successfully": "تم الإرسال بنجاح",
+  "Transfer": "تحويل",
+  ":name has been updated successfully": "تم تعديل :name بنجاح"
 }
