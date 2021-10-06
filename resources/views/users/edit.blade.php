@@ -45,11 +45,11 @@
                         </div>
                             <div class="flex flex-col md:flex-row">
                                 <div class="w-full mt-5 flex-1">
-                                    <label>{{__('Type')}}<span class="text-red-600"> *</span></label>
+                                    <label>{{__('Category')}}<span class="text-red-600"> *</span></label>
                                     <div class="divUser">
-                                        <x-select required name="type_id" class="input"  id="type_id">
-                                            @foreach($types as $type )
-                                                <option {{$user->type_id==$type->id?'selected':''}} value="{{$type->id}}">{{ $type->name }} </option>
+                                        <x-select required name="category_id" class="input"  id="category_id">
+                                            @foreach($categories as $category )
+                                                <option {{$user->category_id==$category->id?'selected':''}} value="{{$category->id}}">{{ $category->name }} </option>
                                             @endforeach
                                         </x-select></div>
 

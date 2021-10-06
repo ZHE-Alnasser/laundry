@@ -13,10 +13,10 @@
             </div>
 
             <div class="mt-5">
-           <div><label>{{__('Type')}}</label><span class="text-red-600"> *</span></div>
-            <x-select required name="type_id" id="type_id" class="select">
-                @foreach($types as $type )
-                    <option value="{{$type->id}}">{{ $type->name }} </option>
+           <div><label>{{__('Category')}}</label><span class="text-red-600"> *</span></div>
+            <x-select required name="category_id" id="category_id" class="select">
+                @foreach($categories as $category )
+                    <option value="{{$category->id}}">{{ $category->name }} </option>
                 @endforeach
             </x-select>
             </div>

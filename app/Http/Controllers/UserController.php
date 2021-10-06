@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\District;
 use App\Models\Role;
 use App\Models\Type;
@@ -46,8 +47,8 @@ class UserController extends Controller
     {
         $roles = Role::all();
         $districts=District::all();
-        $types =Type::all();
-        return view('/users/create',compact('types','roles','districts'));
+        $categories =Category::all();
+        return view('/users/create',compact('categories','roles','districts'));
     }
 
     public function store(Request $request)
@@ -55,7 +56,7 @@ class UserController extends Controller
 
         Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
-            'type_id' => ['required', 'string', 'max:255'],
+            'category_id' => ['required', 'string', 'max:255'],
             'district_id'=>'nullable','string', 'max:255',
             'longitude' => 'required',
             'latitude' => 'required',
@@ -70,7 +71,7 @@ class UserController extends Controller
         $user=User::create(
             request()
                 ->only( 'name',  'district_id','password','longitude','latitude','email', 'password',
-                    'type_id','phone','is_active'));
+                    'category_id','phone','is_active'));
         $roles = request()->validate([
             'role_id' => 'nullable',
         ]);
@@ -94,8 +95,8 @@ class UserController extends Controller
         $roles = Role::all();
         $userRoles = $user->roles()->pluck('id')->toArray();
         $districts= District::all();
-        $types=Type::all();
-        return view('users.edit', compact('user','userRoles','roles','types','districts'));
+        $categories=Category::all();
+        return view('users.edit', compact('user','userRoles','roles','categories','districts'));
 
     }
 
@@ -107,7 +108,7 @@ class UserController extends Controller
             [
                 'name' => ['required', 'string', 'max:255'],
                 'phone' => ['required', 'string', 'max:255'],
-                'type_id' => ['required', 'string', 'max:255'],
+                'category_id' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'email', 'max:255'],
                 'district_id'=>'nullable','string', 'max:255',
                 'longitude' => 'required',
@@ -126,7 +127,7 @@ class UserController extends Controller
                 'name' => $request['name'],
                 'phone' => $request['phone'],
                 'email' => $request['email'],
-                'type_id'=>$request['type_id'],
+                'category_id'=>$request['category_id'],
                 'district_id' => $request['district_id'],
                 'longitude' => $request['longitude'],
                 'latitude' => $request['latitude'],

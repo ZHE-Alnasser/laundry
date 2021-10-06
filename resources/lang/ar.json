@@ -166,7 +166,12 @@
   "Expenses": "المصروفات",
   "Expense Name": "اسم المصروف",
   "Branches": "الفروع",
-  "Address": "العنوان"
+  "Address": "العنوان",
+  "Manage Categories": "ادارة اللأقسام",
+  "Category": "القسم",
+  "category": "قسم",
+  "Categories":"اللأقسام",
+  "Category Name": "اسم القسم"
 
 
 }

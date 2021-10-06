@@ -4,16 +4,16 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class TypeSeeder extends Seeder
+class CategorySeeder extends Seeder
 {
 
     public function run()
     {
-        $types =[
+        $items =[
             ['name'=> __('Customer')],
             ['name'=> __('Employee')],
 //            ['name'=>__('agent')],
         ];
-        \DB::table('types')->insert($types);
+        \DB::table('categories')->insert($items);
     }
 }

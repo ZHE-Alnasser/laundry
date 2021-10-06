@@ -2,15 +2,15 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Type;
+use App\Models\Category;
 use Livewire\Component;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\NumberColumn;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 
-class TypeDatatable extends LivewireDatatable
+class CategoryDatatable extends LivewireDatatable
 {
-    public $model = Type::class;
+    public $model = Category::class;
 
     public $hideable = 'inline';
     public $exportable = true;
@@ -18,7 +18,7 @@ class TypeDatatable extends LivewireDatatable
 
     public function builder()
     {
-        return Type::query();
+        return Category::query();
     }
 
     public function columns()
@@ -31,7 +31,7 @@ Column::name('name')->label(__('Name'))->searchable(),
 
 
 Column::callback(['id', 'name'], function ($id,$name) {
-    return view('components.table-actions',['url' => url("types/$id"), 'model' => 'Types','id' => $id, 'name' => $name]);
+    return view('components.table-actions',['url' => url("categories/$id"), 'model' => 'Categories','id' => $id, 'name' => $name]);
 //                return view('components\table-actions', ['id' => $id, 'name' => $name]);
 })
 ];
