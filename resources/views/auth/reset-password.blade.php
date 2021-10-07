@@ -1,5 +1,3 @@
-@dd('here')
-
 <x-layouts.public>
     <x-jet-authentication-card>
         <x-slot name="logo">

@@ -30,10 +30,10 @@
              x-transition:leave-start="opacity-100"
              x-transition:leave-end ="opacity-0 scale-90">
        <div class="mx-2 mt-1 border-b">
-           <a class="text-sm z-40" href="{{'orders/reports/vat'}}">{{__('VAT')}}</a>
+           <a class="text-sm z-40" href="{{'/orders/reports/vat'}}">{{__('VAT')}}</a>
        </div>
             <div class="mx-1 mb-2 mt-2">
-           <a class="text-sm z-40" href="{{'orders/reports/per-month'}}">{{__('Orders Per Month')}}</a>
+           <a class="text-sm z-40" href="{{'/orders/reports/per-month'}}">{{__('Orders Per Month')}}</a>
        </div>
 
         </div>

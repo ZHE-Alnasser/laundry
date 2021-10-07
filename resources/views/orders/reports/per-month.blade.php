@@ -1,15 +1,15 @@
 
 <x-layouts.app>
     <x-card>
-        <div class="w-1/2 m-5 flex-1">
+        <div class=" m-5 flex-1">
             <h3 class="text-3xl text-gray-800 font-bold">{{__('Report Orders Per Month')}}</h3>
             <hr class="my-5">
             <div class="row">
-                <table class="table table-bordered table-condensed using-font col-11 mx-2">
-                    <thead class="bg-light">
+                <table class="text-gray-600 w-full using-font col-11 mx-2">
+                    <thead class="bg-gray-100">
 
-                    <th>@lang('Date')</th>
-                    <th>@lang('Amount')</th>
+                    <th class="py-3">@lang('Date')</th>
+                    <th class="py-3">@lang('Amount')</th>
 
 
                     </thead>
@@ -17,9 +17,9 @@
 
                     @foreach ($orders as $order)
 
-                        <tr>
-                            <td> {{$order->month}} /{{$order->year}}</td>
-                            <td> {{$order->total_orders}}</td>
+                        <tr class=" border-b">
+                            <td class="text-center py-3"> {{$order->month}} /{{$order->year}}</td>
+                            <td class="text-center py-3"> {{$order->total_orders}}</td>
 
                         </tr>
 
