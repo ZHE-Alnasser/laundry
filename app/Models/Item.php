@@ -36,6 +36,11 @@ use InteractsWithMedia;
 
 
     }
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('items');
+    }
+
 //    public function services()
 //    {
 //        return $this->hasMany(Service::class);

@@ -2089,36 +2089,31 @@ html {
 	display: inline-flex;
 	flex-direction: row;
 }
-.menu.horizontal li {
+.menu.horizontal :where(li) {
 	flex-direction: row;
 }
-.menu li {
+.menu :where(li) {
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
 }
-.menu li>a,.menu li>span {
+.menu :where(li)>a,.menu :where(li)>span {
 	display: flex;
 	align-items: center;
 	transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;
 	transition-duration: .15s;
 	transition-duration: .2s;
 	transition-timing-function: cubic-bezier(.4,0,.2,1);
-	padding: .75rem 1.25rem;
-	color: currentColor;
 }
-.menu li>a {
+.menu :where(li)>a {
 	cursor: pointer;
 }
-.menu li>a:focus {
+.menu :where(li)>a:focus {
 	outline: 2px solid transparent;
 	outline-offset: 2px;
 }
-.menu li.disabled>a,.menu li.disabled>span {
+.menu :where(li).disabled>a,.menu :where(li).disabled>span {
 	cursor: auto;
-	--tw-text-opacity: 1;
-	--tw-text-opacity: 0.2;
-	color: hsla(var(--bc)/var(--tw-text-opacity,1));
 }
 .modal {
 	display: flex;
@@ -2772,6 +2767,10 @@ html {
 .menu[class*=p-] li a {
 	border-radius: var(--rounded-btn,.5rem);
 }
+.menu li>a,.menu li>span {
+	padding: .75rem 1.25rem;
+	color: currentColor;
+}
 .menu li>a:focus,.menu li>a:hover {
 	--tw-bg-opacity: 1;
 	--tw-bg-opacity: 0.1;
@@ -2791,6 +2790,11 @@ html {
 }
 .menu li.disabled>a:hover,.menu li.disabled>span:hover {
 	background-color: transparent;
+}
+.menu li.disabled>a,.menu li.disabled>span {
+	--tw-text-opacity: 1;
+	--tw-text-opacity: 0.2;
+	color: hsla(var(--bc)/var(--tw-text-opacity,1));
 }
 .menu li.bordered a,.menu li.bordered span {
 	--tw-border-opacity: 1;
@@ -3518,11 +3522,11 @@ html {
 .w-9 {
 	width: 2.25rem;
 }
-.w-1\/2 {
-	width: 50%;
-}
 .w-screen {
 	width: 100vw;
+}
+.w-1\/2 {
+	width: 50%;
 }
 .min-w-0 {
 	min-width: 0px;
@@ -5978,26 +5982,26 @@ input{
 
     color: #fe7342;
     opacity: 80%;
-    padding-left:60px;
-    padding-right: 60px;
+    /*padding-left:60px;*/
+    /*padding-right: 60px;*/
 }
 .bg-card-2{
     color: #fe42cd;
     opacity: 80%;
-    padding-left:60px;
-    padding-right: 60px;
+    /*padding-left:60px;*/
+    /*padding-right: 60px;*/
 }
 .bg-card-3{
     color: #42CDFE;
     opacity: 80%;
-    padding-left:60px;
-    padding-right: 60px;
+    /*padding-left:60px;*/
+    /*padding-right: 60px;*/
 }
 .bg-card-4{
     color: #42fe73;
     opacity: 80%;
-    padding-left:60px;
-    padding-right: 60px;
+    /*padding-left:60px;*/
+    /*padding-right: 60px;*/
 }
 .focus-within\:z-10:focus-within {
 	z-index: 10;
