@@ -66,7 +66,8 @@ class HomeController extends Controller
             ->orderBy('orders_count', 'desc')->paginate(5);
 //
 
-        $thisMonth = Order::whereMonth('created_at',\Carbon\Carbon::now()->subMonth()->month)->sum('total');
+//        $thisMonth = Order::whereMonth('created_at',\Carbon\Carbon::now()->subMonth()->month)->sum('total');
+        $thisMonth = Order::whereMonth('created_at', \Carbon\Carbon::now()->month)->sum('total');
         $name = auth()->user()->name;
 
         return view('/dashboard', compact('name','orders','today','thisMonth','services','todayCustomers','thisYear','latestOrders','topCustomers'));
