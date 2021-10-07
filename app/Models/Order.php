@@ -20,6 +20,18 @@ class Order extends Model
     {
         return $this->belongsToMany(Service::class)->withPivot('qty', 'price', 'amount');
     }
+
+    public function branches()
+    {
+        return $this->belongsTo(Branch::class);
+    }
+
+  public function categories()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+
     public function customer()
     {
         return $this->belongsTo(User::class, 'customer_id')

@@ -28,6 +28,8 @@ class ExpenseDatatable extends LivewireDatatable
 
             Column::name('name')->searchable()->label(__('Name')),
             Column::name('amount')->searchable()->label(__('Amount')),
+            Column::name('date')->searchable()->label(__('Date')),
+            Column::name('branch_id')->searchable()->label(__('Branch')),
 
 
 

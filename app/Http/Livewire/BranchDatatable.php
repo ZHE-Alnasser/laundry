@@ -26,6 +26,7 @@ class BranchDatatable extends LivewireDatatable
         return [
             NumberColumn::name('id')->label(__('#')),
 
+            Column::name('name')->searchable()->label(__('Name')),
             Column::name('address')->searchable()->label(__('Address')),
             Column::name('phone')->searchable()->label(__('Phone')),
 

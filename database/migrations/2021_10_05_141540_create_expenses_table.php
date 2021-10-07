@@ -13,6 +13,9 @@ class CreateExpensesTable extends Migration
             $table->id();
             $table->string('name');
             $table->double('amount');
+            $table->date('date');
+            $table->foreignId('branch_id')->nullable();
+            $table->foreignId('category_id')->nullable();
             $table->timestamps();
         });
     }

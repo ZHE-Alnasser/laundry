@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branch;
+use App\Models\Category;
 use App\Models\Expense;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,8 @@ class ExpenseController extends Controller
 
     public function manage()
     {
-        return view('expenses.manage');
+        $branches=Branch::all();
+        return view('expenses.manage',compact('branches'));
     }
     public function index()
     {
@@ -25,7 +28,9 @@ class ExpenseController extends Controller
 
     public function create()
     {
-        return view('expenses/create');
+        $categories=Category::all();
+        $branches=Branch::all();
+        return view('expenses/create',compact('branches','categories'));
     }
 
 
@@ -34,8 +39,12 @@ class ExpenseController extends Controller
         $data = $this->validate($request, [
             'name' => 'required',
             'amount' => 'required',
+            'date' => 'required',
+            'branch_id'=>'nullable',
+            'category_id'=>'nullable'
 
         ]);
+
          Expense::create($data);
 
 
@@ -52,7 +61,9 @@ class ExpenseController extends Controller
    
     public function edit(Expense $expense)
     {
-        return view ('expenses/edit',compact('expense'));
+        $categories=Category::all();
+        $branches=Branch::all();
+        return view ('expenses/edit',compact('expense','branches','categories'));
     }
 
 

@@ -187,7 +187,10 @@
   "Transfer": "تحويل",
   ":name has been updated successfully": "تم تعديل :name بنجاح",
   "Log in to your account": "تسجيل الدخول إلى حسابك",
-  "There's Nothing to show at the moment": "لا يوجد شيء لعرضه في الوقت الحالي"
+  "There's Nothing to show at the moment": "لا يوجد شيء لعرضه في الوقت الحالي",
+  "Exchange Date": "تاريخ الصرف",
+  "Branch Name": "اسم الفرع",
+  "Branch": "الفرع"
 
 
 

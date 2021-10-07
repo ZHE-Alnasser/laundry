@@ -9,6 +9,15 @@
 
                         <div class="flex flex-col md:flex-row">
                             <div class="w-full sm:mx-10 flex-1">
+                                <label>{{__('Branch Name')}}<span class="text-red-600"> *</span></label>
+                                <div >
+                                    <x-input required  name="name" value="{{$branch->name}}" class="input"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row mt-5">
+                            <div class="w-full sm:mx-10 flex-1">
                                 <label>{{__('Branch Address')}}<span class="text-red-600"> *</span></label>
                                 <div >
                                     <x-input required  name="address" value="{{$branch->address}}" class="input"/>

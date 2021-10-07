@@ -1,6 +1,6 @@
 <x-layouts.app >
     <x-card>
-
+        <div class="flex justify-between mb-5 flex-row mt-5">
         <a class="btn inline-flex mb-2 justify-center expenses-center" href="{{"/expenses/create"}}">
             <svg class="w-6 h-6 ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -12,8 +12,14 @@
             <span>{{__('Create')}}</span>
         </a>
 
+        <x-dropdown-manage>
+            <div class="mx-1 mb-2 mt-2">
+                <a class="text-sm z-40" href="{{'/categories'}}">{{__('Manage Categories')}}</a>
+            </div>
+        </x-dropdown-manage>
+        </div>
+        {{--</div>--}}
         <div>
-
             @livewire('expense-datatable')
         </div>
 

@@ -13,7 +13,8 @@ class CreateOrdersTable extends Migration
             $table->id()->from(random_int(1000,5465));
             $table->foreignId('customer_id')->nullable();
             $table->foreignId('employee_id')->nullable();
-            $table->foreignId('type_id')->nullable();
+            $table->foreignId('category_id')->nullable();
+            $table->foreignId('branch_id')->nullable();
             $table->float('vat')->nullable();
             $table->float('sub_total')->nullable();
             $table->float('total')->nullable();
