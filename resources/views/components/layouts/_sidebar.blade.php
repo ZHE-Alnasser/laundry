@@ -1,5 +1,5 @@
 
-    <script src="https://unpkg.com/feather-icons"></script>
+
 
     <div id="sidebar" class="">
     <div class="md:flex flex-col md:flex-row md:min-h-screen w-full">

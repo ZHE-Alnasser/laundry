@@ -60,9 +60,15 @@ class ItemController extends Controller
 
     public function update(Request $request, Item $item)
     {
-        $item->update($request->all());
+        dd($request);
+        $data = request()->validate([
+            'name' => 'required',
+
+        ]);
+        $item->update($data);
+
         if ($request->hasFile('image')) {
-            $item->media()->delete();
+            $item->media()->delete($this);
             $item->addMediaFromRequest('image')->toMediaCollection('items');
         }
         return redirect('items/manage');

@@ -1,5 +1,6 @@
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
-    <x-layouts.app>
+<x-layouts.app>
 
         <div class="w-full  mx-auto flex flex-grow items-center justify-between mt-0 ">
             {{--<button id="nav-toggle"--}}
@@ -32,13 +33,14 @@
 
 
         <div class="sm:flex mx-2 mt-5">
-
+            {{--<script src="https://unpkg.com/feather-icons"></script>--}}
         <div class="mx-auto mb-3">
             <div class="card bg-card-1">
                 <h2 class="mx-1  mb-2">{{__('Total Customers')}}</h2>
-                <div class="mb-2 mx-10 text-center">
+                <div class="flex mb-2 mx-10 text-center">
                 <span class="text-2xl" >{{$todayCustomers}}</span>
-                    <i data-feather="users" class="mb-2 ml-1"></i>
+                    <i data-feather="users" class="mx-2"></i>
+                    {{--<img src="{{asset('img/svg/dollar.svg')}}">--}}
                 </div>
                 <div class="card-text"> <h3 >{{__('Today')}}</h3></div>
             </div></div>
@@ -47,7 +49,7 @@
                  <h2 class="mx-1  mb-2">{{__('Total Orders')}}</h2>
                  <div class="mb-2 mx-10 text-center">
                  <span class="text-2xl">{{$today}}</span>
-                     <i data-feather="dollar-sign" class="mb-2 ml-1"></i>
+                     <i data-feather="dollar-sign" class=" mb-2 mx-2"></i>
                  </div>
                  <div class="card-text"><h3 >{{__('Today')}}</h3></div>
 
@@ -86,7 +88,6 @@
     <div class="sm:w-1/3 m-5 sm:flex-1">@include('dashboard.top-items')</div>
 
         </div>
-
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     </x-layouts.app>
 
