@@ -14,10 +14,8 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Models\Order;
 
-class OrderDatatable extends LivewireDatatable
-{
-
-    public $model = Order::class;
+class DeliveryDatatable extends LivewireDatatable
+{  public $model = Order::class;
 
     public $hideable = 'inline';
     public $exportable = true;
@@ -26,8 +24,8 @@ class OrderDatatable extends LivewireDatatable
 
     public function builder()
     {
-        return Order::query()->with('users');
-//        return Order::query()->where('process','1');
+//        return Order::query()->with('users');
+        return Order::query()->where('process','3');
 
 
     }
@@ -48,7 +46,7 @@ class OrderDatatable extends LivewireDatatable
                 return __('process_'.$process);
             })->searchable()->label(__('Process')),
             Column::callback(['time_frame_id'], function ($timeframe) {
-        return optional(TimeFrame::find($timeframe))->name;
+                return optional(TimeFrame::find($timeframe))->name;
             })->searchable()->label(__('Time Period')),
 //            DateColumn::name('created_at')->label(__('Created at'))->searchable(),
 
