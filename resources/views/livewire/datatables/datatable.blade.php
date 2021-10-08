@@ -16,7 +16,8 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                         </div>
-                        <p><input wire:model.debounce.500ms="search" class="form-input block bg-gray-50 focus:bg-white w-full rounded-md pl-10 transition ease-in-out duration-150 sm:text-sm sm:leading-5 py-2 px-8" placeholder="{{__('Search')}}" /></p>
+                        {{--<p><input wire:model.debounce.500ms="search" class="form-input block bg-gray-50 focus:bg-white w-full rounded-md pl-10 transition ease-in-out duration-150 sm:text-sm sm:leading-5 py-2 px-8" placeholder="{{__('Search')}}" /></p>--}}
+                        <input wire:model.debounce.500ms="search" class="form-input block bg-gray-50 focus:bg-white w-full rounded-md pr-10 transition ease-in-out duration-150 sm:text-sm sm:leading-5 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="{{__('Search in').' '. $this->searchableColumns()->map->label->join(', ') }}" />
                         <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
                             <button wire:click="$set('search', null)" class="text-gray-300 hover:text-red-600 focus:outline-none">
                                 <x-icons.x-circle class="h-5 w-5 stroke-current" />
