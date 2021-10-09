@@ -32,44 +32,44 @@
         </div>
 
 
-        <div class="sm:flex mx-2 mt-5">
+        <div class="sm:flex mx-5 sm:mx-0 mt-5">
             {{--<script src="https://unpkg.com/feather-icons"></script>--}}
-        <div class="mx-auto mb-3">
+        <div class="mx-auto cart mb-3">
             <div class="card bg-card-1">
                 <h2 class="mx-1  mb-2">{{__('Total Customers')}}</h2>
-                <div class="flex mb-2 mx-10 text-center">
-                <span class="text-2xl" >{{$todayCustomers}}</span>
-                    <i data-feather="users" class="mx-2"></i>
+                <div class="flex mb-2 justify-center text-center">
+                <span class="text-2xl mx-2" >{{$todayCustomers}}</span>
+                    <i data-feather="users" class="mb-2 ml-1"></i>
                     {{--<img src="{{asset('img/svg/dollar.svg')}}">--}}
                 </div>
                 <div class="card-text"> <h3 >{{__('Today')}}</h3></div>
             </div></div>
-         <div class="mx-auto mb-3">
+         <div class="mx-auto cart mb-3">
              <div class="card bg-card-2">
                  <h2 class="mx-1  mb-2">{{__('Total Orders')}}</h2>
-                 <div class="mb-2 mx-10 text-center">
+                 <div class="mb-2  text-center">
                  <span class="text-2xl">{{$today}}</span>
-                     <i data-feather="dollar-sign" class=" mb-2 mx-2"></i>
+                     <i data-feather="dollar-sign" class=" mb-2 ml-1"></i>
                  </div>
                  <div class="card-text"><h3 >{{__('Today')}}</h3></div>
 
              </div>
          </div>
-         <div class="mx-auto mb-3">
+         <div class="mx-auto cart mb-3">
              <div class="card bg-card-3">
                  <h2 class="mx-1  mb-2">{{__('Total Orders')}}</h2>
-                 <div class="mb-2 mx-10 text-center">
+                 <div class="mb-2  text-center">
                  <span class="text-2xl">{{$thisMonth}}</span>
                      <i data-feather="dollar-sign" class="mb-2 ml-1"></i>
                  </div>
                      <div class="card-text"><h3>{{__('This Month')}}</h3></div>
 
              </div>
-         </div>  <div class="mx-auto mb-3">
+         </div>  <div class="cart mx-auto mb-3">
              <div class="card bg-card-4">
 
                  <h2 class="mx-1  mb-2">{{__('Total Orders')}}</h2>
-                 <div class="mb-2 mx-10 text-center">
+                 <div class="mb-2  text-center">
                  <span class="text-2xl">{{$thisYear}}</span>
                      <i data-feather="dollar-sign" class="mb-2 ml-1"></i>
 

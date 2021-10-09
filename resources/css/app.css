@@ -142,7 +142,7 @@ input{
 
 .side-items{
     color: #0485c4;
-    @apply flex items-center mt-2 py-2 px-2 border-l-4 border-white
+    @apply flex items-center mt-2 px-5 py-2  border-l-4 border-white
 }
 
 .side-items.active{
@@ -213,4 +213,29 @@ input{
     opacity: 80%;
     /*padding-left:60px;*/
     /*padding-right: 60px;*/
+}
+.cards {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -7px;
+    margin-left: -7px;
+}
+.cart{
+    width:320px;
+}
+
+@screen sm {
+    .cart{
+        width:250px;
+    }
+    .row{
+        /*overflow:fal ;*/
+        overflow:hidden;
+    }
 }

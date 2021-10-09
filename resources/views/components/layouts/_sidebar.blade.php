@@ -2,119 +2,85 @@
 
 
     <div id="sidebar" class="">
-    <div class="md:flex flex-col md:flex-row md:min-h-screen w-full">
+    <div class="md:flex flex-col md:flex-row md:min-h-screen w-full "  >
 
         <div class="bg-white pb-3  ">
 
-                <button class="flex-row text-gray-500 cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent
+            <div class="hidden md:flex">
+                <x-layouts._menu/>
+
+
+            </div>
+
+<div class="md:hidden " x-data="{show: false}" @click.away="show = false" x-cloak
+
+      >
+    <div class="flex mx-5 justify-between"
+        >
+    <img  src="{{asset('/img/favicon/android-icon-192x192.png')}}" alt="{{__('logo')}}" class="mx-3 mt-2 w-20">
+
+
+<div class="fixed inset-0 z-20"
+
+            x-show="show"
+            class="fixed left-0 top-0 p-6"
+
+    >
+    <div
+            @click.away="show=false"
+            class="bg-white bottom-0 fixed right-0 top-0 z-10 pt-4 pb-4 w-4/6 overflow-y-auto"
+    >
+    <x-layouts._menu/>
+    </div>
+
+
+    </div>
+        <button    @click="show = ! show"
+                   class="flex-row text-gray-500 cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent
         rounded bg-transparent block md:hidden outline-none focus:outline-none mr-2"
-                        type="button" onclick="toggleNavbar('example-collapse-navbar')">
-                    <div class="flex flex1">
+                 type="button" >
+            <svg
 
-                        <svg fill="currentColor" viewBox="0 0 20 20" class="flex-row w-6 h-6">
-                            <path fill-rule="evenodd"
-                                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
-                                  clip-rule="evenodd"></path>
-                        </svg>
-                       <h1 class="px-2"> {{__("Manage")}}</h1>
-                    </div>
-                </button>
-            <nav class="mt-2 mx-5 sm:mx-0 menu" id="example-collapse-navbar">
-                <img src="{{asset('/img/favicon/android-icon-192x192.png')}}" alt="{{__('logo')}}" class="mx-auto w-32">
-                <a class="side-items{{active('dashboard')}}"  href="/dashboard"><i data-feather="home" class="ml-1"></i><span class="side-text">{{__("Dashboard")}}</span></a>
-                @canany(['Update-Orders','Create-Orders','Delete-Orders'])
-                <a class="side-items{{active('orders')}}" href="/orders/manage"><i data-feather="shopping-cart" class="ml-1"></i><span class="side-text">{{__("Orders")}}</span></a>
-@endcanany
-                @canany(['Update-Users','Create-Users','Delete-Users'])
-                <a class="side-items{{active('users')}}" href="/users/manage">
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-8 fill-current h-8"
+                    style="color:#258ae0"
+                    viewBox="0 0 32 32"
+            >
+                <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+            </svg>
 
+            {{--<svg--}}
+                    {{--x-show="show"--}}
+                    {{--style="display: none; color:#258ae0;"--}}
+                    {{--xmlns="http://www.w3.org/2000/svg"--}}
+                    {{--class="w-6 fill-current h-8"--}}
+                    {{--viewBox="0 0 36 30"--}}
+            {{-->--}}
+                {{--<polygon--}}
+                        {{--points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>--}}
+            {{--</svg>--}}
+        </button>
+    </div>
 
-                    <i data-feather="users" class="ml-1"></i> <span class="side-text">{{__('Users')}}</span></a>
-                @endcanany
-
-                @canany(['Update-Items','Create-Items','Delete-Items'])
-                 <a class="side-items{{active('items')}}" {{(Request::is('item') || request()->is('items/*')) ? 'primary-color-bg text-white' : ''}} href="/items/manage"><i data-feather="shopping-bag" class="ml-1"></i><span class="side-text">{{__("Items")}}</span></a>
-                @endcanany
-                @canany(['Update-Services','Create-Services','Delete-Services'])
-                    <a class="side-items{{active('services')}}" href="/services/manage">
-                    <i data-feather="package" class="ml-1"></i>
-
-                    <span class="side-text">{{__("Services")}}</span></a>
-                @endcanany
-             @canany(['Update-Branches','Create-Branches','Delete-Branches'])
-                    <a class="side-items{{active('branches')}}" href="/branches/manage">
-                    <i data-feather="git-branch" class="ml-1"></i>
-
-                    <span class="side-text">{{__("Branches")}}</span></a>
-                @endcanany
+</div>
 
 
-                @canany(['Update-Districts','Create-Districts','Delete-Districts'])
-                    <a class="side-items{{active('districts')}}" href="/districts/manage"><i data-feather="map-pin" class="ml-1"></i><span class="side-text">{{__("Delivery Map")}}</span></a>
-                @endcanany
-                @canany(['Update-Expenses','Create-Expenses','Delete-Expenses'])
-                    <a class="side-items{{active('expenses')}}" href="/expenses/manage">
-                        <i data-feather="dollar-sign" class="ml-1"></i>
-
-                        <span class="side-text">{{__("Expenses")}}</span></a>
-                @endcanany
-                @canany(['Update-Settings','Create-Settings','Delete-Settings'])
-                <a class="side-items{{active('settings')}}" href="/settings"><i data-feather="settings" class="ml-1"></i><span class="side-text">{{__("Settings")}}</span></a>
-               @endcanany
-                @guest
-                    @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="links"
-                               href="{{ route('login') }}">
-                                <span class="ml-2">{{ __('Login') }}</span>
-                            </a>
-                        </li>
-                    @endif
-
-                    @if (Route::has('register'))
-                        <li class="nav-item ">
-                            <a class="links"
-                               href="{{ route('register') }}">
-                                <span class="ml-2">{{ __('Register') }}</span>
-                            </a>
-                        </li>
-                    @endif
-                @else
-
-
-                    {{--<li class="nav-item">--}}
-                    {{--<a class="links"--}}
-                    {{--href="/user/profile">--}}
-                    {{--<span class="ml-2">{{__('My Profile')}}</span>--}}
-                    {{--</a>--}}
-                    {{--</li>--}}
-
-                        <a class="side-items"
-                           href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                   document.getElementById('logout-form').submit();">
-                            <i data-feather="log-out" class="ml-1"></i>
-                            <span class="side-text">{{ __('Logout') }}</span>
-                        </a>
-
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                @endguest
-
-
-            </nav>
+</div>
 
         </div>
     </div>
-</div>
-    <script>
-        feather.replace()
-    </script>
-<script>
-    function toggleNavbar(collapseID) {
-        document.getElementById(collapseID).classList.toggle("hidden");
-        document.getElementById(collapseID).classList.toggle("flex");
-    }
-</script>
+
+    {{--<script>--}}
+        {{--feather.replace()--}}
+    {{--</script>--}}
+{{--<script>--}}
+    {{--function toggleNavbar(collapseID) {--}}
+        {{--document.getElementById(collapseID).classList.toggle("hidden");--}}
+        {{--document.getElementById(collapseID).classList.toggle("flex");--}}
+    {{--}--}}
+{{--</script>--}}
+    {{--<script>--}}
+        {{--document.getElementById('nav-toggle').onclick = function () {--}}
+            {{--document.getElementById("nav-content").classList.toggle("hidden");--}}
+        {{--}--}}
+    {{--</script>--}}

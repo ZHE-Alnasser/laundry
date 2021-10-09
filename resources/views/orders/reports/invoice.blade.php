@@ -16,7 +16,7 @@
 @endpush
 {{--@section('content')--}}
 <div class="bg-white">
-
+    <img class="img-fluid d-block mx-auto" style="max-width: 30%" src="{{setting('company_logo')}}" alt="">
     <h2 class="text-center">{{setting('company_name')}}</h2>
     <h2 class="text-center">{{setting('company_address_1')}}</h2>
 
@@ -31,7 +31,6 @@
 
                <div class="qr">
                 @php
-                   // $qrText = setting('company_name')."
                     $qrText = setting('company_name')."
                     \nInvoice number: ".$order->id."
                     \nVAT Number: ".setting('vat_number')."
