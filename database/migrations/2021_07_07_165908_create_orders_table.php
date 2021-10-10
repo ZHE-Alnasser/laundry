@@ -20,15 +20,17 @@ class CreateOrdersTable extends Migration
             $table->string('discount')->nullable();
             $table->set('payment',['cash','card','transfer'])->nullable();
             $table->boolean('is_done')->default(false);
-            $table->boolean('delivery')->default(false);
+            $table->boolean('is_delivery')->default(false);
+            $table->boolean('is_pickup')->default(false);
             $table->integer('process')->default(0);
-            $table->string('time_frame_id');
+            $table->integer('delivery_time_frame_id')->nullable(); //@todo forgin
+            $table->integer('pickup_time_frame_id')->nullable();
             $table->integer('pickup_agent_id')->nullable();
             $table->integer('delivery_agent_id')->nullable();
             $table->timestamp('requested_pickup_date')->nullable();
             $table->timestamp('requested_delivery_date')->nullable();
-            $table->timestamp('agent_pickup_date')->nullable();
-            $table->timestamp('agent_delivery_date')->nullable();
+            $table->timestamp('agent_pickup_date')->nullable(); //@todo rename to be picked_up_date
+            $table->timestamp('agent_delivery_date')->nullable(); //@todo rename to be delivered_date
             $table->timestamps();
         });
     }
