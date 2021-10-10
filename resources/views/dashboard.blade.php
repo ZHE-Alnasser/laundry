@@ -15,7 +15,7 @@
                 <a href="/home" class="font-bold text-xl text-indigo-600">
                 </a>
                 <div class="lg:visible invisible flex">
-                    <h2 class=" px-8 text-center text-3xl">{{__('Welcome')}}</h2>
+                    <h2 class=" px-5 text-center text-3xl">{{__('Welcome')}}</h2>
                     <p class="mt-2">{{$name}}</p>
 
                 </div>
@@ -25,9 +25,9 @@
 
         </div>
         <div class="flex mt-5 mx-5">
-          <div>  <button class="btn my-2 mx-2" onClick="window.location.replace('/orders/create')"><i data-feather="shopping-cart" class="ml-1"></i><span class="hidden sm:flex">{{__('New Order')}}</span></button></div>
+          <div>  <button class="btn my-2 " onClick="window.location.replace('/orders/create')"><i data-feather="shopping-cart" class="ml-1"></i><span class="hidden sm:flex">{{__('New Order')}}</span></button></div>
             <div> <button class="btn my-2 mx-2" onClick="window.location.replace('/users/create')"><i data-feather="user-plus" class="ml-1"></i><span class="hidden sm:flex">{{__('Add User')}}</span></button></div>
-            <div> <button class="btn my-2 mx-2" onClick="window.location.replace('/items/create')"><i data-feather="file-plus" class="ml-1"></i><span class="hidden sm:flex">{{__('Add Item')}}</span></button></div>
+            <div> <button class="btn my-2 " onClick="window.location.replace('/items/create')"><i data-feather="file-plus" class="ml-1"></i><span class="hidden sm:flex">{{__('Add Item')}}</span></button></div>
 
         </div>
 

@@ -10,11 +10,11 @@
                     <thead class="bg-gray-100">
                     <th class="py-3">#</th>
                     {{--<th>@lang('Invoice Number')</th>--}}
-                    <th class="py-3" >@lang('Customer Name')</th>
-                    <th class="py-3">@lang('VAT Rate')</th>
-                    <th class="py-3">@lang('Total VAT')</th>
+                    <th class="py-3 text-center" >@lang('Customer Name')</th>
+                    <th class="py-3 text-center">@lang('VAT Rate')</th>
+                    <th class="py-3 text-center">@lang('Total VAT')</th>
                     {{--<th>@lang('Total without VAT')</th>--}}
-                    <th class="py-3">@lang('Total amount with VAT')</th>
+                    <th class="py-3 text-center">@lang('Total amount with VAT')</th>
 
                     </thead>
 

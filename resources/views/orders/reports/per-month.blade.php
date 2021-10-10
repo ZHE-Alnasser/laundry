@@ -8,8 +8,8 @@
                 <table class=" table text-gray-600 w-full using-font col-11 mx-2">
                     <thead class="bg-gray-100">
 
-                    <th class="py-3">@lang('Date')</th>
-                    <th class="py-3">@lang('Amount')</th>
+                    <th class="py-3 text-center">@lang('Date')</th>
+                    <th class="py-3 text-center">@lang('Amount')</th>
 
 
                     </thead>
