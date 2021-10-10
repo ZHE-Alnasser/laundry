@@ -26,6 +26,7 @@ class ItemController extends Controller
 
     public function create(Item $item)
     {
+
         return view('items/create',compact('item'));
     }
 
@@ -40,6 +41,28 @@ class ItemController extends Controller
         if ($request->hasFile('image')) {
             $items->addMediaFromRequest('image')->toMediaCollection('items');
         }
+//$itemsServices=[];
+//        $services= $this->validate($request, [
+//            'sname' => 'required',
+//            'price'=> 'required',
+//             'description'=>'nullable'
+//        ]);
+//
+//        foreach ($services as $service){
+//
+////            $Serviceitems = Item::where('service_id', $service->id)->where('major_id', $major['major'])
+////                ->first();
+//
+//            $serviceItem= Item::where('item_id')->first();
+//            $itemsServices=[
+//              'sname'=>$service['sname'],
+//                'price'=>$service['price'],
+//                'description'=>$service['description']
+//            ];
+//
+//        }
+//
+//        $items->services()->createMany($itemsServices);
 
 
         return redirect('items/manage')

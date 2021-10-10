@@ -42,6 +42,14 @@
 
         </div>
     </div>
+
+
+        <div class="md:w-1/2 px-1">
+
+            <div class="mt-3">
+                <x-input type="file" name="company_logo" type="file"/>
+            </div>
+        </div>
     <button  class="btn mt-8">{{__('Edit')}}</button>
     </x-form>
 </x-tab>
