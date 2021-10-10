@@ -8,11 +8,7 @@ use Spatie\Permission\Models\Permission;
 
 class PermissionSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
         $actions = ['Create', 'Update', 'Delete'];
@@ -27,11 +23,10 @@ class PermissionSeeder extends Seeder
                 ['group' => __('Districts'), 'name' => 'Districts'],
                 ['group' => __('Cities'), 'name' => 'Cities'],
                 ['group' => __('Settings'), 'name' => 'Settings'],
-//                ['group' => __('Universities'), 'name' => 'Universities'],
-//                ['group' => __('Majors'), 'name' => 'Majors'],
-//                ['group' => __('Links'), 'name' => 'Links'],
-//                ['group' => __('Roles'), 'name' => 'Roles'],
-//                ['group' => __('Users'), 'name' => 'Users'],
+                ['group' => __('Branches'), 'name' => 'Branches'],
+                ['group' => __('Expenses'), 'name' => 'Expenses'],
+                ['group' => __('Categories'), 'name' => 'Categories'],
+
         ];
 
 

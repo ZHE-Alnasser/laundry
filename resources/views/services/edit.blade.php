@@ -4,7 +4,7 @@
     <div class="w-full">
         <div class="mt-8 p-4">
             <div>
-                <x-form action="{{ route('services.update',['service'=>$service->slug]) }} " method="PUT">
+                <x-form action="{{ route('services.update',['service'=>$service->id]) }} " method="PUT">
                     @csrf
 
 <div class="sm:mx-40">

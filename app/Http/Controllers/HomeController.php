@@ -26,13 +26,9 @@ class HomeController extends Controller
 
             ->orderBy('customer_orders_count', 'desc')->take(5)->get();
 
-//        $orders = Order::whereMonth('created_at',\Carbon\Carbon::now()->month)
-//            ->orderBy('total','desc')->paginate(30);
-// group by customer
+
 
          $latestOrders = Order::latest()->take(10);
-//  $orders = Order::whereWeek('created_at',\Carbon\Carbon::now()->week())
-//            ->orderBy('total','desc')->paginate(7);
 
 
         $today =Order::whereDay('created_at',today())->sum('total');
@@ -70,7 +66,8 @@ class HomeController extends Controller
             ->orderBy('orders_count', 'desc')->paginate(5);
 //
 
-        $thisMonth = Order::whereMonth('created_at',\Carbon\Carbon::now()->subMonth()->month)->sum('total');
+//        $thisMonth = Order::whereMonth('created_at',\Carbon\Carbon::now()->subMonth()->month)->sum('total');
+        $thisMonth = Order::whereMonth('created_at', \Carbon\Carbon::now()->month)->sum('total');
         $name = auth()->user()->name;
 
         return view('/dashboard', compact('name','orders','today','thisMonth','services','todayCustomers','thisYear','latestOrders','topCustomers'));

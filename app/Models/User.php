@@ -10,7 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Builder;
-use App\Traits\T;
+use App\Traits\C;
 
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Sluggable\SlugOptions;
@@ -19,7 +19,7 @@ use Spatie\Sluggable\HasSlug;
 class User extends Authenticatable
 {
 
-    use T;
+    use C;
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
@@ -27,7 +27,7 @@ class User extends Authenticatable
     use TwoFactorAuthenticatable;
     use HasRoles;
 
-    protected $with = ['type'];
+    protected $with = ['category'];
     protected $guarded = [];
 
 
@@ -48,9 +48,9 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function type()
+    public function category()
     {
-        return $this->belongsTo(Type::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function district()
@@ -60,7 +60,7 @@ class User extends Authenticatable
 
     public function scopeCustomer($qry)
     {
-        return $qry->whereHas('type', function (Builder $qry) {
+        return $qry->whereHas('category', function (Builder $qry) {
             $qry->where('id', '1');
         });
 
@@ -68,7 +68,7 @@ class User extends Authenticatable
 
     public function scopeEmployee($qry)
     {
-        return $qry->whereHas('type', function (Builder $qry) {
+        return $qry->whereHas('category', function (Builder $qry) {
             $qry->where('id', '2');
         });
     }
@@ -77,10 +77,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
-//    public function getFullNameAttribute()
-//    {
-//        return $this->attributes['first_name'] . ' ' . $this->attributes['last_name'];
-//    }
+
 
     public function getSlugOptions(): SlugOptions
     {

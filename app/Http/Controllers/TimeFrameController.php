@@ -36,7 +36,7 @@ class TimeFrameController extends Controller
 
 
         return redirect('settings')
-            ->with('success', 'Your TimeFrames has been created successfully');
+            ->with('success', __('Your Time Frame has been created successfully'));
     }
 
 

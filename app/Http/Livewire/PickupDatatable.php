@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Http\Livewire;
+
+use App\Models\TimeFrame;
+use App\Models\User;
+use Livewire\Component;
+use Mediconesystems\LivewireDatatables\Column;
+use Mediconesystems\LivewireDatatables\DateColumn;
+use Mediconesystems\LivewireDatatables\NumberColumn;
+use Mediconesystems\LivewireDatatables\BooleanColumn;
+use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
+use App\Models\Order;
+
+class PickupDatatable extends LivewireDatatable
+{  public $model = Order::class;
+
+    public $hideable = 'inline';
+    public $exportable = true;
+
+//    public $afterTableSlot = 'components.selected';
+
+    public function builder()
+    {
+//        return Order::query()->with('users');
+        return Order::query()->where('process','1');
+
+
+    }
+
+    public function columns()
+    {
+        return [
+            NumberColumn::name('id')->label(__('#')),
+
+
+            Column::callback(['customer_id'], function ($user) {
+                return optional(User::find($user))->name;
+            })->label(__('Customer Name'))->searchable(),
+
+
+            Column::name('total')->label(__('Total amount with VAT'))->searchable(),
+            Column::callback(['process'], function ($process) {
+                return __('process_'.$process);
+            })->searchable()->label(__('Process')),
+            Column::callback(['time_frame_id'], function ($timeframe) {
+                return optional(TimeFrame::find($timeframe))->name;
+            })->searchable()->label(__('Time Period')),
+//            DateColumn::name('created_at')->label(__('Created at'))->searchable(),
+
+            Column::callback(['id'], function ($id) {
+                return view('components.order-action', ['url' => url("orders/$id"), 'model' => 'Orders', 'id' => $id]);
+            })
+        ];
+    }
+}

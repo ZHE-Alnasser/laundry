@@ -108,6 +108,20 @@ class OrderController extends Controller
     {
         //
     }
+    public function vat()
+    {
+        $orders= Order::all();
+        return view('orders/reports/vat',compact('orders'));
+    }
+
+public function perMonth()
+    {
+        $orders= DB::table('orders')->selectRaw('YEAR(created_at) year, MONTH(created_at) month, sum(total)  as total_orders')
+//            ->selectRaw(' MONTH(created_at) month, sum(total)  as total_orders')
+            ->groupby('year','month')
+            ->get();
+        return view('orders/reports/per-month',compact('orders'));
+    }
 
 
     public function edit(Order $order)

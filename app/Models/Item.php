@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
-
+//
 
 class Item extends Model implements HasMedia
 {
@@ -17,7 +17,6 @@ use InteractsWithMedia;
 //
 //    protected static $logFillable = true;
     protected $guarded = ['id'];
-//    protected $appends = ['cover'];
 
 
 //    public function orders()
@@ -36,6 +35,12 @@ use InteractsWithMedia;
 
 
     }
+
+//    public function registerMediaCollections(): void
+//    {
+//        $this->addMediaCollection('items');
+//    }
+
 //    public function services()
 //    {
 //        return $this->hasMany(Service::class);

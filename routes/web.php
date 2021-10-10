@@ -27,8 +27,8 @@ Route::resource('services', App\Http\Controllers\ServiceController::class);
 Route::get('/items/manage', [App\Http\Controllers\ItemController::class, 'manage'])->name('/items.manage');
 Route::resource('items', App\Http\Controllers\ItemController::class);
 
-Route::get('/types/manage', [App\Http\Controllers\TypeController::class, 'manage'])->name('/types.manage');
-Route::resource('types', App\Http\Controllers\TypeController::class);
+Route::get('/categories/manage', [App\Http\Controllers\CategoryController::class, 'manage'])->name('/categories.manage');
+Route::resource('categories', App\Http\Controllers\CategoryController::class);
 
 Route::get('/cities/manage', [App\Http\Controllers\CityController::class, 'manage'])->name('/cities.manage');
 Route::resource('cities', App\Http\Controllers\CityController::class);
@@ -36,12 +36,20 @@ Route::resource('cities', App\Http\Controllers\CityController::class);
 Route::get('/districts/manage', [App\Http\Controllers\DistrictController::class, 'manage'])->name('/districts.manage');
 Route::resource('districts', App\Http\Controllers\DistrictController::class);
 
+Route::get('/branches/manage', [App\Http\Controllers\BranchController::class, 'manage'])->name('/branches.manage');
+Route::resource('branches', App\Http\Controllers\BranchController::class);
+
+Route::get('/expenses/manage', [App\Http\Controllers\ExpenseController::class, 'manage'])->name('/expenses.manage');
+Route::resource('expenses', App\Http\Controllers\ExpenseController::class);
+
 Route::get('/timeframes/manage', [App\Http\Controllers\TimeFrameController::class, 'manage'])->name('/time-frames.manage');
 Route::resource('timeframes', App\Http\Controllers\TimeFrameController::class);
 
 Route::get('/orders/manage', [App\Http\Controllers\OrderController::class, 'manage'])->name('/orders.manage');
 Route::resource('orders', App\Http\Controllers\OrderController::class);
 Route::get('orders/reports/invoice/{order}', [App\Http\Controllers\OrderController::class, 'invoice']);
+Route::get('orders/reports/vat', [App\Http\Controllers\OrderController::class, 'vat']);
+Route::get('orders/reports/per-month', [App\Http\Controllers\OrderController::class, 'perMonth']);
 
 Route::get('settings', [App\Http\Controllers\SettingController::class, 'index'])->name('settings.index');
 Route::post('settings', [App\Http\Controllers\SettingController::class, 'update'])->name('settings.update');

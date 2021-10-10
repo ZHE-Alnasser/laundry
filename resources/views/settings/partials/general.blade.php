@@ -16,6 +16,7 @@
         <span class=" flex-1 mx-2 "><label class="text-sm font-bold">{{__('Company Email')}}</label><x-input class="input mx-2" name="company_email" :value="setting('company_email')"/></span>
         <span class=" flex-1 mx-2 "><label class="text-sm font-bold">{{__('Company Website')}}</label><x-input class="input mx-2" name="company_website" :value="setting('company_website')"/></span>
         <span class=" flex-1 mx-2 "><label class="text-sm font-bold">{{__('VAT Number')}}</label><x-input class="input mx-2" name="vat_number" :value="setting('vat_number')"/></span>
+        <span class=" flex-1 mx-2 "><label class="text-sm font-bold">{{__('VAT Rate')}}</label><x-input class="input mx-2" name="vat_rate" :value="setting('vat_rate')"/></span>
     </div>
 
     <hr>
@@ -41,6 +42,14 @@
 
         </div>
     </div>
+
+
+        <div class="md:w-1/2 px-1">
+
+            <div class="mt-3">
+                <x-input type="file" name="company_logo" type="file"/>
+            </div>
+        </div>
     <button  class="btn mt-8">{{__('Edit')}}</button>
     </x-form>
 </x-tab>

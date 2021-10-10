@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\TimeFrame;
 use App\Models\User;
 use Livewire\Component;
 use Mediconesystems\LivewireDatatables\Column;
@@ -26,6 +27,8 @@ class OrderDatatable extends LivewireDatatable
     public function builder()
     {
         return Order::query()->with('users');
+//        return Order::query()->where('process','1');
+
 
     }
 
@@ -44,8 +47,8 @@ class OrderDatatable extends LivewireDatatable
             Column::callback(['process'], function ($process) {
                 return __('process_'.$process);
             })->searchable()->label(__('Process')),
-            Column::callback(['time_frame_id'], function ($period) {
-        return __('time_'.$period);
+            Column::callback(['time_frame_id'], function ($timeframe) {
+        return optional(TimeFrame::find($timeframe))->name;
             })->searchable()->label(__('Time Period')),
 //            DateColumn::name('created_at')->label(__('Created at'))->searchable(),
 

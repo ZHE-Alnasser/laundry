@@ -24,7 +24,7 @@
         "nesbot/carbon": "^2.53",
         "simplesoftwareio/simple-qrcode": "^4.2",
         "spatie/laravel-activitylog": "^3.17",
-        "spatie/laravel-medialibrary": "^9.7",
+        "spatie/laravel-medialibrary": "^9.8",
         "spatie/laravel-permission": "^5.1",
         "spatie/laravel-sluggable": "^2.6"
     },

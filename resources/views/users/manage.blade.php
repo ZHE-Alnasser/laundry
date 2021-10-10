@@ -14,10 +14,15 @@
         </svg>
         <span>{{__('Create')}}</span>
     </a>
-    <a class="btn inline-flex mb-2 justify-center items-center" href="{{"/roles"}}">
-        <i data-feather="key" class="ml-1"></i>
-        <span>{{__('Manage Roles')}}</span>
-    </a>
+
+                   <x-dropdown-manage>
+                    <div class="mx-2 mt-1 border-b">
+                        <a class="text-sm z-40" href="{{'/roles'}}">{{__('Manage Roles')}}</a>
+                    </div>
+                    <div class="mx-1 mb-2 mt-2">
+                        <a class="text-sm z-40" href="{{'/categories'}}">{{__('Manage Categories')}}</a>
+                    </div>
+                   </x-dropdown-manage>
 
     </div>
 <div>

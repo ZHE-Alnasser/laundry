@@ -16,28 +16,28 @@
                         </div>
                     </div>
 
-                        {{--<div class="field text-right mx-10 mt-5">--}}
+                        <div class="field text-right mx-10 mt-5">
 
-                                {{--@if($item->hasMedia('items') )--}}
-                                    {{--<div class="object-cover mb-5 ">--}}
-                                        {{--@foreach($item->getMedia('items') as $attachment)--}}
-                                            {{--<div class="h-25 w-25">--}}
-                                                {{--{{$attachment}}--}}
-                                            {{--</div>--}}
-                                        {{--@endforeach--}}
-                                    {{--</div>--}}
-                                {{--@endif--}}
-
-
-                        {{--</div>--}}
+                                @if($item->hasMedia('items') )
+                                    <div class="object-cover mb-5 ">
+                                        @foreach($item->getMedia('items') as $attachment)
+                                            <div class="h-25 w-25">
+                                                {{$attachment}}
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @endif
 
 
-                        {{--<div class="field mx-10 mt-5 w-full">--}}
-                            {{--<label for="image">{{__('Edit Item Image')}}</label>--}}
-                            {{--<div class="mt-3">--}}
-                                {{--<x-input class="input" type="file" id="image" name="image"/>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
+                        </div>
+
+
+                        <div class="field mx-10 mt-5 w-full">
+                            <label for="image">{{__('Edit Item Image')}}</label>
+                            <div class="mt-3">
+                                <x-input class="input" type="file" id="image" name="image"/>
+                            </div>
+                        </div>
 
 
                     <div class="flex p-2 mt-8 sm:mx-10">

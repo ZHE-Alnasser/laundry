@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
                 'name' => 'a',
 //                'last_name' => 'a',
                 'email' => 'a@a.com',
-                'type_id'=>'1',
+                'category_id'=>'1',
                 'email_verified_at' => now(),
                 'password' => Hash::make('12345678'),
                 'remember_token' => Str::random(10),

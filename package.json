@@ -12,7 +12,7 @@
     "devDependencies": {
         "@tailwindcss/forms": "^0.3.4",
         "@tailwindcss/typography": "^0.4.0",
-        "autoprefixer": "^10.1.0",
+        "autoprefixer": "^10.3.7",
         "axios": "^0.21",
         "bootstrap": "^4.6.0",
         "browser-sync": "^2.27.4",
@@ -21,7 +21,7 @@
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "popper.js": "^1.16.1",
-        "postcss": "^8.2.1",
+        "postcss": "^8.3.9",
         "postcss-import": "^14.0.1",
         "resolve-url-loader": "^3.1.2",
         "sass": "^1.32.11",
@@ -31,11 +31,12 @@
         "vue": "^2.6.12",
         "vue-loader": "^15.9.7",
         "vue-template-compiler": "^2.6.12",
-        "webpack": "^5.56.0",
-        "webpack-cli": "^4.7.2",
-        "webpack-dev-server": "^4.2.0"
+        "webpack": "^5.57.1",
+        "webpack-cli": "^4.9.0",
+        "webpack-dev-server": "^4.3.1"
     },
     "dependencies": {
+        "@heroicons/react": "^1.0.4",
         "@heroicons/vue": "^1.0.2",
         "alpinejs": "^3.4.2",
         "apexcharts": "^3.28.3",

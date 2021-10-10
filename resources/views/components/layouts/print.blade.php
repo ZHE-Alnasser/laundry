@@ -1,59 +1,3 @@
-{{--@extends('components.layouts.admin')--}}
-
-{{--@section('header')--}}
-{{--    <x-layouts._header/>--}}
-{{--@endsection--}}
-
-{{--@section('content')--}}
-
-{{--    <div class="bg-white my-2 rounded-lg shadow mx-3 flex">--}}
-{{--        <div class="flex-1">--}}
-{{--            <div class="py-2 px-5">--}}
-{{--                <x-feedback/>--}}
-{{--                {{ $slot??'' }}--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
-{{--@endsection--}}
-
-
-{{--@extends('components.layouts.base')--}}
-
-{{--@section('header')--}}
-{{--    <x-layouts._header/>--}}
-{{--@endsection--}}
-
-{{--@push('scripts')--}}
-{{--    @bukScripts(true)--}}
-{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"--}}
-{{--            integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g=="--}}
-{{--            crossorigin="anonymous">--}}
-{{--    </script>--}}
-{{--@endpush--}}
-{{--@section('content')--}}
-{{--<x-layouts.base >--}}
-    {{--<div class="flex flex-col sm:flex-row md:flex-row bg-white" {{$attributes??''}}>--}}
-
-
-        {{--<h1>{{setting('logo')}}</h1>--}}
-        {{--<h1>{{setting('comapny_name')}}</h1>--}}
-  {{--<h1>{{__('logo')}}</h1>--}}
-        {{--<h1>{{__('comapny_name')}}</h1>--}}
-
-        {{--<div class="flex-grow">    <x-layouts._header/>--}}
-            {{--<div class="p-2 sm:p-5">--}}
-
-                    {{--@yield('content')--}}
-                    {{--{{$slot??''}}--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-
-    {{--<x-layouts._footer/>--}}
-
-{{--</x-layouts.base>--}}
-
 
         <!DOCTYPE html>
 <html lang="{{ app()->getLocale()}}" dir="{{app()->getLocale()=='ar'?'rtl':'ltr'}}">
@@ -62,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="description" content="{{$description??''}}">
-    <meta name="author" content="{{$author??__('app_name')}}">
+    <meta name="author" content="{{$author??__('Laundry')}}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{$title??__('app_name')}}</title>
+    <title>{{$title??__('Laundry')}}</title>
     <meta name="keyword" content="{{$keywords??''}}">
     @stack('before_styles')
     <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui@2.1.16/dist/css/coreui.min.css">
@@ -81,10 +25,6 @@
             /*font-size: 30px;*/
         }
 
-        /*.swal-footer {*/
-            /*text-align: center;*/
-            /*direction: ltr;*/
-        /*}*/
 
         .custom-control-label {
             font-size: 18px;
@@ -98,11 +38,6 @@
             align-items: center;
             justify-content: center;
         }
-        /*.no-rtl {*/
-            /*direction: ltr;*/
-            /*text-align: left;*/
-            /*unicode-bidi: bidi-override;*/
-        /*}*/
 
         body {
             margin: 20px;
