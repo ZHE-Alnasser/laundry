@@ -71,10 +71,7 @@ class OrderController extends Controller
             'requested_delivery_date' => 'nullable',
             'agent_pickup_date' => 'nullable',
             'agent_delivery_date' => 'nullable',
-
             'time_frame_id' => 'required',
-
-
         ]);
 
         request()->merge(['delivery' => $request->delivery == 'on' ? true : false]);
@@ -147,6 +144,8 @@ public function perMonth()
     {
 //        dd($request);
         //$order->update($request->all());
+        request()->merge(['delivery' => $request->delivery == 'on' ? true : false]);
+
         $data = request()->validate([
             'sub_total' => 'required',
             'total' => 'required',
@@ -161,8 +160,7 @@ public function perMonth()
             'agent_pickup_date' => 'nullable',
             'agent_delivery_date' => 'nullable',
             'time_frame_id' => 'required',
-            'delivery'=>'required',
-
+            'delivery'=>'nullable',
         ]);
         $order->update($data);
 

@@ -120,6 +120,7 @@ if (!function_exists('isRTL')) {
      */
     function isRTL()
     {
+//        return false;
         return (boolean)in_array(app()->getLocale(), ['ar', 'urdu']);
     }
 }

@@ -28,5 +28,16 @@ module.exports = {
         },
     },
 
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'),require('daisyui')],
+    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'),
+        require("tailwindcss-flip"),
+        require('daisyui')],
+
+    daisyui: {
+        styled: true,
+        themes: true,
+        base: true,
+        utils: true,
+        logs: false,
+        rtl: false,
+    },
 };
