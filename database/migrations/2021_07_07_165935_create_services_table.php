@@ -14,7 +14,6 @@ class CreateServicesTable extends Migration
             $table->string('name');
             $table->foreignId('item_id');
             $table->double('price')->default(0)->nullable();
-            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }

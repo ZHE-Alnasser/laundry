@@ -14,12 +14,7 @@
     @canany(['Update-Items','Create-Items','Delete-Items'])
         <a class="side-items{{active('items')}}" {{(Request::is('item') || request()->is('items/*')) ? 'primary-color-bg text-white' : ''}} href="/items/manage"><i data-feather="shopping-bag" class="ml-1"></i><span class="side-text">{{__("Items")}}</span></a>
     @endcanany
-    @canany(['Update-Services','Create-Services','Delete-Services'])
-        <a class="side-items{{active('services')}}" href="/services/manage">
-            <i data-feather="package" class="ml-1"></i>
 
-            <span class="side-text">{{__("Services")}}</span></a>
-    @endcanany
     @canany(['Update-Branches','Create-Branches','Delete-Branches'])
         <a class="side-items{{active('branches')}}" href="/branches/manage">
             <i data-feather="git-branch" class="ml-1"></i>

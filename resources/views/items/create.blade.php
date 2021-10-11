@@ -26,35 +26,9 @@
 
 
             </div>
-            {{--<div class="row" x-data="services">--}}
-                {{--<div class="col overflow-x-auto ">--}}
-                    {{--<table class="table  table-bordered align-items-center table-sm">--}}
-                        {{--<thead class="thead-light">--}}
-                        {{--<tr>--}}
-                            {{--<th>#</th>--}}
-                            {{--<th>Text Feild 1</th>                            <th>Text Feild 2</th>--}}
-                            {{--<th>Remove</th>--}}
-                        {{--</tr>--}}
-                        {{--</thead>--}}
-                        {{--<tbody>--}}
-                        {{--<template x-for="(item, index) in items" :key="index">--}}
-                            {{--<tr>--}}
-                                {{--<td x-text="index + 1"></td>--}}
-                                {{--<td><input x-model="item.name" type="text" name="sname[]" class="form-control"></td>--}}
-                                {{--<td><input x-model="item.price" type="text" name="price[]" class="form-control"></td>--}}
-                                {{--<td><input x-model="item.description" type="text" name="description[]" class="form-control"></td>--}}
-                                {{--<td><button type="button" class="btn btn-danger btn-small" @click="deleteItem(index)">&times;</button></td>--}}
-                            {{--</tr>--}}
-                        {{--</template>--}}
-                        {{--</tbody>--}}
-                        {{--<tfoot>--}}
-                        {{--<tr>--}}
-                            {{--<td colspan="4" class="text-right"><button type="button" class="btn btn-info" @click=" addItem()">+ Add Row</button></td>--}}
-                        {{--</tr>--}}
-                        {{--</tfoot>--}}
-                    {{--</table>--}}
-                {{--</div>--}}
-            {{--</div>--}}
+            <div class="mt-5"> <h1>{{__('Create Services')}}</h1></div>
+            @include('items.services')
+
             <div class="flex mt-8">
                 <button type='submit' class="btn ml-3">{{__('Create')}}</button>
 
@@ -67,33 +41,4 @@
 </x-layouts.app>
 
 
-<script>
-    document.addEventListener('alpine:initializing', () => {
-        Alpine.data('services', () => ({
-            items: [],
-            addItem()
-            {
 
-                    this.items.push({
-                        id: '',
-                        name: '',
-                        price: '',
-                        description: ''
-                    });
-
-            },
-            deleteItem(index) {
-                this.items.splice(index, 1);
-            }
-            // deleteItem(item)
-            // {
-            //     let position = this.items.indexOf(item);
-            //     this.items.splice(position, 1);
-            //     // this.calculatePayments();
-            // },
-        }))
-
-    })
-
-
-</script>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -26,43 +27,32 @@ class ItemController extends Controller
 
     public function create(Item $item)
     {
-
-        return view('items/create',compact('item'));
+        $services=$item->services()->get();
+        return view('items/create',compact('item','services'));
     }
 
     public function store(Request $request)
     {
+
         $data = $this->validate($request, [
             'name' => 'required',
 
         ]);
-        $items= Item::create($data);
+        $item= Item::create($data);
 
         if ($request->hasFile('image')) {
-            $items->addMediaFromRequest('image')->toMediaCollection('items');
+            $item->addMediaFromRequest('image')->toMediaCollection('items');
         }
-//$itemsServices=[];
-//        $services= $this->validate($request, [
-//            'sname' => 'required',
-//            'price'=> 'required',
-//             'description'=>'nullable'
-//        ]);
-//
-//        foreach ($services as $service){
-//
-////            $Serviceitems = Item::where('service_id', $service->id)->where('major_id', $major['major'])
-////                ->first();
-//
-//            $serviceItem= Item::where('item_id')->first();
-//            $itemsServices=[
-//              'sname'=>$service['sname'],
-//                'price'=>$service['price'],
-//                'description'=>$service['description']
-//            ];
-//
-//        }
-//
-//        $items->services()->createMany($itemsServices);
+
+
+        // $services form
+        $servicesIds = [];
+        foreach($request->services as $service ){
+            $servicesIds[] =  Service::create(['item_id'=>$item->id,'name'=>$service['name'],'price'=>$service['price']]);
+//            $servicesIds[] =  Service::create(['item_id'=>1,'name'=>$service->name,'price'=>$service->price]);
+
+        }
+//        $item->services()->sync($servicesIds);
 
 
         return redirect('items/manage')
@@ -77,13 +67,15 @@ class ItemController extends Controller
 
     public function edit(Item $item)
     {
-        return view('items/edit',compact('item'));
+        $services=$item->services()->get();
+
+        return view('items/edit',compact('item','services'));
     }
 
 
     public function update(Request $request, Item $item)
     {
-        dd($request);
+//        dd($request);
         $data = request()->validate([
             'name' => 'required',
 
@@ -91,9 +83,17 @@ class ItemController extends Controller
         $item->update($data);
 
         if ($request->hasFile('image')) {
-            $item->media()->delete($this);
+            $item->media()->delete('$this');
             $item->addMediaFromRequest('image')->toMediaCollection('items');
         }
+
+        if($item->services())
+            $item->services()->delete();
+        $servicesIds = [];
+        foreach($request->services as $service ) {
+            $servicesIds[] = Service::create(['item_id' => $item->id, 'name' => $service['name'], 'price' => $service['price']]);
+        }
+
         return redirect('items/manage');
 
 

@@ -43,7 +43,7 @@
                             </div>
                             </div>
                         </div>
-                            <div class="flex flex-col md:flex-row">
+                            <div class="flex mx-2 flex-col md:flex-row">
                                 <div class="w-full mt-5 flex-1">
                                     <label>{{__('Category')}}<span class="text-red-600"> *</span></label>
                                     <div class="divUser">
@@ -56,19 +56,22 @@
                                 </div>
 
                         </div>
-                        <div class="mt-5">
+<div class="flex flex-col md:flex-row">
+                        <div class=" w-full mt-5 mx-2">
                             <label>{{__('Longitude')}}<span class="text-red-600"> *</span></label>
                             <x-input required class="input" name="longitude" value="{{$user->longitude}}"/>
                         </div>
-                        <div class="mt-5">
+                        <div class="mt-5 w-full mx-2">
                             <label>{{__('Latitude')}}<span class="text-red-600"> *</span></label>
                             <x-input required class="input" name="latitude" value="{{$user->latitude}}"/>
                         </div>
-                        <div class="mt-5 inline-flex items-center space-x-4 form-group {{ $errors->has('is_active') ? 'has-error' : '' }}">
+</div>
+
+                        <div class="mt-5 inline-flex items-center mx-2 space-x-4 form-group {{ $errors->has('is_active') ? 'has-error' : '' }}">
                             <input name="is_active" type="hidden" value="0">
                             <input type="checkbox" class="checkbox checkbox-primary" id="is_active" name="is_active"
                                    value="1"{{ (isset($user) && $user->is_active) || old('is_active', 0) === 1 ? 'checked' : '' }}>
-                            <p class="flex-1 text-s font-medium text-gray-600 "> {{__('Approved')}}</p>
+                            <p class="flex-1 text-s font-medium text-gray-600 "> {{__('Approve')}}</p>
                             @if($errors->has('is_active'))
                                 <p class="help-block">
                                     {{ $errors->first('is_active') }}

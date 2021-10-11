@@ -16,6 +16,21 @@
 @endpush
 {{--@section('content')--}}
 <div class="bg-white">
+    <div class="field text-right mx-10 mt-5">
+
+        @if($setting->hasMedia('items') )
+            <div class="object-cover mb-5 ">
+                @foreach($setting->getMedia('settings') as $attachment)
+                    <div class="h-25 w-25">
+                        {{$attachment}}
+                    </div>
+                @endforeach
+            </div>
+        @endif
+
+
+    </div>
+
     <img class="img-fluid d-block mx-auto" style="max-width: 30%" src="{{setting('company_logo')}}" alt="">
     <h2 class="text-center">{{setting('company_name')}}</h2>
     <h2 class="text-center">{{setting('company_address_1')}}</h2>

@@ -3136,7 +3136,6 @@ html {
 	position: relative;
 }
 .sticky {
-	position: -webkit-sticky;
 	position: sticky;
 }
 .inset-0 {
@@ -3188,6 +3187,15 @@ html {
 }
 .col-span-6 {
 	grid-column: span 6 / span 6;
+}
+.col-span-3 {
+	grid-column: span 3 / span 3;
+}
+.col-span-2 {
+	grid-column: span 2 / span 2;
+}
+.col-span-1 {
+	grid-column: span 1 / span 1;
 }
 .m-5 {
 	margin: 1.25rem;
@@ -3465,6 +3473,9 @@ html {
 }
 .h-4\/6 {
 	height: 66.666667%;
+}
+.h-5\/6 {
+	height: 83.333333%;
 }
 .min-h-screen {
 	min-height: 100vh;
@@ -6327,6 +6338,10 @@ input{
 		grid-column: span 4 / span 4;
 	}
 
+	.sm\:col-span-2 {
+		grid-column: span 2 / span 2;
+	}
+
 	.sm\:mx-0 {
 		margin-left: 0px;
 		margin-right: 0px;
@@ -6607,6 +6622,10 @@ input{
 
 	.md\:col-span-1 {
 		grid-column: span 1 / span 1;
+	}
+
+	.md\:col-span-3 {
+		grid-column: span 3 / span 3;
 	}
 
 	.md\:mx-auto {
