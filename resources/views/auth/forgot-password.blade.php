@@ -1,8 +1,10 @@
-<x-layouts.app>
+
+<x-layouts.base>
 
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <img  src="{{asset('/img/favicon/logo.png')}}" alt="{{__('logo')}}" class="mx-3 mt-2 w-20">
+
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
@@ -22,14 +24,14 @@
 
             <div class="block">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-input id="email" class=" input block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-jet-button>
+                <button class="btn">
                     {{ __('Email Password Reset Link') }}
-                </x-jet-button>
+                </button>
             </div>
         </form>
     </x-jet-authentication-card>
-</x-layouts.app>
+</x-layouts.base>
