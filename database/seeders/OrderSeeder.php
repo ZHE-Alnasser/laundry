@@ -19,7 +19,7 @@ class OrderSeeder extends Seeder
                 'discount' => '50',
                 'payment' => '1',
                 'process' => '2',
-                'time_frame_id' => 1,
+                'delivery_time_frame_id' => 1,
                 'created_at'=>'2021-10-10 04:49:48'
             ],
 
