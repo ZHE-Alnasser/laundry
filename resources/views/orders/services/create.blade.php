@@ -159,7 +159,29 @@
 
 
 {{--<x-layouts.app>--}}
+
+
 <div class="" x-data="handler">
+
+
+    <h1 class="mt-8 mx-3">{{__('Add Items')}}</h1>
+    <div class="mt-5 flex mx-3">
+        <div class="w-1/2">
+    <x-select  name="services[]" class="input w-1/2">
+        <option >-- choose service --</option>
+        @foreach ($items as $item)
+
+
+            <option value="{{$item->id}}">
+                {{ $item->name }}
+            </option>
+        @endforeach
+    </x-select>
+        </div>
+    <button type="button" class="btn mx-2 mt-1"
+            @click="addNewField(service)">{{__('Add')}}</button>
+
+    </div>
     <div class="overflow-x-auto mt-8 col">
         <table class="table border-collapse w-full text-center" id="majors_table">
             <thead class="thead-light">
@@ -183,18 +205,20 @@
                     {{--@dd($item)--}}
                     {{--@dd($item->pivot->service_id)--}}
 
-                    <td><x-select name="services[]" class="input rounded-sm">
-                            <option value="">-- choose service --</option>
-                            @foreach ($services as $service)
+                    {{--<td><x-select name="services[]" class="input rounded-sm">--}}
+                            {{--<option value="">-- choose service --</option>--}}
+                            {{--@foreach ($services as $service)--}}
 
 
-                                <option {{ $service->id==$item->pivot->service_id ?'selected':''}} value="{{$service->id}}">
-                                    {{ $service->name }} (${{ number_format($service->price, 2) }})
-                                </option>
-                            @endforeach
-                        </x-select> </td>
+                                {{--<option {{ $service->id==$item->pivot->service_id ?'selected':''}} value="{{$service->id}}">--}}
+                                    {{--{{ $service->name }} (${{ number_format($service->price, 2) }})--}}
+                                {{--</option>--}}
+                            {{--@endforeach--}}
+                        {{--</x-select> </td>--}}
+
                     {{--<input type="text" x-model="field.service"/></td>--}}
-                    <td> <x-input class="input rounded-sm" name="qty[]" type="number" value="{{ $item->pivot->qty }}" /></td>
+                    <td> <x-input class="input rounded-sm"
+                                  name="qty[]" type="number" value="{{ $item->pivot->qty }}" /></td>
                     <td> <x-input class="input rounded-sm" name="price[]" type="number" value="{{ $item->pivot->price}}"/></td>
                     <td> <x-input class="input rounded-sm" name="amount[]" type="number" value="{{ $item->pivot->amount}}"/></td>
 
@@ -210,62 +234,78 @@
                 </tr>
             @endforeach
 
-            <template  x-for="(field, index) in fields" :key="index">
+            <template  x-for="(service, index) in services" :key="index">
                 {{--<template x-for="item in items" :key="item.id"">--}}
                 <tr >
-                    <div x-data="{price:'100'}">
+                    <div >
                         {{--<td x-text="index + 1"></td>--}}
                         <td>
-                            <input class="input rounded-sm" type="hidden" x-model="field.id"/>
+                            <input class="input rounded-sm" type="hidden" x-model="service.id"/>
                             {{--<input class="input rounded-sm" type="text" x-model="field.service"/>--}}
-                            <x-select name="services[]" class="input rounded-sm">
+                            <select x-model="service.service"
+                                      x-bind:name="`services[${index}][service]`"
+                                      {{--name="services[]" --}}
+                                      class="input rounded-sm">
                                 <option value="">-- choose service --</option>
                                 @foreach ($services as $service)
 
 
-                                    <option x-data="{
-    bodys: {{  $service->price }} }
- " x-price="{{number_format($service->price, 2)}}" value="{{$service->id}}">
+                                    <option x-price="{{number_format($service->price, 2)}}" value="{{$service->id}}">
                                         {{ $service->name }} (${{ number_format($service->price, 2) }})
                                     </option>
                                 @endforeach
-                            </x-select>
+                            </select>
                         </td>
-                        <td> <x-input class="input rounded-sm" name="qty[]" type="number" x-model="field.quantity"/></td>
-                        <td> <x-input x-text="bodys" class="input rounded-sm" name="price[]" type="number" x-model="field.price"/></td>
-                        <td> <x-input class="input rounded-sm" name="amount[]" type="number" x-model="field.amount"/></td>
+                        <td> <input class="input rounded-sm"
+                                      x-bind:name="`services[${index}][qty]`"
+
+                                      {{--name="qty[]" type="number" --}}
+                                      x-model="service.qty"/></td>
+                        <td> <input x-text="service.service" class="input rounded-sm"
+                                 x-bind:name="`services[${index}][price]`"
+
+                                 {{--name="price[]" --}}
+                                 x-model="service.price"/></td>
+                        <td> <input class="input rounded-sm" x-text="service.service * service.qty"
+                                    x-bind:name="`services[${index}][amount]`"
+                                    {{--name="amount[]"  --}}type="number"
+                                    x-model="service.amount"/></td>
+                        {{--<td class="text-center"><h2  x-text="service.amount" ></h2></td>--}}
 
                         <td>
-                            {{--<button type="button" class="bg-red-600 px-4 py-2 rounded-full text-xl text-white "--}}
-                            {{--@click="removeField(field)">&times;--}}
-                            {{--</button>--}}
-                            <button type="button" class="itemToDelete">&times;
+
+                            <button type="button" class="bg-red-600 px-4 py-2 rounded-full text-xl text-white "
+                            @click="removeField(service)">&times;
                             </button>
+                            {{--<button type="button" class="itemToDelete">&times;--}}
+                            {{--</button>--}}
                         </td>
                     </div>
                 </tr>
+
             </template>
 
             </tbody>
-            <tfoot class="bg-blue">
-            <tr class="bg-blue">
-                <td colspan="5" class="text-left bg-blue">
-                    <button type="button" class="btn mt-2"
-                            @click="addNewField()">{{__('Add')}}</button>
-                </td>
-            </tr>
-            </tfoot>
+            {{--<tfoot class="bg-blue">--}}
+            {{--<tr class="bg-blue">--}}
+                {{--<td colspan="5" class="text-left bg-blue">--}}
+                    {{--<button type="button" class="btn mt-2"--}}
+                            {{--@click="addNewField(service)">{{__('Add')}}</button>--}}
+                {{--</td>--}}
+            {{--</tr>--}}
+            {{--</tfoot>--}}
         </table>
     </div>
-</div>
 
 
-<div class="row clearfix" style="margin-top:20px">
+
+<div class="row clearfix"  style="margin-top:20px">
     <div class="pull-right col-md-4">
         <table class="table table-bordered table-hover" id="tab_logic_total">
             <tbody>
             <tr>
                 <th class="text-center"><p>{{__('Sub Total')}}</p></th>
+                {{--<td class="text-center"><h2  ></h2></td>--}}
                 <td class="text-center"><input value="{{$order->sub_total}}" type="number" name='sub_total' placeholder='0.00' class="input rounded-sm" id="sub_total" /></td>
             </tr>
             <tr>
@@ -287,7 +327,7 @@
         </table>
     </div>
 </div>
-
+</div>
 
 {{--@push('scripts')--}}
 <script>
@@ -296,12 +336,20 @@
     document.addEventListener('alpine:init', () => {
         Alpine.data('handler', () => ({
             id: '{{count($order->services)}}',
-            service: '',
-            price: 0,
+            service:'',
+            price:0,
+             {{--@php--}}
+
+                    {{--foreach ($items as $item){--}}
+                    {{--$service=optional($item->services()->whereItemId($item->id)->first())->value;--}}
+                    {{--dd($service);--}}
+                    {{--}--}}
+                    {{--@endphp--}}
+
             quantity:1,
             total:0,
 
-            fields: [
+            services: [
                 // {id: 0, service: 'service', price: 0, amount: 9}
 
                 {{--@php--}}
@@ -322,19 +370,35 @@
 
             ],
 
-            addNewField(field) {
-                this.fields.push({
-                    id: this.id++,
-                    service: '',
-                    price: 0,
-                    amount: 0,
-                    quantity:1,
-                });
+            addNewField(service) {
+                // let notExist = true;
+                // console.log(service);
+                // let {id,price,name} = service;
+                // if (this.items.length) {
+                //     this.items.map(item => {
+                //         if (item.id == id) {
+                //             item.quantity = Number(item.quantity) + 1;
+                //             item.total = item.price * item.quantity;
+                //             // notExist = false;
+                //         }
+                //         return item;
+                //     });
+                // }
+
+                // if (notExist) {
+                    this.services.push({
+                        id: this.id++,
+                        service: '',
+                        price: '',
+                        amount: '',
+                        qty: 1,
+                    });
+                // }
             },
-            removeField(field) {
-                let position = this.fields.indexOf(field);
-                console.log(field,position)
-                this.fields.splice(position, 1);
+            removeField(service) {
+                let position = this.services.indexOf(service);
+                console.log(service,position)
+                this.services.splice(position, 1);
                 // this.id = this.id--;
                 return true;
                 // this.fields.splice(index, 1);
@@ -364,19 +428,19 @@
         }))
 
     })
-    function handleClick(event) {
-        if (event.target.className == 'itemToDelete') {
-            // get row containing clicked button
-            var row = event.target.parentNode.parentNode;
-            // remove row element
-            row.parentNode.removeChild(row);
-        }
-    }
-
-    window.addEventListener('DOMContentLoaded', function() {
-        // register click handler for whole table for efficiency
-        document.querySelector('.table').addEventListener('click',handleClick, false);
-    }, false);
+    // function handleClick(event) {
+    //     if (event.target.className == 'itemToDelete') {
+    //         // get row containing clicked button
+    //         var row = event.target.parentNode.parentNode;
+    //         // remove row element
+    //         row.parentNode.removeChild(row);
+    //     }
+    // }
+    //
+    // window.addEventListener('DOMContentLoaded', function() {
+    //     // register click handler for whole table for efficiency
+    //     document.querySelector('.table').addEventListener('click',handleClick, false);
+    // }, false);
 
 </script>
 {{--@endpush--}}

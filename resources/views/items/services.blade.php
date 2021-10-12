@@ -1,7 +1,8 @@
 
-<div x-data="{ services: [{
-  id: '',
-accountNumber: ''
+<div x-data="{ services: [
+{
+  name: '',
+price: ''
 },
 
 @php
@@ -51,7 +52,8 @@ $index++;
         </div>
     </template>
     <button type="button" class="underline" @click="services.push({
-                  id: '',
-                  accountNumber: ''
+                  name: '',
+                  price: ''
+                  {{--item--}}
                   })">+{{__('Add')}}</button>
 </div>

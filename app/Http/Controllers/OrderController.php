@@ -42,6 +42,7 @@ class OrderController extends Controller
         $services = Service::all();
 //        $items=Item::all();
 
+        $items=Item::all();
         $orders = Order::all();
         $customers = User::customer()->get();
         $employees = User::employee()->get();
@@ -51,13 +52,14 @@ class OrderController extends Controller
         $timeframes = TimeFrame::all();
 //        dd($serviceOrders);
         return view('orders.create', compact('customers', 'employees', 'services', 'serviceOrders',
-            'order', 'timeframes', 'amount', 'orders'));
+            'order', 'timeframes', 'amount', 'orders','items'));
 
     }
 
 
     public function store(Request $request)
     {
+//        dd($request);
         $this->validate($request, [
             'sub_total' => 'required',
             'total' => 'required',
@@ -66,40 +68,49 @@ class OrderController extends Controller
             'employee_id' => 'required',
             'discount' => 'nullable',
             'payment' => 'required',
-            'process' => 'required',
+//            'process' => 'required',
             'requested_pickup_date' => 'nullable',
             'requested_delivery_date' => 'nullable',
             'agent_pickup_date' => 'nullable',
             'agent_delivery_date' => 'nullable',
-            'time_frame_id' => 'required',
+            'delivery_time_frame_id' => 'required',
         ]);
 
-        request()->merge(['delivery' => $request->delivery == 'on' ? true : false]);
-        $order =Order::create(
+        request()->merge(['is_delivery' => $request->is_delivery == 'on' ? true : false]);
+        $order = Order::create(
             request()
-                ->only('sub_total',  'total' ,'vat','customer_id', 'employee_id','discount' , 'payment' ,
-                    'process','requested_pickup_date', 'requested_delivery_date','agent_pickup_date',
-                    'agent_delivery_date','time_frame_id','delivery'));
-//        $order = Order::create($data);
-
-        $services = $request->input('services', []);
-        $quantities = $request->input('qty', []);
-        $price = $request->input('price', []);
-        $amount = $request->input('amount', []);
-        for ($service = 0; $service < count($services); $service++) {
-
-            if ($services[$service] != '') {
+                ->only('sub_total', 'total', 'vat', 'customer_id', 'employee_id', 'discount', 'payment',
+                    'process', 'requested_pickup_date', 'requested_delivery_date', 'agent_pickup_date',
+                    'agent_delivery_date', 'delivery_time_frame_id', 'is_delivery'));
 //
-                $order->services()->attach(
-                    $services[$service], [
-                        'qty' => $quantities[$service],
-                        'price' => $price[$service],
-                        'amount' => $amount[$service]
-                    ]
-                );
+        foreach ($request->services as $service) {
+//
 
-            }
+            $order->services()->attach($service['service'], [
+                'qty' => $service['qty'],
+                'price' => $service['price'],
+                'amount' => $service['amount']
+            ]);
         }
+
+//        $services = $request->input('services', []);
+//        $quantities = $request->input('qty', []);
+//        $price = $request->input('price', []);
+//        $amount = $request->input('amount', []);
+//        for ($service = 0; $service < count($services); $service++) {
+//
+//            if ($services[$service] != '') {
+////
+//                $order->services()->attach(
+//                    $services[$service], [
+//                        'qty' => $quantities[$service],
+//                        'price' => $price[$service],
+//                        'amount' => $amount[$service]
+//                    ]
+//                );
+//
+//            }
+//        }
 
         return redirect('orders/manage');
     }
@@ -154,13 +165,13 @@ public function perMonth()
             'employee_id' => 'required',
             'discount' => 'nullable',
             'payment' => 'required',
-            'process' => 'required',
+//            'process' => 'required',
             'requested_pickup_date' => 'nullable',
             'requested_delivery_date' => 'nullable',
             'agent_pickup_date' => 'nullable',
             'agent_delivery_date' => 'nullable',
-            'time_frame_id' => 'required',
-            'delivery'=>'nullable',
+            'delivery_time_frame_id' => 'required',
+            'is_delivery'=>'nullable',
         ]);
         $order->update($data);
 

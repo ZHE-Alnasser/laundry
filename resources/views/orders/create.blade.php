@@ -36,7 +36,7 @@
             @include('orders._fields')
             @include('orders.services.create')
 
-        </div>
+        {{--</div>--}}
         <div class="flex mt-8">
             <button type='submit' class="btn ml-3">{{__('Create')}}</button>
 

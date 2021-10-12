@@ -47,10 +47,9 @@ class OrderDatatable extends LivewireDatatable
             Column::callback(['process'], function ($process) {
                 return __('process_'.$process);
             })->searchable()->label(__('Process')),
-            Column::callback(['time_frame_id'], function ($timeframe) {
+            Column::callback(['delivery_time_frame_id'], function ($timeframe) {
         return optional(TimeFrame::find($timeframe))->name;
             })->searchable()->label(__('Time Period')),
-//            DateColumn::name('created_at')->label(__('Created at'))->searchable(),
 
             Column::callback(['id'], function ($id) {
                 return view('components.order-action', ['url' => url("orders/$id"), 'model' => 'Orders', 'id' => $id]);
