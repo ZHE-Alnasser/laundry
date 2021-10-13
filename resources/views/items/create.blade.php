@@ -32,7 +32,7 @@
             <div class="flex mt-8">
                 <button type='submit' class="btn ml-3">{{__('Create')}}</button>
 
-                <input type="button" class="btn-cancel"
+                <input type="button" class="mx-2 btn-cancel"
                        name="cancel" value="{{__('Cancel')}}" onClick="window.location.replace('/items/manage')"/>
             </div>
         </x-form>

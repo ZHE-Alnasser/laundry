@@ -55,7 +55,7 @@
 
                     <div class="flex p-2 mt-8 sm:mx-10">
                         <button type="Submit" class="btn ml-2">{{__('Save')}}</button>
-                        <input type="button" class="btn-cancel"
+                        <input type="button" class="mx-2 btn-cancel"
                                name="cancel" value="{{__('Cancel')}}" onClick="window.location.replace('/items/manage')"/>
                     </div>
                     </div>
