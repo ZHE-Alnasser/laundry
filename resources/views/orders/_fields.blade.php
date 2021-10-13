@@ -24,7 +24,7 @@
             @foreach($customers as $customer)
                 {{--@dd($customer)--}}
 
-                <option value="{{$customer->id}}">{{ $customer->name }}</option>
+                <option {{$order->customer_id==$customer->id?'selected':''}} value="{{$customer->id}}">{{ $customer->name }}</option>
             @endforeach
         </x-select>
     </div>
@@ -48,8 +48,9 @@
 <div class="flex items-center mt-5">
     <div class="flex flex-col" >
         <div class="mx-2 flex">
+            <input name="is_pickup" type="hidden" value="0">
             <input @click="isPickedUp =!isPickedUp" type="checkbox" class="checkbox checkbox-accent" id="is_pickup" name="is_pickup"
-            >
+                   value="1"{{ (isset($order) && $order->is_pickup) || old('is_pickup', 0) === 1 ? 'checked' : '' }} >
             <p class="flex-1 text-s mx-2 font-medium text-gray-600 "> {{__('Needs Pickup?')}}</p>
         </div>
 
@@ -61,7 +62,7 @@
                         @foreach($timeframes as $time)
                             {{--@dd($customer)--}}
 
-                            <option value="{{$time->id}}">{{$time->name}} {{$time->description}}</option>
+                            <option  {{$order->delivery_time_frame_id==$time->id?'selected':''}} value="{{$time->id}}">{{$time->name}} {{$time->description}}</option>
                         @endforeach
                     </x-select>
                 </div>
@@ -71,7 +72,7 @@
                     <label>{{__('Request Pickup Date')}}</label>
 
                     {{--<x-input name="requested_pickup_date" type="text"  class="input"/>--}}
-                    <x-input name="requested_pickup_date" type="text"
+                    <x-input value="{{$order->requested_pickup_date}}" name="requested_pickup_date" type="text"
                              x-init="$nextTick(() => {new flatpickr($el,{dateFormat: 'Y-m-d'})})"
                              class="date-range input"/>
 
@@ -84,7 +85,7 @@
 
                     <label>{{__('Agent Pickup Date')}}</label>
                     <div class="divUser">
-                        <x-input name="agent_pickup_date" type="text"
+                        <x-input value="{{$order->agent_pickup_date}}" name="agent_pickup_date" type="text"
                                  x-init="$nextTick(() => {new flatpickr($el,{dateFormat: 'Y-m-d'})})"
                                  class="input"/>
                     </div>
@@ -99,7 +100,11 @@
 
     <div class="flex flex-col" x-cloak x-data="{isDelivery:{{old('is_delivery',$order->is_delivery)?'true':'false'}} }">
         <div class="mx-2 flex">
-            <input type="checkbox"  @click="isDelivery =!isDelivery" class="checkbox checkbox-accent" id="is_delivery" name="is_delivery"
+            <input name="is_delivery" type="hidden" value="0">
+            <input
+
+                    type="checkbox"  @click="isDelivery =!isDelivery" class="checkbox checkbox-accent" id="is_delivery" name="is_delivery"
+                    value="1"{{ (isset($order) && $order->is_delivery) || old('is_delivery', 0) === 1 ? 'checked' : '' }}
             >
             <p class="flex-1 text-s mx-2 font-medium text-gray-600 "> {{__('Delivery Order?')}}</p>
         </div>
@@ -108,11 +113,11 @@
             <div class="flex mx-2 mt-5">
                 <div class="w-full">
                     <p>{{__('Delivery Frame')}} :<span class="text-red-600"> *</span></p>
-                    <x-select required class="select  " name="delivery_time_frame_id" id="delivery_time_frame_id">
+                    <x-select  required class="select  " name="delivery_time_frame_id" id="delivery_time_frame_id">
                         @foreach($timeframes as $time)
                             {{--@dd($customer)--}}
 
-                            <option value="{{$time->id}}">{{$time->name}} {{$time->description}}</option>
+                            <option {{$order->delivery_time_frame_id==$time->id?'selected':''}} value="{{$time->id}}">{{$time->name}} {{$time->description}}</option>
                         @endforeach
                     </x-select>
                 </div>
@@ -122,6 +127,7 @@
 
                     {{--<x-input name="requested_pickup_date" type="text"  class="input"/>--}}
                     <x-input name="requested_delivery_date" type="text"
+                             value="{{$order->requested_delivery_date}}"
                              x-init="$nextTick(() => {new flatpickr($el,{dateFormat: 'Y-m-d'})})"
                              class="date-range input"/>
 
@@ -162,6 +168,7 @@
         <label>{{__('Delivered Date')}}</label>
         <div class="divUser">
             <x-input name="agent_delivery_date" type="text"
+                     value="{{$order->agent_delivery_date}}"
                      x-init="$nextTick(() => {new flatpickr($el,{enableTime: true,
     dateFormat: 'Y-m-d H:i',    altInput: true})})"
                      class="input"/>
@@ -175,9 +182,9 @@
 <label class="label  mt-5">{{__('Payment Method')}}<span class="text-red-600"> *</span></label>
 <x-select required class=" select mx-2 " name="payment" id="type"
           label="{{__('Payment')}}">
-    <option value="1">{{__('Cash')}}</option>
-    <option value="2">{{__('Card')}}</option>
-    <option value="3">{{__('Transfer')}}</option>
+    <option value="cash"{{$order->payment === 'cash' ? "selected" : "" }}>{{__('Cash')}}</option>
+    <option value="card"{{$order->payment === 'card' ? "selected" : "" }}>{{__('Card')}}</option>
+    <option value="transfer"{{$order->payment === 'transfer' ? "selected" : "" }}>{{__('Transfer')}}</option>
 </x-select>
 
 

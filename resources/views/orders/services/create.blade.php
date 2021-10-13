@@ -167,16 +167,18 @@
     <h1 class="mt-8 mx-3">{{__('Add Items')}}</h1>
     <div class="mt-5 flex mx-3">
         <div class="w-1/2">
-    <x-select  name="services[]" class="input w-1/2">
+    <x-select   x-model="item" x-ref="itemEL" name="items[]" class="input w-1/2">
         <option >-- choose service --</option>
         @foreach ($items as $item)
 
 
-            <option value="{{$item->id}}">
-                {{ $item->name }}
+            <option value="{{ $item->id }}">
+               {{ $item->name }}
             </option>
         @endforeach
     </x-select>
+
+
         </div>
     <button type="button" class="btn mx-2 mt-1"
             @click="addNewField(service)">{{__('Add')}}</button>
@@ -186,6 +188,7 @@
         <table class="table border-collapse w-full text-center" id="majors_table">
             <thead class="thead-light">
             {{--<th>#</th>--}}
+            <th>{{__('Item Name')}}</th>
             <th>{{__('Service Name')}}</th>
             <th>{{__('Quantity')}}</th>
             <th>{{__('Price')}}</th>
@@ -239,19 +242,22 @@
                 <tr >
                     <div >
                         {{--<td x-text="index + 1"></td>--}}
+
+                        <td>  <h2 x-text="$refs.itemEL.options[$refs.itemEL.selectedIndex].text"></h2></td>
                         <td>
                             <input class="input rounded-sm" type="hidden" x-model="service.id"/>
                             {{--<input class="input rounded-sm" type="text" x-model="field.service"/>--}}
-                            <select x-model="service.service"
+                            <select  x-model="service.service"
                                       x-bind:name="`services[${index}][service]`"
+
                                       {{--name="services[]" --}}
                                       class="input rounded-sm">
-                                <option value="">-- choose service --</option>
+                                <option   >-- choose service --</option>
                                 @foreach ($services as $service)
 
 
-                                    <option x-price="{{number_format($service->price, 2)}}" value="{{$service->id}}">
-                                        {{ $service->name }} (${{ number_format($service->price, 2) }})
+                                    <option x-init="x={{number_format($service->price, 2)}}" value="{{$service->id}}">
+                                        {{ $service->name }} <p x-model="p">(${{ number_format($service->price, 2) }})</p>
                                     </option>
                                 @endforeach
                             </select>
@@ -261,14 +267,19 @@
 
                                       {{--name="qty[]" type="number" --}}
                                       x-model="service.qty"/></td>
-                        <td> <input x-text="service.service" class="input rounded-sm"
+                        <td> <input  class="input rounded-sm"
                                  x-bind:name="`services[${index}][price]`"
-
+                                    x-bind:placeholder="price"
                                  {{--name="price[]" --}}
-                                 x-model="service.price"/></td>
-                        <td> <input class="input rounded-sm" x-text="service.service * service.qty"
+                                 x-model="service.price"/>
+                        {{--<h2 x-text="'{{__('Unit Price')}}: ' + x + '{{currency()}}'"><></h2>--}}
+                        {{--<h2 x-text="'{{__('Unit Price')}}: ' + service.price + '{{currency()}}'"><></h2>--}}
+                        {{--<h2 x-text.number="$refs.priceEL.options[$refs.priceEL.selectedIndex].text"></h2>--}}
+                        </td>
+                        <td> <input class="input rounded-sm"
                                     x-bind:name="`services[${index}][amount]`"
                                     {{--name="amount[]"  --}}type="number"
+                                    x-bind:value="service.service * service.qty"
                                     x-model="service.amount"/></td>
                         {{--<td class="text-center"><h2  x-text="service.amount" ></h2></td>--}}
 
@@ -286,14 +297,7 @@
             </template>
 
             </tbody>
-            {{--<tfoot class="bg-blue">--}}
-            {{--<tr class="bg-blue">--}}
-                {{--<td colspan="5" class="text-left bg-blue">--}}
-                    {{--<button type="button" class="btn mt-2"--}}
-                            {{--@click="addNewField(service)">{{__('Add')}}</button>--}}
-                {{--</td>--}}
-            {{--</tr>--}}
-            {{--</tfoot>--}}
+
         </table>
     </div>
 
@@ -306,22 +310,22 @@
             <tr>
                 <th class="text-center"><p>{{__('Sub Total')}}</p></th>
                 {{--<td class="text-center"><h2  ></h2></td>--}}
-                <td class="text-center"><input value="{{$order->sub_total}}" type="number" name='sub_total' placeholder='0.00' class="input rounded-sm" id="sub_total" /></td>
+                <td class="text-center"><input required value="{{$order->sub_total}}" type="number" name='sub_total' placeholder='0.00' class="input rounded-sm" id="sub_total" /></td>
             </tr>
             <tr>
                 <th class="text-center"><p>{{__('VAT')}}</p></th>
                 <td class="text-center"><div class="input-group flex mb-2 mb-sm-0">
-                        <input type="number"  class="input rounded-sm" id="tax" value="15" placeholder="0">
+                        <input required type="number"  class="input rounded-sm" id="tax" value="15" placeholder="0">
                         <div class="input-group-addon  mt-4  mx-2"><p>%</p></div>
                     </div></td>
             </tr>
             <tr>
                 <th class="text-center"><p>{{__('Vat Amount')}}</p></th>
-                <td class="text-center"><input value="{{$order->vat}}" type="number" name='vat' id="vat" placeholder='0.00' class="input rounded-sm" /></td>
+                <td class="text-center"><input required value="{{$order->vat}}" type="number" name='vat' id="vat" placeholder='0.00' class="input rounded-sm" /></td>
             </tr>
             <tr>
                 <th class="text-center"><p>{{__('Grand Total')}}</p></th>
-                <td class="text-center"><input type="number" value="{{$order->total}}" name='total' id="total" placeholder='0.00' class="input rounded-sm" /></td>
+                <td class="text-center"><input required type="number" value="{{$order->total}}" name='total' id="total" placeholder='0.00' class="input rounded-sm" /></td>
             </tr>
             </tbody>
         </table>
@@ -338,6 +342,8 @@
             id: '{{count($order->services)}}',
             service:'',
             price:0,
+            x:0,
+            p:0,
              {{--@php--}}
 
                     {{--foreach ($items as $item){--}}
@@ -348,7 +354,10 @@
 
             quantity:1,
             total:0,
-
+            total_amount: 0,
+            paid: 0,
+            change: 0,
+            item:'',
             services: [
                 // {id: 0, service: 'service', price: 0, amount: 9}
 
@@ -372,8 +381,8 @@
 
             addNewField(service) {
                 // let notExist = true;
-                // console.log(service);
-                // let {id,price,name} = service;
+                console.log(service);
+                let {id,price,name} = service;
                 // if (this.items.length) {
                 //     this.items.map(item => {
                 //         if (item.id == id) {
@@ -386,11 +395,12 @@
                 // }
 
                 // if (notExist) {
+
                     this.services.push({
-                        id: this.id++,
-                        service: '',
-                        price: '',
-                        amount: '',
+                        id: id,
+                        service: name,
+                        price: price,
+                        amount: price,
                         qty: 1,
                     });
                 // }
@@ -428,24 +438,6 @@
         }))
 
     })
-    // function handleClick(event) {
-    //     if (event.target.className == 'itemToDelete') {
-    //         // get row containing clicked button
-    //         var row = event.target.parentNode.parentNode;
-    //         // remove row element
-    //         row.parentNode.removeChild(row);
-    //     }
-    // }
-    //
-    // window.addEventListener('DOMContentLoaded', function() {
-    //     // register click handler for whole table for efficiency
-    //     document.querySelector('.table').addEventListener('click',handleClick, false);
-    // }, false);
+
 
 </script>
-{{--@endpush--}}
-
-
-
-
-{{--</x-layouts.app>--}}

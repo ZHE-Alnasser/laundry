@@ -1,6 +1,6 @@
 <x-layouts.app>
     <x-card>
-        <x-feedback/>
+        {{--<x-feedback/>--}}
 
 
         <div class="w-full">

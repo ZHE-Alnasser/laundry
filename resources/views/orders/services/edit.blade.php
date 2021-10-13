@@ -232,7 +232,7 @@
                         </x-select>
                     </td>
                     <td> <x-input class="input rounded-sm" name="qty[]" type="number" x-model="field.quantity"/></td>
-                    <td> <x-input x-text="bodys" class="input rounded-sm" name="price[]" type="number" x-model="field.price"/></td>
+                    <td> <x-input x-bind:value="bodys" class="input rounded-sm" name="price[]" type="number" x-model="field.price"/></td>
                     <td> <x-input class="input rounded-sm" name="amount[]" type="number" x-model="field.amount"/></td>
 
                     <td>

@@ -22,12 +22,12 @@ class OrderDatatable extends LivewireDatatable
     public $hideable = 'inline';
     public $exportable = true;
 
-//    public $afterTableSlot = 'components.selected';
+
 
     public function builder()
     {
         return Order::query()->with('users');
-//        return Order::query()->where('process','1');
+
 
 
     }

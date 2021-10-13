@@ -44,15 +44,15 @@
             </div>
 
         <div class="my-5">
-            <h1 class="mb-3">{{__('Pick Up')}}</h1>
+            <h1 class="mb-3">{{__('Needs Pickup Orders')}}</h1>
             @livewire('pickup-datatable')
         </div>
         <div class="my-5">
-            <h1 class="mb-3">{{__('Delivery')}}</h1>
+            <h1 class="mb-3">{{__('Delivery Orders')}}</h1>
             @livewire('delivery-datatable')
         </div>
     <div class="my-5">
-        <h1 class="mb-3">{{__('Orders')}}</h1>
+        <h1 class="mb-3">{{__('All Orders')}}</h1>
         @livewire('order-datatable')
     </div>
     </x-card>

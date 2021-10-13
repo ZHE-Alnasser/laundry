@@ -29,7 +29,7 @@
         <div class="divider"></div>
 
         <div class="w-full  mt-6 px-6 py-4 bg-white  overflow-hidden sm:rounded-lg">
-            <x-feedback/>
+            {{--<x-feedback/>--}}
 
             <x-form action="{{url('orders')}}" method="post" has-files>
             @csrf

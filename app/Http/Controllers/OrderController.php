@@ -76,15 +76,17 @@ class OrderController extends Controller
             'delivery_time_frame_id' => 'required',
         ]);
 
-        request()->merge(['is_delivery' => $request->is_delivery == 'on' ? true : false]);
+        request()->merge(['is_delivery' => $request->is_delivery == 'on' ? true : false],['is_pickup' => $request->is_pickup == 'on' ? true : false]);
         $order = Order::create(
             request()
                 ->only('sub_total', 'total', 'vat', 'customer_id', 'employee_id', 'discount', 'payment',
                     'process', 'requested_pickup_date', 'requested_delivery_date', 'agent_pickup_date',
-                    'agent_delivery_date', 'delivery_time_frame_id', 'is_delivery'));
+                    'agent_delivery_date', 'delivery_time_frame_id', 'is_delivery','is_pickup'));
 //
+        if($request->services)
         foreach ($request->services as $service) {
 //
+
 
             $order->services()->attach($service['service'], [
                 'qty' => $service['qty'],
@@ -172,6 +174,7 @@ public function perMonth()
             'agent_delivery_date' => 'nullable',
             'delivery_time_frame_id' => 'required',
             'is_delivery'=>'nullable',
+            'is_pickup'=>'nullable'
         ]);
         $order->update($data);
 
