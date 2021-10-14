@@ -186,7 +186,7 @@
     </div>
     <div class="overflow-x-auto mt-8 col">
         <table class="table border-collapse w-full text-center" id="majors_table">
-            <thead class="thead-light">
+            <thead class="border thead-light">
             {{--<th>#</th>--}}
             <th>{{__('Item Name')}}</th>
             <th>{{__('Service Name')}}</th>
@@ -256,7 +256,7 @@
                                 @foreach ($services as $service)
 
 
-                                    <option x-init="x={{number_format($service->price, 2)}}" value="{{$service->id}}">
+                                    <option x-model="x={{number_format($service->price, 2)}}" value="{{$service->id}}">
                                         {{ $service->name }} <p x-model="p">(${{ number_format($service->price, 2) }})</p>
                                     </option>
                                 @endforeach
@@ -269,8 +269,9 @@
                                       x-model="service.qty"/></td>
                         <td> <input  class="input rounded-sm"
                                  x-bind:name="`services[${index}][price]`"
-                                    x-bind:placeholder="price"
+                                    x-bind:placeholder="x"
                                  {{--name="price[]" --}}
+
                                  x-model="service.price"/>
                         {{--<h2 x-text="'{{__('Unit Price')}}: ' + x + '{{currency()}}'"><></h2>--}}
                         {{--<h2 x-text="'{{__('Unit Price')}}: ' + service.price + '{{currency()}}'"><></h2>--}}
@@ -341,7 +342,7 @@
         Alpine.data('handler', () => ({
             id: '{{count($order->services)}}',
             service:'',
-            price:0,
+            // price:0,
             x:0,
             p:0,
              {{--@php--}}

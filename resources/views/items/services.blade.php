@@ -2,10 +2,6 @@
 <div x-data="{ services: [
 
 
- {{--{--}}
-      {{--name: '',--}}
-    {{--price: ''--}}
-    {{--},--}}
 @php
         $index=0;
         if($item->services())
@@ -22,6 +18,10 @@
 
 @endphp
 
+{
+name: '',
+price: ''
+},
    ] }">
 
 
