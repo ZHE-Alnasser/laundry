@@ -38,17 +38,17 @@
             </div>
             <div class="flex">
             <div class="mt-5 w-full">
-                <label>{{__('Longitude')}}</label>
-                <x-input class="input" name="longitude" value="{{ old('longitude') }}"/>
+                <label>{{__('Longitude')}}<span class="text-red-600"> *</span></label>
+                <x-input required class="input" name="longitude" value="{{ old('longitude') }}"/>
             </div>
             <div class="mt-5 w-full mx-3">
                 <label>{{__('Latitude')}}<span class="text-red-600"> *</span></label>
-                <x-input class="input" name="latitude" value="{{ old('latitude') }}"/>
+                <x-input required class="input" name="latitude" value="{{ old('latitude') }}"/>
             </div>
             </div>
             <div class="mt-5 inline-flex items-center space-x-4 form-group {{ $errors->has('is_active') ? 'has-error' : '' }}">
                 <input name="is_active" type="hidden" value="0">
-            <input type="checkbox" class="checkbox checkbox-primary" id="is_active" name="is_active"
+            <input type="checkbox" class="checkbox checkbox-primary w-5 h-5" id="is_active" name="is_active"
                    >
             <p class="flex-1 text-s font-medium text-gray-600 "> {{__('Approve')}}</p>
             @if($errors->has('is_active'))
@@ -84,7 +84,7 @@
                             <td class="td p-2 text-center">
                                 <p class="text-s font-medium text-gray-600 ">
                                     {{ $role->name }}
-                                    <input type="checkbox" id="role_id" name="role_id[]" value="{{ $role->id }}"
+                                    <input type="checkbox" id="role_id" class="checkbox checkbox-primary w-5 h-5"  name="role_id[]" value="{{ $role->id }}"
                                            />
                                 </p>
                             </td>

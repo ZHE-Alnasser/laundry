@@ -28,7 +28,7 @@
                             @php($pieces = explode("-", $permission->name))
                             <td>
                                 <p class="lg:hidden">{{__($pieces[0])}}</p>
-                                <input type="checkbox" class="rounded" name="permissions[]" value="{{$permission->id}}"/>
+                                <input type="checkbox" class=" checkbox checkbox-primary w-5 h-5" name="permissions[]" value="{{$permission->id}}"/>
                             </td>
                         @endforeach
                     </tr>

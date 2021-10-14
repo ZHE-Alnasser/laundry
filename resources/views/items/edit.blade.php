@@ -38,18 +38,32 @@
                                 {{--<x-input class="input" type="file" id="image" name="image"/>--}}
                             {{--</div>--}}
                         {{--</div>--}}
-                    <div class="field mx-10 mb-5 mt-5">
+                    {{--<div class="field mx-10 mb-5 mt-5">--}}
+                        {{--<label class=" font-extrabold leading-8 tracking-tight  sm:leading-9"--}}
+                               {{--for="image"><i data-feather="image" class="ml-1"></i>{{__('Add Image')}}</label>--}}
+                        {{--<div class="mt-1">--}}
+
+                            {{--<label--}}
+
+                                    {{--for="file-upload" class=" ">--}}
+
+                                {{--<x-input class="input" type="file" id="image" name="image"/>--}}
+                            {{--</label>--}}
+                        {{--</div>--}}
+
+                    <div class="field mb-5 mt-5">
                         <label class=" font-extrabold leading-8 tracking-tight  sm:leading-9"
                                for="image"><i data-feather="image" class="ml-1"></i>{{__('Add Image')}}</label>
                         <div class="mt-1">
 
                             <label
-
                                     for="file-upload" class=" ">
 
                                 <x-input class="input" type="file" id="image" name="image"/>
                             </label>
                         </div>
+
+
                         <div class="mt-5"> <h1>{{__('Update Services')}}</h1></div>
 @include('items.services')
 

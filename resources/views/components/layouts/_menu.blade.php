@@ -12,7 +12,7 @@
     @endcanany
 
     @canany(['Update-Items','Create-Items','Delete-Items'])
-        <a class="side-items{{active('items')}}" {{(Request::is('item') || request()->is('items/*')) ? 'primary-color-bg text-white' : ''}} href="/items/manage"><i data-feather="shopping-bag" class="ml-1"></i><span class="side-text">{{__("Items")}}</span></a>
+        <a class="side-items{{active('items')}}" {{(Request::is('item') || request()->is('items')) ? 'primary-color-bg text-white' : ''}} href="/items/manage"><i data-feather="shopping-bag" class="ml-1"></i><span class="side-text">{{__("Items")}}</span></a>
     @endcanany
 
     @canany(['Update-Branches','Create-Branches','Delete-Branches'])

@@ -22,7 +22,7 @@
                     @csrf
                     <div>
                         <label class="block text-gray-700">{{ __('Email') }}</label>
-                        <input type="email" name="email" id="" placeholder="Enter Email Address"
+                        <input type="email" name="email" id="" placeholder="{{__('Enter Email Address')}}"
                                class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
                                autofocus autocomplete required>
                     </div>

@@ -184,6 +184,7 @@
   "Your Time Frame has been created successfully": "تم انشاء جدول التوصيل بنجاح",
   "Your User has been created successfully": "تم انشاء المستخدم بنجاح",
   "Your Role has been created successfully": "تم انشاء الصلاحية بنجاح",
+  ":attribute Has Been Updated": "تم تعديل :attribute ",
   "Sent Successfully": "تم الإرسال بنجاح",
   "Transfer": "تحويل",
   ":name has been updated successfully": "تم تعديل :name بنجاح",
@@ -215,7 +216,13 @@
   "All Rights Reserved.": "جميع البيانات محفوظة.",
   "Needs Pickup Orders": "طلبات بحاجة للاستلام",
   "Delivery Orders": "طلبات التوصيل",
-  "All Orders": "جميع الطلبات"
+  "All Orders": "جميع الطلبات",
+  "Item": "منتج",
+  "Expense": "المصروف",
+  "Longitude": "خط الطول",
+  "Latitude": "خط العرض",
+  "Enter Email Address": "ادخل البريد الإلكتروني",
+  "Enter Password": "ادخل كلمة المرور"
 
 }
 

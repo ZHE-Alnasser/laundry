@@ -70,7 +70,7 @@ class ExpenseController extends Controller
     public function update(Request $request, Expense $expense)
     {
         $expense->update($request->all());
-        return redirect('expenses/manage');
+        return redirect('expenses/manage')->withSuccess(__(':attribute Has Been Updated',['attribute'=>__('Expense')]));
     }
 
  

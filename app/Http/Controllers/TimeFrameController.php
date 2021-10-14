@@ -9,7 +9,7 @@ class TimeFrameController extends Controller
 {
     function __construct()
     {
-//        $this->addMiddlewaresFor('TimeFrames');
+
         $this->middleware('auth');
     }
 
@@ -57,7 +57,7 @@ class TimeFrameController extends Controller
     {
 
         $timeframe->update($request->all());
-        return redirect('settings');
+        return redirect('settings')->withSuccess(__(':attribute Has Been Updated',['attribute'=>__('Time Frame')]));
     }
 
 
