@@ -223,7 +223,10 @@
   "Latitude": "خط العرض",
   "Enter Email Address": "ادخل البريد الإلكتروني",
   "Enter Password": "ادخل كلمة المرور",
-  "Upload image": "تحميل صورة"
-
+  "Upload image": "تحميل صورة",
+  "Unit Price":"سعر الوحدة",
+  "Total": "الإجمالي",
+  "Change": "الفرق",
+  "Full Amount": "المبلغ الكامل"
 }
 

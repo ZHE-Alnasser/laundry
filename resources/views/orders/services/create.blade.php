@@ -5,7 +5,7 @@
                 <template x-for="item in items">
                     <div>
                         <label for="services-modal" @click="services=item.services;currentItem=item"
-                               class="btn btn-primary modal-button" x-text="item.name"></label>
+                               class="btn btn-primary w-32 m-1 modal-button" x-text="item.name"></label>
                     </div>
                 </template>
 
@@ -39,16 +39,16 @@
                              x-text="'{{__('Unit Price')}}: ' + o.price + '{{currency()}}'"></div>
                     </div>
                     <div class="flex">
-                        <button class="mx-1 btn btn-primary" type="button" @click="adjustBy(o,-1)">-</button>
+                        <button class="mx-1 mt-1 btn btn-primary" type="button" @click="adjustBy(o,-1)">-</button>
                         <input type="hidden" name="service[]" :value="o.id">
-                        <input type="number" min="1"
+                        <input type="number" min="1" class="input"
                                name="quantity[]"
                                x-on:input="adjustQuantity(o, $event.target.value)"
                                x-on:change="adjustQuantity(o, $event.target.value)"
                                :value="o.quantity"/>
-                        <button class="mx-1 btn btn-primary" type="button" @click="adjustBy(o, 1)">+</button>
+                        <button class="mx-1 mt-1 btn btn-primary" type="button" @click="adjustBy(o, 1)">+</button>
                     </div>
-                    <div x-text="o.total"></div>
+                    <div class="mx-1" x-text="o.total"></div>
                     <div>
                         <a @click="removeServiceFromOrder(o)">
                             <span class="h-8 w-8 text-red-600">X</span>
@@ -62,7 +62,7 @@
 
     <div class="flex items-end my-4">
 
-        <input type="number" step="0.1" autocomplete="off" min="total" name="paid" class="flex-1" name="total"
+        <input type="number" step="0.1" autocomplete="off" min="total" name="paid" class="input flex-1" name="total"
                x-model="paid" label="{{__('Paid Amount')}}"
                x-on:change="calculatePayments($event.target.value)"
                x-on:keydown.debounce.150ms="calculatePayments($event.target.value)"/>

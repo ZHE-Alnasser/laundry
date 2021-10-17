@@ -49,7 +49,7 @@
     <div class="flex flex-col" >
         <div class="mx-2 flex">
             <input name="is_pickup" type="hidden" value="0">
-            <input @click="isPickedUp =!isPickedUp" type="checkbox" class="checkbox checkbox-accent" id="is_pickup" name="is_pickup"
+            <input @click="isPickedUp =!isPickedUp" type="checkbox" class="checkbox checkbox-primary" id="is_pickup" name="is_pickup"
                    value="1"{{ (isset($order) && $order->is_pickup) || old('is_pickup', 0) === 1 ? 'checked' : '' }} >
             <p class="flex-1 text-s mx-2 font-medium text-gray-600 "> {{__('Needs Pickup?')}}</p>
         </div>
@@ -103,7 +103,7 @@
             <input name="is_delivery" type="hidden" value="0">
             <input
 
-                    type="checkbox"  @click="isDelivery =!isDelivery" class="checkbox checkbox-accent" id="is_delivery" name="is_delivery"
+                    type="checkbox"  @click="isDelivery =!isDelivery" class="checkbox checkbox-primary" id="is_delivery" name="is_delivery"
                     value="1"{{ (isset($order) && $order->is_delivery) || old('is_delivery', 0) === 1 ? 'checked' : '' }}
             >
             <p class="flex-1 text-s mx-2 font-medium text-gray-600 "> {{__('Delivery Order?')}}</p>
