@@ -59,7 +59,7 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-//        dd($request);
+        dd($request);
         $this->validate($request, [
             'sub_total' => 'required',
             'total' => 'required',

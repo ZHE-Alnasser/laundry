@@ -11,16 +11,20 @@ class Service extends Model
 
 
     protected $guarded = [];
-
+    protected $appends = ['item_name'];
 
     public function orders()
     {
         return $this->belongsToMany(Order::class)->withPivot('qty', 'price', 'amount');
     }
+
     public function item()
     {
         return $this->belongsTo(Item::class);
     }
 
-
+    public function getItemNameAttribute()
+    {
+        return $this->item->name;
+    }
 }

@@ -194,7 +194,7 @@
                             @endforeach
                         </x-select> </td>
                     {{--<input type="text" x-model="field.service"/></td>--}}
-                    <td> <x-input class="input rounded-sm" name="qty[]" type="number" value="{{ $item->pivot->qty }}" /></td>
+                    <td> <x-input class="input rounded-sm" name="qty[]" type="number" value="{{ $item->pivot->quantity }}" /></td>
                     <td> <x-input class="input rounded-sm" name="price[]" type="number" value="{{ $item->pivot->price}}"/></td>
                     <td> <x-input class="input rounded-sm" name="amount[]" type="number" value="{{ $item->pivot->amount}}"/></td>
 

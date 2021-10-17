@@ -58,11 +58,11 @@
             <div class="flex mx-2 mt-5 ">
                 <div class="w-full">
                     <p>{{__('Pickup Frame')}} :<span class="text-red-600"> *</span></p>
-                    <x-select required class="select  " name="delivery_time_frame_id" id="delivery_time_frame_id">
+                    <x-select class="select  " name="pickup_time_frame_id" id="pickup_time_frame_id">
                         @foreach($timeframes as $time)
                             {{--@dd($customer)--}}
 
-                            <option  {{$order->delivery_time_frame_id==$time->id?'selected':''}} value="{{$time->id}}">{{$time->name}} {{$time->description}}</option>
+                            <option  {{$order->pickup_time_frame_id==$time->id?'selected':''}} value="{{$time->id}}">{{$time->name}} {{$time->description}}</option>
                         @endforeach
                     </x-select>
                 </div>
@@ -113,7 +113,7 @@
             <div class="flex mx-2 mt-5">
                 <div class="w-full">
                     <p>{{__('Delivery Frame')}} :<span class="text-red-600"> *</span></p>
-                    <x-select  required class="select  " name="delivery_time_frame_id" id="delivery_time_frame_id">
+                    <x-select  class="select  " name="delivery_time_frame_id" id="delivery_time_frame_id">
                         @foreach($timeframes as $time)
                             {{--@dd($customer)--}}
 
@@ -188,3 +188,11 @@
 </x-select>
 
 
+{{--<div class="mx-2">--}}
+{{--    <label>{{__('Payment method')}}:</label>--}}
+{{--    <div class="flex flex-col" name="payment_method">--}}
+{{--        <radio :label="__('Cach')" name="payment" value="cash"/>--}}
+{{--        <radio :label="__('Card')" name="payment" value="card"/>--}}
+{{--        <radio :label="__('Transfer')" name="payment" value="card"/>--}}
+{{--    </div>--}}
+{{--</div>--}}
