@@ -39,7 +39,7 @@ class BranchController extends Controller
         Branch::create($data);
 
 
-        return redirect('branches/manage')
+        return redirect('settings')
             ->with('success', __('Your Branch has been created successfully'));
     }
 
@@ -59,7 +59,7 @@ class BranchController extends Controller
     public function update(Request $request, branch $branch)
     {
         $branch->update($request->all());
-        return redirect('branches/manage')->withSuccess(__(':attribute Has Been Updated',['attribute'=>__('Branch')]));
+        return redirect('settings')->withSuccess(__(':attribute Has Been Updated',['attribute'=>__('Branch')]));
     }
 
 

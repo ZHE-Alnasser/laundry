@@ -19,7 +19,7 @@
                 <button type='submit' class="btn ml-3">{{__('Create')}}</button>
 
                 <input type="button" class="btn-cancel"
-                       name="cancel" value="{{__('Cancel')}}" onClick="window.location.replace('/timeframes/manage')"/>
+                       name="cancel" value="{{__('Cancel')}}" onClick="window.location.replace('/settings')"/>
             </div>
         </x-form>
     </div>

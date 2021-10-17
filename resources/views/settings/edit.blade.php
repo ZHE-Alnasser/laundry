@@ -5,7 +5,7 @@
                 @include('settings.partials.general')
                 {{--</x-form>--}}
             @include('settings.partials.time-frame')
-            {{--@include('settings.partials.general')--}}
+            @include('settings.partials.branches')
 
             </x-tabs>
             {{--<button  class="btn mt-8">{{__('Edit')}}</button>--}}

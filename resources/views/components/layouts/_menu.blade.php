@@ -15,13 +15,6 @@
         <a class="side-items{{active('items')}}" {{(Request::is('item') || request()->is('items')) ? 'primary-color-bg text-white' : ''}} href="/items/manage"><i data-feather="shopping-bag" class="ml-1"></i><span class="side-text">{{__("Items")}}</span></a>
     @endcanany
 
-    @canany(['Update-Branches','Create-Branches','Delete-Branches'])
-        <a class="side-items{{active('branches')}}" href="/branches/manage">
-            <i data-feather="git-branch" class="ml-1"></i>
-
-            <span class="side-text">{{__("Branches")}}</span></a>
-    @endcanany
-
 
     @canany(['Update-Districts','Create-Districts','Delete-Districts'])
         <a class="side-items{{active('districts')}}" href="/districts/manage"><i data-feather="map-pin" class="ml-1"></i><span class="side-text">{{__("Delivery Map")}}</span></a>
