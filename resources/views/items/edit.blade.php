@@ -8,7 +8,7 @@
                     @csrf
 
                     <div class="flex flex-col md:flex-row">
-                        <div class="w-full sm:mx-10 flex-1">
+                        <div class="w-full flex-1">
                             <label>{{__('Item Name')}}<span class="text-red-600"> *</span></label>
                             <div >
                                 <x-input required  name="name" value="{{$item->name}}" class="input"/>
@@ -52,18 +52,26 @@
                         {{--</div>--}}
 
                     <div class="field mb-5 mt-5">
-                        <label class=" font-extrabold leading-8 tracking-tight  sm:leading-9"
-                               for="image"><i data-feather="image" class="ml-1"></i>{{__('Add Image')}}</label>
-                        <div class="mt-1">
 
-                            <label
-                                    for="file-upload" class=" ">
+                        {{--<label class=" font-extrabold leading-8 tracking-tight  sm:leading-9"--}}
+                               {{--for="image"><i data-feather="image" class="ml-1"></i>{{__('Add Image')}}</label>--}}
+                        {{--<div class="mt-1">--}}
 
-                                <x-input class="input" type="file" id="image" name="image"/>
-                            </label>
-                        </div>
+                            {{--<label--}}
+                                    {{--for="file-upload" class=" ">--}}
 
+                                {{--<x-input class="input" type="file" id="image" name="image"/>--}}
+                            {{--</label>--}}
+                        {{--</div>--}}
+                        <label for="file-upload" class="btn">
+<span>
+<i data-feather="image" class="ml-1"></i>
+    {{__('Upload image')}}
+</span>
+                            <input class="hidden" id="file-upload" name="image" type="file"/>
+                        </label>
 
+                    </div>
                         <div class="mt-5"> <h1>{{__('Update Services')}}</h1></div>
 @include('items.services')
 

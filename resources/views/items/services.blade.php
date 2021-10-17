@@ -3,7 +3,13 @@
 
 
 @php
-        $index=0;
+$index=count($item->services);
+
+        if($index==0)
+        echo "{
+name: '',
+price: ''
+},";
         if($item->services())
             foreach($services as $service)
             {
@@ -18,10 +24,7 @@
 
 @endphp
 
-{
-name: '',
-price: ''
-},
+
    ] }">
 
 
@@ -59,7 +62,7 @@ price: ''
         </div>
     </template>
 
-    <button type="button" class="text-blue-800 hover:text-blue-400 underline" @click="services.push({
+    <button type="button" class="mt-3 text-blue-800 hover:text-blue-400 underline" @click="services.push({
                   name: '',
                   price: ''
                   {{--item--}}
