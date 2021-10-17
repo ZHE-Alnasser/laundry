@@ -14,8 +14,8 @@ class OrderService extends Migration
             $table->foreignId('order_id');
 //            $table->foreignId('item_id');
             $table->float('price')->default(0);
-            $table->float('amount')->default(0);
-            $table->integer('qty')->default(0);
+            $table->float('total')->default(0); //@todo rename all other places to be total instead of amount
+            $table->integer('quantity')->default(0); // todo rename all other places to be quantity instead of qty
 
 //            $table->primary(['service_id','order_id']);
 //            $table->id();
