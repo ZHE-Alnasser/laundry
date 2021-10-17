@@ -83,7 +83,7 @@ class ItemController extends Controller
         $item->update($data);
 
         if ($request->hasFile('image')) {
-            $item->media()->delete('$this');
+            $item->media()->delete($this);
             $item->addMediaFromRequest('image')->toMediaCollection('items');
         }
 
@@ -94,7 +94,7 @@ class ItemController extends Controller
             $servicesIds[] = Service::create(['item_id' => $item->id, 'name' => $service['name'], 'price' => $service['price']]);
         }
 
-        return redirect('items/manage');
+        return redirect('items/manage')->withSuccess(__(':attribute Has Been Updated',['attribute'=>__('Item')]));
 
 
 

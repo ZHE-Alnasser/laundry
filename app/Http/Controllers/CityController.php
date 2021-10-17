@@ -58,7 +58,7 @@ class CityController extends Controller
     public function update(Request $request, City $city)
     {
         $city->update($request->all());
-        return redirect('cities/manage');
+        return redirect('cities/manage')->withSuccess(__(':attribute Has Been Updated',['attribute'=>__('City')]));
     }
 
     

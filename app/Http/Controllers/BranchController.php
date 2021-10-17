@@ -59,7 +59,7 @@ class BranchController extends Controller
     public function update(Request $request, branch $branch)
     {
         $branch->update($request->all());
-        return redirect('branches/manage');
+        return redirect('branches/manage')->withSuccess(__(':attribute Has Been Updated',['attribute'=>__('Branch')]));
     }
 
 

@@ -65,7 +65,7 @@ class DistrictController extends Controller
     public function update(Request $request, District $district)
     {
         $district->update($request->all());
-        return redirect('districts/manage');
+        return redirect('districts/manage')->withSuccess(__(':attribute Has Been Updated',['attribute'=>__('District')]));
     }
 
     public function destroy(District $district)

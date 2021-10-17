@@ -116,7 +116,7 @@ input{
 }
 
 .btn-cancel{
-    @apply btn btn-outline btn-secondary;
+    @apply btn mx-2 btn-outline btn-secondary;
 }
 .btn-error{
     @apply btn btn-error;
@@ -238,4 +238,7 @@ input{
         /*overflow:fal ;*/
         overflow:hidden;
     }
+}
+.search{
+    width: 30rem;
 }

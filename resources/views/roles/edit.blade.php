@@ -11,7 +11,7 @@
             <div class="mt-10"><label>{{__('Name').' '.__('Role')}}<span class="text-red-600"> *</span></label></div>
             <x-input id="name" class="input" name="name" value="{{$role->name}}" placeholder="{{__('Name')}}"/>
 
-            <table class="table w-full mt-8">
+            <table class="table w-full text-center mt-8">
                 <thead>
                 <tr>
                     <th>{{__('     ')}}</th>
@@ -28,7 +28,7 @@
                         </td>
                         @foreach($permissions as $permission)
                             <td>
-                                <input class="rounded" type="checkbox" name="permissions[]" value="{{$permission->id}}"
+                                <input class=" checkbox checkbox-primary w-5 h-5" type="checkbox" name="permissions[]" value="{{$permission->id}}"
                                         {{in_array($permission->id , $rolePermissions) ? 'checked' : '' }}/>
                             </td>
                         @endforeach

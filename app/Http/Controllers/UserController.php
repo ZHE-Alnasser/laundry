@@ -137,12 +137,7 @@ class UserController extends Controller
             $user->syncRoles($roles);
         }
 
-//        if($request->is_active === '1')
-//        {
-//            Notification::route('mail', $request->email)
-//                ->notify(new Approve($user));
-//        }
-        return redirect('/users/manage')->withSuccess(__('User Has Been Updated'));
+        return redirect('/users/manage')->withSuccess(__(':attribute Has Been Updated',['attribute'=>__('User')]));
 
     }
 

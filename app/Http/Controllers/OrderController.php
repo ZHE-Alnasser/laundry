@@ -6,6 +6,7 @@ use App\Models\Item;
 use App\Models\Order;
 use App\Models\OrderService;
 use App\Models\Service;
+use App\Models\Setting;
 use App\Models\TimeFrame;
 use App\Models\User;
 use BladeUIKit\Components\DateTime\Carbon;
@@ -218,11 +219,12 @@ public function perMonth()
 
     public function invoice(Order $order)
     {
+        $setting=Setting::all();
         $employees = User::employee()->get();
         $customers = User::customer()->get();
         $orders = Order::all();
 //      dd($customer);
-        return view('orders.reports.invoice', compact('order', 'employees', 'customers', 'orders'));
+        return view('orders.reports.invoice', compact('order', 'employees', 'customers', 'orders','setting'));
     }
 
 

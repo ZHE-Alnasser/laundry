@@ -69,7 +69,7 @@
 
                         <div class="mt-5 inline-flex items-center mx-2 space-x-4 form-group {{ $errors->has('is_active') ? 'has-error' : '' }}">
                             <input name="is_active" type="hidden" value="0">
-                            <input type="checkbox" class="checkbox checkbox-primary" id="is_active" name="is_active"
+                            <input type="checkbox" class="checkbox checkbox-primary w-5 h-5 " id="is_active" name="is_active"
                                    value="1"{{ (isset($user) && $user->is_active) || old('is_active', 0) === 1 ? 'checked' : '' }}>
                             <p class="flex-1 text-s font-medium text-gray-600 "> {{__('Approve')}}</p>
                             @if($errors->has('is_active'))
@@ -105,7 +105,7 @@
                                                 <td class="td p-2 text-center">
                                                     <p class="text-s font-medium text-gray-600 ">
                                                         {{ $role->name }}
-                                                        <input type="checkbox" id="role_id" name="role_id[]" value="{{ $role->id }}"
+                                                        <input type="checkbox" class="checkbox checkbox-primary w-5 h-5" id="role_id" name="role_id[]" value="{{ $role->id }}"
                                                                 {{in_array($role->id , $userRoles) ? 'checked' : '' }}/>
                                                     </p>
                                                 </td>
