@@ -14,20 +14,9 @@
 
     </style>
 @endpush
-{{--@section('content')--}}
+
 <div class="bg-white">
     <div class="field text-right mx-10 mt-5">
-
-        {{--@if($setting->hasMedia('settings') )--}}
-            {{--<div class="object-cover mb-5 ">--}}
-                {{--@foreach($setting->getMedia('settings') as $attachment)--}}
-                    {{--<div class="h-25 w-25">--}}
-                        {{--{{$attachment}}--}}
-                    {{--</div>--}}
-                {{--@endforeach--}}
-            {{--</div>--}}
-        {{--@endif--}}
-
 
     </div>
 
@@ -62,23 +51,7 @@
             </div>
         @endif
     </div>
-    {{--<div class=" text-center ">--}}
-        {{--<img class="img-fluid d-block mx-auto" style="max-width: 30%" src="{{asset('img/logo.png')}}" alt="">--}}
-        {{--<img class="img-fluid d-block mx-auto" style="max-width: 30%" src="{{setting('company_logo')}}" alt="">--}}
-        {{--<h3>{{setting('company_name')}}</h3>--}}
-        {{--<h3>{{setting('company_email')}}</h3>--}}
-        {{--<h3>{{setting('comapny_address_1')}}</h3>--}}
-        {{--<h3>{{setting('vat_number')}}</h3>--}}
-        {{--<h3>{{setting('VAT')}}</h3>--}}
-    {{--</div>--}}
-    {{--<<<<<<< Updated upstream--}}
-    {{--=======--}}
-    {{--</div>--}}
-    {{-->>>>>>> Stashed changes--}}
 
-
-    {{--@dd($order->customer)--}}
-    {{--@dd($order->user,$order->customer)--}}
 
     <hr>
     <div class="row mt-5">
@@ -88,14 +61,11 @@
 
 
             <div class="col"><p>@lang('Accountant'): <b>{{optional($order->employee)->name}}</b></p></div>
-            {{--<div class="col"><p>@lang('Accountant'): <b>{{auth()->user()->full_name}}</b></p></div>--}}
-{{--@dd(auth()->user()->id)--}}
+
             <div class="col"></div>
-            {{--@dd($order->employee)--}}
-            {{--@dd($order->customer_id)--}}
+
             <div class="col">  <p>@lang('Customer Name'): <b>{{optional($order->customer)->name}}</b></p></div>
-                {{--@dd($customer->full_name)--}}
-            {{--@dd($order->customer->full_name)--}}
+
 
 
         </div>
@@ -114,20 +84,11 @@
             <th>@lang('Amount')</th>
 
             </thead>
-            {{--<tr>--}}
-            {{--<td>@lang('total')({{$order->total}}) * @lang('quantity')({{$order->quantity}})</td>--}}
-            {{--<td> </td>--}}
-            {{--<td>{{$order->total * $order->quantity}}</td>--}}
-            {{--</tr>--}}
-            {{--@dd($order->product_order)--}}
-            {{--@dd($order->services)--}}
 
-            {{--@dd($order)--}}
             @foreach($order->services as $item)
                 <tr class="text-center">
 
-                    {{--@dd($item->pivot->selling_price)--}}
-                    {{--@dd($order->services)--}}
+
                     <td>{{$item->name}} </td> <td>{{$item->pivot->quantity}}</td> <td> {{$item->pivot->price}}</td>
                 </tr>
 
@@ -137,15 +98,12 @@
         </table>
 
         <table class="table text-center table-bordered table-condensed using-font col-6 mx-2 mt-5">
-            {{--<thead class="bg-light">--}}
-            {{--<th>@lang('الاجمالي')</th>--}}
 
-            {{--</thead>--}}
             <tr>
                 <td class="bg-light">@lang('Total amount without VAT'): </td><td>{{$order->sub_total}}</td>
             </tr>
             <tr>
-                <td class="bg-light">@lang('Total VAT'): 15%</td><td>{{$order->vat }}</td>
+                <td class="bg-light">@lang('Total VAT'): {{setting('vat_rate')}}%</td><td>{{$order->vat }}</td>
             </tr>
 
             <tr>

@@ -44,7 +44,7 @@
 
                                 type="button" @click="adjustBy(o,-1)">-</button>
 
-                        <input id="service_id" type="hidden" x-bind:name="`services[${index}][service]`"  :value="o.id">
+                        <input id="service_id" type="hidden" x-bind:name="`services[${index}][id]`"  :value="o.id">
                         {{--@dd("o.id")--}}
                         <input type="number" min="1" class="input"
                                {{--name="quantity[]"--}}
@@ -98,14 +98,6 @@
             <input  name="total"  x-bind:value="total + total * vat/100" hidden />
             <h4 class="mx-2 my-2" x-text="'{{__('Total amount with VAT')}}:' + (total * vat/100 + total)"></h4>
 
-            {{----}}
-            {{--<h4 class="mx-2" >{{__('Total')}}:</h4> <input class="w-10 bg-gray-50" name="sub_total" x-bind:value="total" hidden />--}}
-            {{--<h4 class="mx-2" >{{__('Total')}}:</h4> <input class="w-10 bg-gray-50" name="sub_total" x-bind:value="total" disabled/>--}}
-            {{--<h4 class="mx-2">{{__('Change')}}:</h4> <input class="w-10 bg-gray-50" x-bind:value="change" disabled></h4>--}}
-            {{--<input class="hidden" x-init="vat={{setting('vat_rate')}}" disabled/>--}}
-            {{--<h4 class="mx-2">{{__('Total VAT')}}:</h4> <input class="w-10 bg-gray-50" name="vat"  x-bind:value="total * vat/100" disabled/>--}}
-            {{--<h4 class="mx-2">{{__('Total amount with VAT')}}:</h4> <input class="w-10 bg-gray-50" name="total"  x-bind:value="total + total * vat/100"/>--}}
-
 
 
 
@@ -152,7 +144,7 @@
                         $total= $service->pivot->total;
 
 
-    echo  "{service: '$id',price: '$price',quantity: '$quantity',total: '$total',name: '$name'},";
+    echo  "{id: '$id',price: '$price',quantity: '$quantity',total: '$total',name: '$name'},";
     $index++;
           }
                @endphp

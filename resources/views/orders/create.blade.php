@@ -34,7 +34,7 @@
             <x-form action="{{url('orders')}}" method="post" has-files>
             @csrf
             @include('orders._fields')
-            @include('orders.services.create')
+            @include('orders.services.pos')
 
         {{--</div>--}}
         <div class="flex mt-8">

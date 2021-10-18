@@ -85,35 +85,20 @@ class OrderController extends Controller
                     'agent_delivery_date', 'delivery_time_frame_id', 'is_delivery','is_pickup'));
 //
         if($request->services)
-        foreach ($request->services as $service) {
-//
 
-
-            $order->services()->attach($service['service'], [
+            $syncObject = [];
+        foreach ($request['services'] as $service) {
+//                  dd($service);
+            $syncObject[$service['id']] = [
                 'quantity' => $service['quantity'],
                 'price' => $service['price'],
                 'total' => $service['total']
-            ]);
-        }
+            ];
 
-//        $services = $request->input('services', []);
-//        $quantities = $request->input('qty', []);
-//        $price = $request->input('price', []);
-//        $amount = $request->input('amount', []);
-//        for ($service = 0; $service < count($services); $service++) {
+        }
+        $order->services()->sync($syncObject);
+//                }
 //
-//            if ($services[$service] != '') {
-////
-//                $order->services()->attach(
-//                    $services[$service], [
-//                        'qty' => $quantities[$service],
-//                        'price' => $price[$service],
-//                        'amount' => $amount[$service]
-//                    ]
-//                );
-//
-//            }
-//        }
 
         return redirect('orders/manage');
     }
@@ -131,7 +116,6 @@ class OrderController extends Controller
 public function perMonth()
     {
         $orders= DB::table('orders')->selectRaw('YEAR(created_at) year, MONTH(created_at) month, sum(total)  as total_orders')
-//            ->selectRaw(' MONTH(created_at) month, sum(total)  as total_orders')
             ->groupby('year','month')
             ->get();
         return view('orders/reports/per-month',compact('orders'));
@@ -156,7 +140,7 @@ public function perMonth()
 
     public function update(Request $request, Order $order)
     {
-//        dd($request);
+     //   dd($request);
         //$order->update($request->all());
         request()->merge(['delivery' => $request->delivery == 'on' ? true : false]);
 
@@ -180,50 +164,11 @@ public function perMonth()
         $order->update($data);
 
 
-//        $order->services()->detach();
-//        $services = $request->input('services');
-//        $quantities = $request->input('quantity', []);
-//        $price = $request->input('price', []);
-//        $amount = $request->input('total', []);
-//        for ($service = 0; $service < count($services); $service++) {
-//
-//            if ($services[$service] != '') {
-//
-//                $order->services()->detach(
-//                    $services[$service], [
-//                        'quantity' => $quantities[$service],
-//                        'price' => $price[$service],
-//                        'total' => $amount[$service]
-//                    ]
-//                );
-//
-//                $order->services()->attach(
-//                    $services[$service], [
-//                        'quantity' => $quantities[$service],
-//                        'price' => $price[$service],
-//                        'total' => $amount[$service]
-//                    ]
-//                );
-//            }
-//        }
-//        if($request->services)
-//
-//            if ($services[$service] != '') {
-//
-
-//
-
-
-//                $order->services()->detach($service['service'], [
-//                    'quantity' => $service['quantity'],
-//                    'price' => $service['price'],
-//                    'total' => $service['total']
-//                ]);
 
                  $syncObject = [];
               foreach ($request['services'] as $service) {
 //                  dd($service);
-                  $syncObject[$service['service']] = [
+                  $syncObject[$service['id']] = [
                     'quantity' => $service['quantity'],
                     'price' => $service['price'],
                     'total' => $service['total']
