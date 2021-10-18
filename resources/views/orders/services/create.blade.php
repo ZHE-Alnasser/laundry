@@ -1,7 +1,7 @@
-<div x-data="pos" class="bg-gray-50 m-4">
-    <div class="flex">
-        <div class="items">
-            <div class="grid grid-cols-3">
+<div x-data="pos" class="bg-gray-50 sm:m-4">
+    <div class="sm:flex">
+        <div class="items mt-5">
+            <div class="grid grid-cols-2 sm:grid-cols-3">
                 <template x-for="item in items">
                     <div>
                         <label for="services-modal" @click="services=item.services;currentItem=item"
@@ -32,17 +32,20 @@
         <div class="order">
             <template x-for="(o,index) in order" :key="index">
                 <div
-                    class="bg-white border-b-2 border-blue-200 border-none f flex items-center justify-around justify-evenly m-2 p-4 rounded hover:bg-blue-100 text-black">
+                    class="bg-white border-b-2 border-blue-200 border-none f sm:flex items-center justify-around justify-evenly m-2 p-4 rounded hover:bg-blue-100 text-black">
                     <div>
                         <div x-text="o.name"></div>
                         <div class="ms-2 text-gray-700"
                              x-text="'{{__('Unit Price')}}: ' + o.price + '{{currency()}}'"></div>
                     </div>
                     <div class="flex">
+                    <div class="flex">
                         <button class="mx-1 mt-1 btn btn-primary"
 
                                 type="button" @click="adjustBy(o,-1)">-</button>
-                        <input type="hidden" x-bind:name="`services[${index}][service]`"  :value="o.id">
+
+                        <input id="service_id" type="hidden" x-bind:name="`services[${index}][service]`"  :value="o.id">
+                        {{--@dd("o.id")--}}
                         <input type="number" min="1" class="input"
                                {{--name="quantity[]"--}}
                                x-bind:name="`services[${index}][quantity]`"
@@ -51,16 +54,20 @@
                                :value="o.quantity"/>
                         <button class="mx-1 mt-1 btn btn-primary" type="button" @click="adjustBy(o, 1)">+</button>
                     </div>
-                    <div class="mx-1" x-text="o.total"></div>
+
+                    <div class="mx-1 mt-3" x-text="o.total"></div>
                     <input type="hidden" x-bind:name="`services[${index}][price]`"  :value="o.total">
                     <input type="hidden" x-bind:name="`services[${index}][total]`"  :value="o.total">
 
-                    <div>
-                        <a @click="removeServiceFromOrder(o)">
+                    <div class="mt-3">
+                        <a  @click="removeServiceFromOrder(o)">
                             <span class="h-8 w-8 text-red-600">X</span>
                         </a>
                     </div>
+
+                    </div>
                 </div>
+
             </template>
         </div>
 
@@ -78,18 +85,18 @@
 
     {{--Show total price--}}
     <div class="flex justify-between text-black">
-        <div class="flex">
+        <div class="sm:flex">
             <input  name="sub_total" x-bind:value="total" hidden />
-            <h4 class="mx-2" x-text="'{{__('Total')}}:' + total"></h4>
+            <h4 class="mx-2 my-2" x-text="'{{__('Total')}}:' + total"></h4>
             <input  name="change" x-bind:value="total" hidden />
-            <h4 class="mx-2" x-text="'{{__('Change')}}:' + change"></h4>
+            <h4 class="mx-2 my-2" x-text="'{{__('Change')}}:' + change"></h4>
 
             <input x-init="vat={{setting('vat_rate')}}" hidden/>
             <input  name="vat" x-bind:value="total * vat/100" hidden />
-            <h4 class="mx-2" x-text="'{{__('Total VAT')}}:' + total * vat/100"></h4>
+            <h4 class="mx-2 my-2" x-text="'{{__('Total VAT')}}:' + total * vat/100"></h4>
 
             <input  name="total"  x-bind:value="total + total * vat/100" hidden />
-            <h4 class="mx-2" x-text="'{{__('Total amount with VAT')}}:' + (total * vat/100 + total)"></h4>
+            <h4 class="mx-2 my-2" x-text="'{{__('Total amount with VAT')}}:' + (total * vat/100 + total)"></h4>
 
             {{----}}
             {{--<h4 class="mx-2" >{{__('Total')}}:</h4> <input class="w-10 bg-gray-50" name="sub_total" x-bind:value="total" hidden />--}}

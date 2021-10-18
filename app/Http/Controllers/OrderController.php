@@ -180,7 +180,7 @@ public function perMonth()
         $order->update($data);
 
 
-        $order->services()->detach();
+//        $order->services()->detach();
 //        $services = $request->input('services');
 //        $quantities = $request->input('quantity', []);
 //        $price = $request->input('price', []);
@@ -210,7 +210,7 @@ public function perMonth()
 //
 //            if ($services[$service] != '') {
 //
-            foreach ($request->services as $service) {
+
 //
 
 
@@ -219,14 +219,18 @@ public function perMonth()
 //                    'price' => $service['price'],
 //                    'total' => $service['total']
 //                ]);
-//
-                    $order->services()->attach($service['service'], [
+
+                 $syncObject = [];
+              foreach ($request['services'] as $service) {
+//                  dd($service);
+                  $syncObject[$service['service']] = [
                     'quantity' => $service['quantity'],
                     'price' => $service['price'],
                     'total' => $service['total']
-                ]);
+                ];
 
             }
+        $order->services()->sync($syncObject);
 //                }
         return redirect('orders/manage');
     }

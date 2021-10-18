@@ -3816,6 +3816,9 @@ html {
 .grid-cols-3 {
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.grid-cols-2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 .flex-row {
 	flex-direction: row;
 }
@@ -6675,6 +6678,10 @@ input{
 
 	.sm\:col-span-2 {
 		grid-column: span 2 / span 2;
+	}
+
+	.sm\:m-4 {
+		margin: 1rem;
 	}
 
 	.sm\:mx-0 {
