@@ -128,7 +128,7 @@
 
                     {{--@dd($item->pivot->selling_price)--}}
                     {{--@dd($order->services)--}}
-                    <td>{{$item->name}} </td> <td>{{$item->pivot->qty}}</td> <td> {{$item->pivot->price}}</td>
+                    <td>{{$item->name}} </td> <td>{{$item->pivot->quantity}}</td> <td> {{$item->pivot->price}}</td>
                 </tr>
 
 

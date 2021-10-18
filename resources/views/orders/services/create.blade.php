@@ -1,6 +1,6 @@
 <div x-data="pos" class="bg-gray-50 sm:m-4">
     <div class="sm:flex">
-        <div class="items mt-5">
+        <div class="items mt-5  sm:mt-0">
             <div class="grid grid-cols-2 sm:grid-cols-3">
                 <template x-for="item in items">
                     <div>
