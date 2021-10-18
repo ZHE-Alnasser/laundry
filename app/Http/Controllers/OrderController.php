@@ -90,9 +90,9 @@ class OrderController extends Controller
 
 
             $order->services()->attach($service['service'], [
-                'qty' => $service['qty'],
+                'quantity' => $service['quantity'],
                 'price' => $service['price'],
-                'amount' => $service['amount']
+                'total' => $service['total']
             ]);
         }
 
@@ -180,32 +180,53 @@ public function perMonth()
         $order->update($data);
 
 
-        $services = $request->input('services', []);
-        $quantities = $request->input('qty', []);
-        $price = $request->input('price', []);
-        $amount = $request->input('amount', []);
-        for ($service = 0; $service < count($services); $service++) {
+        $order->services()->detach();
+//        $services = $request->input('services');
+//        $quantities = $request->input('quantity', []);
+//        $price = $request->input('price', []);
+//        $amount = $request->input('total', []);
+//        for ($service = 0; $service < count($services); $service++) {
+//
+//            if ($services[$service] != '') {
+//
+//                $order->services()->detach(
+//                    $services[$service], [
+//                        'quantity' => $quantities[$service],
+//                        'price' => $price[$service],
+//                        'total' => $amount[$service]
+//                    ]
+//                );
+//
+//                $order->services()->attach(
+//                    $services[$service], [
+//                        'quantity' => $quantities[$service],
+//                        'price' => $price[$service],
+//                        'total' => $amount[$service]
+//                    ]
+//                );
+//            }
+//        }
+//        if($request->services)
+//
+//            if ($services[$service] != '') {
+//
+            foreach ($request->services as $service) {
+//
 
-            if ($services[$service] != '') {
 
-                $order->services()->detach(
-                    $services[$service], [
-                        'qty' => $quantities[$service],
-                        'price' => $price[$service],
-                        'amount' => $amount[$service]
-                    ]
-                );
+//                $order->services()->detach($service['service'], [
+//                    'quantity' => $service['quantity'],
+//                    'price' => $service['price'],
+//                    'total' => $service['total']
+//                ]);
+//
+                    $order->services()->attach($service['service'], [
+                    'quantity' => $service['quantity'],
+                    'price' => $service['price'],
+                    'total' => $service['total']
+                ]);
 
-                $order->services()->attach(
-                    $services[$service], [
-                        'qty' => $quantities[$service],
-                        'price' => $price[$service],
-                        'amount' => $amount[$service]
-                    ]
-                );
             }
-        }
-
 //                }
         return redirect('orders/manage');
     }

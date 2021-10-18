@@ -18,7 +18,7 @@ class Order extends Model
 
     public function services()
     {
-        return $this->belongsToMany(Service::class)->withPivot('qty', 'price', 'amount');
+        return $this->belongsToMany(Service::class)->withPivot('quantity', 'price', 'total');
     }
 
     public function branches()

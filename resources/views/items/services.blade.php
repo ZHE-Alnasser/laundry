@@ -53,7 +53,7 @@ price: ''
                 <div class="flex justify-between h-5/6 items-end">
 
                     <template x-if="index > 0">
-                        <button type="button" class=""
+                        <button type="button" class="text-gray-800"
                                 @click="services.splice(index, 1)">&times;</button>
                     </template>
                 </div>
