@@ -144,7 +144,7 @@
                         $total= $service->pivot->total;
 
 
-    echo  "{id: '$id',price: '$price',quantity: '$quantity',total: '$total',name: '$name'},";
+    echo  "{id: '$id',price: '$price',quantity: '$quantity',total: $total,name: '$name'},";
     $index++;
           }
                @endphp
