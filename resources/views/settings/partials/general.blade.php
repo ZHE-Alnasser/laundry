@@ -53,3 +53,7 @@
     <button  class="btn mt-8">{{__('Edit')}}</button>
     </x-form>
 </x-tab>
+
+
+{{--todo cannot update/show address1 and address--}}
+{{--todo branch information should be used on everywhere i.e. address on invoices--}}

@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Validator;
+
 //use Symfony\Component\Console\Input\Input;
 
 class OrderController extends Controller
@@ -43,7 +44,7 @@ class OrderController extends Controller
         $services = Service::all();
 //        $items=Item::all();
 
-        $items=Item::all();
+        $items = Item::all();
         $orders = Order::all();
         $customers = User::customer()->get();
         $employees = User::employee()->get();
@@ -53,7 +54,7 @@ class OrderController extends Controller
         $timeframes = TimeFrame::all();
 //        dd($serviceOrders);
         return view('orders.create', compact('customers', 'employees', 'services', 'serviceOrders',
-            'order', 'timeframes', 'amount', 'orders','items'));
+            'order', 'timeframes', 'amount', 'orders', 'items'));
 
     }
 
@@ -63,8 +64,8 @@ class OrderController extends Controller
 //        dd($request);
         $this->validate($request, [
             'sub_total' => 'required',
-            'total' => 'required',
-            'vat' => 'required',
+//            'total' => 'required',
+//            'vat' => 'required',
             'customer_id' => 'nullable',
             'employee_id' => 'required',
             'discount' => 'nullable',
@@ -74,28 +75,32 @@ class OrderController extends Controller
             'requested_delivery_date' => 'nullable',
             'agent_pickup_date' => 'nullable',
             'agent_delivery_date' => 'nullable',
-            'delivery_time_frame_id' => 'required',
+            'delivery_time_frame_id' => 'nullable',
         ]);
 
-        request()->merge(['is_delivery' => $request->is_delivery == 'on' ? true : false],['is_pickup' => $request->is_pickup == 'on' ? true : false]);
+        request()->merge(['is_delivery' => $request->is_delivery == 'on' ? true : false], ['is_pickup' => $request->is_pickup == 'on' ? true : false]);
         $order = Order::create(
             request()
                 ->only('sub_total', 'total', 'vat', 'customer_id', 'employee_id', 'discount', 'payment',
                     'process', 'requested_pickup_date', 'requested_delivery_date', 'agent_pickup_date',
-                    'agent_delivery_date', 'delivery_time_frame_id', 'is_delivery','is_pickup'));
-//
-        if($request->services)
-        foreach ($request->services as $service) {
+                    'agent_delivery_date', 'delivery_time_frame_id', 'is_delivery', 'is_pickup'));
+
+        if ($request->services) {
+
+            foreach ($request->services as $service) {
 //
 
 
-            $order->services()->attach($service['service'], [
-                'quantity' => $service['quantity'],
-                'price' => $service['price'],
-                'total' => $service['total']
-            ]);
+                $order->services()->attach($service['service'], [
+                    'quantity' => $service['quantity'],
+                    'price' => $service['price'],
+                    'total' => $service['total']
+                ]);
+            }
         }
-
+//todo calculate vat, total
+        $order->total = $order->services->sum('total');
+        $order->save();
 //        $services = $request->input('services', []);
 //        $quantities = $request->input('qty', []);
 //        $price = $request->input('price', []);
@@ -122,19 +127,20 @@ class OrderController extends Controller
     {
         //
     }
+
     public function vat()
     {
-        $orders= Order::all();
-        return view('orders/reports/vat',compact('orders'));
+        $orders = Order::all();
+        return view('orders/reports/vat', compact('orders'));
     }
 
-public function perMonth()
+    public function perMonth()
     {
-        $orders= DB::table('orders')->selectRaw('YEAR(created_at) year, MONTH(created_at) month, sum(total)  as total_orders')
+        $orders = DB::table('orders')->selectRaw('YEAR(created_at) year, MONTH(created_at) month, sum(total)  as total_orders')
 //            ->selectRaw(' MONTH(created_at) month, sum(total)  as total_orders')
-            ->groupby('year','month')
+            ->groupby('year', 'month')
             ->get();
-        return view('orders/reports/per-month',compact('orders'));
+        return view('orders/reports/per-month', compact('orders'));
     }
 
 
@@ -144,13 +150,13 @@ public function perMonth()
         $orders = Order::all();
         $timeframes = TimeFrame::all();
 
-        $serviceOrders=OrderService::all();
+        $serviceOrders = OrderService::all();
         $services = Service::all();
         $items = Item::all();
         $customers = User::customer()->get();
         $employees = User::employee()->get();
 
-        return view('orders/edit', compact('order', 'customers', 'employees', 'items', 'services', 'timeframes', 'orders','serviceOrders'));
+        return view('orders/edit', compact('order', 'customers', 'employees', 'items', 'services', 'timeframes', 'orders', 'serviceOrders'));
     }
 
 
@@ -162,8 +168,8 @@ public function perMonth()
 
         $data = request()->validate([
             'sub_total' => 'required',
-            'total' => 'required',
-            'vat' => 'nullable',
+//            'total' => 'required',
+//            'vat' => 'nullable',
             'customer_id' => 'nullable',
             'employee_id' => 'required',
             'discount' => 'nullable',
@@ -174,8 +180,8 @@ public function perMonth()
             'agent_pickup_date' => 'nullable',
             'agent_delivery_date' => 'nullable',
             'delivery_time_frame_id' => 'required',
-            'is_delivery'=>'nullable',
-            'is_pickup'=>'nullable'
+            'is_delivery' => 'nullable',
+            'is_pickup' => 'nullable'
         ]);
         $order->update($data);
 
@@ -220,16 +226,16 @@ public function perMonth()
 //                    'total' => $service['total']
 //                ]);
 
-                 $syncObject = [];
-              foreach ($request['services'] as $service) {
+        $syncObject = [];
+        foreach ($request['services'] as $service) {
 //                  dd($service);
-                  $syncObject[$service['service']] = [
-                    'quantity' => $service['quantity'],
-                    'price' => $service['price'],
-                    'total' => $service['total']
-                ];
+            $syncObject[$service['service']] = [
+                'quantity' => $service['quantity'],
+                'price' => $service['price'],
+                'total' => $service['total']
+            ];
 
-            }
+        }
         $order->services()->sync($syncObject);
 //                }
         return redirect('orders/manage');
@@ -244,14 +250,13 @@ public function perMonth()
 
     public function invoice(Order $order)
     {
-        $setting=Setting::all();
+        $setting = Setting::all();
         $employees = User::employee()->get();
         $customers = User::customer()->get();
         $orders = Order::all();
 //      dd($customer);
-        return view('orders.reports.invoice', compact('order', 'employees', 'customers', 'orders','setting'));
+        return view('orders.reports.invoice', compact('order', 'employees', 'customers', 'orders', 'setting'));
     }
-
 
 
 }

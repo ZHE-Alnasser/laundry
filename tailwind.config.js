@@ -12,6 +12,10 @@ module.exports = {
 
     theme: {
         extend: {
+            screens: {
+                'print': {'raw': 'print'},
+                // => @media print { ... }
+            },
             fontFamily: {
                 'tajawal': ['Tajawal', 'sans-serif']
             },
@@ -33,8 +37,10 @@ module.exports = {
         require('daisyui')],
 
     daisyui: {
+        themes: [
+            'light' //@todo custom color based on the ui checkout: https://daisyui.com/docs/add-themes
+            ],
         styled: true,
-        themes: true,
         base: true,
         utils: true,
         logs: false,
