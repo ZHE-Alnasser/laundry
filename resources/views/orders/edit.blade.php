@@ -10,7 +10,7 @@
                         @csrf
                         @include('orders._fields')
 
-                        @include('orders.services.create')
+                        @include('orders.services.pos')
 
                         <div class="flex p-2 mt-8">
                             <button type="Submit" class="btn ml-2">{{__('Save')}}</button>

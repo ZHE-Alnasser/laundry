@@ -34,27 +34,27 @@ price: ''
                 <input required id="service_name" type="text" class="input mt-1 block w-full"
 
                        x-bind:name="`services[${index}][name]`"
-                       {{--x-text="name"--}}
+
                               x-model="service.name"
                        placeholder="{{__('Service Name')}}"
                 />
             </div>
-            <div class="col-span-3 gab-1 md:col-span-2 sm:col-span-2">
+            <div class="col-span-2 gab-1 md:col-span-2 sm:col-span-2">
                 <input required id="service_price" type="text" class="input mt-1 block w-full"
 
                        x-bind:name="`services[${index}][price]`"
-                       {{--x-text="price"--}}
+
                        x-model="service.price"
-                       {{--value="{{$service->price}}"--}}
+
                        x-bind:value="price"
-                       placeholder="{{__('Service Price')}}" />
+                       placeholder="{{__('Price')}}" />
             </div>
             <div class="col-span-1">
                 <div class="flex justify-between h-5/6 items-end">
 
                     <template x-if="index > 0">
                         <button type="button" class="text-gray-800"
-                                @click="services.splice(index, 1)">&times;</button>
+                                @click="services.splice(index, 1)"><span class="h-8 w-8 text-red-600">X</span></button>
                     </template>
                 </div>
             </div>
