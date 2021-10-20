@@ -10,6 +10,11 @@ class Category extends Model
     use HasFactory;
     protected $guarded = [];
 
+
+    public function scopeOfType($query, $type)
+    {
+        return $query->where('type', $type);
+    }
     public function users()
     {
         return $this->hasMany(User::class);

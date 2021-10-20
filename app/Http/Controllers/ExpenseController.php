@@ -28,7 +28,7 @@ class ExpenseController extends Controller
 
     public function create()
     {
-        $categories=Category::all();
+        $categories = Category::ofType('expenses')->get();
         $branches=Branch::all();
         return view('expenses/create',compact('branches','categories'));
     }
@@ -61,7 +61,8 @@ class ExpenseController extends Controller
    
     public function edit(Expense $expense)
     {
-        $categories=Category::all();
+//        $categories=Category::all();
+        $categories = Category::ofType('expenses')->get();
         $branches=Branch::all();
         return view ('expenses/edit',compact('expense','branches','categories'));
     }

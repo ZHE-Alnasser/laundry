@@ -24,14 +24,14 @@ class CreateOrdersTable extends Migration
             $table->boolean('is_delivery')->default(false);
             $table->boolean('is_pickup')->default(false);
             $table->integer('process')->default(0);
-            $table->integer('delivery_time_frame_id')->nullable(); //@todo review all foreign keys for performance
+            $table->integer('delivery_time_frame_id')->nullable();
             $table->integer('pickup_time_frame_id')->nullable();
             $table->integer('pickup_agent_id')->nullable();
             $table->integer('delivery_agent_id')->nullable();
             $table->timestamp('requested_pickup_date')->nullable();
             $table->timestamp('requested_delivery_date')->nullable();
-            $table->timestamp('agent_pickup_date')->nullable(); //@todo rename to be picked_up_date
-            $table->timestamp('agent_delivery_date')->nullable(); //@todo rename to be delivered_date
+            $table->timestamp('agent_picked_up_date')->nullable();
+            $table->timestamp('agent_delivered_date')->nullable();
             $table->timestamps();
         });
     }

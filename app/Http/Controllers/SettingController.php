@@ -49,9 +49,9 @@ class SettingController extends Controller
 
 
         $file_path = null;
-        $file = $request->file('company_logo');
+        $file = $request->file('logo');
         if ($file) {
-            $file_path = $file->store('company_logo', 'public');
+            $file_path = $file->store('logo', 'public');
         }
 
         session()->flash('message',__(':name has been updated successfully',['name' => __('Settings')]));

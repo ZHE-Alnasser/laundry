@@ -10,9 +10,9 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $items =[
-            ['name'=> __('Customer')],
-            ['name'=> __('Employee')],
-//            ['name'=>__('agent')],
+            ['name'=> __('Customer'),'type'=> __('users')],
+            ['name'=> __('Employee'),'type'=> __('users')],
+            ['name'=> __('Expense'),'type'=> __('expenses')],
         ];
         \DB::table('categories')->insert($items);
     }

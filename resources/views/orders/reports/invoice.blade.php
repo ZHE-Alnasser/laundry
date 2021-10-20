@@ -18,8 +18,10 @@
 
 
                 </div>
-                <img class="img-fluid d-block mx-auto" style="max-width: 30%" src="{{setting('logo')}}" alt="">
+                {{--@dd(asset(setting('logo')))--}}
+                <img class="img-fluid d-block mx-auto" src="{{asset(setting('logo'))}}" alt="{{__('Company Logo')}}">
                 <p>{{setting('company_name')}}</p>
+                <p>{{__('Branch Name')}} </p>
                 <p>{{setting('company_address_1')}}</p>
                 <p>{{setting('company_address_2')}}</p>
                 <p>{{__('VAT Number').__(':')}}{{setting('vat_number')}}</p>
@@ -109,8 +111,8 @@
                     <p class="bg-light">@lang('Total amount without VAT'): {{$order->sub_total.' '.currency()}}</p>
                 </div>
                 <div>
-                    <p class="bg-light">@lang('Total VAT'): (15%)
-{{--                    todo 15% should be taken from setting--}}
+                    <p class="bg-light">@lang('Total VAT'): ({{setting('vat_rate')}}%)
+
                    {{$order->vat.' '.currency() }}</p>
                 </div>
 

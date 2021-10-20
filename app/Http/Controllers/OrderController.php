@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branch;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\OrderService;
@@ -42,7 +43,7 @@ class OrderController extends Controller
     {
         $services = Service::all();
 //        $items=Item::all();
-
+        $branches=Branch::all();
         $items=Item::all();
         $orders = Order::all();
         $customers = User::customer()->get();
@@ -53,7 +54,8 @@ class OrderController extends Controller
         $timeframes = TimeFrame::all();
 //        dd($serviceOrders);
         return view('orders.create', compact('customers', 'employees', 'services', 'serviceOrders',
-            'order', 'timeframes', 'amount', 'orders','items'));
+            'order', 'timeframes', 'amount', 'orders','branches','items'));
+
 
     }
 
@@ -72,17 +74,20 @@ class OrderController extends Controller
 //            'process' => 'required',
             'requested_pickup_date' => 'nullable',
             'requested_delivery_date' => 'nullable',
-            'agent_pickup_date' => 'nullable',
-            'agent_delivery_date' => 'nullable',
-            'delivery_time_frame_id' => 'required',
+            'agent_picked_up_date' => 'nullable',
+            'agent_delivered_date' => 'nullable',
+            'delivery_time_frame_id' => 'nullable',
+            'pickup_time_frame_id'=>'required',
+            'branch_id'=>'nullable',
+
         ]);
 
         request()->merge(['is_delivery' => $request->is_delivery == 'on' ? true : false],['is_pickup' => $request->is_pickup == 'on' ? true : false]);
         $order = Order::create(
             request()
                 ->only('sub_total', 'total', 'vat', 'customer_id', 'employee_id', 'discount', 'payment',
-                    'process', 'requested_pickup_date', 'requested_delivery_date', 'agent_pickup_date',
-                    'agent_delivery_date', 'delivery_time_frame_id', 'is_delivery','is_pickup'));
+                    'process', 'agent_picked_up_date', 'requested_delivery_date', 'agent_pickup_date',
+                    'agent_delivered_date', 'delivery_time_frame_id', 'branch_id','is_delivery','is_pickup'));
 //
         if($request->services)
 
@@ -124,7 +129,7 @@ public function perMonth()
 
     public function edit(Order $order)
     {
-
+        $branches=Branch::all();
         $orders = Order::all();
         $timeframes = TimeFrame::all();
 
@@ -134,7 +139,7 @@ public function perMonth()
         $customers = User::customer()->get();
         $employees = User::employee()->get();
 
-        return view('orders/edit', compact('order', 'customers', 'employees', 'items', 'services', 'timeframes', 'orders','serviceOrders'));
+        return view('orders/edit', compact('order', 'customers', 'employees', 'items', 'services', 'timeframes','branches', 'orders','serviceOrders'));
     }
 
 
@@ -155,9 +160,11 @@ public function perMonth()
 //            'process' => 'required',
             'requested_pickup_date' => 'nullable',
             'requested_delivery_date' => 'nullable',
-            'agent_pickup_date' => 'nullable',
-            'agent_delivery_date' => 'nullable',
-            'delivery_time_frame_id' => 'required',
+            'agent_picked_up_date' => 'nullable',
+            'agent_delivered_date' => 'nullable',
+            'delivery_time_frame_id' => 'nullable',
+            'pickup_time_frame_id'=>'required',
+            'branch_id'=>'nullable',
             'is_delivery'=>'nullable',
             'is_pickup'=>'nullable'
         ]);
@@ -193,6 +200,7 @@ public function perMonth()
         $employees = User::employee()->get();
         $customers = User::customer()->get();
         $orders = Order::all();
+
 //      dd($customer);
         return view('orders.reports.invoice', compact('order', 'employees', 'customers', 'orders','setting'));
     }

@@ -47,7 +47,8 @@ class UserController extends Controller
     {
         $roles = Role::all();
         $districts=District::all();
-        $categories =Category::all();
+//        $categories =Category::all();
+        $categories = Category::ofType('users')->get();
         return view('/users/create',compact('categories','roles','districts'));
     }
 
@@ -92,7 +93,8 @@ class UserController extends Controller
         $roles = Role::all();
         $userRoles = $user->roles()->pluck('id')->toArray();
         $districts= District::all();
-        $categories=Category::all();
+//        $categories=Category::all();
+        $categories = Category::ofType('users')->get();
         return view('users.edit', compact('user','userRoles','roles','categories','districts'));
 
     }

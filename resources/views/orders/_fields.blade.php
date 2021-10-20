@@ -85,7 +85,7 @@
 
                     <label>{{__('Agent Pickup Date')}}</label>
                     <div class="divUser">
-                        <x-input value="{{$order->agent_pickup_date}}" name="agent_pickup_date" type="text"
+                        <x-input value="{{$order->agent_picked_up_date}}" name="agent_picked_up_date" type="text"
                                  x-init="$nextTick(() => {new flatpickr($el,{dateFormat: 'Y-m-d'})})"
                                  class="input"/>
                     </div>
@@ -167,8 +167,8 @@
 
         <label>{{__('Delivered Date')}}</label>
         <div class="divUser">
-            <x-input name="agent_delivery_date" type="text"
-                     value="{{$order->agent_delivery_date}}"
+            <x-input name="agent_delivered_date" type="text"
+                     value="{{$order->agent_delivered_date}}"
                      x-init="$nextTick(() => {new flatpickr($el,{enableTime: true,
     dateFormat: 'Y-m-d H:i',    altInput: true})})"
                      class="input"/>
@@ -177,22 +177,39 @@
 </div>
 
 {{--</div>--}}
+<div class="flex">
+<div class="mx-2 mt-3">
+    <label>{{__('Payment Method')}}:</label>
+    <div class="flex flex-col" name="payment_method">
 
+            <label class="inline-flex items-center">
 
-<label class="label  mt-5">{{__('Payment Method')}}<span class="text-red-600"> *</span></label>
-<x-select required class=" select mx-2 " name="payment" id="type"
-          label="{{__('Payment')}}">
-    <option value="cash"{{$order->payment === 'cash' ? "selected" : "" }}>{{__('Cash')}}</option>
-    <option value="card"{{$order->payment === 'card' ? "selected" : "" }}>{{__('Card')}}</option>
-    <option value="transfer"{{$order->payment === 'transfer' ? "selected" : "" }}>{{__('Transfer')}}</option>
-</x-select>
+        <input class="w-5 h-5 mx-1 radio radio-primary" type="radio" name="payment" value="cash"{{$order->payment === 'cash' ? "checked" : "" }}/>
+                <span class="label-text">{{__('Cash') }}</span>
+            </label>
+        <label class="inline-flex items-center">
 
+        <input class="w-5 h-5 mx-1 radio radio-primary" type="radio" name="payment" value="cash"{{$order->payment === 'card' ? "checked" : "" }}/>
+                <span class="label-text">{{__('Card') }}</span>
+            </label>
+        <label class="inline-flex items-center">
 
-{{--<div class="mx-2">--}}
-{{--    <label>{{__('Payment method')}}:</label>--}}
-{{--    <div class="flex flex-col" name="payment_method">--}}
-{{--        <radio :label="__('Cach')" name="payment" value="cash"/>--}}
-{{--        <radio :label="__('Card')" name="payment" value="card"/>--}}
-{{--        <radio :label="__('Transfer')" name="payment" value="card"/>--}}
-{{--    </div>--}}
+        <input class="w-5 h-5 mx-1 radio radio-primary" type="radio" name="payment" value="transfer"{{$order->payment === 'transfer' ? "checked" : "" }}/>
+                <span class="label-text">{{__('Transfer')}}</span>
+            </label>
+
+        </div>
+</div>
+
+    <div class="w-full sm:mx-10 mt-5 flex-1">
+        <label>{{__('Branch Name')}}</label>
+
+        <x-select name="branch_id" id="branch_id" class="input">
+            @foreach($branches as $branch )
+                <option {{$order->branch_id==$branch->id?'selected':''}} value="{{$branch->id}}">{{ $branch->name }} </option>
+            @endforeach
+        </x-select>
+    </div>
+
+</div>
 {{--</div>--}}

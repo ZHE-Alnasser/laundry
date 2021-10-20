@@ -23,11 +23,11 @@
     <div class="sm:flex my-4">
         <div class="grid mx-2 flex-1">
             <label for="company_address_1" class="text-sm font-bold">{{__('Company Address 1')}}</label>
-            <x-textarea class="textarea textarea-bordered border-gray-300" name="company_address_1" :value="setting('comapny_address_1')"/>
+            <x-textarea class="textarea textarea-bordered border-gray-300" name="company_address_1" :value="setting('company_address_1')"/>
         </div>
         <div class="grid mx-2 flex-1">
             <label for="company_address_2" class="text-sm font-bold">{{__('Company Address 2')}}</label>
-            <x-textarea class="textarea textarea-bordered border-gray-300" name="company_address_2" :value="setting('comapny_address_2')"/>
+            <x-textarea class="textarea textarea-bordered border-gray-300" name="company_address_2" :value="setting('company_address_2')"/>
         </div>
         {{--</div>--}}
     </div>
@@ -47,7 +47,7 @@
         <div class="md:w-1/2 px-1">
 
             <div class="mt-3">
-                <x-input type="file" name="company_logo" type="file"/>
+                <x-input type="file" name="logo" type="file"/>
             </div>
         </div>
     <button  class="btn mt-8">{{__('Edit')}}</button>
