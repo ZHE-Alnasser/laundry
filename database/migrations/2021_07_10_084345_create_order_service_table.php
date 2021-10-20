@@ -12,10 +12,9 @@ class CreateOrderServiceTable extends Migration
         Schema::create('order_service', function (Blueprint $table) {
             $table->foreignId('service_id');
             $table->foreignId('order_id');
-//            $table->foreignId('item_id');
             $table->float('price')->default(0);
-            $table->float('total')->default(0); //@todo rename all other places to be total instead of amount
-            $table->integer('quantity')->default(0); // todo rename all other places to be quantity instead of qty
+            $table->float('total')->default(0);
+            $table->integer('quantity')->default(0);
 
 //            $table->primary(['service_id','order_id']);
 //            $table->id();

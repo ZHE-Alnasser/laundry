@@ -62,9 +62,9 @@ class OrderController extends Controller
     {
 //        dd($request);
         $this->validate($request, [
-            'sub_total' => 'required',
-            'total' => 'required',
-            'vat' => 'required',
+            'sub_total' => 'nullable',
+            'total' => 'nullable',
+            'vat' => 'nullable',
             'customer_id' => 'nullable',
             'employee_id' => 'required',
             'discount' => 'nullable',
@@ -145,8 +145,8 @@ public function perMonth()
         request()->merge(['delivery' => $request->delivery == 'on' ? true : false]);
 
         $data = request()->validate([
-            'sub_total' => 'required',
-            'total' => 'required',
+            'sub_total' => 'nullable',
+            'total' => 'nullable',
             'vat' => 'nullable',
             'customer_id' => 'nullable',
             'employee_id' => 'required',
