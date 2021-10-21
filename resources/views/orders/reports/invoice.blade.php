@@ -21,9 +21,15 @@
                 {{--@dd(asset(setting('logo')))--}}
                 <img class="img-fluid d-block mx-auto" src="{{asset(setting('logo'))}}" alt="{{__('Company Logo')}}">
                 <p>{{setting('company_name')}}</p>
-                                                  @foreach($branches as $branch)
-                <p>{{__('Branch Name')}} </p>: <b>{{$branch->name}}</b>
-                                               @endforeach
+                   <div class="flex">
+
+                       <p>{{__('Branch Name')}}: {{$order->branch->name}}</p>
+
+                   </div>
+
+
+
+
                 <p>{{setting('company_address_1')}}</p>
                 <p>{{setting('company_address_2')}}</p>
                 <p>{{__('VAT Number').__(':')}}{{setting('vat_number')}}</p>

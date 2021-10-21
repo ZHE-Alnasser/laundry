@@ -49,12 +49,12 @@ class OrderController extends Controller
         $customers = User::customer()->get();
         $employees = User::employee()->get();
         $order = new Order;
-        $amount = 1010;
+
         $serviceOrders = OrderService::all();
         $timeframes = TimeFrame::all();
 //        dd($serviceOrders);
         return view('orders.create', compact('customers', 'employees', 'services', 'serviceOrders',
-            'order', 'timeframes', 'amount', 'orders','branches','items'));
+            'order', 'timeframes', 'orders','branches','items'));
 
 
     }
@@ -200,7 +200,7 @@ public function perMonth()
         $employees = User::employee()->get();
         $customers = User::customer()->get();
         $orders = Order::all();
-//        $branches=Branch::WhereOrderID=first();
+ $branches=Branch::all();
 //      dd($customer);
         return view('orders.reports.invoice', compact('order', 'employees', 'customers', 'orders','setting','branches'));
     }
