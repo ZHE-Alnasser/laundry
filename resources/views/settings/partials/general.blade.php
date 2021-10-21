@@ -3,7 +3,25 @@
 <x-tab :name="__('General')">
     <x-form action="{{url('settings')}}" :crudButton="false" method="post">
 
-    <div class="sm:flex my-2">
+    <div x-data="{ textArea1: [
+    @php
+
+        $address1= setting('company_address_1');
+        $address2= setting('company_address_2');
+
+
+
+    echo  "{address1: '$address1',address2: '$address2'},";
+
+
+
+        @endphp
+
+
+        ] }"
+
+
+    class="sm:flex my-2">
 
         <span class=" flex-1 mx-2 "><label class="text-sm font-bold">{{__('Company Name')}}</label><x-input class="input mx-2 " name="company_name"  :value="setting('company_name')"/></span>
         <span class=" flex-1 mx-2 "><label class="text-sm font-bold">{{__('Company Phone')}}</label><x-input class="input mx-2" name="company_phone" :value="setting('company_phone')"/></span>
@@ -23,11 +41,11 @@
     <div class="sm:flex my-4">
         <div class="grid mx-2 flex-1">
             <label for="company_address_1" class="text-sm font-bold">{{__('Company Address 1')}}</label>
-            <x-textarea class="textarea textarea-bordered border-gray-300" name="company_address_1" :value="setting('company_address_1')"/>
+            <x-textarea class="textarea textarea-bordered border-gray-300"  name="company_address_1" :value="setting('company_address_1')">{{setting('company_address_1')}}</x-textarea>
         </div>
         <div class="grid mx-2 flex-1">
             <label for="company_address_2" class="text-sm font-bold">{{__('Company Address 2')}}</label>
-            <x-textarea class="textarea textarea-bordered border-gray-300" name="company_address_2" :value="setting('company_address_2')"/>
+            <x-textarea class="textarea textarea-bordered border-gray-300" name="company_address_2"  :value="setting('company_address_2')">{{setting('company_address_2')}}</x-textarea>
         </div>
         {{--</div>--}}
     </div>
@@ -76,4 +94,4 @@
 
 
 {{--todo cannot update/show address1 and address--}}
-{{--todo branch information should be used on everywhere i.e. address on invoices--}}
+

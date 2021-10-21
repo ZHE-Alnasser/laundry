@@ -182,12 +182,12 @@
     <label>{{__('Payment Method')}}:</label>
     <div class="flex flex-col" name="payment_method">
 
-            <label class="inline-flex items-center">
+            <label class="mb-1 inline-flex items-center">
 
         <input class="w-5 h-5 mx-1 radio radio-primary" type="radio" name="payment" value="cash"{{$order->payment === 'cash' ? "checked" : "" }}/>
                 <span class="label-text">{{__('Cash') }}</span>
             </label>
-        <label class="inline-flex items-center">
+        <label class="inline-flex mb-1 items-center">
 
         <input class="w-5 h-5 mx-1 radio radio-primary" type="radio" name="payment" value="cash"{{$order->payment === 'card' ? "checked" : "" }}/>
                 <span class="label-text">{{__('Card') }}</span>
