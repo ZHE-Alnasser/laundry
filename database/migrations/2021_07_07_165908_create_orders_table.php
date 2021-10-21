@@ -15,9 +15,9 @@ class CreateOrdersTable extends Migration
             $table->foreignId('employee_id')->nullable();
             $table->foreignId('category_id')->nullable();
             $table->foreignId('branch_id')->nullable();
-            $table->float('vat')->nullable();
-            $table->float('sub_total')->nullable();
-            $table->float('total')->nullable();
+            $table->float('vat')->default(0);
+            $table->float('sub_total')->default(0);
+            $table->float('total')->default(0);
             $table->string('discount')->nullable();
             $table->set('payment',['cash','card','transfer'])->nullable();
             $table->boolean('is_done')->default(false);

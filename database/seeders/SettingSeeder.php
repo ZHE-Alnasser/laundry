@@ -23,7 +23,7 @@ class SettingSeeder extends Seeder
             ['name' => 'company_website', 'value' => ''],
             ['name' => 'company_email', 'value' => ''],
             ['name' => 'vat_number', 'value' => ''],
-            ['name' => 'vat_rate', 'value' => ''],
+            ['name' => 'vat_rate', 'value' => 0],
             ['name' => 'logo', 'value' => ''],
 //           Time Frame
             ['name' => 'time_frame_name', 'value' => ''],

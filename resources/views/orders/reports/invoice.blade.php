@@ -21,7 +21,9 @@
                 {{--@dd(asset(setting('logo')))--}}
                 <img class="img-fluid d-block mx-auto" src="{{asset(setting('logo'))}}" alt="{{__('Company Logo')}}">
                 <p>{{setting('company_name')}}</p>
-                <p>{{__('Branch Name')}} </p>
+                                                  @foreach($branches as $branch)
+                <p>{{__('Branch Name')}} </p>: <b>{{$branch->name}}</b>
+                                               @endforeach
                 <p>{{setting('company_address_1')}}</p>
                 <p>{{setting('company_address_2')}}</p>
                 <p>{{__('VAT Number').__(':')}}{{setting('vat_number')}}</p>
@@ -32,14 +34,11 @@
 
 
                     <div><p>@lang('Accountant'): <b>{{optional($order->employee)->name}}</b></p></div>
-                    {{--<div><p>@lang('Accountant'): <b>{{auth()->user()->full_name}}</b></p></div>--}}
-                    {{--@dd(auth()->user()->id)--}}
+
                     <div></div>
-                    {{--@dd($order->employee)--}}
-                    {{--@dd($order->customer_id)--}}
+
                     <div><p>@lang('Customer Name'): <b>{{optional($order->customer)->name}}</b></p></div>
-                    {{--@dd($customer->full_name)--}}
-                    {{--@dd($order->customer->full_name)--}}
+
 
 
                 </div>

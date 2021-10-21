@@ -69,7 +69,7 @@
 
              </div>
          </div>  <div class="cart mx-auto mb-3">
-             <div class= bg-card-4">
+             <div class= "bg-card-4">
 
                  {{--<h2 class="mx-1  mb-2">{{__('Total Orders')}}</h2>--}}
                  <div class="mb-2 mt-8 pt-2 text-center">

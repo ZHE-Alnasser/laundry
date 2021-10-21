@@ -200,9 +200,9 @@ public function perMonth()
         $employees = User::employee()->get();
         $customers = User::customer()->get();
         $orders = Order::all();
-
+//        $branches=Branch::WhereOrderID=first();
 //      dd($customer);
-        return view('orders.reports.invoice', compact('order', 'employees', 'customers', 'orders','setting'));
+        return view('orders.reports.invoice', compact('order', 'employees', 'customers', 'orders','setting','branches'));
     }
 
 
