@@ -44,10 +44,30 @@
     </div>
 
 
-        <div class="md:w-1/2 px-1">
+        {{--<div class="md:w-1/2 px-1">--}}
 
-            <div class="mt-3">
-                <x-input type="file" name="logo" type="file"/>
+            {{--<div class="mt-3">--}}
+                {{--<x-input type="file" name="logo" type="file"/>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+        <div class="field mb-5 mt-5">
+            <label class=" font-extrabold leading-8 tracking-tight  sm:leading-9"
+                   for="logo">{{__('Add Image')}}</label>
+            <div class="mt-1">
+
+                <label for="logo" class="btn">
+<span>
+{{-- @svg('heroicon-o-upload','h8 w-8 inline')--}}
+    <i data-feather="image" class="ml-1"></i>
+    {{__('Upload image')}}
+</span>
+                    <input class="hidden"  id="logo" name="logo" type="file"/>
+                </label>
+
+
+
+
+
             </div>
         </div>
     <button  class="btn mt-8">{{__('Edit')}}</button>

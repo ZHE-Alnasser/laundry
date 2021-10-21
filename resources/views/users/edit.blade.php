@@ -58,12 +58,12 @@
                         </div>
 <div class="flex flex-col md:flex-row">
                         <div class=" w-full mt-5 mx-2">
-                            <label>{{__('Longitude')}}<span class="text-red-600"> *</span></label>
-                            <x-input required class="input" name="longitude" value="{{$user->longitude}}"/>
+                            <label>{{__('Longitude')}}</label>
+                            <x-input class="input" name="longitude" value="{{$user->longitude}}"/>
                         </div>
                         <div class="mt-5 w-full mx-2">
-                            <label>{{__('Latitude')}}<span class="text-red-600"> *</span></label>
-                            <x-input required class="input" name="latitude" value="{{$user->latitude}}"/>
+                            <label>{{__('Latitude')}}</label>
+                            <x-input class="input" name="latitude" value="{{$user->latitude}}"/>
                         </div>
 </div>
 

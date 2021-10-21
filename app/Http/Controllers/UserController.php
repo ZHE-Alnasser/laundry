@@ -59,8 +59,8 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'category_id' => ['required', 'string', 'max:255'],
             'district_id'=>'nullable','string', 'max:255',
-            'longitude' => 'required',
-            'latitude' => 'required',
+            'longitude' => 'nullable',
+            'latitude' => 'nullable',
             'phone' =>['required', 'digits:10'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
@@ -110,9 +110,9 @@ class UserController extends Controller
                 'category_id' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'email', 'max:255'],
                 'district_id'=>'nullable','string', 'max:255',
-                'longitude' => 'required',
-                'latitude' => 'required',
-                'is_active' => 'required',
+                'longitude' => 'nullable',
+                'latitude' => 'nullable',
+                'is_active' => 'nullable',
             ])->validateWithBag('updateProfileInformation');
 
         if (isset($request['photo'])) {
