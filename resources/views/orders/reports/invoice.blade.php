@@ -19,11 +19,11 @@
 
                 </div>
                 {{--@dd(asset(setting('logo')))--}}
-                <img class="img-fluid d-block mx-auto" src="{{asset(setting('logo'))}}" alt="{{__('Company Logo')}}">
+                {{--<img class="img-fluid d-block mx-auto" src="{{asset(setting('logo'))}}" alt="{{__('Company Logo')}}">--}}
                 <p>{{setting('company_name')}}</p>
                    <div class="flex">
 
-                       <p>{{__('Branch Name')}}: {{$order->branch->name}}</p>
+                       <p>{{__('Branch Name')}}: {{optional($order->branch)->name}}</p>
 
                    </div>
 
