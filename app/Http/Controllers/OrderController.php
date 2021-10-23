@@ -86,10 +86,10 @@ class OrderController extends Controller
         $order = Order::create(
             request()
                 ->only('sub_total', 'total', 'vat', 'customer_id', 'employee_id', 'discount', 'payment',
-                    'process', 'agent_picked_up_date', 'requested_delivery_date', 'agent_pickup_date',
-                    'agent_delivered_date', 'delivery_time_frame_id', 'branch_id','is_delivery','is_pickup'));
+                    'process','requested_pickup_date', 'agent_picked_up_date', 'requested_delivery_date', 'agent_pickup_date',
+                    'agent_delivered_date', 'delivery_time_frame_id', 'branch_id','pickup_time_frame_id','is_delivery','is_pickup'));
 //
-        if($request->services)
+        if($request['services'])
 
             $syncObject = [];
         foreach ($request['services'] as $service) {
@@ -171,7 +171,7 @@ public function perMonth()
         $order->update($data);
 
 
-
+if($request->services())
                  $syncObject = [];
               foreach ($request['services'] as $service) {
 //                  dd($service);

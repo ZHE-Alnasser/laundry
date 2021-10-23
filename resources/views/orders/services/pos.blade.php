@@ -5,11 +5,11 @@
                 <template x-for="item in items">
                     <div>
                         <label for="services-modal" @click="services=item.services;currentItem=item"
-                               class="btn btn-primary w-32 m-1 modal-button" x-text="item.name"></label>
+                              class="btn btn-primary w-32 m-1 modal-button" x-text="item.name"></label>
                     </div>
                 </template>
 
-                <input type="checkbox" id="services-modal" class="modal-toggle">
+                <input type="checkbox"  id="services-modal" class="modal-toggle">
                 <div class="modal">
                     <div class="modal-box">
                         <p x-text="currentItem.name"></p>

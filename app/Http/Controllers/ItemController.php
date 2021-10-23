@@ -101,9 +101,9 @@ class ItemController extends Controller
     }
 
 
-    public function destroy(Item $items)
+    public function destroy(Item $item)
     {
-        $items->delete();
+        $item->delete();
         return back();
     }
 }

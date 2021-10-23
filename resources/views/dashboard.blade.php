@@ -32,7 +32,7 @@
         </div>
 
 
-        <div class="sm:flex mx-5 sm:mx-0 mt-5">
+        <div class="sm:flex overflow-x-auto  mt-5">
             {{--<script src="https://unpkg.com/feather-icons"></script>--}}
 
             <div class=" mx-5 card w-full">

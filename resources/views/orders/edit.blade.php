@@ -16,7 +16,7 @@
                             <button type="Submit" class="btn ml-2">{{__('Save')}}</button>
                             <input type="button" class="btn-cancel"
                                    name="cancel" value="{{__('Cancel')}}"
-                                   onClick="window.location.replace('/services/manage')"/>
+                                   onClick="window.location.replace('/orders/manage')"/>
                         </div>
                         {{--</div>--}}
 

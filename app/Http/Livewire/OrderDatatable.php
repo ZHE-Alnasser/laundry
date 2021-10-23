@@ -35,7 +35,7 @@ class OrderDatatable extends LivewireDatatable
     public function columns()
     {
         return [
-            NumberColumn::name('id')->label(__('#')),
+            NumberColumn::name('id')->label(__('#'))->searchable(),
 
 
             Column::callback(['customer_id'], function ($user) {

@@ -58,7 +58,7 @@
             <div class="flex mx-2 mt-5 ">
                 <div class="w-full">
                     <p>{{__('Pickup Frame')}} :<span class="text-red-600"> *</span></p>
-                    <x-select class="select  " name="pickup_time_frame_id" id="pickup_time_frame_id">
+                    <x-select required class="select  " name="pickup_time_frame_id" id="pickup_time_frame_id">
                         @foreach($timeframes as $time)
                             {{--@dd($customer)--}}
 
@@ -179,12 +179,12 @@
 {{--</div>--}}
 <div class="flex">
 <div class="mx-2 mt-3">
-    <label>{{__('Payment Method')}}:</label>
-    <div class="flex flex-col" name="payment_method">
+    <label>{{__('Payment Method')}}:<span class="text-red-600"> *</span></label>
+    <div  class="flex flex-col" name="payment_method">
 
             <label class="mb-1 inline-flex items-center">
 
-        <input class="w-5 h-5 mx-1 radio radio-primary" type="radio" name="payment" value="cash"{{$order->payment === 'cash' ? "checked" : "" }}/>
+        <input class="w-5 h-5 mx-1 radio radio-primary" type="radio" required name="payment" value="cash"{{$order->payment === 'cash' ? "checked" : "" }}/>
                 <span class="label-text">{{__('Cash') }}</span>
             </label>
         <label class="inline-flex mb-1 items-center">

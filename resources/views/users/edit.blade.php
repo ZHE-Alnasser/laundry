@@ -82,13 +82,13 @@
                         <div class="mt-5">
                             <label>{{ __('Password') }}<span class="text-red-600"> *</span></label>
                             <x-input id="password" class="input" type="password" name="password" required
-                                     autocomplete="new-password"/>
+                                 value="{{$user->password}}"    autocomplete="new-password"/>
 
                         </div>
                         <div class="mt-5">
                             <label>{{ __('Confirm Password') }}<span class="text-red-600"> *</span></label>
                             <x-input id="password_confirmation" class="input" type="password"
-                                     name="password_confirmation" required autocomplete="new-password"/>
+                                     value="{{$user->password}}"    name="password_confirmation" required autocomplete="new-password"/>
                         </div>
 
 

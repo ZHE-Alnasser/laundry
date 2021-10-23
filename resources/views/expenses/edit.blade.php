@@ -30,7 +30,7 @@
 
                         <div class="flex flex-col md:flex-row">
                             <div class="w-full sm:mx-10 mt-5 flex-1">
-                                <label>{{__('Branch')}}<span class="text-red-600"> *</span></label>
+                                <label>{{__('Category')}}<span class="text-red-600"> *</span></label>
 
                                 <x-select name="category_id" id="category_id" class="input">
                                     @foreach($categories as $category )
