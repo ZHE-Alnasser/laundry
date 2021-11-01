@@ -6,24 +6,24 @@
 
 
 
-        @if(isRTL())
-            <style>
-                .steps {
-                    direction: rtl
-                }
+        {{--@if(isRTL())--}}
+            {{--<style>--}}
+                {{--.steps {--}}
+                    {{--direction: rtl--}}
+                {{--}--}}
 
-                .steps .step:before {
-                    margin-right: -100%;
-                    margin-left: 0;
-                }
-            </style>
-        @endif
-        <ul class="w-full steps text-primary">
-            <li data-content="!" :class="!isPickedUp? '':'step-info' " class="step">{{__('Waiting for Pickup')}}</li>
-            <li data-content="֍" :class="isPickedUp? 'step-info':'' " class="step">{{__('Picked Up & In Progress')}}</li>
-            <li data-content="✓" class="step step-info">{{__('Ready for delivery')}}</li>
-            <li data-content="●" class="step step-info">{{__('deliver')}}</li>
-        </ul>
+                {{--.steps .step:before {--}}
+                    {{--margin-right: -100%;--}}
+                    {{--margin-left: 0;--}}
+                {{--}--}}
+            {{--</style>--}}
+        {{--@endif--}}
+        {{--<ul class="w-full steps text-primary">--}}
+            {{--<li data-content="!" :class="!isPickedUp? '':'step-info' " class="step">{{__('Waiting for Pickup')}}</li>--}}
+            {{--<li data-content="֍" :class="isPickedUp? 'step-info':'' " class="step">{{__('Picked Up & In Progress')}}</li>--}}
+            {{--<li data-content="✓" class="step step-info">{{__('Ready for delivery')}}</li>--}}
+            {{--<li data-content="●" class="step step-info">{{__('deliver')}}</li>--}}
+        {{--</ul>--}}
         </div>
 
         <div class="divider"></div>

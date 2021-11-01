@@ -42,9 +42,9 @@ class OrderDatatable extends LivewireDatatable
 
 
             Column::name('total')->label(__('Total amount with VAT'))->searchable(),
-            Column::callback(['process'], function ($process) {
-                return __('process_' . $process);
-            })->searchable()->label(__('Process'))->filterable(),
+//            Column::callback(['process'], function ($process) {
+//                return __('process_' . $process);
+//            })->searchable()->label(__('Process'))->filterable(),
             Column::callback(['delivery_time_frame_id'], function ($timeframe) {
                 return optional(TimeFrame::find($timeframe))->name;
             })->searchable()->label(__('Time Period')),

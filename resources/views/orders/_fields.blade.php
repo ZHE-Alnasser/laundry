@@ -28,20 +28,7 @@
             @endforeach
         </x-select>
     </div>
-    {{--    <div class="flex mx-2 flex-col mt-5 md:flex-row">--}}
-    {{--        <div class="w-full  flex-1">--}}
-    {{--            <label class="label">{{__('Order Process')}}<span class="text-red-600"> *</span></label>--}}
-    {{--            <x-select required class="select" name="process" id="process"--}}
-    {{--                      label="{{__('state').' '.__('order')}}">--}}
-    {{--                <option value="0">{{__('Ready for Pickup')}}</option>--}}
-    {{--                <option value="1">{{__('Pickup')}}</option>--}}
-    {{--                <option value="2">{{__('In Laundry')}}</option>--}}
-    {{--                <option value="3">{{__('Ready for delivery')}}</option>--}}
-    {{--                <option value="4">{{__('deliver')}}</option>--}}
 
-    {{--            </x-select>--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
 </div>
 
 

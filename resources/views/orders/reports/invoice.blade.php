@@ -23,7 +23,7 @@
                 <p>{{setting('company_name')}}</p>
                    <div class="flex">
 
-                       <p>{{__('Branch Name')}}: {{optional($order->branch)->name}}</p>
+                   <p>{{__('Branch Name')}}: {{optional($order->branch)->name}}</p>
 
                    </div>
 

@@ -21,9 +21,6 @@ Route::get('/users/manage', [App\Http\Controllers\UserController::class, 'manage
 Route::resource('users', App\Http\Controllers\UserController::class);
 
 
-Route::get('/services/manage', [App\Http\Controllers\ServiceController::class, 'manage'])->name('/services.manage');
-Route::resource('services', App\Http\Controllers\ServiceController::class);
-
 Route::get('/items/manage', [App\Http\Controllers\ItemController::class, 'manage'])->name('/items.manage');
 Route::resource('items', App\Http\Controllers\ItemController::class);
 
