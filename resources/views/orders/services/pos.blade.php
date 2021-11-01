@@ -34,7 +34,8 @@
                 <div
                     class="bg-white border-b-2 border-blue-200 border-none f sm:flex items-center justify-around justify-evenly m-2 p-4 rounded hover:bg-blue-100 text-black">
                     <div>
-                        <div x-text="o.name"></div>
+                        <div x-text="o.item_name"></div>
+                        <div class="text-gray-600" x-text="o.name"></div>
                         <div class="ms-2 text-gray-700"
                              x-text="'{{__('Unit Price')}}: ' + o.price + '{{currency()}}'"></div>
                     </div>
@@ -111,7 +112,7 @@
 
 
 <script>
-
+console.log(@json($items->load('services')));
     document.addEventListener('alpine:init', () => {
         Alpine.data('pos', () => ({
             index: 1,

@@ -46,7 +46,7 @@
 
 
 <div class="flex items-center mt-5">
-    <div class="flex flex-col" >
+    <div class="flex flex-col" x-cloak x-data="{isPickedUp:{{old('is_pickup',$order->is_pickup)?'true':'false'}} }">
         <div class="mx-2 flex">
             <input name="is_pickup" type="hidden" value="0">
             <input @click="isPickedUp =!isPickedUp" type="checkbox" class="checkbox checkbox-primary" id="is_pickup" name="is_pickup"
@@ -54,7 +54,7 @@
             <p class="flex-1 text-s mx-2 font-medium text-gray-600 "> {{__('Needs Pickup?')}}</p>
         </div>
 
-        <div x-show="isPickup" x-transition>
+        <div x-show="isPickedUp" x-transition>
             <div class="flex mx-2 mt-5 ">
                 <div class="w-full">
                     <p>{{__('Pickup Frame')}} :<span class="text-red-600"> *</span></p>

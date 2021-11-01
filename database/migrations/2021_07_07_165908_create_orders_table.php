@@ -32,6 +32,7 @@ class CreateOrdersTable extends Migration
             $table->timestamp('requested_delivery_date')->nullable();
             $table->timestamp('agent_picked_up_date')->nullable();
             $table->timestamp('agent_delivered_date')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

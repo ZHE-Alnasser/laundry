@@ -23,11 +23,9 @@ class OrderDatatable extends LivewireDatatable
     public $exportable = true;
 
 
-
     public function builder()
     {
-        return Order::query()->with('users');
-
+        return Order::query()->withTrashed()->with('users');
 
 
     }
@@ -45,14 +43,16 @@ class OrderDatatable extends LivewireDatatable
 
             Column::name('total')->label(__('Total amount with VAT'))->searchable(),
             Column::callback(['process'], function ($process) {
-                return __('process_'.$process);
+                return __('process_' . $process);
             })->searchable()->label(__('Process'))->filterable(),
             Column::callback(['delivery_time_frame_id'], function ($timeframe) {
-        return optional(TimeFrame::find($timeframe))->name;
+                return optional(TimeFrame::find($timeframe))->name;
             })->searchable()->label(__('Time Period')),
 
-            Column::callback(['id'], function ($id) {
-                return view('components.order-action', ['url' => url("orders/$id"), 'model' => 'Orders', 'id' => $id]);
+
+            Column::callback(['id','deleted_at'], function ($id,$deletedAt) {
+
+                return view('components.order-action', ['url' => url("orders/$id"), 'model' => 'Orders', 'id' => $id,'deletedAt'=>$deletedAt]);
             })
         ];
     }

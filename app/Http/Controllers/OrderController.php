@@ -82,9 +82,11 @@ class OrderController extends Controller
 
         ]);
 
-        request()->merge(['is_delivery' => $request->is_delivery == 'on' ? true : false],['is_pickup' => $request->is_pickup == 'on' ? true : false]);
+       $request->merge(['is_delivery' => $request->is_delivery == 'on' ? true : false],['is_pickup' => $request->is_pickup == 'on' ? true : false]);
+
+       $request->merge(['branch_id' =>  session('branch')]);
         $order = Order::create(
-            request()
+           $request
                 ->only('sub_total', 'total', 'vat', 'customer_id', 'employee_id', 'discount', 'payment',
                     'process','requested_pickup_date', 'agent_picked_up_date', 'requested_delivery_date', 'agent_pickup_date',
                     'agent_delivered_date', 'delivery_time_frame_id', 'branch_id','pickup_time_frame_id','is_delivery','is_pickup'));
@@ -147,9 +149,9 @@ public function perMonth()
     {
      //   dd($request);
         //$order->update($request->all());
-        request()->merge(['delivery' => $request->delivery == 'on' ? true : false]);
+       $request->merge(['delivery' => $request->delivery == 'on' ? true : false]);
 
-        $data = request()->validate([
+        $data =$request->validate([
             'sub_total' => 'nullable',
             'total' => 'nullable',
             'vat' => 'nullable',
@@ -194,8 +196,12 @@ if($request->services())
 
     }
 
-    public function invoice(Order $order)
+    public function invoice($id)
     {
+
+        $order = Order::withTrashed()->find($id);
+
+        http://laundry.test/orders/reports/invoice/3643
         $setting=Setting::all();
         $employees = User::employee()->get();
         $customers = User::customer()->get();

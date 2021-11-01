@@ -1,5 +1,10 @@
 <div class="flex space-x-1 justify-around" xmlns:x-on="http://www.w3.org/1999/xhtml">
     {{--@can("Update-$model")--}}
+    @if($deletedAt)
+        <span>{{__('deleted')}}</span>
+        @endif
+    @if(!$deletedAt)
+
     <a href="{{ $url.'/edit' }}" class="p-1 pt-1 mb-3 text-blue-600 hover:bg-blue-600 hover:text-white rounded">
         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
@@ -42,6 +47,7 @@
             </svg>
         </button>
     </form>
+    @endif
     <a href="{{'/orders/reports/invoice/'.$id}}" class="p-1 mb-3 text-blue-600 hover:bg-blue-600 hover:text-white rounded">
 <button class="mt-1 ">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-printer"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>

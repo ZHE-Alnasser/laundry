@@ -6,13 +6,22 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\C;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
+
 
 class Order extends Model
 {
 
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope('deleted_at', function (Builder $builder) {
+            $builder->withTrashed();
+        });
+    }
 
     protected $guarded = [];
 
