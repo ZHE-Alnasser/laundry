@@ -1,6 +1,3 @@
-
-
-
 <x-layouts.app>
     <x-card>
     <div class="flex justify-between mb-5 flex-row mt-5">
@@ -15,14 +12,10 @@
         <span>{{__('Create')}}</span>
     </a>
 
-                   <x-dropdown-manage>
-                    <div class="mx-2 mt-1 border-b">
-                        <a class="text-sm z-40" href="{{'/roles'}}">{{__('Manage Roles')}}</a>
-                    </div>
-                    <div class="mx-1 mb-2 mt-2">
-                        <a class="text-sm z-40" href="{{'/categories'}}">{{__('Manage Categories')}}</a>
-                    </div>
-                   </x-dropdown-manage>
+<div>
+        <a class="btn text-sm z-40" href="{{'/roles'}}">{{__('Manage Roles')}}</a>
+        <a class="btn text-sm z-40" href="{{'/categories'}}">{{__('Manage Categories')}}</a>
+</div>
 
     </div>
 <div>

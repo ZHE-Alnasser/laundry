@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row">
-                        <div class="w-full sm:mx-10 flex-1">
+                        <div class="mt-5 w-full sm:mx-10 flex-1">
                             <label>{{__('Code')}}<span class="text-red-600"> *</span></label>
                             <div >
                                 <x-input required name="code" value="{{$district->code}}" class="input"/>

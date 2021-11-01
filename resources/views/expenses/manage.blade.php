@@ -12,11 +12,13 @@
             <span>{{__('Create')}}</span>
         </a>
 
-        <x-dropdown-manage>
-            <div class="mx-1 mb-2 mt-2">
-                <a class="text-sm z-40" href="{{'/categories'}}">{{__('Manage Categories')}}</a>
-            </div>
-        </x-dropdown-manage>
+        {{--<x-dropdown-manage>--}}
+            {{--<div class="mx-1 mb-2 mt-2">--}}
+                {{--<a class="text-sm z-40" href="{{'/categories'}}">{{__('Manage Categories')}}</a>--}}
+            {{--</div>--}}
+        {{--</x-dropdown-manage>--}}
+
+            <a class="btn text-sm z-40" href="{{'/categories'}}">{{__('Manage Categories')}}</a>
         </div>
         {{--</div>--}}
         <div>
