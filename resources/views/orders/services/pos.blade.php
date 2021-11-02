@@ -32,14 +32,14 @@
         <div class="order">
             <template x-for="(o,index) in order" :key="index">
                 <div
-                    class="bg-white border-b-2 border-blue-200 border-none f sm:flex items-center justify-around justify-evenly m-2 p-4 rounded hover:bg-blue-100 text-black">
+                    class="mx-10 bg-white border-b-2 border-blue-200 border-none f sm:flex items-center justify-around justify-evenly m-2 p-4 rounded hover:bg-blue-100 text-black">
                     <div>
                         <div x-text="o.item_name"></div>
                         <div class="text-gray-600" x-text="o.name"></div>
                         <div class="ms-2 text-gray-700"
                              x-text="'{{__('Unit Price')}}: ' + o.price + '{{currency()}}'"></div>
                     </div>
-                    <div class="flex">
+                    <div class="flex mx-10">
                     <div class="flex">
                         <button class="mx-1 mt-1 btn btn-primary"
 
@@ -47,7 +47,7 @@
 
                         <input id="service_id" type="hidden" x-bind:name="`services[${index}][id]`"  :value="o.id">
                         {{--@dd("o.id")--}}
-                        <input type="number" min="1" class="input"
+                        <input type="number" min="1" class="input qty"
                                {{--name="quantity[]"--}}
                                x-bind:name="`services[${index}][quantity]`"
                                x-on:input="adjustQuantity(o, $event.target.value)"
@@ -56,11 +56,11 @@
                         <button class="mx-1 mt-1 btn btn-primary" type="button" @click="adjustBy(o, 1)">+</button>
                     </div>
 
-                    <div class="mx-1 mt-3" x-text="o.total"></div>
+                    <div class="mx-3 mt-3" x-text="o.total"></div>
                     <input type="hidden" x-bind:name="`services[${index}][price]`"  :value="o.total">
                     <input type="hidden" x-bind:name="`services[${index}][total]`"  :value="o.total">
 
-                    <div class="mt-3">
+                    <div class="mx-2 mt-3">
                         <a  @click="removeServiceFromOrder(o)">
                             <span class="h-8 w-8 text-red-600">X</span>
                         </a>
@@ -96,7 +96,7 @@
             <input  name="vat" x-bind:value="total * vat/100" hidden />
             <h4 class="mx-2 my-2" x-text="'{{__('Total VAT')}}:' + total * vat/100"></h4>
 
-            <input  name="total"  x-bind:value="total + total * vat/100" hidden />
+            <input  name="total"  x-model="totalWithVat" x-bind:value="total + total * vat/100" hidden />
             <h4 class="mx-2 my-2" x-text="'{{__('Total amount with VAT')}}:' + (total * vat/100 + total)"></h4>
 
 
@@ -145,7 +145,7 @@ console.log(@json($items->load('services')));
                         $total= $service->pivot->total;
 
 
-    echo  "{id: '$id',price: '$price',quantity: '$quantity',total: $total,name: '$name'},";
+    echo  "{id: '$id',price: '$price',quantity: $quantity,total: $total,name: '$name'},";
     $index++;
           }
                @endphp
@@ -182,6 +182,11 @@ console.log(@json($items->load('services')));
                 item.quantity = Number(quantity);
                 item.total = item.price * item.quantity;
                 this.calculatePayments();
+            },
+            calculateVat(totalVat){
+                vat ={{setting('vat_rate')}}
+                console.log(this.total, this.vat,this.totalVat)
+                this.totalVat=this.total *vat;
             },
 
             calculatePayments(paid = 0) {

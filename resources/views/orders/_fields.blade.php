@@ -167,7 +167,7 @@
 <div class="flex">
 <div class="mx-2 mt-3">
     <label>{{__('Payment Method')}}:<span class="text-red-600"> *</span></label>
-    <div  class="flex flex-col" name="payment_method">
+    <div  class="mt-1 flex-col" name="payment_method">
 
             <label class="mb-1 inline-flex items-center">
 
@@ -188,15 +188,15 @@
         </div>
 </div>
 
-    <div class="w-full sm:mx-10 mt-5 flex-1">
-        <label>{{__('Branch Name')}}</label>
+    {{--<div class="w-full sm:mx-10 mt-5 flex-1">--}}
+        {{--<label>{{__('Branch Name')}}</label>--}}
 
-        <x-select name="branch_id" id="branch_id" class="input">
-            @foreach($branches as $branch )
-                <option {{$order->branch_id==$branch->id?'selected':''}} value="{{$branch->id}}">{{ $branch->name }} </option>
-            @endforeach
-        </x-select>
-    </div>
+        {{--<x-select name="branch_id" id="branch_id" class="input">--}}
+            {{--@foreach($branches as $branch )--}}
+                {{--<option {{$order->branch_id==$branch->id?'selected':''}} value="{{$branch->id}}">{{ $branch->name }} </option>--}}
+            {{--@endforeach--}}
+        {{--</x-select>--}}
+    {{--</div>--}}
 
 </div>
 {{--</div>--}}

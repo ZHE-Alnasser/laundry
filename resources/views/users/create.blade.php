@@ -26,7 +26,7 @@
 </div>
             <div class="mt-5">
             <label>{{__('Phone')}}<span class="text-red-600"> *</span></label>
-            <x-input required class="input" name="phone" type="text" value="{{ old('phone') }}" />
+            <x-input required minlength="10" maxlength="10" class="input" name="phone" type="text" value="{{ old('phone') }}" />
             </div>
             <div class="mt-5">
             <div><label class="mt-5">{{__('District')}}</label><span class="text-red-600"> *</span></div>
@@ -39,11 +39,11 @@
             <div class="flex">
             <div class="mt-5 w-full">
                 <label>{{__('Longitude')}}</label>
-                <x-input class="input" name="longitude" value="{{ old('longitude') }}"/>
+                <x-input type="number" class="input" name="longitude" value="{{ old('longitude') }}"/>
             </div>
             <div class="mt-5 w-full mx-3">
                 <label>{{__('Latitude')}}</label>
-                <x-input  class="input" name="latitude" value="{{ old('latitude') }}"/>
+                <x-input  type="number" class="input" name="latitude" value="{{ old('latitude') }}"/>
             </div>
             </div>
             <div class="mt-5 inline-flex items-center space-x-4 form-group {{ $errors->has('is_active') ? 'has-error' : '' }}">

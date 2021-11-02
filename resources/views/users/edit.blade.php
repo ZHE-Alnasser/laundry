@@ -28,7 +28,7 @@
                             <div class="w-full mx-2 mt-5 flex-1">
                                 <label>{{__('Phone')}}<span class="text-red-600"> *</span></label>
                                 <div class="divUser">
-                                    <x-input required name="phone" value="{{$user->phone}}" class="input"/></div>
+                                    <x-input required minlength="10" maxlength="10" name="phone" value="{{$user->phone}}" class="input"/></div>
                             </div>
                         </div>
                         <div class="flex flex-col md:flex-row">
@@ -59,11 +59,11 @@
 <div class="flex flex-col md:flex-row">
                         <div class=" w-full mt-5 mx-2">
                             <label>{{__('Longitude')}}</label>
-                            <x-input class="input" name="longitude" value="{{$user->longitude}}"/>
+                            <x-input  type="number" class="input" name="longitude" value="{{$user->longitude}}"/>
                         </div>
                         <div class="mt-5 w-full mx-2">
                             <label>{{__('Latitude')}}</label>
-                            <x-input class="input" name="latitude" value="{{$user->latitude}}"/>
+                            <x-input type="number" class="input" name="latitude" value="{{$user->latitude}}"/>
                         </div>
 </div>
 

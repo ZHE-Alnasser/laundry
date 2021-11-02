@@ -41,6 +41,7 @@ class OrderController extends Controller
 
     public function create()
     {
+
         $services = Service::all();
 //        $items=Item::all();
         $branches=Branch::all();
@@ -62,7 +63,7 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-//        dd($request);
+
         $this->validate($request, [
             'sub_total' => 'nullable',
             'total' => 'nullable',
@@ -91,6 +92,7 @@ class OrderController extends Controller
                     'process','requested_pickup_date', 'agent_picked_up_date', 'requested_delivery_date', 'agent_pickup_date',
                     'agent_delivered_date', 'delivery_time_frame_id', 'branch_id','pickup_time_frame_id','is_delivery','is_pickup'));
 //
+
         if($request['services'])
 
             $syncObject = [];
@@ -173,10 +175,11 @@ public function perMonth()
         $order->update($data);
 
 
-if($request->services())
+if($request['services'])
                  $syncObject = [];
               foreach ($request['services'] as $service) {
-//                  dd($service);
+
+
                   $syncObject[$service['id']] = [
                     'quantity' => $service['quantity'],
                     'price' => $service['price'],

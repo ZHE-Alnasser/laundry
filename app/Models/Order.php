@@ -10,10 +10,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 
+
 class Order extends Model
 {
 
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes,LogsActivity;
+
+
+//    protected static $logFillable = true;
+//    protected $fillable = [
+//        'total',
+//
+//    ];
 
     protected static function boot()
     {
