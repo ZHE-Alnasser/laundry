@@ -13,6 +13,18 @@
         <span>{{__('Create')}}</span>
     </a>
             </div>
+
+            <a class="btn inline-flex lg:mx-3 lg:mt-0 mt-3 justify-center items-center w-48 float-left relative z-10"
+               href="/activities/order">
+                <svg class="w-6 h-6 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="feather feather-rotate-cw">
+                    <polyline points="23 4 23 10 17 10"></polyline>
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                </svg>
+
+                <span>{{__('History')}}</span>
+            </a>
 <div class="mx-1">
     <div x-data="{show: false}" @click.away="show = false" x-cloak >
 
@@ -52,17 +64,7 @@
             {{--@livewire('delivery-datatable')--}}
         {{--</div>--}}
 
-        <a class="btn inline-flex lg:mx-3 lg:mt-0 mt-3 justify-center items-center w-48 float-left relative z-10"
-           href="/activities/order">
-            <svg class="w-6 h-6 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                 class="feather feather-rotate-cw">
-                <polyline points="23 4 23 10 17 10"></polyline>
-                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-            </svg>
 
-            <span>{{__('History')}}</span>
-        </a>
     <div class="my-5">
         <h1 class="mb-3">{{__('All Orders')}}</h1>
         @livewire('order-datatable')

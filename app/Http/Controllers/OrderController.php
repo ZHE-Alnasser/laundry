@@ -63,7 +63,6 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-
         $this->validate($request, [
             'sub_total' => 'nullable',
             'total' => 'nullable',
@@ -91,8 +90,9 @@ class OrderController extends Controller
                 ->only('sub_total', 'total', 'vat', 'customer_id', 'employee_id', 'discount', 'payment',
                     'process','requested_pickup_date', 'agent_picked_up_date', 'requested_delivery_date', 'agent_pickup_date',
                     'agent_delivered_date', 'delivery_time_frame_id', 'branch_id','pickup_time_frame_id','is_delivery','is_pickup'));
-//
 
+
+//        todo is delivery is allways show false
         if($request['services'])
 
             $syncObject = [];
@@ -174,7 +174,7 @@ public function perMonth()
         ]);
         $order->update($data);
 
-
+//todo fix issue invalid argument supplied foreach
 if($request['services'])
                  $syncObject = [];
               foreach ($request['services'] as $service) {

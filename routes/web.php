@@ -48,6 +48,8 @@ Route::get('orders/reports/invoice/{order}', [App\Http\Controllers\OrderControll
 Route::get('orders/reports/vat', [App\Http\Controllers\OrderController::class, 'vat']);
 Route::get('orders/reports/per-month', [App\Http\Controllers\OrderController::class, 'perMonth']);
 
+Route::get('/activities/{modelName}', [App\Http\Controllers\ActivityController::class, 'show']);
+
 Route::get('settings', [App\Http\Controllers\SettingController::class, 'index'])->name('settings.index');
 Route::post('settings', [App\Http\Controllers\SettingController::class, 'update'])->name('settings.update');
 

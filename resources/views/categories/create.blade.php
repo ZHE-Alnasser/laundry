@@ -9,7 +9,7 @@
             <label>{{__('Category Name')}}<span class="text-red-600"> *</span></label>
             <x-input class="input" name="name" value="{{ old('name') }}"/>
 
-
+            {{--todo include type--}}
             <div class="flex mt-8">
                 <button type='submit' class="btn ml-3">{{__('Create')}}</button>
 

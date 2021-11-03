@@ -17,11 +17,28 @@ class Order extends Model
     use HasFactory, SoftDeletes,LogsActivity;
 
 
-//    protected static $logFillable = true;
-//    protected $fillable = [
-//        'total',
-//
-//    ];
+     protected static $logFillable = true;
+    protected $guarded = [];
+
+    protected static $logAttributes = [
+        'id',
+        'customer.name',
+        'employee.name',
+        'is_delivery',
+        'is_pickup',
+        'delivery_time_frame_id',
+        'pickup_time_frame_id',
+        'requested_pickup_date',
+        'requested_delivery_date',
+        'agent_picked_up_date',
+        'agent_delivered_date',
+        'payment',
+        'total',
+        'sub_total',
+        'vat',
+        'branch.name',
+
+    ];
 
     protected static function boot()
     {
@@ -31,7 +48,7 @@ class Order extends Model
         });
     }
 
-    protected $guarded = [];
+  //  protected $guarded = [];
 
     public function services()
     {

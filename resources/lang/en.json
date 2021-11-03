@@ -1,0 +1,18 @@
+{
+  "validation.attributes.id": "Invoice id",
+  "validation.attributes.vat": "Total VAT",
+  "validation.attributes.total": "Total with VAT",
+  "validation.attributes.payment": "Payment",
+  "validation.attributes.is_pickup": "Pickup",
+  "validation.attributes.is_delivery": "delivery",
+  "validation.attributes.sub_total": "Total without VAT",
+  "validation.attributes.branch.name": "Branch Name",
+  "validation.attributes.customer.name": "Customer name",
+  "validation.attributes.employee.name": "Employee name",
+  "validation.attributes.pickup_time_frame_id": "Pickup time frame",
+  "validation.attributes.requested_pickup_date": "Requested pickup date",
+  "validation.attributes.agent_picked_up_date": "pickup date",
+  "validation.attributes.agent_delivered_date": "Delivery date",
+  "validation.attributes.requested_delivery_date":"Requested delivery date",
+  "validation.attributes.delivery_time_frame_id":"Delivery time frame"
+}
