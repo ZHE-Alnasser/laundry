@@ -18,6 +18,10 @@
                 <label>{{__('Phone')}}<span class="text-red-600" > *</span></label>
                 <x-input required class="input" type="number" name="phone" value="{{ old('phone') }}"/>
                 </div>
+                <div class="mt-5">
+                <label>{{__('VAT Number')}}<span class="text-red-600" > *</span></label>
+                <x-input required class="input" type="number" name="vat_number" value="{{ old('vat_number') }}"/>
+                </div>
                 <div class="flex mt-8">
                     <button type='submit' class="btn ml-3">{{__('Create')}}</button>
 

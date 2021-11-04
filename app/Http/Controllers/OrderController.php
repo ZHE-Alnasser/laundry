@@ -78,7 +78,7 @@ class OrderController extends Controller
             'agent_delivered_date' => 'nullable',
             'delivery_time_frame_id' => 'nullable',
             'pickup_time_frame_id'=>'required',
-            'branch_id'=>'nullable',
+            'branch_id'=> session()->get('branch')
 
         ]);
 
@@ -143,7 +143,7 @@ public function perMonth()
         $customers = User::customer()->get();
         $employees = User::employee()->get();
 
-        return view('orders/edit', compact('order', 'customers', 'employees', 'items', 'services', 'timeframes','branches', 'orders','serviceOrders'));
+        return view('orders.edit', compact('order', 'customers', 'employees', 'items', 'services', 'timeframes','branches', 'orders','serviceOrders'));
     }
 
 

@@ -1,5 +1,9 @@
 <nav   id="nav-content" class="mt-2  sm:mx-0 menu" id="example-collapse-navbar">
     <img src="{{asset('/img/favicon/android-icon-192x192.png')}}" alt="{{__('logo')}}" class=" mx-auto w-32">
+
+  <label class="side-items"><i data-feather="git-branch" class="ml-1"></i>{{__('Select Branch')}}:</label>
+    @livewire('branches-list')
+
     <a class="side-items{{active('dashboard')}}"  href="/dashboard"><i data-feather="home" class="ml-1"></i><span class="side-text">{{__("Dashboard")}}</span></a>
     @canany(['Update-Orders','Create-Orders','Delete-Orders'])
         <a class="side-items{{active('orders')}}" href="/orders/manage"><i data-feather="shopping-cart" class="ml-1"></i><span class="side-text">{{__("Orders")}}</span></a>
@@ -25,6 +29,9 @@
 
             <span class="side-text">{{__("Expenses")}}</span></a>
     @endcanany
+
+
+    {{--@endcanany--}}
     @canany(['Update-Settings','Create-Settings','Delete-Settings'])
         <a class="side-items{{active('settings')}}" href="/settings"><i data-feather="settings" class="ml-1"></i><span class="side-text">{{__("Settings")}}</span></a>
     @endcanany

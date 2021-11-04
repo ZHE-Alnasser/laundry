@@ -2,7 +2,10 @@
     <div class="">
 
         <div>
-        @livewire('branch-datatable')
+
+
+            
+         @livewire('branch-datatable')
         </div>
 
         <div class="mt-3">

@@ -33,6 +33,7 @@ class BranchController extends Controller
         $data = $this->validate($request, [
             'name'=>'required',
             'address' => 'required',
+            'vat_number'=>'required',
             'phone' => ['required', 'digits:10'],
 
         ]);

@@ -115,6 +115,9 @@
 console.log(@json($items->load('services')));
     document.addEventListener('alpine:init', () => {
         Alpine.data('pos', () => ({
+            init() {
+                this.calculatePayments()
+            },
             index: 1,
             items: @json($items->load('services')),
             currentItem: null,

@@ -33,7 +33,16 @@
                             </div>
                         </div>
 
-         
+          <div class="flex flex-col md:flex-row mt-5">
+                            <div class="w-full sm:mx-10 flex-1">
+                                <label>{{__('VAT Number')}}<span class="text-red-600"> *</span></label>
+                                <div >
+                                    <x-input required type="number"  name="vat_number" value="{{$branch->vat_number}}" class="input"/>
+                                </div>
+                            </div>
+                        </div>
+
+
 
                         <div class="flex p-2 mt-8 sm:mx-10">
                             <button type="Submit" class="btn ml-2">{{__('Save')}}</button>

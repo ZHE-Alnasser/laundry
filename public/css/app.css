@@ -2728,6 +2728,10 @@ html {
 	margin-top: -0.25rem;
 	margin-bottom: -0.25rem;
 }
+.mx-8 {
+	margin-left: 2rem;
+	margin-right: 2rem;
+}
 .ml-3 {
 	margin-left: 0.75rem;
 }
@@ -3196,6 +3200,11 @@ html {
 	border-right-width: calc(1px * var(--tw-divide-x-reverse));
 	border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
 }
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+	--tw-divide-y-reverse: 0;
+	border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+	border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
 .divide-blue-200 > :not([hidden]) ~ :not([hidden]) {
 	--tw-divide-opacity: 1;
 	border-color: rgba(191, 219, 254, var(--tw-divide-opacity));
@@ -3233,6 +3242,9 @@ html {
 .truncate {
 	overflow: hidden;
 	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.whitespace-nowrap {
 	white-space: nowrap;
 }
 .whitespace-pre-wrap {
@@ -3464,6 +3476,14 @@ html {
 .bg-gray-300 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
+}
+.bg-green-300 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
+}
+.bg-green-500 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
@@ -6011,6 +6031,11 @@ input{
 	.sm\:mx-3 {
 		margin-left: 0.75rem;
 		margin-right: 0.75rem;
+	}
+
+	.sm\:mx-5 {
+		margin-left: 1.25rem;
+		margin-right: 1.25rem;
 	}
 
 	.sm\:ml-3 {

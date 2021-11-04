@@ -13,6 +13,7 @@ class CreateBranchesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('address');
+            $table->string('vat_number');
             $table->string('phone', 50)->nullable();
             $table->timestamps();
         });

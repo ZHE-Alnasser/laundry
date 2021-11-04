@@ -30,9 +30,9 @@
 
 
 
-                <p>{{setting('company_address_1')}}</p>
-                <p>{{setting('company_address_2')}}</p>
-                <p>{{__('VAT Number').__(':')}}{{setting('vat_number')}}</p>
+                <p>{{__('Branch Address')}}: {{$order->branch->address}}</p>
+            {{--<p>{{setting('company_address_2')}}</p>--}}
+                <p>{{__('VAT Number').__(':')}}{{$order->branch->vat_number}}</p>
             </div>
             <div class="flex flex-col ">
                 <hr class="my-4">
@@ -134,13 +134,15 @@
  json_encode(
     [
         'seller_name'=>setting('company_name'),
-        'vat_number'=>setting('vat_number'),
+        'vat_number'=>$order->branch->vat_number,
         'timestamp'=>$order->created_at,
         'total_amount'=>$order->total,
         'vat_amount'=>$order->vat
     ],JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE
 )
 )}}
+
+                {{--todo style the qrCode text--}}
             </div>
             <p class="my-3 mx-4">@lang('Thank you ..')</p>
         </div>

@@ -1,6 +1,10 @@
 <x-layouts.app>
+    <x-activity :activities="$order->activities"/>
+
     <x-card>
         {{--<x-feedback/>--}}
+
+
 
 
         <div class="w-full">
