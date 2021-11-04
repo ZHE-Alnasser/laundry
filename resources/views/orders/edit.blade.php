@@ -1,12 +1,14 @@
 <x-layouts.app>
-    <x-activity :activities="$order->activities"/>
+
+
 
     <x-card>
         {{--<x-feedback/>--}}
 
+        <x-tabs :active="__('Edit')">
 
 
-
+            <x-tab :name="__('Edit')">
         <div class="w-full">
             <div class="mt-8 p-4">
                 <div>
@@ -30,5 +32,11 @@
                 </div>
             </div>
         </div>
+            </x-tab>
+            <x-tab :name="__('Activities')">
+                <x-activity :activities="$order->activities"/>
+
+            </x-tab>
+        </x-tabs>
     </x-card>
 </x-layouts.app>

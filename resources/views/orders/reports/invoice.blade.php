@@ -30,7 +30,7 @@
 
 
 
-                <p>{{__('Branch Address')}}: {{$order->branch->address}}</p>
+                <p>{{__('Address')}}: {{$order->branch->address}}</p>
             {{--<p>{{setting('company_address_2')}}</p>--}}
                 <p>{{__('VAT Number').__(':')}}{{$order->branch->vat_number}}</p>
             </div>

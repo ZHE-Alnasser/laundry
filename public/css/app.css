@@ -2732,6 +2732,10 @@ html {
 	margin-left: 2rem;
 	margin-right: 2rem;
 }
+.-my-2 {
+	margin-top: -0.5rem;
+	margin-bottom: -0.5rem;
+}
 .ml-3 {
 	margin-left: 0.75rem;
 }
@@ -6038,6 +6042,11 @@ input{
 		margin-right: 1.25rem;
 	}
 
+	.sm\:-mx-6 {
+		margin-left: -1.5rem;
+		margin-right: -1.5rem;
+	}
+
 	.sm\:ml-3 {
 		margin-left: 0.75rem;
 	}
@@ -6446,6 +6455,11 @@ input{
 	.lg\:mx-3 {
 		margin-left: 0.75rem;
 		margin-right: 0.75rem;
+	}
+
+	.lg\:-mx-8 {
+		margin-left: -2rem;
+		margin-right: -2rem;
 	}
 
 	.lg\:mt-0 {

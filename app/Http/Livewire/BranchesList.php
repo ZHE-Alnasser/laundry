@@ -53,7 +53,7 @@ class BranchesList extends Component
     public function loadBranches()
     {
 
-        $this->branches = Branch::paginate(20);
+        $this->branches = Branch::all();
         return $this->branches;
     }
 
