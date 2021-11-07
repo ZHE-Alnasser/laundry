@@ -45,7 +45,7 @@
             <div class="flex mx-2 mt-5 ">
                 <div class="w-full">
                     <p>{{__('Pickup Frame')}} :<span class="text-red-600"> *</span></p>
-                    <x-select required class="select  " name="pickup_time_frame_id" id="pickup_time_frame_id">
+                    <x-select class="select  " name="pickup_time_frame_id" id="pickup_time_frame_id">
                         @foreach($timeframes as $time)
                             {{--@dd($customer)--}}
 

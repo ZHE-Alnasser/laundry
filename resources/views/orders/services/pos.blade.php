@@ -45,9 +45,9 @@
 
                                 type="button" @click="adjustBy(o,-1)">-</button>
 
-                        <input id="service_id" type="hidden" x-bind:name="`services[${index}][id]`"  :value="o.id">
+                        <input required id="service_id" type="hidden" x-bind:name="`services[${index}][id]`"  :value="o.id">
                         {{--@dd("o.id")--}}
-                        <input type="number" min="1" class="input qty"
+                        <input  type="number" min="1" class="input qty"
                                {{--name="quantity[]"--}}
                                x-bind:name="`services[${index}][quantity]`"
                                x-on:input="adjustQuantity(o, $event.target.value)"
@@ -92,7 +92,7 @@
             <input  name="change" x-bind:value="total" hidden />
             <h4 class="mx-2 my-2" x-text="'{{__('Change')}}:' + change"></h4>
 
-            <input x-init="vat={{setting('vat_rate')}}" hidden/>
+          {{--<input x-init="vat={{setting('vat_rate')}}" hidden/>--}}
             <input  name="vat" x-bind:value="total * vat/100" hidden />
             <h4 class="mx-2 my-2" x-text="'{{__('Total VAT')}}:' + total * vat/100"></h4>
 
@@ -113,6 +113,7 @@
 
 <script>
 console.log(@json($items->load('services')));
+
     document.addEventListener('alpine:init', () => {
         Alpine.data('pos', () => ({
             init() {
@@ -125,6 +126,7 @@ console.log(@json($items->load('services')));
             services: [
 
             ],
+            vat: @json(setting('vat_rate')),
             total: 0,
             totalVat:0,
             paid: 0,
@@ -186,10 +188,10 @@ console.log(@json($items->load('services')));
                 item.total = item.price * item.quantity;
                 this.calculatePayments();
             },
-            calculateVat(totalVat){
-                vat ={{setting('vat_rate')}}
-                console.log(this.total, this.vat,this.totalVat)
-                this.totalVat=this.total *vat;
+            calculateVat(vat, totalVat =0){
+
+                console.log(this.total,vat,totalVat)
+                totalVat=this.total * vat/100;
             },
 
             calculatePayments(paid = 0) {

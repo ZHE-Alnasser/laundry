@@ -77,12 +77,14 @@ class OrderController extends Controller
             'agent_picked_up_date' => 'nullable',
             'agent_delivered_date' => 'nullable',
             'delivery_time_frame_id' => 'nullable',
-            'pickup_time_frame_id'=>'required',
+            'pickup_time_frame_id'=>'nullable',
+            'is_delivery'=>'nullable',
+            'is_pickup'=>'nullable',
             'branch_id'=> session()->get('branch')
 
         ]);
 
-       $request->merge(['is_delivery' => $request->is_delivery == 'on' ? true : false],['is_pickup' => $request->is_pickup == 'on' ? true : false]);
+//       $request->merge(['is_pickup' => $request->is_pickup == 'on' ? true : false]);
 
        $request->merge(['branch_id' =>  session('branch')]);
         $order = Order::create(
@@ -167,7 +169,7 @@ public function perMonth()
             'agent_picked_up_date' => 'nullable',
             'agent_delivered_date' => 'nullable',
             'delivery_time_frame_id' => 'nullable',
-            'pickup_time_frame_id'=>'required',
+            'pickup_time_frame_id'=>'nullable',
             'branch_id'=>'nullable',
             'is_delivery'=>'nullable',
             'is_pickup'=>'nullable'
