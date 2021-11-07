@@ -9,7 +9,15 @@
             <label>{{__('Category Name')}}<span class="text-red-600"> *</span></label>
             <x-input class="input" name="name" value="{{ old('name') }}"/>
 
-            {{--todo include type--}}
+
+<div class="mt-3">
+            <label>{{__('Type')}}<span class="text-red-600"> *</span></label>
+             <x-select name="type" class="select">
+                 <option value="users">{{__('User')}}</option>
+                 <option value="expenses">{{__('Expense')}}</option>
+                 <option value="orders">{{__('Order')}}</option>
+             </x-select>
+</div>
             <div class="flex mt-8">
                 <button type='submit' class="btn ml-3">{{__('Create')}}</button>
 

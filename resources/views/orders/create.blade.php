@@ -35,7 +35,7 @@
             @csrf
             @include('orders._fields')
             @include('orders.services.pos')
-
+                {{--todo update create button to be redirected to the invoice--}}
         {{--</div>--}}
         <div class="flex mt-8">
             <button type='submit' class="btn ml-3">{{__('Create')}}</button>

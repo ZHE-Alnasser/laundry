@@ -108,7 +108,7 @@ class OrderController extends Controller
         $order->services()->sync($syncObject);
 //                }
 //
-
+//foreach(Order::all() as $order)
         return redirect('orders/manage');
     }
 

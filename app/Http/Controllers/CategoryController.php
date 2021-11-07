@@ -33,6 +33,7 @@ class CategoryController extends Controller
     {
         $data = $this->validate($request, [
             'name' => 'required',
+            'type' => 'required'
 
         ]);
         Category::create($data);

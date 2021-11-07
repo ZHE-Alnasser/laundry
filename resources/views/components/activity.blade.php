@@ -31,7 +31,7 @@
         $changes= "<div class='md:flex text-xs md:text-base'>";
             foreach (json_decode($activity->properties) as $key => $value) {
 
-                $changes .= '<div class="flex flex-col f">';
+                $changes .= '<div class="flex flex-col mx-2 f">';
                 $changes .= '<div class="text-blue-500 text-sm">' . __($key) . '</div><br>';
                 foreach ($value as $k => $val) {
                     if ($k == 'updated_at') continue;

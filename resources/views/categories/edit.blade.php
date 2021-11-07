@@ -15,6 +15,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="flex flex-col md:flex-row mt-3">
+                        <div class="w-full mx-10 flex-1">
+                            <label>{{__('Type')}}</label>
+                            <div >
+                                <x-select name="type" class="select">
+                                    <option value="users">{{__('User')}}</option>
+                                    <option value="expenses">{{__('Expense')}}</option>
+                                    <option value="orders">{{__('Order')}}</option>
+                                </x-select>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="flex p-2 mt-8 mx-10">
                         <button type="Submit" class="btn ml-2">{{__('Save')}}</button>
