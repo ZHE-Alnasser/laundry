@@ -80,7 +80,8 @@ class OrderController extends Controller
             'pickup_time_frame_id'=>'nullable',
             'is_delivery'=>'nullable',
             'is_pickup'=>'nullable',
-            'branch_id'=> session()->get('branch')
+            'branch_id'=> session()->get('branch'),
+            'services'=>'required'
 
         ]);
 
@@ -170,13 +171,14 @@ public function perMonth()
             'agent_delivered_date' => 'nullable',
             'delivery_time_frame_id' => 'nullable',
             'pickup_time_frame_id'=>'nullable',
-            'branch_id'=>'nullable',
+            'branch_id'=>'required',
             'is_delivery'=>'nullable',
-            'is_pickup'=>'nullable'
+            'is_pickup'=>'nullable',
+            'services'=>'required'
         ]);
         $order->update($data);
 
-//todo fix issue invalid argument supplied foreach
+
 if($request['services'])
                  $syncObject = [];
               foreach ($request['services'] as $service) {

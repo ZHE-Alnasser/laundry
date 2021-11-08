@@ -68,7 +68,7 @@
 <i data-feather="image" class="ml-1"></i>
     {{__('Upload image')}}
 </span>
-                            <input class="hidden" id="file-upload" name="image" type="file"/>
+                            <input class="hidden" id="file-upload"  name="image" type="file"/>
                         </label>
 
                     </div>

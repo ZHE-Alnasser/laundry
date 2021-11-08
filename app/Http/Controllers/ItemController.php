@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class ItemController extends Controller
 {
@@ -79,13 +80,16 @@ class ItemController extends Controller
         $data = request()->validate([
             'name' => 'required',
 
+
         ]);
-        $item->update($data);
 
         if ($request->hasFile('image')) {
-            $item->media()->delete($this);
+//            dd($item->media());
+            $item->media()->delete();
             $item->addMediaFromRequest('image')->toMediaCollection('items');
         }
+        $item->update($data);
+
 
         if($item->services())
             $item->services()->delete();
