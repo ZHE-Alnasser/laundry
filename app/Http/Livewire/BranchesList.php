@@ -19,17 +19,6 @@ class BranchesList extends Component
 }
 
 
-
-    public function loadBranches()
-    {
-
-        $this->branches = Branch::all();
-        return $this->branches;
-    }
-
-
-
-
     public function render()
     {
         return view('components.branches-list', ['branches' => Branch::all(['id','name'])]);
