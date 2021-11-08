@@ -16,7 +16,7 @@
                 </div>
                 <div class="mt-5">
                 <label>{{__('Phone')}}<span class="text-red-600" > *</span></label>
-                <x-input required class="input" type="number" name="phone" value="{{ old('phone') }}"/>
+                <x-input required minlength="10" maxlength="10" class="input" type="number" name="phone" value="{{ old('phone') }}"/>
                 </div>
                 <div class="mt-5">
                 <label>{{__('VAT Number')}}<span class="text-red-600" > *</span></label>

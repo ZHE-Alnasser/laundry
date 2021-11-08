@@ -61,7 +61,7 @@ class OrderController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(Request $request, Order $order)
     {
         $this->validate($request, [
             'sub_total' => 'nullable',
@@ -94,7 +94,7 @@ class OrderController extends Controller
                     'agent_delivered_date', 'delivery_time_frame_id', 'branch_id','pickup_time_frame_id','is_delivery','is_pickup'));
 
 
-//        todo is delivery is allways show false
+
         if($request['services'])
 
             $syncObject = [];
@@ -111,7 +111,7 @@ class OrderController extends Controller
 //                }
 //
 //foreach(Order::all() as $order)
-        return redirect('orders/manage');
+        return redirect('orders/reports/invoice/'.$order->id);
     }
 
     public function show(Order $order)
@@ -191,7 +191,7 @@ if($request['services'])
             }
         $order->services()->sync($syncObject);
 //                }
-        return redirect('orders/manage');
+        return redirect('orders/reports/invoice/'.$order->id);
     }
 
     public function destroy(Order $order)
