@@ -81,7 +81,7 @@
                x-on:change="calculatePayments($event.target.value)"
                x-on:keydown.debounce.150ms="calculatePayments($event.target.value)"/>
 
-        <button  type="button" class="h-full btn btn-primary" x-on:click="calculatePayments(total)">{{__('Full Amount')}}</button>
+        <button  type="button" class="h-full btn btn-primary" x-on:click="calculatePayments(total+totalVat)">{{__('Full Amount')}}</button>
     </div>
 
     {{--Show total price--}}
@@ -93,11 +93,11 @@
             <h4 class="mx-2 my-2" x-text="'{{__('Change')}}:' + change"></h4>
 
           {{--<input x-init="vat={{setting('vat_rate')}}" hidden/>--}}
-            <input  name="vat" x-bind:value="total * vat/100" hidden />
-            <h4 class="mx-2 my-2" x-text="'{{__('Total VAT')}}:' + total * vat/100"></h4>
+            <input  name="vat" x-bind:value="totalVat" hidden />
+            <h4 class="mx-2 my-2" x-text="'{{__('Total VAT')}}:' + totalVat"></h4>
 
-            <input  name="total"  x-model="totalWithVat" x-bind:value="total + total * vat/100" hidden />
-            <h4 class="mx-2 my-2" x-text="'{{__('Total amount with VAT')}}:' + (total * vat/100 + total)"></h4>
+            <input  name="total"  x-model="totalWithVat" x-bind:value="total + totalVat" hidden />
+            <h4 class="mx-2 my-2" x-text="'{{__('Total amount with VAT')}}:' + (totalVat+ total)"></h4>
 
 
 
@@ -164,7 +164,8 @@ console.log(@json($items->load('services')));
                 service.quantity = 1;
                 service.total = service.price;
                 this.order.push(service)
-                this.calculatePayments()
+                this.calculatePayments();
+                this.calculateVat();
             },
 
             removeServiceFromOrder(service) {
@@ -172,6 +173,7 @@ console.log(@json($items->load('services')));
                 this.order.splice(position, 1);
                 console.log(position, service, this.order);
                 this.calculatePayments()
+                this.calculateVat();
                 return true;
 
             },
@@ -187,18 +189,25 @@ console.log(@json($items->load('services')));
                 item.quantity = Number(quantity);
                 item.total = item.price * item.quantity;
                 this.calculatePayments();
+                this.calculateVat();
             },
-            calculateVat(vat, totalVat =0){
+            calculateVat(){
 
-                console.log(this.total,vat,totalVat)
-                totalVat=this.total * vat/100;
+                console.log(this.total,this.vat,this.totalVat);
+               this.totalVat=this.total * this.vat/100;
             },
-
+            //
+            // calculatePayments(paid = 0) {
+            //     console.log(this.total, this.change, this.paid);
+            //     this.total = this.order.reduce((n, {total}) => n + total, 0);
+            //     if (paid) this.paid = paid;
+            //     this.change = Math.round(((this.paid - this.total) + Number.EPSILON) * 100) / 100;
+            // },
             calculatePayments(paid = 0) {
-                console.log(this.total, this.change, this.paid);
+                console.log(this.total, this.change, this.paid,this.totalVat);
                 this.total = this.order.reduce((n, {total}) => n + total, 0);
                 if (paid) this.paid = paid;
-                this.change = Math.round(((this.paid - this.total) + Number.EPSILON) * 100) / 100;
+                this.change = Math.round(((this.paid - (this.total+this.totalVat)) + Number.EPSILON) * 100) / 100;
             },
 
         }))
