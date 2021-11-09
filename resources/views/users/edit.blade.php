@@ -82,13 +82,13 @@
                         <div class="mt-5">
                             <label>{{ __('Password') }}<span class="text-red-600"> *</span></label>
                             <x-input id="password" class="input" type="password" name="password" required
-                                 value="{{$user->password}}"    autocomplete="new-password"/>
+                                    autocomplete="new-password"/>
 
                         </div>
                         <div class="mt-5">
                             <label>{{ __('Confirm Password') }}<span class="text-red-600"> *</span></label>
                             <x-input id="password_confirmation" class="input" type="password"
-                                     value="{{$user->password}}"    name="password_confirmation" required autocomplete="new-password"/>
+                                       name="password_confirmation" required autocomplete="new-password"/>
                         </div>
 
 
@@ -105,7 +105,7 @@
                                                 <td class="td p-2 text-center">
                                                     <p class="text-s font-medium text-gray-600 ">
                                                         {{ $role->name }}
-                                                        <input type="checkbox" class="checkbox checkbox-primary w-5 h-5" id="role_id" name="role_id[]" value="{{ $role->id }}"
+                                                        <input type="radio" class="radio radio-primary w-5 h-5" id="role_id" name="role_id[]" value="{{ $role->id }}"
                                                                 {{in_array($role->id , $userRoles) ? 'checked' : '' }}/>
                                                     </p>
                                                 </td>

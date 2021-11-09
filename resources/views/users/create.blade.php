@@ -84,7 +84,7 @@
                             <td class="td p-2 text-center">
                                 <p class="text-s font-medium text-gray-600 ">
                                     {{ $role->name }}
-                                    <input type="checkbox" id="role_id" class="checkbox checkbox-primary w-5 h-5"  name="role_id[]" value="{{ $role->id }}"
+                                    <input type="radio" id="role_id" class="radio radio-primary w-5 h-5"  name="role_id[]" value="{{ $role->id }}"
                                            />
                                 </p>
                             </td>

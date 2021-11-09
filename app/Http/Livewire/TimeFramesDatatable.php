@@ -14,6 +14,7 @@ use App\Models\TimeFrame;
 
 class TimeFramesDatatable extends LivewireDatatable
 {
+    //todo exportable shows some codes in the excel page
 
     public $model = TimeFrame::class;
 
