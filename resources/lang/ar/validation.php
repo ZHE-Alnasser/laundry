@@ -211,7 +211,9 @@ return [
         'service'=>'الخدمة',
         'expense'=>'المصروف',
         'branch'=>'فرع',
-        'Item'=>'المنتج'
+        'Item'=>'المنتج',
+        'branch_id'=>'الفرع',
+        'services'=>'الخدمات'
 
 
     ],

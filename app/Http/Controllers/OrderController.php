@@ -63,6 +63,8 @@ class OrderController extends Controller
 
     public function store(Request $request, Order $order)
     {
+        $request->merge(['branch_id'=> session()->get('branch')]);
+
         $this->validate($request, [
             'sub_total' => 'nullable',
             'total' => 'nullable',
@@ -80,13 +82,12 @@ class OrderController extends Controller
             'pickup_time_frame_id'=>'nullable',
             'is_delivery'=>'nullable',
             'is_pickup'=>'nullable',
-            'branch_id'=> session()->get('branch'),
+            'branch_id'=> 'required',
             'services'=>'required'
 
         ]);
 
 //       $request->merge(['is_pickup' => $request->is_pickup == 'on' ? true : false]);
-
        $request->merge(['branch_id' =>  session('branch')]);
         $order = Order::create(
            $request

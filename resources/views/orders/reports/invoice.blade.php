@@ -83,20 +83,10 @@
                 <th>@lang('Amount')</th>
 
                 </thead>
-                {{--<tr>--}}
-                {{--<td>@lang('total')({{$order->total}}) * @lang('quantity')({{$order->quantity}})</td>--}}
-                {{--<td> </td>--}}
-                {{--<td>{{$order->total * $order->quantity}}</td>--}}
-                {{--</tr>--}}
-                {{--@dd($order->product_order)--}}
-                {{--@dd($order->services)--}}
 
-                {{--@dd($order)--}}
                 @foreach($order->services as $item)
                     <tr>
 
-                        {{--@dd($item->pivot->selling_price)--}}
-                        {{--@dd($order->services)--}}
                         <td>{{$item->name}} </td>
                         <td>{{$item->pivot->quantity}}</td>
                         <td> {{$item->pivot->price}}</td>
@@ -142,7 +132,6 @@
 )
 )}}
 
-                {{--todo style the qrCode text--}}
             </div>
             <p class="my-3 mx-4">@lang('Thank you ..')</p>
         </div>
