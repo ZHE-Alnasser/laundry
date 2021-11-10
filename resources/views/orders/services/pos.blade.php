@@ -76,7 +76,7 @@
 
     <div class="flex items-end my-4">
 
-        <input type="number" step="0.1" autocomplete="off" min="total" name="paid" class="input flex-1"
+        <input type="number" step="0.01" autocomplete="off" min="total" name="paid" class="input flex-1"
                x-model="paid" label="{{__('Paid Amount')}}"
                x-on:change="calculatePayments($event.target.value)"
                x-on:keydown.debounce.150ms="calculatePayments($event.target.value)"/>

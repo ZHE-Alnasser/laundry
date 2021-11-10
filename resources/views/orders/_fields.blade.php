@@ -24,7 +24,7 @@
             @foreach($customers as $customer)
                 {{--@dd($customer)--}}
 
-                <option {{$order->customer_id==$customer->id?'selected':''}} value="{{$customer->id}}">{{ $customer->name }}</option>
+                <option {{(old('customer_id',$order->customer_id )==$customer->id )?'selected':''}} value="{{$customer->id  }}">{{ $customer->name }}</option>
             @endforeach
         </x-select>
     </div>
@@ -37,7 +37,7 @@
         <div class="mx-2 flex">
             <input name="is_pickup" type="hidden" value="0">
             <input @click="isPickedUp =!isPickedUp" type="checkbox" class="checkbox checkbox-primary" id="is_pickup" name="is_pickup"
-                   value="1"{{ (isset($order) && $order->is_pickup) || old('is_pickup', 0) === 1 ? 'checked' : '' }} >
+                   value="1"{{ (isset($order) && old('is_pickup',$order->is_pickup)) || old('is_pickup', 0) === 1 ? 'checked' : '' }} >
             <p class="flex-1 text-s mx-2 font-medium text-gray-600 "> {{__('Needs Pickup?')}}</p>
         </div>
 
@@ -49,7 +49,7 @@
                         @foreach($timeframes as $time)
                             {{--@dd($customer)--}}
 
-                            <option  {{$order->pickup_time_frame_id==$time->id?'selected':''}} value="{{$time->id}}">{{$time->name}} {{$time->description}}</option>
+                            <option  {{old('pickup_time_frame_id',$order->pickup_time_frame_id)==$time->id?'selected':''}} value="{{$time->id}}">{{$time->name}} {{$time->description}}</option>
                         @endforeach
                     </x-select>
                 </div>
@@ -91,7 +91,7 @@
             <input
 
                     type="checkbox"  @click="isDelivery =!isDelivery" class="checkbox checkbox-primary" id="is_delivery" name="is_delivery"
-                    value="1"{{ (isset($order) && $order->is_delivery) || old('is_delivery', 0) === 1 ? 'checked' : '' }}
+                    value="1"{{ (isset($order) && old('is_delivery',$order->is_delivery)) || old('is_delivery', 0) === 1 ? 'checked' : '' }}
             >
             <p class="flex-1 text-s mx-2 font-medium text-gray-600 "> {{__('Delivery Order?')}}</p>
         </div>
@@ -104,7 +104,7 @@
                         @foreach($timeframes as $time)
                             {{--@dd($customer)--}}
 
-                            <option {{$order->delivery_time_frame_id==$time->id?'selected':''}} value="{{$time->id}}">{{$time->name}} {{$time->description}}</option>
+                            <option {{old('delivery_time_frame_id',$order->delivery_time_frame_id)==$time->id?'selected':''}} value="{{$time->id}}">{{$time->name}} {{$time->description}}</option>
                         @endforeach
                     </x-select>
                 </div>
@@ -171,17 +171,17 @@
 
             <label class="mb-1 inline-flex items-center">
 
-        <input class="w-5 h-5 mx-1 radio radio-primary" type="radio" required name="payment" value="cash"{{$order->payment === 'cash' ? "checked" : "" }}/>
+        <input class="w-5 h-5 mx-1 radio radio-primary" type="radio" required name="payment" value="cash"{{old('payment',$order->payment) === 'cash' ? "checked" : "" }}/>
                 <span class="label-text">{{__('Cash') }}</span>
             </label>
         <label class="inline-flex mb-1 items-center">
 
-        <input class="w-5 h-5 mx-1 radio radio-primary" type="radio" name="payment" value="cash"{{$order->payment === 'card' ? "checked" : "" }}/>
+        <input class="w-5 h-5 mx-1 radio radio-primary" type="radio" name="payment" value="cash"{{old('payment',$order->payment) === 'card' ? "checked" : "" }}/>
                 <span class="label-text">{{__('Card') }}</span>
             </label>
         <label class="inline-flex items-center">
 
-        <input class="w-5 h-5 mx-1 radio radio-primary" type="radio" name="payment" value="transfer"{{$order->payment === 'transfer' ? "checked" : "" }}/>
+        <input class="w-5 h-5 mx-1 radio radio-primary" type="radio" name="payment" value="transfer"{{old('payment',$order->payment) === 'transfer' ? "checked" : "" }}/>
                 <span class="label-text">{{__('Transfer')}}</span>
             </label>
 

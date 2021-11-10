@@ -153,7 +153,9 @@ public function perMonth()
 
     public function update(Request $request, Order $order)
     {
-     //   dd($request);
+        $request->merge(['branch_id'=> session()->get('branch')]);
+
+        //   dd($request);
         //$order->update($request->all());
        $request->merge(['delivery' => $request->delivery == 'on' ? true : false]);
 
@@ -177,6 +179,8 @@ public function perMonth()
             'is_pickup'=>'nullable',
             'services'=>'required'
         ]);
+        $request->merge(['branch_id' =>  session('branch')]);
+
         $order->update($data);
 
 
