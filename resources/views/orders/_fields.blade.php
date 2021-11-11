@@ -187,16 +187,25 @@
 
         </div>
 </div>
-
-    {{--<div class="w-full sm:mx-10 mt-5 flex-1">--}}
-        {{--<label>{{__('Branch Name')}}</label>--}}
-
-        {{--<x-select name="branch_id" id="branch_id" class="input">--}}
-            {{--@foreach($branches as $branch )--}}
-                {{--<option {{$order->branch_id==$branch->id?'selected':''}} value="{{$branch->id}}">{{ $branch->name }} </option>--}}
-            {{--@endforeach--}}
-        {{--</x-select>--}}
-    {{--</div>--}}
-
 </div>
+
+{{--todo enhance the way delivery was appears--}}
+    <div class="w-full  mt-5 flex-1">
+        <label>{{__('Delivery Address')}}</label>
+        <div class=" sm:flex w-full mt-1">
+        <x-select name="city_id" id="city_id" class="w-1/2">
+            @foreach($cities as $city )
+                <option {{$city->city_id==$city->id?'selected':''}} value="{{$city->id}}">{{ $city->name }} </option>
+            @endforeach
+        </x-select>
+<span class="mx-2"> _ </span>
+
+    <x-select name="district_id" id="district_id" class="w-1/2">
+        @foreach($districts as $district )
+            <option {{$district->district_id==$district->id?'selected':''}} value="{{$district->id}}">{{ $district->name }} </option>
+        @endforeach
+    </x-select>
+    </div>
+</div>
+
 {{--</div>--}}

@@ -59,6 +59,10 @@ class Order extends Model
     {
         return $this->belongsTo(Branch::class);
     }
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
 
   public function categories()
     {

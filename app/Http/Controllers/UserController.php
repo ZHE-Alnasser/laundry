@@ -43,13 +43,15 @@ class UserController extends Controller
     }
 
 
-    public function create()
+    public function create(User $user)
     {
         $roles = Role::all();
+        $userRoles = $user->roles()->pluck('id')->toArray();
+
         $districts=District::all();
 //        $categories =Category::all();
         $categories = Category::ofType('users')->get();
-        return view('/users/create',compact('categories','roles','districts'));
+        return view('/users/create',compact('categories','roles','districts','user','userRoles'));
     }
 
     public function store(Request $request)

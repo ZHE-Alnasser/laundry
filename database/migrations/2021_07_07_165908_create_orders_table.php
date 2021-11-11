@@ -15,6 +15,7 @@ class CreateOrdersTable extends Migration
             $table->foreignId('employee_id')->nullable();
             $table->foreignId('category_id')->nullable();
             $table->foreignId('branch_id')->nullable();
+            $table->foreignId('district_id')->nullable();
             $table->float('vat')->default(0);
             $table->float('sub_total')->default(0);
             $table->float('total')->default(0);
