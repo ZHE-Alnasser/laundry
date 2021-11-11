@@ -26,16 +26,18 @@ class ExpenseController extends Controller
     }
 
 
-    public function create()
+    public function create(Expense $expense)
     {
         $categories = Category::ofType('expenses')->get();
         $branches=Branch::all();
-        return view('expenses/create',compact('branches','categories'));
+        return view('expenses.create',compact('branches','categories','expense'));
     }
 
 
     public function store(Request $request)
     {
+        $request->merge(['branch_id'=> session()->get('branch')]);
+
         $data = $this->validate($request, [
             'name' => 'required',
             'amount' => 'required',
@@ -44,6 +46,7 @@ class ExpenseController extends Controller
             'category_id'=>'nullable'
 
         ]);
+        $request->merge(['branch_id' =>  session('branch')]);
 
          Expense::create($data);
 
@@ -64,12 +67,15 @@ class ExpenseController extends Controller
 //        $categories=Category::all();
         $categories = Category::ofType('expenses')->get();
         $branches=Branch::all();
-        return view ('expenses/edit',compact('expense','branches','categories'));
+        return view ('expenses.edit',compact('expense','branches','categories'));
     }
 
 
     public function update(Request $request, Expense $expense)
     {
+
+        $request->merge(['branch_id' =>  session('branch')]);
+
         $expense->update($request->all());
         return redirect('expenses/manage')->withSuccess(__(':attribute Has Been Updated',['attribute'=>__('Expense')]));
     }

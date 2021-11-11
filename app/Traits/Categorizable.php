@@ -12,7 +12,7 @@ trait Categorizable
     public function syncCategory($name)
     {
         $cleanName = str_replace(['[{"value":"', '"}]'], '', $name);
-        $this->attributes['type_id'] = Type::firstOrCreate([ 'name' => $this->getTable()])->id;
+        $this->attributes['category_id'] = Category::firstOrCreate([ 'type' => $this->getTable(), 'name' => $cleanName])->id;
         $this->save();
         cache()->forget($this->getTable() . 'categories');
     }
