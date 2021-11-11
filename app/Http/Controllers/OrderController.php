@@ -184,7 +184,7 @@ public function perMonth()
             'is_delivery'=>'nullable',
             'is_pickup'=>'nullable',
             'district_id','nullable',
-            'services'=>'required'
+//            'services'=>'required'
         ]);
         $request->merge(['branch_id' =>  session('branch')]);
 
