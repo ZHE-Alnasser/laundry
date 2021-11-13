@@ -36,6 +36,10 @@ class SettingController extends Controller
 
     public function update(Request $request, Setting $setting)
     {
+      $request->validate([
+            'logo' => 'nullable|image|mimes:jpeg,jpg,png,gif',
+        ]);
+
 //        dd($request);
         $data = $request->except('_method','_token');
 
@@ -48,11 +52,12 @@ class SettingController extends Controller
         Cache::forget('settingsTable'); // it will be auto-cache again when it hits App Service provider.
 
 
-        $file_path = null;
-        $file = $request->file('logo');
+        $file=  $request->file('logo');
+//      $ext= $file->guessClientExtension();
         if ($file) {
-            $file_path = $file->store('logo', 'public');
+            $file->storeAs('public/logo', "logo.png");
         }
+
 
         session()->flash('message',__(':name has been updated successfully',['name' => __('Settings')]));
 

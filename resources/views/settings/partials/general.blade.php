@@ -1,8 +1,8 @@
 
 
 <x-tab :name="__('General')">
-    <x-form action="{{url('settings')}}" :crudButton="false" method="post">
-
+    <x-form action="{{url('settings')}}" :crudButton="false" method="post" enctype="multipart/form-data" >
+        {{ csrf_field() }}
     <div class="sm:flex my-2">
 
         <span class=" flex-1 mx-2 "><label class="text-sm font-bold">{{__('Company Name')}}</label><x-input class="input mx-2 " name="company_name"  :value="setting('company_name')"/></span>
@@ -50,26 +50,56 @@
                 {{--<x-input type="file" name="logo" type="file"/>--}}
             {{--</div>--}}
         {{--</div>--}}
+
+        {{--<div class="field text-right mx-10 mt-5">--}}
+
+            {{--@if( $setting->hasMedia('settings') )--}}
+                {{--<div class="object-cover mb-5 ">--}}
+                    {{--@foreach( $setting->getMedia('settings') as $attachment)--}}
+                        {{--<div class="h-25 w-25">--}}
+                            {{--{{$attachment}}--}}
+                        {{--</div>--}}
+                    {{--@endforeach--}}
+                {{--</div>--}}
+            {{--@endif--}}
+
+
+        {{--</div>--}}
+
+        {{--<label for="file-upload" class="btn">--}}
+{{--<span>--}}
+{{-- @svg('heroicon-o-upload','h8 w-8 inline')--}}
+    {{--<i data-feather="image" class="ml-1"></i>--}}
+    {{--{{__('Upload image')}}--}}
+{{--</span>--}}
+            {{--<input class="hidden"  id="file-upload" name="image" type="file"/>--}}
+        {{--</label>--}}
+
+        {{--<form action="/logo" method="POST" >--}}
+
+
         <div class="field mb-5 mt-5">
             <label class=" font-extrabold leading-8 tracking-tight  sm:leading-9"
-                   for="logo">{{__('Add Image')}}</label>
+                   >{{__('Add Image')}}</label>
             <div class="mt-1">
 
-                <label for="logo" class="btn">
+                <label for="file-upload" class="btn">
 <span>
-{{-- @svg('heroicon-o-upload','h8 w-8 inline')--}}
+
     <i data-feather="image" class="ml-1"></i>
     {{__('Upload image')}}
 </span>
-                    <input class="hidden"  id="logo" name="logo" type="file"/>
+                    <input class="hidden"  id="file-upload" name="logo" type="file"/>
+
                 </label>
 
 
-
-
+                {{--<input id="file" type="file" class="form-control @error('file') is-invalid @enderror" name="logo" value="{{ old('logo') }}">--}}
 
             </div>
         </div>
+
+        {{--</form>--}}
     <button  class="btn mt-8">{{__('Edit')}}</button>
     </x-form>
 </x-tab>

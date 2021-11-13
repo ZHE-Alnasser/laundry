@@ -5,22 +5,11 @@
         <div class="flex flex-col justify-between">
             <div class="text-right">
                 <div class="field text-right mx-10 mt-5">
-                    {{--todo printing logo--}}
-                    {{--@if($setting->hasMedia('settings') )--}}
-                    {{--<div class="object-cover mb-5 ">--}}
-                    {{--@foreach($setting->getMedia('settings') as $attachment)--}}
-                    {{--<div class="h-25 w-25">--}}
-                    {{--{{$attachment}}--}}
-                    {{--</div>--}}
-                    {{--@endforeach--}}
-                    {{--</div>--}}
-                    {{--@endif--}}
-
 
                 </div>
-                {{--                 @dd(asset(setting('logo')))
---}}
-                <img class="img-fluid d-block mx-auto" src="{{asset(setting('logo'))}}" alt="{{__('Company Logo')}}">
+
+           <img class="img-fluid d-block " src="{{asset('/storage/logo/logo.png')}}" alt="{{__('Company Logo')}}">
+
                 <p>{{setting('company_name')}}</p>
                    <div class="flex">
 
