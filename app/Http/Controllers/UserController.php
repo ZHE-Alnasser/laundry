@@ -31,6 +31,8 @@ class UserController extends Controller
         $this->addMiddlewaresFor('Users');
         $this->middleware('auth');
     }
+
+    public $table='users';
     public function manage()
     {
         return view('users/manage');

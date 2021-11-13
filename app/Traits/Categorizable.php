@@ -1,7 +1,6 @@
 <?php
 namespace App\Traits;
 use App\Models\Category;
-use App\Models\Type;
 trait Categorizable
 {
     public function category()

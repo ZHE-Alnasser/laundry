@@ -4,16 +4,19 @@ namespace App\Http\Livewire;
 
 use App\Models\Category;
 use Livewire\Component;
+use App\Traits\C;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\NumberColumn;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 
 class CategoryDatatable extends LivewireDatatable
 {
+    use C;
     public $model = Category::class;
 
     public $hideable = 'inline';
     public $exportable = true;
+
 //    public $afterTableSlot = 'components.selected';
 
     public function builder()

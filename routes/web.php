@@ -26,6 +26,7 @@ Route::resource('items', App\Http\Controllers\ItemController::class);
 
 Route::get('/categories/manage', [App\Http\Controllers\CategoryController::class, 'manage'])->name('/categories.manage');
 Route::resource('categories', App\Http\Controllers\CategoryController::class);
+Route::get('category/{type?}',\App\Http\Livewire\CategoryDate::class)->middleware('auth');
 
 Route::get('/cities/manage', [App\Http\Controllers\CityController::class, 'manage'])->name('/cities.manage');
 Route::resource('cities', App\Http\Controllers\CityController::class);

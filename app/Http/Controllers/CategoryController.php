@@ -31,6 +31,7 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
+       $request->merge(['type'=> 'users']);
         $data = $this->validate($request, [
             'name' => 'required',
             'type' => 'required'

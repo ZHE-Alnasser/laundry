@@ -17,6 +17,7 @@ class UsersDatatable extends LivewireDatatable
 
     public $hideable = 'inline';
     public $exportable = true;
+    public $table='users';
 
     public function builder()
     {

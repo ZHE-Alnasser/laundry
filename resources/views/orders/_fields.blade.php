@@ -191,8 +191,9 @@
 
 {{--todo enhance the way delivery was appears--}}
     <div class="w-full  mt-5 flex-1">
+
         <label>{{__('Delivery Address')}}</label>
-        <div class=" sm:flex w-full mt-1">
+        <div class=" sm:flex w-1/2 mt-1">
         <x-select name="city_id" id="city_id" class="w-1/2">
             @foreach($cities as $city )
                 <option {{$city->city_id==$city->id?'selected':''}} value="{{$city->id}}">{{ $city->name }} </option>
