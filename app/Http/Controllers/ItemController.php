@@ -76,7 +76,7 @@ class ItemController extends Controller
 
     public function update(Request $request, Item $item)
     {
-//        dd($request);
+
         $data = request()->validate([
             'name' => 'required',
 
@@ -86,7 +86,7 @@ class ItemController extends Controller
         if ($request->hasFile('image')) {
 //            dd($item->media());
             $item->media()->delete();
-            $item->addMediaFromRequest('image')->toMediaCollection('items');
+        $item->addMediaFromRequest('image')->toMediaCollection('items');
         }
         $item->update($data);
 

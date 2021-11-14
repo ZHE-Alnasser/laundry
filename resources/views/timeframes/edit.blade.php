@@ -31,7 +31,7 @@
                             <input type="button" class="btn-cancel"
                                    name="cancel" value="{{__('Cancel')}}" onClick="window.location.replace('/settings')"/>
                         </div>
-                
+
                 </x-form>
             </div>
         </div>

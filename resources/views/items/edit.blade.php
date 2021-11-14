@@ -4,7 +4,7 @@
     <div class="w-full">
         <div class="mt-8 p-4">
 
-                <x-form action="{{ route('items.update',['item'=>$item->id]) }} " method="PUT">
+                <x-form action="{{ route('items.update',['item'=>$item->id]) }} " method="PUT" has-files>
                     @csrf
 
                     <div class="flex flex-col md:flex-row">
