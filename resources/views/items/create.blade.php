@@ -1,6 +1,6 @@
 <x-layouts.app>
     <x-card>
-    <x-feedback/>
+
     <h1 class="px-6">{{__('Create').' '.__('Items')}}</h1>
 
     <div class="w-full  mt-6 px-6 py-4 overflow-hidden ">

@@ -1,9 +1,9 @@
 <x-layouts.app>
     <x-card>
-    <x-feedback/>
+
     <div class="w-full">
         <div class="mt-8 p-4">
-            <div>
+
                 <x-form action="{{ route('items.update',['item'=>$item->id]) }} " method="PUT">
                     @csrf
 
@@ -80,7 +80,7 @@
                         <input type="button" class="mx-2 btn-cancel"
                                name="cancel" value="{{__('Cancel')}}" onClick="window.location.replace('/items/manage')"/>
                     </div>
-                    </div>
+
                 </x-form>
 
             </div>

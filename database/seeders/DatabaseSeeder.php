@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Branch;
 use App\Models\District;
 use App\Models\Item;
 use App\Models\TimeFrame;
@@ -29,6 +30,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeeder::class);
         $this->call(ItemSeeder::class);
         $this->call(ServiceSeeder::class);
+        $this->call(BranchSeeder::class);
 
         \App\Models\User::factory(10)->create();
 //        \App\Models\Service::factory(10)->create();

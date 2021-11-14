@@ -37,6 +37,7 @@ price: ''
 
                               x-model="service.name"
                        placeholder="{{__('Service Name')}}"
+
                 />
             </div>
             <div class="col-span-2 gab-1 md:col-span-2 sm:col-span-2">

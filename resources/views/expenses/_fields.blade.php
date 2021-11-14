@@ -12,7 +12,7 @@
                             <div class="w-full sm:mx-5 flex-1">
                                 <label>{{__('Category')}}<span class="text-red-600"> *</span></label>
 
-                                <x-select name="category_id" id="category_id" class="input">
+                                <x-select required name="category_id" id="category_id" class="input">
                                     @foreach($categories as $category )
                                         <option {{old('category_id',$expense->category_id)==$category->id?'selected':''}} value="{{$category->id}}">{{ $category->name }} </option>
                                     @endforeach

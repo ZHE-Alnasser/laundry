@@ -17,28 +17,28 @@
 
 
         {{--<div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 place-content-start">--}}
-            @foreach(categories($table) as $category)
-                <x-card class="m-2 h-48 px-2 shadow-none" wire:key="{{$category->id}}">
+            {{--@foreach(categories($table) as $category)--}}
+                {{--<x-card class="m-2 h-48 px-2 shadow-none" wire:key="{{$category->id}}">--}}
 
-                    <h4 class="truncate text-center">{{$category->name}}</h4>
+                    {{--<h4 class="truncate text-center">{{$category->name}}</h4>--}}
 
-                    <div class="flex items-center py-4 px-6 justify-between border-t-2 border-blue-700">
-
-
-                        <a href="#" wire:click="editCategory({{ $category->id }})">
+                    {{--<div class="flex items-center py-4 px-6 justify-between border-t-2 border-blue-700">--}}
 
 
-                        </a>
-                        <span class="border-r-2 h-8"></span>
-
-                        <a href="#" onclick="confirmDelete({{ $category->id }},'{{$category->name}}','deleteCategory')">
-                        </a>
+                        {{--<a href="#" wire:click="editCategory({{ $category->id }})">--}}
 
 
-                    </div>
+                        {{--</a>--}}
+                        {{--<span class="border-r-2 h-8"></span>--}}
 
-                </x-card>
-            @endforeach
+                        {{--<a href="#" onclick="confirmDelete({{ $category->id }},'{{$category->name}}','deleteCategory')">--}}
+                        {{--</a>--}}
+
+
+                    {{--</div>--}}
+
+                {{--</x-card>--}}
+            {{--@endforeach--}}
         {{--</div>--}}
     </div>
 </x-card>
