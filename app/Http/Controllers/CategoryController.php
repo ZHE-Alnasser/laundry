@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    public  Category $category;
     function __construct()
     {
 //        $this->addMiddlewaresFor('Category');
@@ -29,9 +30,12 @@ class CategoryController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(Request $request,Category $category)
     {
-       $request->merge(['type'=> 'users']);
+
+//        $this->category = Category::find($type);
+//        $type=$this->category->type;
+//       $request->merge(['type'=> $category->type]);
         $data = $this->validate($request, [
             'name' => 'required',
             'type' => 'required'

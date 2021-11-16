@@ -119,7 +119,17 @@
                              class="date-range input"/>
 
                 </div>
+
+
             </div>
+
+            <div><label>{{__('Delivery Address')}}</label></div>
+            <x-select name="district_id" id="district_id" class="w-1/2">
+                @foreach($districts as $district )
+                    <option {{old('district_id',$order->district_id)==$district->id?'selected':''}} value="{{$district->id}}">
+                        {{ $district->city->name }} - {{ $district->name }} </option>
+                @endforeach
+            </x-select>
 
         </div>
 
@@ -137,7 +147,6 @@
 
         {{--    <div class="mx-2 mt-5 sm:mt-0 flex-col w-full">--}}
 
-        {{--        <label>{{__('Agent Deliver Date')}}</label>--}}
 
         {{--        --}}{{--<x-input name="agent_delivery_date" type="text"  class="input"/>--}}
         {{--        <x-input name="agent_delivery_date" type="text"--}}
@@ -192,21 +201,22 @@
 {{--todo enhance the way delivery was appears--}}
     <div class="w-full  mt-5 flex-1">
 
-        <label>{{__('Delivery Address')}}</label>
-        <div class=" sm:flex w-1/2 mt-1">
-        <x-select name="city_id" id="city_id" class="w-1/2">
-            @foreach($cities as $city )
-                <option {{$city->city_id==$city->id?'selected':''}} value="{{$city->id}}">{{ $city->name }} </option>
-            @endforeach
-        </x-select>
-<span class="mx-2"> _ </span>
 
-    <x-select name="district_id" id="district_id" class="w-1/2">
-        @foreach($districts as $district )
-            <option {{$district->district_id==$district->id?'selected':''}} value="{{$district->id}}">{{ $district->name }} </option>
-        @endforeach
-    </x-select>
+        {{--<div class=" sm:flex w-1/2 mt-1">--}}
+        {{--<x-select name="city_id" id="city_id" class="w-1/2">--}}
+            {{--@foreach($cities as $city )--}}
+                {{--<option {{$city->city_id==$city->id?'selected':''}} value="{{$city->id}}">{{ $city->name }} </option>--}}
+            {{--@endforeach--}}
+        {{--</x-select>--}}
+{{--<span class="mx-2"> _ </span>--}}
+
+    {{--<x-select name="district_id" id="district_id" class="w-1/2">--}}
+        {{--@foreach($districts as $district )--}}
+            {{--<option {{$district->district_id==$district->id?'selected':''}} value="{{$district->id}}">--}}
+                {{--{{ $city->name }} - {{ $district->name }} </option>--}}
+        {{--@endforeach--}}
+    {{--</x-select>--}}
     </div>
-</div>
+
 
 {{--</div>--}}

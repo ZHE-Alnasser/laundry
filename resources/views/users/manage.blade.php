@@ -14,7 +14,7 @@
 
 <div>
         <a class="btn text-sm z-40" href="{{'/roles'}}">{{__('Manage Roles')}}</a>
-        <a class="btn text-sm z-40" href="{{'/categories'}}">{{__('Manage Categories')}}</a>
+        <a class="btn text-sm z-40" href="{{'/categories/users'}}">{{__('Manage Categories')}}</a>
 </div>
 
     </div>

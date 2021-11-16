@@ -16,12 +16,24 @@ class CategoryDatatable extends LivewireDatatable
 
     public $hideable = 'inline';
     public $exportable = true;
+    public $type;
 
 //    public $afterTableSlot = 'components.selected';
 
+//    public function boot($type)
+//    {
+//        $this->type = $type;
+//
+//}
+
+
+
     public function builder()
     {
-        return Category::query();
+$this->type = last(request()->segments());
+
+//        return Category::query();
+        return Category::query()->whereType($this->type);
     }
 
     public function columns()
@@ -38,5 +50,12 @@ Column::callback(['id', 'name'], function ($id,$name) {
 //                return view('components\table-actions', ['id' => $id, 'name' => $name]);
 })
 ];
+}
+
+public Category $newCategory;
+
+    public function submit()
+    {
+
 }
 }

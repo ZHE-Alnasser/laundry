@@ -18,7 +18,7 @@
             {{--</div>--}}
         {{--</x-dropdown-manage>--}}
 
-            <a class="btn text-sm z-40" href="{{'/categories'}}">{{__('Manage Categories')}}</a>
+            <a class="btn text-sm z-40" href="{{'/categories/expenses'}}">{{__('Manage Categories')}}</a>
         </div>
         {{--</div>--}}
         <div>

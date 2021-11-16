@@ -13,7 +13,23 @@
     <div>
         {{--<livewire: item-data/>--}}
 
-         @livewire('category-datatable')
+          @livewire('categories-datatable')
+        {{-- @livewire('category-datatable')--}}
+
+
+
+
+        <div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Enter Name</label>
+                <input name="name" type="text" wire:model="name" class="form-control input-sm"  placeholder="Name">
+            </div>
+            {{--<div class="form-group">--}}
+                {{--<label>Enter Email</label>--}}
+                {{--<input type="text" class="form-control input-sm" placeholder="Enter type" wire:model="type">--}}
+            {{--</div>--}}
+            <button wire:click="submit()" class="btn btn-primary">Submit</button>
+        </div>
 
 
         {{--<div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 place-content-start">--}}

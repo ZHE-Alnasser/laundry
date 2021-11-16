@@ -37,6 +37,7 @@ class ItemController extends Controller
 
         $data = $this->validate($request, [
             'name' => 'required|unique:items',
+            'services'=>'required'
 
         ]);
         $item= Item::create($data);
@@ -79,6 +80,7 @@ class ItemController extends Controller
 
         $data = request()->validate([
             'name' => 'required',
+            'services'=>'required'
 
 
         ]);

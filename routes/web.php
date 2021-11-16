@@ -24,9 +24,13 @@ Route::resource('users', App\Http\Controllers\UserController::class);
 Route::get('/items/manage', [App\Http\Controllers\ItemController::class, 'manage'])->name('/items.manage');
 Route::resource('items', App\Http\Controllers\ItemController::class);
 
-Route::get('/categories/manage', [App\Http\Controllers\CategoryController::class, 'manage'])->name('/categories.manage');
-Route::resource('categories', App\Http\Controllers\CategoryController::class);
-Route::get('category/{type?}',\App\Http\Livewire\CategoryDate::class)->middleware('auth');
+//Route::get('/categories/{type}', \App\Http\Livewire\CategoryDatatable::class)->name('/categories.manage');
+//Route::get('/categories/{type}',[App\Http\Controllers\CategoryController::class, 'manage']);
+//Route::get('/categories/{type}',\App\Http\Livewire\CategoryDate::class)->middleware('auth');
+Route::get('/categories/{type}',\App\Http\Livewire\CategoriesData::class)->middleware('auth');
+
+//Route::resource('categories', App\Http\Controllers\CategoryController::class);
+
 
 Route::get('/cities/manage', [App\Http\Controllers\CityController::class, 'manage'])->name('/cities.manage');
 Route::resource('cities', App\Http\Controllers\CityController::class);
@@ -37,6 +41,7 @@ Route::resource('districts', App\Http\Controllers\DistrictController::class);
 Route::get('/branches/manage', [App\Http\Controllers\BranchController::class, 'manage'])->name('/branches.manage');
 Route::resource('branches', App\Http\Controllers\BranchController::class);
 
+Route::get('/expenses/categories', [App\Http\Controllers\ExpenseController::class, 'categories'])->name('/expenses.categories');
 Route::get('/expenses/manage', [App\Http\Controllers\ExpenseController::class, 'manage'])->name('/expenses.manage');
 Route::resource('expenses', App\Http\Controllers\ExpenseController::class);
 

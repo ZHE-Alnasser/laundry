@@ -41,6 +41,7 @@
 
 {{--@stack('scripts')--}}
 
+
 </body>
 
 </html>

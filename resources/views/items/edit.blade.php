@@ -16,7 +16,7 @@
                         </div>
                     </div>
 
-                        <div class="field text-right mx-10 mt-5">
+                        <div class="field mt-5">
 
                                 @if($item->hasMedia('items') )
                                     <div class="object-cover mb-5 ">
@@ -63,15 +63,32 @@
                                 {{--<x-input class="input" type="file" id="image" name="image"/>--}}
                             {{--</label>--}}
                         {{--</div>--}}
-                        <label for="file-upload" class="btn">
-<span>
+                        <label for="file-upload"  class= "btn">
+
+
+
+
 <i data-feather="image" class="ml-1"></i>
     {{__('Upload image')}}
 </span>
+
+
+
+
+
                             <input class="hidden" id="file-upload"  name="image" type="file"/>
                         </label>
 
                     </div>
+
+
+
+
+
+
+
+
+
                         <div class="mt-5"> <h1>{{__('Update Services')}}</h1></div>
 @include('items.services')
 

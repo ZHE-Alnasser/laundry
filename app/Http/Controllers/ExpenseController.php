@@ -86,4 +86,9 @@ class ExpenseController extends Controller
         $expense->delete();
         return back();
     }
+
+    public function categories()
+    {
+        return Category::where('type','expenses')->get();
+    }
 }
