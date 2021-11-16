@@ -30,7 +30,8 @@
 {{--</x-layouts.app>--}}
 <div class="mx-2">
 <h2>{{__('New category')}}</h2>
+<form wire:submit.prevent="submit">
     <x-input name="name"  type="text" wire:model="name" class="input form-control input-sm"  placeholder="Name"/>
-    <button class="btn mt-1" wire:click="submit()">{{__('Create')}}</button>
+    <button  class="btn mt-1"  type="submit">{{__('Create')}}</button>
+</form>
 </div>
-

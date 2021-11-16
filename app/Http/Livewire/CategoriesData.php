@@ -7,28 +7,31 @@ use Livewire\Component;
 
 class CategoriesData extends Component
 {
+    public $categories;
+    public Category $category;
     public $name,$selected_id;
     public string $message;
     public $updateMode=false;
 
-
+//
     public function mount()
     {
 
 //        $this->category = new Category;
 
-        $this->type = last(request()->segments());//Get last part of current URL
+        $this->type = last(request()->segments()); //Get last part of current URL
 
         return Category::query()->whereType($this->type);
 
 
     }
-
+//
     public function render()
     {
+//        return view('livewire.categories-data');
         return view('livewire.categories-data',['categories' => $this->loadCategories()]);
     }
-
+//
     public function loadCategories()
     {
 
@@ -37,16 +40,21 @@ class CategoriesData extends Component
 
         return $this->categories;
     }
-
-
+//
+//
     public function submit(){
+//        dd('here>');
+        $this->validate([
+            'name' => 'required',
+
+        ]);
         Category::create([
             'name'=>$this->name,
             'type'=>$this->type
         ]);
         $this->message = "Category Registered Successfully";
     }
-
+//
     public function edit($id)
     {
         $record = Category::findOrFail($id);

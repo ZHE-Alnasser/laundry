@@ -39,8 +39,9 @@
     {{--</div>--}}
     {{--</x-card>--}}
 {{--</x-layouts.app>--}}
-<div>
+<div class="mx-2">
+    <h2>{{__('Update category')}}</h2>
     <input type="hidden" wire:model="selected_id">
-    <input type="text" wire:model="name" class="form-control input-sm"  placeholder="Name">
-    <button wire:click="update()">Update</button>
+    <x-input name="name"  type="text" wire:model="name" class="input form-control input-sm"  placeholder="Name"/>
+    <button  class="btn mt-1" wire:click="update()"  type="submit">{{__('Create')}}</button>
 </div>
