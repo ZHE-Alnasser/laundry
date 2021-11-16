@@ -8,12 +8,12 @@ use Livewire\Component;
 class CategoriesData extends Component
 {
     public $categories;
-    public Category $category;
+public Category $category;
     public $name,$selected_id;
-    public string $message;
+public string $message;
     public $updateMode=false;
-
 //
+////
     public function mount()
     {
 
@@ -25,13 +25,15 @@ class CategoriesData extends Component
 
 
     }
-//
+
+
+////
     public function render()
     {
-//        return view('livewire.categories-data');
+        return view('categories.data',['categories' => $this->loadCategories()]);
         return view('livewire.categories-data',['categories' => $this->loadCategories()]);
     }
-//
+
     public function loadCategories()
     {
 
@@ -40,19 +42,23 @@ class CategoriesData extends Component
 
         return $this->categories;
     }
-//
-//
+    private function resetInput()
+    {
+        $this->name = null;
+
+    }
     public function submit(){
 //        dd('here>');
         $this->validate([
-            'name' => 'required',
+            'name' => 'required|unique:categories',
 
         ]);
         Category::create([
             'name'=>$this->name,
             'type'=>$this->type
         ]);
-        $this->message = "Category Registered Successfully";
+        $this->message = __('Category Registered Successfully');
+        $this->resetInput();
     }
 //
     public function edit($id)
@@ -66,7 +72,7 @@ class CategoriesData extends Component
     {
         $this->validate([
             'selected_id' => 'required|numeric',
-            'name' => 'required',
+            'name' => 'required|unique:categories',
 
         ]);
         if ($this->selected_id) {
@@ -77,6 +83,8 @@ class CategoriesData extends Component
 
             ]);
             $this->updateMode = false;
+            $this->resetInput();
+            $this->message = __('Category Updated Successfully');
         }
     }
     public function destroy($id)
@@ -86,6 +94,6 @@ class CategoriesData extends Component
             $record->delete();
 
         }
-//        $this->loadCategories();
+        $this->loadCategories();
     }
 }

@@ -28,10 +28,20 @@
     {{--</div>--}}
     {{--</x-card>--}}
 {{--</x-layouts.app>--}}
+
+
+{{--@include('components.layouts._header')--}}
+{{--@include('components.layouts._sidebar')--}}
+{{--<x-layouts.app>--}}
+
+
 <div class="mx-2">
-<h2>{{__('New category')}}</h2>
-<form wire:submit.prevent="submit">
-    <x-input name="name"  type="text" wire:model="name" class="input form-control input-sm"  placeholder="Name"/>
-    <button  class="btn mt-1"  type="submit">{{__('Create')}}</button>
-</form>
+    <h2>{{__('New category')}}</h2>
+    <form wire:submit.prevent="submit">
+        <x-input name="name"  type="text" wire:model="name" class="input form-control input-sm"  placeholder="Name"/>
+        <div>@error('name') <span class="text-red-600 error">{{ $message }}</span> @enderror</div>
+
+        <button  class="btn mt-1"  type="submit">{{__('Create')}}</button>
+    </form>
 </div>
+{{--</x-layouts.app>--}}

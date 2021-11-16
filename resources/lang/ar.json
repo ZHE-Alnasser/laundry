@@ -259,6 +259,8 @@
   "service": "الخدمة",
   "Delivery Address": "موقع التوصيل",
 "New category": "قسم جديد",
-  "Update category": "تعديل القسم"
+  "Update category": "تعديل القسم",
+  "Category Registered Successfully": "تم انشاء القسم بنجاح",
+  "Category Updated Successfully": "تم تعديل القسم بنجاح"
 }
 

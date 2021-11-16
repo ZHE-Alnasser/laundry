@@ -20,6 +20,8 @@
     </div>
 <div>
     @livewire('users-datatable')
+
 </div>
+
     </x-card>
 </x-layouts.app>

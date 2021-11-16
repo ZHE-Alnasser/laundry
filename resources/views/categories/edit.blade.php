@@ -43,5 +43,6 @@
     <h2>{{__('Update category')}}</h2>
     <input type="hidden" wire:model="selected_id">
     <x-input name="name"  type="text" wire:model="name" class="input form-control input-sm"  placeholder="Name"/>
-    <button  class="btn mt-1" wire:click="update()"  type="submit">{{__('Create')}}</button>
+    <div>@error('name') <span class="text-red-600 error">{{ $message }}</span> @enderror</div>
+    <button  class="btn mt-1" wire:click="update()"  type="submit">{{__('Edit')}}</button>
 </div>
