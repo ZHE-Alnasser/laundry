@@ -26,7 +26,7 @@ class CategoriesData extends Component
 
     public function render()
     {
-        return view('Livewire.categories-data',['categories' => $this->loadCategories()]);
+        return view('livewire.categories-data',['categories' => $this->loadCategories()]);
     }
 
     public function loadCategories()
