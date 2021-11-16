@@ -5,7 +5,7 @@
     </div>
 </footer>
 
-
+@livewireScripts
 
 <script src="https://unpkg.com/feather-icons"></script>
 <script src="{{ mix('js/app.js') }}"></script>
