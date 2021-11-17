@@ -1,7 +1,7 @@
 <div class="flex space-x-1 justify-around" xmlns:x-on="http://www.w3.org/1999/xhtml">
     {{--@can("Update-$model")--}}
     @if($deletedAt)
-        <span class="underline">{{__('deleted')}}</span>
+        <span class="underline">{{__('Cancelled')}}</span>
         @endif
     @if(!$deletedAt)
 
