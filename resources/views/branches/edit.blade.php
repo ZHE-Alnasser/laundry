@@ -28,7 +28,7 @@
                             <div class="w-full sm:mx-10 flex-1">
                                 <label>{{__('Phone')}}<span class="text-red-600"> *</span></label>
                                 <div >
-                                    <x-input required type="number" minlength="10" maxlength="10"  name="phone" value="{{$branch->phone}}" class="input"/>
+                                    <x-input required type="phone" minlength="10" maxlength="10"  name="phone" value="{{$branch->phone}}" class="input"/>
                                 </div>
                             </div>
                         </div>

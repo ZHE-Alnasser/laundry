@@ -55,8 +55,13 @@ class TimeFrameController extends Controller
 
     public function update(Request $request, TimeFrame $timeframe)
     {
+        $data = $this->validate($request, [
+            'name' => 'required',
+            'description' =>'required',
 
-        $timeframe->update($request->all());
+        ]);
+
+        $timeframe->update($data);
         return redirect('settings')->withSuccess(__(':attribute Has Been Updated',['attribute'=>__('Time Frame')]));
     }
 

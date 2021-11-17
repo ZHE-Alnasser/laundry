@@ -8,7 +8,7 @@
 
                 </div>
 
-            {{--<img class="img-fluid d-block " src="{{asset('/storage/logo/logo.png')}}" alt="{{__('Company Logo')}}">--}}
+<img class="img-fluid d-block " src="{{asset('/storage/logo/logo.png')}}" alt="{{__('Company Logo')}}">
 
                 <p>{{setting('company_name')}}</p>
                    <div class="flex">

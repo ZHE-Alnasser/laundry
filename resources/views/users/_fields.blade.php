@@ -63,7 +63,7 @@
 <div class="mt-5 w-full mx-2 ">
     <label>{{ __('Password') }}<span class="text-red-600"> *</span></label>
     <x-input id="password" class="input" type="password" name="password" required
-             autocomplete="new-password"/>
+             autocomplete="new-password" minlength="8"/>
 
 </div>
 <div class="mt-5 w-full mx-2 ">
@@ -100,7 +100,7 @@
                     <p class="text-s font-medium text-gray-600 ">
                         {{ $role->name }}
                         <input type="radio" class="radio radio-primary w-5 h-5" id="role_id" name="role_id[]" value="{{ $role->id }}"
-                                {{in_array($role->id , $userRoles) ? 'checked' : '' }}/>
+                                {{in_array(old('role_id[]',$role->id) , $userRoles) ? 'checked' : '' }}/>
                     </p>
                 </td>
                 @endforeach

@@ -1,6 +1,6 @@
 <x-layouts.app>
     <x-card>
-    <x-feedback/>
+
     <div class="w-full">
         <div class="mt-8 p-4">
             <div>
@@ -19,9 +19,9 @@
                 
                         <div class="flex flex-col mt-4 md:flex-row">
                             <div class="w-full mx-2 flex-1">
-                                <label>{{__('Description')}}</label>
+                                <label>{{__('Description')}}<span class="text-red-600"> *</span></label>
 
-                                <x-input name="description" value="{{$timeframe->description}}" class="input"/>
+                                <x-input required name="description" value="{{$timeframe->description}}" class="input"/>
 
                             </div>
                         </div>

@@ -1,5 +1,4 @@
 <x-layouts.app>
-    <x-feedback/>
     <x-card>
     <h1 class="px-6">{{__('Create').' '.__('Time Frames')}}</h1>
 
@@ -11,7 +10,7 @@
 
 <div class="mt-5">
             <label>{{__('Description')}}<span class="text-red-600"> *</span></label>
-            <x-input class="input" name="description" type="text" value="{{ old('description') }}" />
+            <x-input required class="input" name="description" type="text" value="{{ old('description') }}" />
 </div>
 
 

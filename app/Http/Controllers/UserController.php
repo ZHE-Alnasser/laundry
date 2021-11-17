@@ -67,11 +67,12 @@ class UserController extends Controller
             'latitude' => 'nullable',
             'phone' =>['required', 'digits:10'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            "is_active"=>'nullable',
             'password' => $this->passwordRules(),
         ])->validate();
 
         request()->merge(['password' => Hash::make($request['password'])]);
-        request()->merge(['is_active' => $request->is_active == 'on' ? true : false]);
+//        request()->merge(['is_active' => $request->is_active == 'on' ? true : false]);
 
         $user=User::create(
             request()
